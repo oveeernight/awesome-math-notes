@@ -1,0 +1,23 @@
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\mdseries, notebraces={(}{)},
+bodyfont=\normalfont,
+postheadspace=1em,
+qed=\qedsymbol
+]{mystyle}
+
+
+\declaretheorem[name=Теорема, numberwithin=chapter]{theorem}
+\declaretheorem[name=Теорема, numbered=no]{theorem*}
+\declaretheorem[name=Лемма, numberwithin=chapter]{lemma}
+\declaretheorem[name=Лемма, numbered=no]{lemma*}
+\declaretheorem[name=Следствие, numberwithin=chapter]{corollary}
+\declaretheorem[name=Следствие, numbered=no]{corollary*}
+\declaretheorem[name=Пример, numberwithin=chapter]{example}
+\declaretheorem[name=Пример, numbered=no]{example*}
+\declaretheorem[name=Определение, numberwithin=chapter]{definition}
+\declaretheorem[name=Определение, numbered=no]{definition*}
+\declaretheorem[name=Замечание, numberwithin=chapter]{remark}
+\declaretheorem[name=Замечание, numbered=no]{remark*}
+\declaretheorem[name=Доказательство, numbered=no, style=mystyle]{Доказательство}
