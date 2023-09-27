@@ -1,0 +1,44 @@
+\declaretheoremstyle[
+spaceabove=12pt, spacebelow=12pt, headindent=6pt,
+headpunct=,
+headfont=\normalfont\bfseries,
+notefont=\mdseries, notebraces={(}{)},
+bodyfont=\normalfont,
+postheadspace=1em,
+qed=\qedsymbol
+]{proofStyle}
+
+\declaretheoremstyle[
+spaceabove=6pt, spacebelow=6pt,
+headfont=\normalfont\bfseries,
+notefont=\mdseries, notebraces={(}{)},
+bodyfont=\normalfont,
+postheadspace=1em,
+]{theoremStyle}
+
+
+
+\tcbset{sharp corners=all, colback=white}
+\tcolorboxenvironment{theorem}{}
+\tcolorboxenvironment{theorem*}{}
+\tcolorboxenvironment{lemma}{}
+\tcolorboxenvironment{proposition}{}
+\tcolorboxenvironment{corollary}{}
+\tcolorboxenvironment{definition}{}
+\tcolorboxenvironment{property}{}
+
+\declaretheorem[name=Теорема, numberwithin=chapter, style=theoremStyle]{theorem}
+\declaretheorem[name=Теорема, numbered=no, style=theoremStyle]{theorem*}
+\declaretheorem[name=Свойство, numberwithin=chapter, style=theoremStyle]{property}
+\declaretheorem[name=Свойство, numbered=no, style=theoremStyle]{property*}
+\declaretheorem[name=Лемма, numberwithin=chapter, style=theoremStyle]{lemma}
+\declaretheorem[name=Лемма, numbered=no, style=theoremStyle]{lemma*}
+\declaretheorem[name=Следствие, numberwithin=chapter, style=theoremStyle]{corollary}
+\declaretheorem[name=Следствие, numbered=no, style=theoremStyle]{corollary*}
+\declaretheorem[name=Пример, numberwithin=chapter, style=theoremStyle]{example}
+\declaretheorem[name=Пример, numbered=no, style=theoremStyle]{example*}
+\declaretheorem[name=Определение, numberwithin=chapter, style=theoremStyle]{definition}
+\declaretheorem[name=Определение, numbered=no, style=theoremStyle]{definition*}
+\declaretheorem[name=Замечание, numberwithin=chapter, style=theoremStyle]{remark}
+\declaretheorem[name=Замечание, numbered=no, style=theoremStyle]{remark*}
+\declaretheorem[name=Доказательство, numbered=no, style=proofStyle]{Доказательство}
