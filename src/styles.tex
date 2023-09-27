@@ -17,8 +17,18 @@ postheadspace=1em,
 ]{theoremStyle}
 
 
+
+\tcbset{sharp corners=all, colback=white}
+\tcolorboxenvironment{theorem}{}
+\tcolorboxenvironment{theorem*}{}
+\tcolorboxenvironment{lemma}{}
+\tcolorboxenvironment{proposition}{}
+\tcolorboxenvironment{corollary}{}
+\tcolorboxenvironment{definition}{}
+\tcolorboxenvironment{property}{}
+
 \declaretheorem[name=Теорема, numberwithin=chapter, style=theoremStyle]{theorem}
-\declaretheorem[name=Теорема, numbered=no,, style=theoremStyle]{theorem*}
+\declaretheorem[name=Теорема, numbered=no, style=theoremStyle]{theorem*}
 \declaretheorem[name=Свойство, numberwithin=chapter, style=theoremStyle]{property}
 \declaretheorem[name=Свойство, numbered=no, style=theoremStyle]{property*}
 \declaretheorem[name=Лемма, numberwithin=chapter, style=theoremStyle]{lemma}

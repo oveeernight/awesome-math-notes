@@ -22,7 +22,7 @@ $ \{B_r(x) \}_{r > 0}$ -- база окрестности в точке $x$.
 $G$ -- открытое, если $\forall x \in G \exists r > 0 : B_r(x) \subset G$.
 
 $F \subset X, F$ -- замкнутое $\Leftarrow$ $X \setminus F$ -- открытое.
-В метрическом пространстве удобно ъарактеризовать замкнутое множества с помощью последовательностей. Вспомним, что такое сходящаяся последовательность.
+В метрическом пространстве удобно характеризовать замкнутое множества с помощью последовательностей. Вспомним, что такое сходящаяся последовательность.
 $\{x_n\}_{n=1}^\infty, x_n \in X$, $\liml_{n \to \infty} x_n = x_0 \Leftrightarrow \liml_{n \to \infty} \rho(x_n, x_0) = 0$
 
 $F$ -- замкнутое $\Leftarrow$ если ${x_n}_{n=1}^\infty, x_in \in F, \liml_{n \to \infty } x_n = x_0 \Rightarrow x_0 \in F$
@@ -74,7 +74,7 @@ $F$ -- замкнутое $\Leftarrow$ если ${x_n}_{n=1}^\infty, x_in \in F,
     $(X,\rho)$ -- метрическое пространство, $\{x_n\}^\infty_{n=1}$ фундаментальная последовательность
     \begin{enumerate}
         \item $\{x_n\}^\infty_{n=1}$ -- ограниченная
-        \item Если $\exists \{x_{n_k}\}^infty_{k=1}$, т.ч. $\exists \liml x_{n_k} = a$, то
+        \item Если $\exists \{x_{n_k}\}^\infty_{k=1}$, т.ч. $\exists \liml x_{n_k} = a$, то
         \[ \liml_{n \to \infty} x_n = a \] 
         \item $\{ \varepsilon_k \}_{k=1}^\infty, \varepsilon_k > 0, \exists \{x_{n_k}\}^\infty_{k=1}$, т.ч. $\rho(x_{n_k}, x_{n_j})$ при $j > k$
     \end{enumerate}
@@ -132,18 +132,18 @@ $F$ -- замкнутое $\Leftarrow$ если ${x_n}_{n=1}^\infty, x_in \in F,
     \end{enumerate} 
 \end{definition}
 
-\begin{corollary}[Свойство полунормы]
+\begin{property}
     $p$ -- полунорма $\Rightarrow$
-    \[ p(\bZero) = 0, p(x) \geq 0 \forall x \in X\]
-\end{corollary}
+    \[ p(\mathbb{0}) = 0, p(x) \geq 0 \forall x \in X\]
+\end{property}
 
 \begin{proof}
-    $p(\bZero) = p(0 \cdot \bZero) = 0 \cdot p(\bZero) = 0$.
-    Пусть $x \in X \Rightarrow \bZero = x + (-x) \Rightarrow p(\bZero) \leq p(x) + \underbrace{p(-x)}_{p(x)} = 2p(x) \Rightarrow p(x) > 0$
+    $p(\mathbb{0}) = p(0 \cdot \mathbb{0}) = 0 \cdot p(\mathbb{0}) = 0$.
+    Пусть $x \in X \Rightarrow \mathbb{0} = x + (-x) \Rightarrow p(\mathbb{0}) \leq p(x) + \underbrace{p(-x)}_{p(x)} = 2p(x) \Rightarrow p(x) > 0$
 \end{proof}
 
 \begin{definition}[Норма]
-    $X$ -- линейное пространство, $p : X \rightarrow \bR$. $p$ -- норма, если $p$ -- полунорма и $p(x) = 0 \Leftrightarrow x = \bZero$.
+    $X$ -- линейное пространство, $p : X \rightarrow \bR$. $p$ -- норма, если $p$ -- полунорма и $p(x) = 0 \Leftrightarrow x = \mathbb{0}$.
     Будем обозначать $||x|| := p(x)$.
 \end{definition}
 $(X, || \cdot ||)$ будем обозначать нормированное пространство. и $x,y \in X, \rho(x,y) := ||x-y|$. Тогда $(X,||\cdot ||)$ -- метрическое пространство.
@@ -168,13 +168,13 @@ $(X, || \cdot ||)$ будем обозначать нормированное п
 Теперь нам потребуется сходимость рядов. Для того, чтобы говорить о сходимости, нужна топология.
 
 \begin{definition}[Cходимость]
-    \[(X, || \cdot ||) \quad \seq{x}{k}^\infty_{k=1} \quad S_n = \sum^n_{k=1} x_k \]
+    \[(X, || \cdot ||) \quad \seq{x_k}^\infty_{k=1} \quad S_n = \sum^n_{k=1} x_k \]
     $\sum_{k=1}^\infty x_k (*)$,  
     (*) сходится, если $\exists \liml_{n \to \infty}{S_n} = S \in X$
 
     (*) cходится абсолютно, если $\sum^\infty_{k=1} ||x_k||$ сходится
-\end{definition}u
-В $\bR^n$ (или в $\bC^n$) было что если асболютно сходится, то сходится, но вообще говоря, это не так.
+\end{definition}
+В $\bR^n$ (или в $\bC^n$) если у нас была абсолютная сходимость, то была и обычная, но вообще говоря, это не так.
 
 \begin{theorem}[Критерий полноты нормированного пространства (банаховости)]
     $(X, || \cdot||)$ - полное $\Rightarrow$ из абсолютной сходимости рядаследует сходимость ряда.
@@ -188,7 +188,7 @@ $(X, || \cdot ||)$ будем обозначать нормированное п
 
     $S_n = \sum^n_{k=1} x_k$.
     \begin{multline*}
-        ||S_{n+p} - S_n|| = || \sum^p_{k=1}  x_{n+k}|| \leq \sum^p_{k=1}||x_{n+k}|| < \varepsilon\\
+        ||S_{n+p} - S_n|| = \left|\left| \sum^p_{k=1}  x_{n+k}\right|\right| \leq \sum^p_{k=1}||x_{n+k}|| < \varepsilon\\
          \Rightarrow \seq{S}{n}^\infty_{n=1} \text{ -- фундаментальная}, 
         (X, \rho) \text{ -- полное} \Rightarrow \exists \liml_{n \to \infty}{S_n} = S \\
         \Rightarrow \sum^\infty_{k=1} \text{ сходится }
@@ -223,7 +223,7 @@ $f \in m(A), ||f||_{\infty} = \sup_{x \in A} |f(x)|$.
     фундаментальную подпоследовательность и покажем, что у нее есть предел.
 
     Проверяем, что $|| \cdot ||_\infty$ удовлетворяет аксиомам нормы.
-    \[ ||f||_\infty = \sup_{x \in A} |f(x)| \geq 0, ||f||_\infty 0 \Rightarrow f(x) 0 \forall x \in A \text{ т.е. } f = \bZero \]
+    \[ ||f||_\infty = \sup_{x \in A} |f(x)| \geq 0, ||f||_\infty 0 \Rightarrow f(x) 0 \forall x \in A \text{ т.е. } f = \mathbb{0} \]
 
     $\lambda \in \bR$ (или $\bC$). $||\lambda f|| = \sup_{x \in A} |\lambda| \cdot ||f||_\infty$
 
@@ -235,7 +235,7 @@ $f \in m(A), ||f||_{\infty} = \sup_{x \in A} |f(x)|$.
     \[\Rightarrow ||f+g||_\infty = \sup_{x \in A} |f(x) + g(x)| \leq ||f||_\infty + ||g||_\infty\]
     Теперь мы проверили аксиомы нормы. Доказываем полноту. 
     $\{f_n\}$ -- фундаментальная в $m(A)$.
-    \[ \varepsilon > 0 \exists N \in \bN: (m > N \wedge n > N)  \Rightarrow ||f_n - f_m||_\infty < \varepsilon \text{ т.е. } \sup_{x \in A} |f_n(x) - f_m(x) \]
+    \[ \varepsilon > 0 \, \exists N \in \bN: (m > N \wedge n > N)  \Rightarrow ||f_n - f_m||_\infty < \varepsilon \text{ т.е. } \sup_{x \in A} |f_n(x) - f_m(x)| \]
     Первый вопрос: откуда взять претендента на роль предела? Еще желательно, чтобы он был единственный. Фиксируем $x$.Если для супремума есть неравенство, то и для
     $x$ тем более.
     $|f_n(x) - f_m(x)| < \varepsilon$ при $n,m > N$. 
@@ -287,8 +287,8 @@ $f \in m(A), ||f||_{\infty} = \sup_{x \in A} |f(x)|$.
 \section{Пространство последовательностей с $\sup$ нормой}
 
 \begin{definition}
-    $\bC^n, n \in \bN, l_n = \{x^\infty = (x_1, \ldots, x_n) x_j \in \bC \} $
-    $ ||x||_\infty =  \max_{1 \leq j \leq n} |x_j| $ \\
+    $\bC^n, n \in \bN, l_n = \{x^\infty = (x_1, \ldots, x_n), x_j \in \bC \} $
+    \[ ||x||_\infty =  \max_{1 \leq j \leq n} |x_j| \]
 
 \end{definition}
 $A = \{ 1, 2, \ldots, n \}, l_n^\infty = m(A) \Rightarrow l^\infty_n$ -- полное
@@ -315,8 +315,8 @@ $A = \{ 1, 2, \ldots, n \}, l_n^\infty = m(A) \Rightarrow l^\infty_n$ -- пол�
  \section{Пространства $n$ раз непрерывно дифференцируемых функций на отрезке}
 
  \begin{definition}(норма $n$ производной)
-    \[n \in \bN. C^{(n)}[a,b] = \{ f: [a,b] \rightarrow \bR \} \exists f^{(n)} \in C[a,b] \]
-    \[ ||\underset{C[a,b]}{|f||_{(n)}}||  = \max_{0 \leq k \leq n}, f^{0} = f \]
+    \[n \in \bN \quad C^{(n)}[a,b] = \{ f: [a,b] \rightarrow \bR \} \, \exists \, f^{(n)} \in C[a,b] \]
+    \[ ||\underset{C[a,b]}{|f||_{(n)}}  = \max_{0 \leq k \leq n}, f^{0} = f \]
  \end{definition}
 
  \begin{theorem}B
@@ -327,12 +327,14 @@ $A = \{ 1, 2, \ldots, n \}, l_n^\infty = m(A) \Rightarrow l^\infty_n$ -- пол�
     \begin{gather*}
         \{f_m\}^\infty_{m=1} \text{ -- фундаментальная последовательность в } C^{(n)}[a,b] \\
         \varepsilon > 0 \exists N : (m > n \wedge q > n) \Rightarrow \normunder{f_m-f_q}{C^{(n)}} 
-        < \varepsilon \Rightarrow \normunder{f_m^{(k)} < f_q^{(k)}}{\infty} < \varepsilon, k = 0,1,\ldots,n 
+        < \varepsilon \Rightarrow \normunder{f_m^{(k)} < f_q^{(k)}}{\infty} < \varepsilon\\ 
+         k = 0,1,\ldots,n 
     \end{gather*}
 
     \begin{multline}
-        \{f_m^{(k)} \} \text { -- фундаментальная в полном пространстве} C[a,b] \Rightarrow \exists \phi_k \in C[a,b], f_n^{(k)} \darrow{[a,b]} \phi_k, k = 0,1, \ldots, n \\
-        \stackrel{\text{Анализ}}{\Rightarrow} (f_k^{(n)} \darrow{[a,b]} \phi_0 \wedge \phi_k^{0} \darrow{[a,b]} \phi_1) \Rightarrow \phi_1 = \phi_0^\prime, \phi_2 = \phi_0^{\prime\prime}, ldots, \phi_n = \phi_0^{(n)}
+        \{f_m^{(k)} \} \text { -- фундаментальная в полном пространстве } C[a,b]\\
+         \Rightarrow \exists \varphi_k \in C[a,b], f_n^{(k)} \darrow{[a,b]} \varphi_k, k = 0,1, \ldots, n \\
+        \stackrel{\text{Анализ}}{\Rightarrow} (f_k^{(n)} \darrow{[a,b]} \varphi_0 \wedge \varphi_k^{0} \darrow{[a,b]} \varphi_1) \Rightarrow \varphi_1 = \varphi_0^\prime, \varphi_2 = \varphi_0^{\prime\prime}, \ldots, \varphi_n = \varphi_0^{(n)}
     \end{multline}
  \end{proof}
 
