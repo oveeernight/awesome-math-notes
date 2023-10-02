@@ -182,7 +182,7 @@ $(X, \rho)$ -- метрическое пространство, $r > 0, x \in X$
     Надо проверить, что центры шаров образуют фундаментальную последовательность, то есть что $\seq{x_n}^\infty_{n=1}$ -- фундаментальная. \\
     Пусть $\varepsilon > 0 \quad \exists \, N \in \bN \quad r_n < \varepsilon$ при $n \geq N$.
     \begin{multline*}
-        (n > N \wedge m > N) \Rightarrow (x_n \in D_n \wedge x_m \in D_n) \Rightarrow \rho(x_n, x_m) \leq  \\ 
+        (n > N \, \wedge \, m > N) \Rightarrow (x_n \in D_n \, \wedge \, x_m \in D_n) \Rightarrow \rho(x_n, x_m) \leq  \\ 
         \leq \rho(x_n, x_N) + \rho(x_m, x_N) \leq 2 \varepsilon
     \end{multline*}
     \begin{gather*}
@@ -241,7 +241,7 @@ $(X, \rho)$ -- метрическое пространство, $r > 0, x \in X$
     \[ \rho(x,y) + \rho(y,z) = 1 + \frac{1}{x+y} + 1 + \frac{1}{y+z} > 1 + 1 > 1 + \frac{1}{x+z} = \rho(x,z) \]
     Проверяем полноту. Пусть $\seq{x_n}^\infty_{n=1}$ фундаментальная, $\varepsilon = \frac{1}{2} \Rightarrow$ 
     \begin{gather*}
-        \exists \, N \in \bN : (n \geq N \wedge m \geq N) \rho(x_n, x_m) < \frac{1}{2} \Rightarrow \left(\rho(x_n, x_N) < \frac{1}{2} \wedge \rho(x_m, x_N) < \frac{1}{2}\right) \Rightarrow \\
+        \exists \, N \in \bN : (n \geq N \, \wedge \, m \geq N) \rho(x_n, x_m) < \frac{1}{2} \Rightarrow \left(\rho(x_n, x_N) < \frac{1}{2} \, \wedge \, \rho(x_m, x_N) < \frac{1}{2}\right) \Rightarrow \\
         x_N = x_{N+1} = x_{N+2} = \ldots \\
         \Rightarrow  \, \exists \liml_{n \to \infty} x_n = X_N \Rightarrow (X, \rho) \text{ -- полное}
     \end{gather*}
@@ -475,7 +475,7 @@ $M$ -- \textbf{ множество второй категории}, если $M
     и так далее $\begin{cases}
          \seq{D_n}^\infty_{n=1}, D_n = D_{r_n} (x_n), D_{n+1} \subset D_n \\
          D_n \cap M_n = \varnothing, r_n < \frac{1}{n} \end{cases}$ по теореме о вложенных шарах
-         $\Rightarrow \, \exists x \in \cap^\infty_{n=1}D_n, (x \in D_n \wedge x \in X \setminus E) \Rightarrow x \notin M_n \, \forall n \Rightarrow x \notin E$
+         $\Rightarrow \, \exists x \in \cap^\infty_{n=1}D_n, (x \in D_n \, \wedge \, x \in X \setminus E) \Rightarrow x \notin M_n \, \forall n \Rightarrow x \notin E$
 \end{proof}
 
 

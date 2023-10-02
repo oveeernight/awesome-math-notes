@@ -53,7 +53,7 @@ $f(x)$ -- измеримая, если $f(x) \geq e, x \in X$
 
 \begin{definition}[Измеримая функция]
     $f$ -- измерима, если 
-    \[f_+(x) = \max_(f(x), 0) \wedge f_-(x) = \max(-f(x), 0) \Rightarrow f = f_+ - f_- \]
+    \[f_+(x) = \max_(f(x), 0) \, \wedge \, f_-(x) = \max(-f(x), 0) \Rightarrow f = f_+ - f_- \]
 \end{definition}
 Если $\int_X f_+ d\mu$ -- конечен или $\int_X f_- d\mu$ -- конечен, то $\int_X f d\mu = \int_X f_+ d\mu - \int_X f_- d\mu$
 Если $f$ -- измеримая, $f: X \rightarrow \bC \Rightarrow f = u + iv$
@@ -97,12 +97,12 @@ $f(x)$ -- измеримая, если $f(x) \geq e, x \in X$
 
 \begin{proof}
     Пусть $b$ -- фиксировано, $\varphi(x) = \frac{x^p}{p} - xb, x \in [0, + \infty)$. Хотим найти $\min_{x \in [0, +\infty)} \varphi(x)$. Для этого посмотрим, где производная обращается в 0.
-    $\varphi^\prime(x) = x^{p-1} - b$, $\varphi^\prime(x_0) = 0 \Leftrightarrow x_0 = b^{\frac{1}{p-1}} \Rightarrow \varphi(x) > \varphi(x) > \varphi(x_0) \forall x \ne x_0, x \geq 0$.
+    $\varphi^\prime(x) = x^{p-1} - b$, $\varphi^\prime(x_0) = 0 \Leftrightarrow x_0 = b^{\frac{1}{p-1}} \Rightarrow \varphi(x) > \varphi(x) > \varphi(x_0) \, \forall x \ne x_0, x \geq 0$.
     Таким образом, $x_0$ -- строгий локальный минимум.
     \begin{gather*}
         \varphi(x_0) = \frac{1}{p} b^{\frac{p}{p-1}} - b^{\frac{p}{p-1}} = b^{\frac{p}{p-1}}\left( \frac{1}{p} -1 \right)  = \frac{b^q}{q}  \\
         -\frac{1}{q} = \frac{1}{p} - 1 = \frac{1-p}{p} \Rightarrow q = \frac{p}{p-1} \\
-        \varphi(x) \geq - \frac{b^q}{q} \, \forall x \in [0, + \infty) \text {то есть ОК} 
+        \varphi(x) \geq - \frac{b^q}{q} \, \forall x \in [0, + \infty) \text { то есть ОК} 
     \end{gather*}
     \[ \varphi(x_0) = \frac{1}{p} b^{\frac{p}{p-1}} - b^{\frac{p}{p-1}} = b^{\frac{p}{p-1}}\left( \frac{1}{p} -1 \right)  = \frac{b^q}{q} \]
 \end{proof}
@@ -115,7 +115,7 @@ $f(x)$ -- измеримая, если $f(x) \geq e, x \in X$
     $(X, U, \mu)$ --- пространство с мерой. $f, g$ -- измеримые, $p > 1, \frac{1}{p} + \frac{1}{q} = 1 \Rightarrow$
     \[ \int_X |fg| d\mu \leq \left( \int_X |f|^p d\mu \right)^{\frac{1}{p}} \cdot \left( \int_X |g|^q d\mu \right)^{\frac{1}{q}} \tag{*} \]
 \end{theorem}
-Если $p=q=2$, то это "Неравенство Коши-Бунаковского-Шварца", или на молодёжном математическом слэнге неравенство КБШ 
+Если $p=q=2$, то это "Неравенство Коши-Бунаковского-Шварца", или на молодёжном математическом сленге неравенство КБШ 
 
 \begin{proof}
 Для начала отбросим какие-то простые случаи. \\
@@ -191,7 +191,7 @@ $||f|| = 0 \Leftrightarrow \int_X |f(x)|^p d\mu = 0 \Leftrightarrow f(x) = 0$ п
     $\int^1_0 |\varphi(x)|d\lambda = 0$.
 \end{example}
 
-$N = \{ f \text{ -- измерима} \wedge f(x) = 0 \text{ почти всюду на } X \text {по } \mu \}.$
+$N = \{ f \text{ -- измерима} \, \wedge \, f(x) = 0 \text{ почти всюду на } X \text {по } \mu \}.$
 $||f||_p = 0 \Leftrightarrow f \in N$ (не зависит от $p$).
 Рецепт приготовления пространства с нормой из полуфбриката. пространство с полунормой.
 $N$ -- подпространство в $L^p$, $L^p = L^p / N$ -- факторпространство. \\
@@ -208,10 +208,10 @@ $||\overline{f}||_p $ -- норма на $L^p$.
 
 \begin{definition}[$L^\infty(X, \mu)$]
     $f \in L^\infty(X, \mu)$, если 
-    \[\exists c > 0 |f(x)| \leq c \text{ почти всюду на} X \text{ по } \mu (\mu \{ x: |f(x)| > c\} = 0)\]
+    \[\exists c > 0 |f(x)| \leq c \text{ почти всюду на } X \text{ по } \mu (\mu \{ x: |f(x)| > c\} = 0)\]
 \end{definition}
 
-Возьмём точную нижнюю грань этой константы. $||f||_\infty = \inf \{c \geq 0: \mu \{x: ||f(x)|| > c \}   = 0 \}$ (существуенный $\sup$ или на подлом англо-саксонском
+Возьмём точную нижнюю грань этой константы. $||f||_\infty = \inf \{c \geq 0: \mu \{x: ||f(x)|| > c \}   = 0 \}$ (существуенный $\sup$, или на подлом англо-саксонском
 ess $\sup_X f$) 
 
 \begin{property}
@@ -258,7 +258,7 @@ $||f||_\infty = 0 \Leftrightarrow \mu \{ x: |f(x)| > 0 \} = 0 \Leftrightarrow f(
     Рассмотрим $\sigma_n(x) = \sum^n_{k=1} |f_k(x)| \Rightarrow \sigma_n(x)$ возрастает $ \Rightarrow \exists \sigma(x) = \liml_{n \to \infty} \sigma_n(x)$.
     Возможно, $\sigma(x) = + \infty$ для некоторых $x$.
     \[ ||\sigma_n||_p \leq \sum^n_{k=1} ||f_k||_p \leq C \]
-    \[ \int_X |\sigma_n(x)|^p d\mu \leq C^p \wedge \sigma_n(x)^p \underset{n \to \infty}{\rightarrow} \sigma_(x)^p  \, \forall x \in X \stackrel{\text{т. Фату}}{\Rightarrow} \]
+    \[ \int_X |\sigma_n(x)|^p d\mu \leq C^p \, \wedge \, \sigma_n(x)^p \underset{n \to \infty}{\rightarrow} \sigma_(x)^p  \, \forall x \in X \stackrel{\text{т. Фату}}{\Rightarrow} \]
     $\int_X \sigma(x)^p d\mu \leq c^p$
     Самое главное, что мы из этого заключаем: $\sigma(x) < + \infty$ п.в. на $X$ по $\mu$.
     
@@ -270,7 +270,7 @@ $||f||_\infty = 0 \Leftrightarrow \mu \{ x: |f(x)| > 0 \} = 0 \Leftrightarrow f(
     Применим критерий Коши: $\exists N \in \bN \quad m > n > N \Rightarrow \sum^m_{k=n+1} ||f_k||_p < \varepsilon \Rightarrow ||S_m(x) - S_n(x)||_p \leq \sum^m_{k=n+1} ||f_k||_p < \varepsilon$
 
     \begin{multline*}
-        \int_x |S_m(x) - S_n(x)|^p d\mu < \varepsilon^p  (n \text{ фиксировано}) \wedge |S_m(x) - S_n(x)|^m \underset{m \to \infty}{\rightarrow} |f(x) - S_n(x)|  \\ \stackrel{\text{Фату}}{\Rightarrow}
+        \int_x |S_m(x) - S_n(x)|^p d\mu < \varepsilon^p  (n \text{ фиксировано}) \, \wedge \, |S_m(x) - S_n(x)|^m \underset{m \to \infty}{\rightarrow} |f(x) - S_n(x)|  \\ \stackrel{\text{Фату}}{\Rightarrow}
         \int_X |f-S_n|^p d\mu \leq \varepsilon^p \Rightarrow ||f-S_n|| \leq \varepsilon        
     \end{multline*}
 
@@ -305,7 +305,7 @@ $f \in L^p(X, \mu), f(j) = x_j \Rightarrow l^p_n$ -- полное.
     Так как $||x - x^{(m)}||_p \underset{m \to \infty}{\rightarrow} 0 \Rightarrow \liml_{m \to \infty} |x_j - x_j^{(m)}| = 0$. \\
     При $p = \infty \quad ||x - x^{(m)}||_\infty = \max_{1 \leq i \leq m} \{ |x_i - x_i^{(m)}| \} \geq |x_j - x_j^{(m)}|$. Так как
      $ ||x - x^{(m)}||_\infty \underset{m \to \infty}{\rightarrow} 0 \Rightarrow \liml_{m \to \infty} |x_j - x_j^{(m)}| = 0$ \\
-    Доказательсвто $\Leftarrow$ \\
+    Теперь $\Leftarrow$ \\
     \begin{multline*}
         1 \leq j \leq n \quad \liml_{m \to \infty} |x_j - x_j^{(m)}| = 0 \Rightarrow \left( \sum^n_{j=1}| |x_j - x_j^{(m)}|^p \right)^{\frac{1}{p}} \underset{m \to \infty}{\rightarrow} 0 \\
         \text { и } \Rightarrow \max_{1 \leq j \leq n} |x_j - x_j^{(m)}| \underset{m \to \infty}{\rightarrow} 0 
@@ -314,7 +314,7 @@ $f \in L^p(X, \mu), f(j) = x_j \Rightarrow l^p_n$ -- полное.
 
     \begin{definition}
         $l_p = 
-            \{ x : \{ x_j \}^\infty_{j=1}, x_j \in \bR (\bC) \wedge 
+            \{ x : \{ x_j \}^\infty_{j=1}, x_j \in \bR (\bC) \, \wedge \, 
             \sum^\infty_{j=1} |x_j|^p < + \infty \}$
             \[ ||x||_p = \left( \sum^\infty_{j=1} |x_j|^p \right)^{\frac{1}{p}} \]
     \end{definition}
@@ -322,7 +322,7 @@ $f \in L^p(X, \mu), f(j) = x_j \Rightarrow l^p_n$ -- полное.
     $X = \bN$, $\mu(j) = 1$, $\mu = \sum^\infty_{n=1} \sigma_n$
     \[ l^p = L^p(\bN, \mu) \Rightarrow \text{ полное } \quad 1 \leq p < + \infty \]
     \begin{remark}
-        $\{x^{(m)} \}^\infty_{m=1}, x^{(m)} \in l^p, \liml_{m \to \infty} ||x^{(m)}-x|_p = 0 \Rightarrow \forall j \liml_{m \to \infty} x_j^{(m)} = x_j$
+        $\{x^{(m)} \}^\infty_{m=1}, x^{(m)} \in l^p, \liml_{m \to \infty} ||x^{(m)}-x||_p = 0 \Rightarrow \forall j \liml_{m \to \infty} x_j^{(m)} = x_j$
         Например, $ \not \Leftarrow$ при $e_m = (0, 0, \ldots, 0, 1, 0, 0, \ldots )$
     \end{remark}
     Пусть $j$ фиксировано. $\liml_{m \to \infty} (e_m)_j = 0 \quad ||e_m - \mathbb{0} ||_p = 1 \quad \forall p, 1 \leq p \leq +\infty$.
@@ -371,7 +371,7 @@ $f \in L^p(X, \mu), f(j) = x_j \Rightarrow l^p_n$ -- полное.
                 \draw[dashed] (1,0) -- (0,1);
                 \draw[dashed] (0,1) -- (-1,0);
                 \draw[dashed] (-1,0) -- (0,-1);
-                \draw[dashed] (0,-1) -- (1,0);
+                \draw[dashed] (0,-1) -- (1,0);п
                 \draw (0,0) circle (1);                 
             \end{tikzpicture} 
             \caption{$B_1^p$(0,0)}
