@@ -258,7 +258,7 @@ $||f||_\infty = 0 \Leftrightarrow \mu \{ x: |f(x)| > 0 \} = 0 \Leftrightarrow f(
     Рассмотрим $\sigma_n(x) = \sum^n_{k=1} |f_k(x)| \Rightarrow \sigma_n(x)$ возрастает $ \Rightarrow \exists \sigma(x) = \liml_{n \to \infty} \sigma_n(x)$.
     Возможно, $\sigma(x) = + \infty$ для некоторых $x$.
     \[ ||\sigma_n||_p \leq \sum^n_{k=1} ||f_k||_p \leq C \]
-    \[ \int_X |\sigma_n(x)|^p d\mu \leq C^p \, \wedge \, \sigma_n(x)^p \underset{n \to \infty}{\rightarrow} \sigma_(x)^p  \, \forall x \in X \stackrel{\text{т. Фату}}{\Rightarrow} \]
+    \[ \int_X |\sigma_n(x)|^p d\mu \leq C^p \, \wedge \, \sigma_n(x)^p \underset{n \to \infty}{\longrightarrow} \sigma_(x)^p  \, \forall x \in X \stackrel{\text{т. Фату}}{\Rightarrow} \]
     $\int_X \sigma(x)^p d\mu \leq c^p$
     Самое главное, что мы из этого заключаем: $\sigma(x) < + \infty$ п.в. на $X$ по $\mu$.
     
@@ -270,15 +270,15 @@ $||f||_\infty = 0 \Leftrightarrow \mu \{ x: |f(x)| > 0 \} = 0 \Leftrightarrow f(
     Применим критерий Коши: $\exists N \in \bN \quad m > n > N \Rightarrow \sum^m_{k=n+1} ||f_k||_p < \varepsilon \Rightarrow ||S_m(x) - S_n(x)||_p \leq \sum^m_{k=n+1} ||f_k||_p < \varepsilon$
 
     \begin{multline*}
-        \int_x |S_m(x) - S_n(x)|^p d\mu < \varepsilon^p  (n \text{ фиксировано}) \, \wedge \, |S_m(x) - S_n(x)|^m \underset{m \to \infty}{\rightarrow} |f(x) - S_n(x)|  \\ \stackrel{\text{Фату}}{\Rightarrow}
+        \int_x |S_m(x) - S_n(x)|^p d\mu < \varepsilon^p  (n \text{ фиксировано}) \, \wedge \, |S_m(x) - S_n(x)|^m \underset{m \to \infty}{\longrightarrow} |f(x) - S_n(x)|  \\ \stackrel{\text{Фату}}{\Rightarrow}
         \int_X |f-S_n|^p d\mu \leq \varepsilon^p \Rightarrow ||f-S_n|| \leq \varepsilon        
     \end{multline*}
 
-    $f - S_n \in L_p$, $S+n \in L^p \Rightarrow f = (f - S_n) + S_n \Rightarrow f \in L_p$ и $ ||f - S_n||_p \underset{n \to \infty}{\rightarrow} 0$ \\
+    $f - S_n \in L_p$, $S+n \in L^p \Rightarrow f = (f - S_n) + S_n \Rightarrow f \in L_p$ и $ ||f - S_n||_p \underset{n \to \infty}{\longrightarrow} 0$ \\
     Теперь осталось рассмотреть случай $p = \infty$. $\{ f_n \}^\infty_{n=1}$ фундаментальная, $f_n \in L^\infty$, 
     \[ |f_n(x)| \leq ||f_n||_\infty \quad x \in X \setminus e_n, \mu e_n = 0 \quad n \in \bN \]
     $ e = \cup^\infty_{n=1}, X_1 = X \setminus e \Rightarrow f_n \in m(X_1)$ -- ограниченная функция. $m(X_1)$ -- полное $\Rightarrow \{f_n\}$ -- фундаментальна в 
-    $m(X_1) \Rightarrow \exists ./ f \in m(X_1) \quad \sup_{x \in X_1} |f(x) - f_n(x)| \underset{n \to \infty}{\rightarrow} 0$. Положим
+    $m(X_1) \Rightarrow \exists ./ f \in m(X_1) \quad \sup_{x \in X_1} |f(x) - f_n(x)| \underset{n \to \infty}{\longrightarrow} 0$. Положим
     $f(x) = 0$ если $x \in e \Rightarrow \liml_{n \to \infty} ||f_n - f||_{L\infty} = 0 $
  \end{proof}
 
@@ -302,13 +302,13 @@ $f \in L^p(X, \mu), f(j) = x_j \Rightarrow l^p_n$ -- полное.
     $\Rightarrow$ \\
     Пусть $j$ -- фиксировано, $\liml_{m \to \infty} x^{(m)} = x$ в $l^p_n$.\\
     При $p < + \infty$ $||x-x^{(m)}||_p= \left( \sum_{i=1}^n |x_i - x_i^{(m)}|^p \right)^{\frac{1}{p}}  \geq |x_j - x_j^{(m)}$.
-    Так как $||x - x^{(m)}||_p \underset{m \to \infty}{\rightarrow} 0 \Rightarrow \liml_{m \to \infty} |x_j - x_j^{(m)}| = 0$. \\
+    Так как $||x - x^{(m)}||_p \underset{m \to \infty}{\longrightarrow} 0 \Rightarrow \liml_{m \to \infty} |x_j - x_j^{(m)}| = 0$. \\
     При $p = \infty \quad ||x - x^{(m)}||_\infty = \max_{1 \leq i \leq m} \{ |x_i - x_i^{(m)}| \} \geq |x_j - x_j^{(m)}|$. Так как
-     $ ||x - x^{(m)}||_\infty \underset{m \to \infty}{\rightarrow} 0 \Rightarrow \liml_{m \to \infty} |x_j - x_j^{(m)}| = 0$ \\
+     $ ||x - x^{(m)}||_\infty \underset{m \to \infty}{\longrightarrow} 0 \Rightarrow \liml_{m \to \infty} |x_j - x_j^{(m)}| = 0$ \\
     Теперь $\Leftarrow$ \\
     \begin{multline*}
-        1 \leq j \leq n \quad \liml_{m \to \infty} |x_j - x_j^{(m)}| = 0 \Rightarrow \left( \sum^n_{j=1}| |x_j - x_j^{(m)}|^p \right)^{\frac{1}{p}} \underset{m \to \infty}{\rightarrow} 0 \\
-        \text { и } \Rightarrow \max_{1 \leq j \leq n} |x_j - x_j^{(m)}| \underset{m \to \infty}{\rightarrow} 0 
+        1 \leq j \leq n \quad \liml_{m \to \infty} |x_j - x_j^{(m)}| = 0 \Rightarrow \left( \sum^n_{j=1}| |x_j - x_j^{(m)}|^p \right)^{\frac{1}{p}} \underset{m \to \infty}{\longrightarrow} 0 \\
+        \text { и } \Rightarrow \max_{1 \leq j \leq n} |x_j - x_j^{(m)}| \underset{m \to \infty}{\longrightarrow} 0 
     \end{multline*}
 \end{proof}
 
@@ -389,7 +389,7 @@ $(F, || \cdot ||_p) $ -- не полное, $F$ -- не замкнуто.
 \begin{gather*}
     x^{(m)} = \left\{ \frac{1}{2}, \frac{1}{4}, \ldots, \frac{1}{2^m}, 0, 0, 0, \ldots \right\} \in F \\
     X = \left\{ \frac{1}{2^k}^\infty_{k=1} \right\} \in l^p \\
-    1 \leq p < + \infty \quad ||x - x^{(m)}||_p = \left( \sum^\infty_{k=m+1} \frac{1}{2^{kp}} \right)^{\frac{1}{p}} \underset{m \to \infty}{\rightarrow} 0
+    1 \leq p < + \infty \quad ||x - x^{(m)}||_p = \left( \sum^\infty_{k=m+1} \frac{1}{2^{kp}} \right)^{\frac{1}{p}} \underset{m \to \infty}{\longrightarrow} 0
 \end{gather*}
 Следовательно, $F$ -- не замкнуто.
 
@@ -411,12 +411,12 @@ $(F, || \cdot ||_p) $ -- не полное, $F$ -- не замкнуто.
     $f_n$ -- фундаментальная в $(C[-1,1], p=1)$
 
     Пусть $ m > n$. %рисунок 2
-    \[ \int_{-1}^1 |f_m(x) - f_n(x)| dx = \frac{1}{2} \left( \frac{1}{n} - \frac{1}{m} \right) \leq \frac{1}{2n} \underset{n, m \to \infty}{\rightarrow} 0 \]
+    \[ \int_{-1}^1 |f_m(x) - f_n(x)| dx = \frac{1}{2} \left( \frac{1}{n} - \frac{1}{m} \right) \leq \frac{1}{2n} \underset{n, m \to \infty}{\longrightarrow} 0 \]
 
-    Пусть $\exists ./ f \in C[-1,1] : \normunder{f-f_n}{1} \underset{n \to \infty}{\rightarrow} 0$ 
+    Пусть $\exists ./ f \in C[-1,1] : \normunder{f-f_n}{1} \underset{n \to \infty}{\longrightarrow} 0$ 
     \begin{gather*}
-        m \geq n \quad \int^1_{\frac{1}{n}} \underbrace{|f(x) - 1|}_{=0} dx  \underset{m \to \infty}{\rightarrow} 0  \\
-        \int^1_{\frac{1}{n}} {|f(x) - 1|} dx \leq \int^1_0 |f(x) - f_m(x)|dx \underset{m \to \infty}{\rightarrow} 0
+        m \geq n \quad \int^1_{\frac{1}{n}} \underbrace{|f(x) - 1|}_{=0} dx  \underset{m \to \infty}{\longrightarrow} 0  \\
+        \int^1_{\frac{1}{n}} {|f(x) - 1|} dx \leq \int^1_0 |f(x) - f_m(x)|dx \underset{m \to \infty}{\longrightarrow} 0
     \end{gather*}
     $\Rightarrow f(x) = 1, x \in \left[ \frac{1}{n}, 1 \right] \forall n $\\
     \[ \begin{cases}

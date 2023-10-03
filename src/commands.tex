@@ -11,11 +11,30 @@
 \newcommand{\Rho}{\mathrm{P}}
 
 \DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\diam}{diam}
 
 \NewDocumentCommand{\calL}{}{\mathcal{L}}
+\NewDocumentCommand{\R}{}{\mathcal{R}}
 
 \let\oldforall\forall
 \renewcommand{\forall}{\oldforall \, }
 \let\oldexist\exists
 \renewcommand{\exists}{\oldexist \: }
 \newcommand\existu{\oldexist! \: }
+
+
+%tikz
+\tikzset
+{%
+  pics/matrix/.style n args={6}{% rows, columns, text above, text below,
+                                % text left, text right (or symbols)
+    code={%
+      \begin{scope}[y=-1cm,scale=0.5]
+        \draw    (0,0) grid (#2,#1);
+        \node at (0.5*#2,-0.5)   {#3};
+        \node at (0.5*#2,#1+0.5) {#4};
+        \node at (-0.5,0.5*#1)   {#5};
+        \node at (#2+0.5,0.5*#1) {#6};
+      \end{scope}     
+    }},
+}
