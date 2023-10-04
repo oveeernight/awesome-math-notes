@@ -6,13 +6,13 @@
 Сейчас будет небольшой экскурс в теорию меры, которая была на математическом анализе. Мы ничего доказывать не будем и поверим, что все утверждения верны и в общем случае.
 \section{Теория меры}
 \begin{definition}[Мера]
-    $(X, U, \mu)$ -- пространство с мерой. $X$ -- множество, $U$ -- $\sigma$-алгебра подмножества $X$
+    $(X, U, \mu)$~--- пространство с мерой. $X$~--- множество, $U$~--- $\sigma$-алгебра подмножества $X$
     \begin{enumerate}
         \item $\varnothing \in U$
         \item $A \in U \Rightarrow X - A \in U$
         \item $\{ A_n\}^\infty_{n=1}, A_n \in U, A\infty_{n=1} A_n \Rightarrow A \in U$
     \end{enumerate}
-    \[ \mu : U \rightarrow [0, +\infty] \] -- мера, если
+    \[ \mu : U \rightarrow [0, +\infty] \]~--- мера, если
     \begin{enumerate}
         \item $\mu(\varnothing) = 0$
         \item $ A = U^\infty_{n=1} \{A_n\}, A_n \cap A_m = \varnothing, n \ne m, A_n \in U \Rightarrow \mu(A) = \sum^\infty_{n=1} \mu A_n$ (счетная аддитивность)
@@ -21,19 +21,19 @@
 
 Предположения: 
 \begin{enumerate}
-    \item $\mu$ -- полная мера, то есть $A \in U, \mu(A) = 0 \Rightarrow (\forall B \subset A \Rightarrow B \in U, (\Rightarrow \mu B) =0)$
-    \item $\mu$ -- $\sigma$-конечна, то есть $X = \cup^\infty_{j=1} X_j, \mu(X_j) < + \infty$
+    \item $\mu$~--- полная мера, то есть $A \in U, \mu(A) = 0 \Rightarrow (\forall B \subset A \Rightarrow B \in U, (\Rightarrow \mu B) =0)$
+    \item $\mu$~--- $\sigma$-конечна, то есть $X = \cup^\infty_{j=1} X_j, \mu(X_j) < + \infty$
 \end{enumerate}
 Пока можем думать, что речь идет о мере Лебега. Потом приведём другие примеры.
 В теории пространств будем считать, что функция действует из $X$ в $\bR$ или в $\bC$ (не особо важно).
 
 \begin{definition}[Измеримая функция]
-    $f: X \rightarrow \overline{\bR}$. $f$ -- измерима, если
+    $f: X \rightarrow \overline{\bR}$. $f$~--- измерима, если
     \begin{gather*}
         \forall c \in \bR, x \underbrace{\{x: c < f(x) \}}_{\text{измеримое множество}} \in U \\
         f: X \rightarrow \bC \Rightarrow f = u + iv, u, v: X \rightarrow \bR 
     \end{gather*} 
-    $f$ -- измерима, если $u,v$ -- измеримы
+    $f$~--- измерима, если $u,v$~--- измеримы
 \end{definition}
 Как же определяется интеграл?
 Пусть есть какой-то элемент $\sigma$-алгебры $e \in U$, $\chi_e(x) = \begin{cases} 
@@ -44,7 +44,7 @@
 \[S = \{ g(x) = \sum^n_{k=1} c_k \chi_{e_k}, c_k \in \bC, e_k \in U \} \]
 $g \in S, \int_X g(x) d\mu = \sum^n_{k=1} c_k \mu e_k$. 
 
-$f(x)$ -- измеримая, если $f(x) \geq e, x \in X$
+$f(x)$~--- измеримая, если $f(x) \geq e, x \in X$
 
 \begin{definition}[Произвольно измеримая функция]
     \[ \int_X f d\mu
@@ -52,36 +52,36 @@ $f(x)$ -- измеримая, если $f(x) \geq e, x \in X$
 \end{definition}
 
 \begin{definition}[Измеримая функция]
-    $f$ -- измерима, если 
+    $f$~--- измерима, если 
     \[f_+(x) = \max_(f(x), 0) \, \wedge \, f_-(x) = \max(-f(x), 0) \Rightarrow f = f_+ - f_- \]
 \end{definition}
-Если $\int_X f_+ d\mu$ -- конечен или $\int_X f_- d\mu$ -- конечен, то $\int_X f d\mu = \int_X f_+ d\mu - \int_X f_- d\mu$
-Если $f$ -- измеримая, $f: X \rightarrow \bC \Rightarrow f = u + iv$
+Если $\int_X f_+ d\mu$~--- конечен или $\int_X f_- d\mu$~--- конечен, то $\int_X f d\mu = \int_X f_+ d\mu - \int_X f_- d\mu$
+Если $f$~--- измеримая, $f: X \rightarrow \bC \Rightarrow f = u + iv$
 \[ \int_X f d\mu = \int_X u d\mu + i \int_X v d\mu \]
 \begin{definition}[Множество суммируемых функций]
-    $L(X, \mu)$ -- множество суммируемых функций =
+    $L(X, \mu)$~--- множество суммируемых функций =
     \[ \left\{ f_i : \int_X |f| d\mu < + \infty \right\}, |f| = f_+ + f_- \]
 \end{definition}
 
 Прежде чем двигаться дальше, приведем примры других мер (кроме мер Лебега)
 \begin{example}
-    $E \subset \bR^n$, $E$ -- измерима по Лебегу, $\lambda$ -- мера Лебега, $w(x) \geq 0, x \in E$, $w$ -- измерима по Лебегу. \\
+    $E \subset \bR^n$, $E$~--- измерима по Лебегу, $\lambda$~--- мера Лебега, $w(x) \geq 0, x \in E$, $w$~--- измерима по Лебегу. \\
     
-    $e \subset E, e$ -- измеримо по Лебегу.
-    $ \mu e = \int_e w(x) d \lambda, w(x)$ -- плотность меры $\mu$, $w(x)$ -- её вес.
+    $e \subset E, e$~--- измеримо по Лебегу.
+    $ \mu e = \int_e w(x) d \lambda, w(x)$~--- плотность меры $\mu$, $w(x)$~--- её вес.
 \end{example}
 Вторая мера в каком-то смысле противоположная. Она сосредоточна на наборе точек и называется дискретной.
 \begin{example}
-    $X$ -- множество ($X \ne \varnothing$), $a \in X$
+    $X$~--- множество ($X \ne \varnothing$), $a \in X$
     \[ \sigma_n, e \subset X, \sigma_a(e) = \begin{cases}
         1, a \in E \\
         0, a \notin e 
     \end{cases} \] 
-    $\forall e, e \subset  X, e$ -- измеримо
+    $\forall e, e \subset  X, e$~--- измеримо
 \end{example}
 
 \begin{example}[Дискретная мера]
-    $X$ -- бесконечное множество. $ \{ a_j \}_{j=1}^\infty, a_j \in X, a_j \ne a_k, j \ne k$ 
+    $X$~--- бесконечное множество. $ \{ a_j \}_{j=1}^\infty, a_j \in X, a_j \ne a_k, j \ne k$ 
     
     $\{h_j \}^\infty_{j=1}, h_j > 0$ 
     \[ \mu - \sum^\infty_{\gamma = 1} h_j \delta_{a_j}, e \subset X \quad \mu E = \sum_{\{ j: a_j \in E \}} h_j \]
@@ -91,14 +91,14 @@ $f(x)$ -- измеримая, если $f(x) \geq e, x \in X$
 \section{Классические неравенства}
 
 \begin{theorem}[Неравенство Юнга]
-    $p > 1, \frac{1}{p} + \frac{1}{q} = 1$ ($q$ -- сопряженный показатель)
+    $p > 1, \frac{1}{p} + \frac{1}{q} = 1$ ($q$~--- сопряженный показатель)
     \[ \Rightarrow ab \leq \frac{a^p}{p} + \frac{b^p}{q} \]
 \end{theorem}
 
 \begin{proof}
-    Пусть $b$ -- фиксировано, $\varphi(x) = \frac{x^p}{p} - xb, x \in [0, + \infty)$. Хотим найти $\min_{x \in [0, +\infty)} \varphi(x)$. Для этого посмотрим, где производная обращается в 0.
+    Пусть $b$~--- фиксировано, $\varphi(x) = \frac{x^p}{p} - xb, x \in [0, + \infty)$. Хотим найти $\min_{x \in [0, +\infty)} \varphi(x)$. Для этого посмотрим, где производная обращается в 0.
     $\varphi^\prime(x) = x^{p-1} - b$, $\varphi^\prime(x_0) = 0 \Leftrightarrow x_0 = b^{\frac{1}{p-1}} \Rightarrow \varphi(x) > \varphi(x) > \varphi(x_0) \, \forall x \ne x_0, x \geq 0$.
-    Таким образом, $x_0$ -- строгий локальный минимум.
+    Таким образом, $x_0$~--- строгий локальный минимум.
     \begin{gather*}
         \varphi(x_0) = \frac{1}{p} b^{\frac{p}{p-1}} - b^{\frac{p}{p-1}} = b^{\frac{p}{p-1}}\left( \frac{1}{p} -1 \right)  = \frac{b^q}{q}  \\
         -\frac{1}{q} = \frac{1}{p} - 1 = \frac{1-p}{p} \Rightarrow q = \frac{p}{p-1} \\
@@ -112,10 +112,10 @@ $f(x)$ -- измеримая, если $f(x) \geq e, x \in X$
 \end{remark}
 
 \begin{theorem}[Неравенство Гельдера]
-    $(X, U, \mu)$ --- пространство с мерой. $f, g$ -- измеримые, $p > 1, \frac{1}{p} + \frac{1}{q} = 1 \Rightarrow$
+    $(X, U, \mu)$~---- пространство с мерой. $f, g$~--- измеримые, $p > 1, \frac{1}{p} + \frac{1}{q} = 1 \Rightarrow$
     \[ \int_X |fg| d\mu \leq \left( \int_X |f|^p d\mu \right)^{\frac{1}{p}} \cdot \left( \int_X |g|^q d\mu \right)^{\frac{1}{q}} \tag{*} \]
 \end{theorem}
-Если $p=q=2$, то это "Неравенство Коши-Бунаковского-Шварца", или на молодёжном математическом сленге неравенство КБШ 
+Если $p=q=2$, то это <<Неравенство Коши-Бунаковского-Шварца>>, или на молодёжном математическом сленге неравенство КБШ 
 
 \begin{proof}
 Для начала отбросим какие-то простые случаи. \\
@@ -132,7 +132,7 @@ $A = \left( \int_X |f|^p d \mu \right)^{\frac{1}{p}}, B = \left( \int_X |g|^q d 
 бывает удобно ввести нормировку.
 \[ f_1(x) = \frac{f(x)}{A}, g_1(x) = \frac{g(x)}{B}, \int_X |f_1(x)|^p d\mu = \frac{A^p}{A^p} = 1, \int_X |g_1(x)|^q d \mu = 1 \]
 
-Пусть $x$ -- фиксирован, $a = |f(x)|$, $b = |g(x) \stackrel{\text{н.Юнга}}{\Rightarrow}$ 
+Пусть $x$~--- фиксирован, $a = |f(x)|$, $b = |g(x) \stackrel{\text{н.Юнга}}{\Rightarrow}$ 
 \begin{multline*}
     |f_1(x)| \cdot |g_1(x)| \leq \frac{|f_1(x)|^p}{p} + \frac{|g_1(x)|^q}{q} \text{ проинтегрируем} X \text { по } \mu \\
     \Rightarrow \int_x |f_1| \cdot |g_1| d \mu \leq \frac{1}{p} \int_X |f_1|^p d\mu + \frac{1}{q} \int_X |g_1|^q d\mu = \frac{1}{p} + \frac{1}{q} = 1
@@ -141,13 +141,13 @@ $A = \left( \int_X |f|^p d \mu \right)^{\frac{1}{p}}, B = \left( \int_X |g|^q d 
 \end{proof}
 
 \begin{theorem}[Неравенство Минковского]
-    $(X, U, \mu)$, $f, g$ -- измеримые, $1 \leq p < + \infty \Rightarrow$
+    $(X, U, \mu)$, $f, g$~--- измеримые, $1 \leq p < + \infty \Rightarrow$
     \[ \underbrace{\left( \int_X |f(x) + g(x)|^p d \mu \right)^{\frac{1}{p}}}_{C}  \leq \underbrace{\left( \int_X |f(x)|^p d \mu \right)^{\frac{1}{p}}}_{A} + 
     \underbrace{\left( \int_X |fg(x)|^p d \mu \right)^{\frac{1}{p}}}_{B} \tag{*} \]
     
 \end{theorem}
 \begin{proof}
-    Сначала разберём простые случаи. $p = 1, x$ -- фиксирован. $|f(x) + g(x)| \leq |f(x)| + |g(x)|$ проинтегрируем по $X$ $\Rightarrow (*)$ при $p = 1$.
+    Сначала разберём простые случаи. $p = 1, x$~--- фиксирован. $|f(x) + g(x)| \leq |f(x)| + |g(x)|$ проинтегрируем по $X$ $\Rightarrow (*)$ при $p = 1$.
     Теперь пусть $p > 1$. Если $A = +\infty$, или $B = +\infty$, или $C = 0$, то (*). \\
     Теперь же пусть $A < +\infty, B < +\infty, C > 0$. 
     Доказателсьвто будет в два этапа. На первом этапе получим гораздо более слабое утверждение, вообще не то, что требуется в теореме, но оно нам понадобится.
@@ -172,18 +172,18 @@ $A = \left( \int_X |f|^p d \mu \right)^{\frac{1}{p}}, B = \left( \int_X |g|^q d 
 \section{Пространство Лебега}
 Отсюда и до определения $L^\infty$ очень аккуратно с $\calL$ и $L$ читать. Тут точно есть путаница, но записи лекции нет, чтобы ее устранить.
 \begin{definition}
-    $(X, U, \mu)$ -- пространство с мерой. $L(X, \mu)$ -- пространство суммируемых функций. $1 \leq p < +\infty \quad \calL^p(X, \mu) = \{ f: |f|^p \in L(X,\mu) \}$ 
+    $(X, U, \mu)$~--- пространство с мерой. $L(X, \mu)$~--- пространство суммируемых функций. $1 \leq p < +\infty \quad \calL^p(X, \mu) = \{ f: |f|^p \in L(X,\mu) \}$ 
 \end{definition}
 
 \[f \in L^p(X, \mu), ||f||_p = \left( \int_X |f(x)|^p d \mu \right)^{\frac{1}{p}} \]
 
-Проверим, что $||f||_p$ -- это полунорма на $L^p(X,\mu)$. $c \in \bR$ (или $\bC$). $||cf||_p = |c| ||f||_p$
+Проверим, что $||f||_p$~--- это полунорма на $L^p(X,\mu)$. $c \in \bR$ (или $\bC$). $||cf||_p = |c| ||f||_p$
 
-\[ ||f+g||_p \leq ||f||_p + ||g||_p \text{ -- неравенство Минковского} \]
+\[ ||f+g||_p \leq ||f||_p + ||g||_p \text{~--- неравенство Минковского} \]
 $||f|| = 0 \Leftrightarrow \int_X |f(x)|^p d\mu = 0 \Leftrightarrow f(x) = 0$ почти всюду по мере $\mu$ на $X$.
 
 \begin{example}
-    $L[0,1], \lambda$ -- мера Лебега на $[0,1]$. \\
+    $L[0,1], \lambda$~--- мера Лебега на $[0,1]$. \\
      функция Дирихле $\varphi(x) = \begin{cases}
         1, x \in \bQ \\
         0, x \notin \bQ
@@ -191,20 +191,20 @@ $||f|| = 0 \Leftrightarrow \int_X |f(x)|^p d\mu = 0 \Leftrightarrow f(x) = 0$ п
     $\int^1_0 |\varphi(x)|d\lambda = 0$.
 \end{example}
 
-$N = \{ f \text{ -- измерима} \, \wedge \, f(x) = 0 \text{ почти всюду на } X \text {по } \mu \}.$
+$N = \{ f \text{~--- измерима} \, \wedge \, f(x) = 0 \text{ почти всюду на } X \text {по } \mu \}.$
 $||f||_p = 0 \Leftrightarrow f \in N$ (не зависит от $p$).
 Рецепт приготовления пространства с нормой из полуфбриката. пространство с полунормой.
-$N$ -- подпространство в $L^p$, $L^p = L^p / N$ -- факторпространство. \\
+$N$~--- подпространство в $L^p$, $L^p = L^p / N$~--- факторпространство. \\
 
-$g,f \in L^p, f ~ g \Leftrightarrow f - g \in N \Leftrightarrow f(x) = g(x)$ почти всюду по $\mu$. $\overline{f}$ -- класс эквивалентности, $\overline{f} = \{g: f ~ g \}.$ \\
+$g,f \in L^p, f ~ g \Leftrightarrow f - g \in N \Leftrightarrow f(x) = g(x)$ почти всюду по $\mu$. $\overline{f}$~--- класс эквивалентности, $\overline{f} = \{g: f ~ g \}.$ \\
 
 $||\overline{f}||_p := ||f||$, то есть можно взять любую функцию из класса эквивалнентности.
 
 \[ ||\overline{f}||_p = 0 \Leftrightarrow \int_X |f|^p d\mu = 0 \Leftrightarrow f \in N \Rightarrow \overline{f} = N = \overline{0} \Rightarrow \]
-$||\overline{f}||_p $ -- норма на $L^p$.
+$||\overline{f}||_p $~--- норма на $L^p$.
 Говорят, что $f \in L^p$, возьмём функцию из $L^p$, но имеют в виду, что возьмут класс экивалентности, а из него возьмут функцию
 
-Одна из главных целей -- доказать, что эти пространства Банаховы. Сначала определим $L^\infty(X, \mu)$ (существенно ограниченные функции).
+Одна из главных целей~--- доказать, что эти пространства Банаховы. Сначала определим $L^\infty(X, \mu)$ (существенно ограниченные функции).
 
 \begin{definition}[$L^\infty(X, \mu)$]
     $f \in L^\infty(X, \mu)$, если 
@@ -224,19 +224,19 @@ $f \in \calL^\infty(X, \mu) \Rightarrow \mu \{ f(x) > ||f||_\infty \} = 0$
 \end{proof}
 
 \begin{gather*}
-    ||f||_\infty \text{ -- полунорма на } \calL^\infty \\
+    ||f||_\infty \text{~--- полунорма на } \calL^\infty \\
     \lambda \ne 0 \quad |\lambda f(x)| \leq | \lambda| \cdot c \Leftrightarrow |f(x) \leq c \Rightarrow ||\lambda f||_\infty = |\lambda| ||f||_\infty, \\
     f,g \in \calL^\infty, x \in X \Rightarrow |f(x) + g(x)| \leq |f(x)| + |g(x)| \leq ||f||_\infty + ||g||_\infty \text{ для п.в. } x \text { на } X \\
     \Rightarrow ||f+g||_\infty < ||f||_\infty + ||g||_\infty
 \end{gather*}
 
-$||f||_\infty = 0 \Leftrightarrow \mu \{ x: |f(x)| > 0 \} = 0 \Leftrightarrow f(x) = 0$ п.в. на $X$ $\Leftrightarrow f \in N = \{ f \text{ -- измерима, } f(x) = 0 \text{ п.в. на } X \} $
+$||f||_\infty = 0 \Leftrightarrow \mu \{ x: |f(x)| > 0 \} = 0 \Leftrightarrow f(x) = 0$ п.в. на $X$ $\Leftrightarrow f \in N = \{ f \text{~--- измерима, } f(x) = 0 \text{ п.в. на } X \} $
 \[ L^\infty = \calL^\infty/N \] % справа l красивое
 
 Все, что Н.А. доказал для меры Лебега, верно и для других мер. Те доказательства и так были не особо веселые, чтобы их повторять.
 
 \begin{theorem}[Фату]
-    $(X, U, \mu)$, $\{ g_n \}^\infty_{n=1}, g_n$ -- измеримые, $g_n(x) \geq 0$
+    $(X, U, \mu)$, $\{ g_n \}^\infty_{n=1}, g_n$~--- измеримые, $g_n(x) \geq 0$
     \begin{gather*}
         g_n(x) \underset{\text{ п.в. }}{\longrightarrow} g(x) \quad \int_X g_n(x) d\mu \leq C \text{ не зависит от n } \\
         \Rightarrow \int_X g(x) d\mu \leq C
@@ -245,7 +245,7 @@ $||f||_\infty = 0 \Leftrightarrow \mu \{ x: |f(x)| > 0 \} = 0 \Leftrightarrow f(
 
 Первая существенная теорема, которая нам встретилась.
 \begin{theorem}[полнота пространства Лебега]
-    $(X, U, \mu), 1 \leq p \leq + \infty \Rightarrow L^p(X, \mu)$ -- банаховы.
+    $(X, U, \mu), 1 \leq p \leq + \infty \Rightarrow L^p(X, \mu)$~--- банаховы.
 \end{theorem}
 
 \begin{proof}
@@ -263,7 +263,7 @@ $||f||_\infty = 0 \Leftrightarrow \mu \{ x: |f(x)| > 0 \} = 0 \Leftrightarrow f(
     Самое главное, что мы из этого заключаем: $\sigma(x) < + \infty$ п.в. на $X$ по $\mu$.
     
     \begin{gather*}
-        x \in X \quad \sum^\infty_{k=1} |f_k(x)| < +\infty \Rightarrow \sum^\infty_{k=1} f_k(x) \text { -- сходится } \\
+        x \in X \quad \sum^\infty_{k=1} |f_k(x)| < +\infty \Rightarrow \sum^\infty_{k=1} f_k(x) \text {~--- сходится } \\
         f(x) := \sum^\infty_{k=1} f_k(x) \text{ определена п.в. на } X, \liml_{n \to \infty} S_n(x) = f(x) \\
         \sum^\infty_{k=1} ||f_k||_p < + \infty, \varepsilon > 0
     \end{gather*}
@@ -277,7 +277,7 @@ $||f||_\infty = 0 \Leftrightarrow \mu \{ x: |f(x)| > 0 \} = 0 \Leftrightarrow f(
     $f - S_n \in L_p$, $S+n \in L^p \Rightarrow f = (f - S_n) + S_n \Rightarrow f \in L_p$ и $ ||f - S_n||_p \underset{n \to \infty}{\longrightarrow} 0$ \\
     Теперь осталось рассмотреть случай $p = \infty$. $\{ f_n \}^\infty_{n=1}$ фундаментальная, $f_n \in L^\infty$, 
     \[ |f_n(x)| \leq ||f_n||_\infty \quad x \in X \setminus e_n, \mu e_n = 0 \quad n \in \bN \]
-    $ e = \cup^\infty_{n=1}, X_1 = X \setminus e \Rightarrow f_n \in m(X_1)$ -- ограниченная функция. $m(X_1)$ -- полное $\Rightarrow \{f_n\}$ -- фундаментальна в 
+    $ e = \cup^\infty_{n=1}, X_1 = X \setminus e \Rightarrow f_n \in m(X_1)$~--- ограниченная функция. $m(X_1)$~--- полное $\Rightarrow \{f_n\}$~--- фундаментальна в 
     $m(X_1) \Rightarrow \exists ./ f \in m(X_1) \quad \sup_{x \in X_1} |f(x) - f_n(x)| \underset{n \to \infty}{\longrightarrow} 0$. Положим
     $f(x) = 0$ если $x \in e \Rightarrow \liml_{n \to \infty} ||f_n - f||_{L\infty} = 0 $
  \end{proof}
@@ -289,7 +289,7 @@ $||f||_\infty = 0 \Leftrightarrow \mu \{ x: |f(x)| > 0 \} = 0 \Leftrightarrow f(
     \[ l^p_n = \left\{ \bR^n, x = (x_1, \ldots, x_n), x_j \in \bR, ||x||_p = \left( \sum^n_{j=1} |x_j|^p\right)^{\frac{1}{p}} \right\} \]
  \end{definition}
 Рассмотрим $X = \{ 1,2, \ldots, n\}$. Возьмём дискретную меру $\mu(j) = 1$ при $1 \leq j \leq n$, $l^p_n = L^p(X, \mu)$.
-$f \in L^p(X, \mu), f(j) = x_j \Rightarrow l^p_n$ -- полное.
+$f \in L^p(X, \mu), f(j) = x_j \Rightarrow l^p_n$~--- полное.
 
 Посмотрим, что будет обозначать сходимость этой нормы.
 
@@ -300,7 +300,7 @@ $f \in L^p(X, \mu), f(j) = x_j \Rightarrow l^p_n$ -- полное.
 
 \begin{proof}
     $\Rightarrow$ \\
-    Пусть $j$ -- фиксировано, $\liml_{m \to \infty} x^{(m)} = x$ в $l^p_n$.\\
+    Пусть $j$~--- фиксировано, $\liml_{m \to \infty} x^{(m)} = x$ в $l^p_n$.\\
     При $p < + \infty$ $||x-x^{(m)}||_p= \left( \sum_{i=1}^n |x_i - x_i^{(m)}|^p \right)^{\frac{1}{p}}  \geq |x_j - x_j^{(m)}$.
     Так как $||x - x^{(m)}||_p \underset{m \to \infty}{\longrightarrow} 0 \Rightarrow \liml_{m \to \infty} |x_j - x_j^{(m)}| = 0$. \\
     При $p = \infty \quad ||x - x^{(m)}||_\infty = \max_{1 \leq i \leq m} \{ |x_i - x_i^{(m)}| \} \geq |x_j - x_j^{(m)}|$. Так как
@@ -326,7 +326,7 @@ $f \in L^p(X, \mu), f(j) = x_j \Rightarrow l^p_n$ -- полное.
         Например, $ \not \Leftarrow$ при $e_m = (0, 0, \ldots, 0, 1, 0, 0, \ldots )$
     \end{remark}
     Пусть $j$ фиксировано. $\liml_{m \to \infty} (e_m)_j = 0 \quad ||e_m - \mathbb{0} ||_p = 1 \quad \forall p, 1 \leq p \leq +\infty$.
-    В качестве упражнения доказать, что $l^p$ -- полное непосредственно. \\
+    В качестве упражнения доказать, что $l^p$~--- полное непосредственно. \\
     %тут пример%
     На рисунке 3.1 приведены примеры единичных шаров в $l_2^p = \{ (x,y): (|x|^p + |y|^p)^{\frac{1}{p}} \}, 1 \leq p < + \infty$.
     Для $l_2^\infty$ норма определяется $||(x,y)||_\infty = \max(|x|, |y|)$
@@ -384,19 +384,19 @@ $f \in L^p(X, \mu), f(j) = x_j \Rightarrow l^p_n$ -- полное.
         \[F = \{ x - \{x_j\}_{j=1}^\infty, x_j \in \bR (\bC) \exists \, N(x) \in \bN : n > N(x) \Rightarrow x_n = 0 \} \]
     \end{definition}
 $F \subset l^p \quad 1 \leq p \leq + \infty$.
-$(F, || \cdot ||_p) $ -- не полное, $F$ -- не замкнуто.
+$(F, || \cdot ||_p) $~--- не полное, $F$~--- не замкнуто.
 Будем брать геометрическую прогрессию и обрывать ее на некотором члене.
 \begin{gather*}
     x^{(m)} = \left\{ \frac{1}{2}, \frac{1}{4}, \ldots, \frac{1}{2^m}, 0, 0, 0, \ldots \right\} \in F \\
     X = \left\{ \frac{1}{2^k}^\infty_{k=1} \right\} \in l^p \\
     1 \leq p < + \infty \quad ||x - x^{(m)}||_p = \left( \sum^\infty_{k=m+1} \frac{1}{2^{kp}} \right)^{\frac{1}{p}} \underset{m \to \infty}{\longrightarrow} 0
 \end{gather*}
-Следовательно, $F$ -- не замкнуто.
+Следовательно, $F$~--- не замкнуто.
 
 В качестве упражнения проверить, что $\overline{F}$ в $l^p = ? $ при $p < + \infty$ и при $p = \infty$.
 \begin{theorem}
     $C[a,b], ||f||_p = \left( \int^b_a |f(x)|^p dx \right)^{\frac{1}{p}}, 1 \leq p < + \infty$
-    \[ (C[a,b], || \cdot || ) \text { -- не полное } \]
+    \[ (C[a,b], || \cdot || ) \text {~--- не полное } \]
 \end{theorem}
 \begin{proof}
     При $p = 1$, $[a,b] = [-1,1], f \in C[a,b], \int^b_a |f(x)|^p dx = 0 \Leftrightarrow f(x) \equiv 0$.
@@ -408,7 +408,7 @@ $(F, || \cdot ||_p) $ -- не полное, $F$ -- не замкнуто.
         1, x \in [\frac{1}{n}, 1]
     \end{cases}, f \in C[-1,1]$ % тут рисунок f
 
-    $f_n$ -- фундаментальная в $(C[-1,1], p=1)$
+    $f_n$~--- фундаментальная в $(C[-1,1], p=1)$
 
     Пусть $ m > n$. %рисунок 2
     \[ \int_{-1}^1 |f_m(x) - f_n(x)| dx = \frac{1}{2} \left( \frac{1}{n} - \frac{1}{m} \right) \leq \frac{1}{2n} \underset{n, m \to \infty}{\longrightarrow} 0 \]
