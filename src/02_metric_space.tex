@@ -27,11 +27,11 @@ $F \text{~--- замкнутое} \Leftrightarrow F \subset X \land X \setminus 
 
 $\{x_n\}_{n=1}^\infty\text{~--- последовательность} \land \forall n \in \bN x_n \in X \land \liml_{n \to \infty} x_n = x_0 \Leftrightarrow \liml_{n \to \infty} \rho(x_n, x_0) = 0$
 
-$(X, \rho)\text{~--- метрическое пространство} \Rightarrow (F$~--- замкнутое $\Leftrightarrow$ $\{x_n\}_{n=1}^\infty$~--- последовательность $\land \forall n \in \bN x_n \in F \land (\liml_{n \to \infty } x_n = x_0 \implies x_0 \in F))$
+$(X, \rho)\text{~--- метрическое пространство} \Rightarrow (F$~--- замкнутое $\Leftrightarrow$ $\{x_n\}_{n=1}^\infty$~--- последовательность $\land \forall n \in \bN x_n \in F \land (\liml_{n \to \infty } x_n = x_0 \Rightarrow x_0 \in F))$
 
 
 \begin{definition}[Фундаментальная последовательность]
-    $\{x_n\}^\infty_{n=1} \text{~--- фундаментальная} \Leftrightarrow \forall \varepsilon > 0 \exists N \in \bN \forall n \in \bN \forall m \in \bN ((n > N \land m > N) \implies \rho(x_n, x_m) < \varepsilon) \Leftrightarrow \liml_{n,m \to \infty} \rho(x_n,x_m) = 0 $
+    $\{x_n\}^\infty_{n=1} \text{~--- фундаментальная} \Leftrightarrow \forall \varepsilon > 0 \exists N \in \bN \forall n \in \bN \forall m \in \bN ((n > N \land m > N) \Rightarrow \rho(x_n, x_m) < \varepsilon) \Leftrightarrow \liml_{n,m \to \infty} \rho(x_n,x_m) = 0 $
 \end{definition}
 
 
@@ -77,21 +77,21 @@ $(X, \rho)\text{~--- метрическое пространство} \Rightarro
 \begin{theorem}[Свойства фундаментальных последовательностей]
     $(X,\rho)$~--- метрическое пространство, $\{x_n\}^\infty_{n=1}$~--- фундаментальная последовательность, тогда выполняется:
     \begin{enumerate}
-        \item $\{x_n\}^\infty_{n=1}$~--- ограниченная, т.е. $\exists R > 0 \exists x_0 \in X \forall n \in \bN x_n \in B_R(x_0)$
-        \item $\exists \{x_{n_k}\}^\infty_{k=1}\text{~--- подпоследовательность} \exists a \liml x_{n_k} = a \Rightarrow \liml_{n \to \infty} x_n = a $
-        \item $\{ \varepsilon_k \}_{k=1}^\infty$~--- произвольная последовательность действительных чисел $\land \forall k \in \bN \varepsilon_k > 0 \Rightarrow \exists \{x_{n_k}\}^\infty_{k=1}$~--- подпоследовательность$\forall j \in \bN (j > k \implies \rho(x_{n_k}, x_{n_j}) < \varepsilon_k)$
+        \item $\{x_n\}^\infty_{n=1}$~--- ограниченная, т.е. $\exists R > 0 \, \exists x_0 \in X \, \forall n \in \bN \, x_n \in B_R(x_0)$
+        \item $\exists \{x_{n_k}\}^\infty_{k=1}\text{~--- подпоследовательность } \exists a \liml x_{n_k} = a \Rightarrow \liml_{n \to \infty} x_n = a $
+        \item $\{ \varepsilon_k \}_{k=1}^\infty$~--- произвольная последовательность действительных чисел $\land \forall k \in \bN \varepsilon_k > 0 \Rightarrow \exists \{x_{n_k}\}^\infty_{k=1}$~--- подпоследовательность $\forall j \in \bN (j > k \Rightarrow \rho(x_{n_k}, x_{n_j}) < \varepsilon_k)$
     \end{enumerate}
 \end{theorem}
 
 \begin{proof}[1 утверждение]
-    Возьмём $\varepsilon = 1$, тогда из фундаментальности $\exists N \forall n \in \bN (n > N \implies \rho (x_n, x_N) < 1)$.
+    Возьмём $\varepsilon = 1$, тогда из фундаментальности $\exists N \, \forall n \in \bN (n > N \Rightarrow \rho (x_n, x_N) < 1)$.
 
     Возьмём $R = \max \{ \rho(x_1, x_N), \ldots, \rho(x_{N-1},x_{N}) \} + 1$. Единичка на всякий случай.
         
     Тогда $\forall n \in \bN x_n \in B_R(x_N)$.
 \end{proof}
 \begin{proof}[2 утверждение]
-    Возьмём $\varepsilon > 0$, тогда по фундаментальности $\exists N \forall n \in \bN \forall m \in \bN ((\textcolor{blue}{\underline{n > N}} \, \land \, m > N) $ $\implies \underline{\rho(x_n, x_m)} < \varepsilon)$. Возьмём это $N$.
+    Возьмём $\varepsilon > 0$, тогда по фундаментальности $\exists N \forall n \in \bN \forall m \in \bN ((\textcolor{blue}{\underline{n > N}} \, \land \, m > N) $ $\Rightarrow \underline{\rho(x_n, x_m)} < \varepsilon)$. Возьмём это $N$.
 
     $\exists a \liml x_{n_k} = a \Rightarrow \exists n_k (\rho(x_{n_k}, a) < \varepsilon \land \textcolor{blue}{\underline{n_k > N}})$. Возьмём это $n_k$.
 
@@ -100,10 +100,10 @@ $(X, \rho)\text{~--- метрическое пространство} \Rightarro
 \begin{proof}[3 утверждение]
     Докажем по индукции:
 
-    $\varepsilon_1: \exists n_1 \forall n \in \bN \forall m \in \bN ((n > n_1 \land m > n) \implies \rho(x_m,x_n) < \varepsilon_1)$. Выберем $n_1$, тогда $\forall m \in \bN (m > n_1 \implies \rho(x_m, x_{n_1}) < \varepsilon_1)$.
+    $\varepsilon_1: \exists n_1 \forall n \in \bN \forall m \in \bN ((n > n_1 \land m > n) \Rightarrow \rho(x_m,x_n) < \varepsilon_1)$. Выберем $n_1$, тогда $\forall m \in \bN (m > n_1 \Rightarrow \rho(x_m, x_{n_1}) < \varepsilon_1)$.
 
-    $\varepsilon_k:$ по индукции выбрали $n_1, \ldots, n_{k-1}$, $k \geq 2$. $\forall j \in ( 1 \ldots k-1 ) \forall m \in \bN (m > n_j \implies \rho (x_m, x_{n_j}) < \varepsilon_j)$.
-    Из фундаментальности исходной последовательности $\exists n_k (n_k > n_{k-1} \land \forall m \in \bN (m > n_k \implies \rho (x_m, x_{n_k}) < \varepsilon_k))$
+    $\varepsilon_k:$ по индукции выбрали $n_1, \ldots, n_{k-1}$, $k \geq 2$. $\forall j \in ( 1 \ldots k-1 ) \forall m \in \bN (m > n_j \Rightarrow \rho (x_m, x_{n_j}) < \varepsilon_j)$.
+    Из фундаментальности исходной последовательности $\exists n_k (n_k > n_{k-1} \land \forall m \in \bN (m > n_k \Rightarrow \rho (x_m, x_{n_k}) < \varepsilon_k))$
 \end{proof}
 
 \begin{corollary}
@@ -197,7 +197,7 @@ $(X, || \cdot ||)$ будем обозначать нормированное п
     Предположим, что наше пространство полное ($\Rightarrow)$. $(X, \rho)$~--- полное, $\seq{x_k}^\infty_{k=1}$.
     \[ \sum^\infty_{k=1} ||x_k|| \tag{**} \text { сходится } \]
     Цель такая: последовательность $S_n$~--- фундаментальная. Сейчас применим критерий Коши к ряду (**). Это ряд из чисел, так что всё в порядке.
-    Пусть $\varepsilon > 0$. По критерию Коши $\exists N \in \bN \forall n \in \bN \forall p \in \bN (n > N \implies \sum^{n+p}_{k=n} ||x_k|| < \varepsilon)$.
+    Пусть $\varepsilon > 0$. По критерию Коши $\exists N \in \bN \forall n \in \bN \forall p \in \bN (n > N \Rightarrow \sum^{n+p}_{k=n} ||x_k|| < \varepsilon)$.
 
     $S_n = \sum^n_{k=1} x_k$.
     \begin{multline*}

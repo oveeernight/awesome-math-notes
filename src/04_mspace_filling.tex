@@ -574,12 +574,13 @@ $\chi_e(x) = \begin{cases}
             f(x) \in L^p(X, \mu), 1 \leq p < + \infty \quad |f(x) - g_n(x)|^p \leq |f(x)|^p \\
             g_n(x) \underset{\text{п.в.}}{f(x)} \quad \Rightarrow |f(x) - g_n(x)|^p \underset{n \to \infty}{\longrightarrow} 0
         \end{cases} \stackrel{\text{Лебег}}{\Rightarrow} \\
+        \text{ все, что надо~--- убедиться, что мера конечная}
         \liml_{n \to \infty} \left( \int_X |f-g_n|^p d \mu \right)^\frac{1}{p} = 0 \\
         f \in L^p \Rightarrow \mu e_k < + \infty \quad f(x) \geq \frac{k}{n}, x \in e_k \Rightarrow \left( \int_X |f|^p d\mu \right)^\frac{1}{p} \geq \left( \int_{e_k} \left( \frac{k}{n} \right)^p d\mu \right)^\frac{1}{p} = \\
         \frac{k}{n} (\mu e_k)^\frac{1}{p} \Rightarrow \mu e_k < + \infty \\
         \Rightarrow f \in \overline{\calL \seq{\chi_e}_{e \in U, \mu e < + \infty}}
     \end{gather*}
-    Все, что надо~--- убедиться, что мера конечная.  Рассмотрим замыкание линейное оболчоки
+    Теперь покажем, что для произвольных $f$ рассуждение тоже верно.  Рассмотрим замыкание линейное оболчоки
     \begin{gather*}
         \begin{cases}
             f: X \rightarrow \bR, \Rightarrow f = f_+ - f_-, f_+(x) \geq 0, f_-(x) \geq 0 \\
@@ -629,7 +630,7 @@ $\chi_e(x) = \begin{cases}
     \end{gather*}
     \begin{multline*}
         || \chi_e - \chi_b ||_p \leq ||\chi_e - \chi||_p - ||\chi_A - \chi_B||_p \leq \\
-        \left( \int_{A \setminus e} \mathbb{1} dx \right)^{\frac{1}{p}} + \left( \int_{A \setminus B} \mathbb{1} dx \right)^{\frac{1}{p}} < \varepsilon^{\frac{1}{p}} + \varepsilon^{\frac{1}{p}} = 2 \varepsilon^{\frac{1}{p}} 
+        \left( \int_{A \setminus e} \mathbb{1} d\mu \right)^{\frac{1}{p}} + \left( \int_{A \setminus B} \mathbb{1} d\mu \right)^{\frac{1}{p}} < \varepsilon^{\frac{1}{p}} + \varepsilon^{\frac{1}{p}} = 2 \varepsilon^{\frac{1}{p}} 
     \end{multline*}
 
     \begin{gather*}
