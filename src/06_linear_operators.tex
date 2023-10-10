@@ -1,0 +1,274 @@
+% !TeX root = ./document.tex
+\documentclass[document]{subfiles}
+\begin{document}
+\chapter{Линейные операторы}
+
+Первый парагарф про линейные пространства будет совсем простой, здесь будут самые тривиальные свойства, следующие из линейности.
+\section{Линейные операторы в линейных пространствах} % мб главу так назвать
+
+\begin{definition}[Линейный оператор]
+    $X,Y$ ~-- линейны над $k (k = \bR$ или $\bC)$. $A: X \rightarrow Y, A$ ~-- \textbf{ линейный оператор}, если 
+    \[ A(\alpha x + \beta z) = \alpha A x + \beta A z, \quad x,z \in X, \alpha, \beta \in k \] 
+\end{definition}
+
+$\Lin(X,Y)$ ~-- множество линейных операторов из $X$ в $Y$. Также нам понадобится линейное простарнство над $k$
+\begin{gather*}
+    \alpha \in k, A \in \Lin(X,Y), (\alpha A)(x) := \alpha Ax, \bZero(x) = 0 \text{ (0 в пространстве Y)} \\
+    A, B \in \Lin(X,Y), (A+B)(x) := Ax + Bx 
+\end{gather*}
+Если $X = Y$, пишем только $\Lin(X)$.
+\begin{example}[интегральный оператор]
+    $C[a,b], K(s,t) \in C([a,b] \times [a,b])$
+    \begin{gather*}
+        f \in C[a,b], (\K f)(s) = \int^b_a k(s,t) f(t) dt \\
+        (\K f)(s) \in C[a,b], \K \in \Lin(C[a,b])
+    \end{gather*}
+\end{example}
+
+\begin{example}[оператор дифференцирования]
+    $X = C^{(1)}[0,1] = \{ f: f^\prime \in C[0,1] \}$, $Y = C[0,1]$. $f \in X, D(f) = f^\prime,D \in \Lin(X,Y)$
+\end{example}
+
+\begin{example}[оператор вложения]
+    $l^1 \subset l^2$, $x = \seq{x_n}^\infty_{n=1}, \sum^\infty_{n=1} |x_n| < + \infty, x \in l^1 \Rightarrow \sum^\infty_{n=1} |x_n|^2 < + \infty \Rightarrow x \in l^2$
+    \begin{gather*} 
+        Ax = x, A \text{ оператор вложения } l^1 \hookrightarrow{A} l^2 \\
+        \forall 1 \leq p_1 < p_2 \leq + \infty \Rightarrow l^{p_1} \hookrightarrow{A} l^{p_2}, Ax = x \\
+        A \in \Lin(l^{p_1}, l^{p_2})
+    \end{gather*}
+\end{example}
+
+\begin{example}[оператор, но не линейный]x =
+    $X$ ~-- линейное пространство, $x_0 \in X, x_0 \ne 0$, $Ax = x + x_0 \Rightarrow A$ ~-- не линейный.
+\end{example}
+
+Перед тем, как доказывать теорему, еще одно небольшое определение.
+\begin{definition}[Выпуклое множество]
+    $B \subset X, X$ ~-- линейное простарнство. $B$ ~-- \textbf{ выпуклое }, если 
+    \[ \forall x,z \in B, \forall t, 0 \leq t \leq 1 \Rightarrow tx + (1-t)z \in B \]
+    то есть отрезок, соединяющий любые две точки, полностью лежит в этом множестве
+\end{definition}
+
+\begin{theorem}[простейшие свойства линейного оператора]
+    $X,Y$ ~-- линейные пространства над $k$ ($\bR$ или $\bC$), $A \in \Lin(X,Y)$
+    \begin{enumerate}
+        \item $L \subset X, L$ ~-- подпространство в $X$ $\Rightarrow A(L)$ ~-- подпространство в $Y$ (образ подпространства ~-- подпространство)
+        \item $M \subset Y, M$ ~-- подпространство в $Y \Rightarrow$ $\underbrace{A^{-1}(M)}_{\text{прообраз}}$ ~-- подпространство в $X$
+        \item $B \subset X, B$ ~-- выпуклое $\Rightarrow A(B)$ ~-- выпуклое в $Y$
+        \item $C \subset Y, C$ ~-- выпуклое $\Rightarrow A^{-1}(C)$ ~-- выпуклое в $X$
+        \item пусть $A$ ~-- биекция $\Rightarrow A^{-1} \in \Lin(Y,X)$
+    \end{enumerate}
+\end{theorem}
+Все 5 свойств доказывать не будем, покажем только несколько и скажем, что остальные доказываются аналогично.
+\begin{proof}[1]
+    $L$ ~-- подпространство, $y,v \in A(L), \alpha \in k$. Наша мечта ~-- проверить $(\stackrel{?}{\Rightarrow} \alpha y + v \in A(L))$, не обязательно писать $\alpha$ и $\beta$.
+    \begin{gather*}
+        \Rightarrow \, \exists x,y \in L : (Ax = y \land Au = v) \Rightarrow A(\alpha x + u) = \alpha A x + A u = \alpha y + v \\
+        \alpha x + u \in L \Rightarrow A(\alpha x + u) \in A(L) \Rightarrow \alpha y + v \in A(L)
+    \end{gather*}
+\end{proof}
+
+3 проверяется тютелька в тютельку как 1, а 2 ~-- как 4, поэтому проверим 4.
+
+\begin{proof}[4]
+    $C$ ~-- выпуклое, $x,u \in A^{-1}(C), 0 \leq t \leq 1$. 
+    \begin{gather*}
+        (y := Ax \land v := Au) \quad y,v \in C \Rightarrow ty + (1-t)v \in C \\
+        A(tx + (1-t)u) = t Ax + (1-t) A u = ty + (1-t) v \in C \\
+        \Rightarrow tx + (1-t)u \in A^{-1}(C) \Rightarrow A^{-1}(C) \text{ выпуклое }
+    \end{gather*}
+\end{proof}
+
+\begin{proof}[5]
+    $y, v \in Y \Rightarrow x = A^{-1}y, u = A^{-1}v \Rightarrow (Ax = y \land Au = v) \Rightarrow$
+    \begin{gather*}
+        \text{пусть } \alpha \in k, \quad  A(\alpha x + u) = \alpha A x + A u = \alpha y + v \Rightarrow \\
+        \alpha x + u = A^{-1}(\alpha y + v) = \alpha A^{-1} y + A^{-1} v \Rightarrow \\
+        A^{-1} \in \Lin(Y,X)
+    \end{gather*}
+\end{proof}
+
+\begin{definition}[Ядро линейного оператора]
+    $A \in \Lin(X,Y)$
+    \[ \Ker A = \{ x \in X: Ax = 0 \} \text{ ~-- ядро } A \] 
+    \[ \Imm A = \{ y \in Y: \, \exists x: Ax = y \} = A(X) \text{ ~-- образ } A \] 
+\end{definition}
+
+\begin{corollary}
+    $X,Y$ ~-- линейные пространства, $\Rightarrow \Ker A$ ~-- подпространство в $X$, $\Imm A$ ~-- подпространство в $Y$.
+\end{corollary}
+
+\begin{definition}[произведение операторов]
+    $X, Y,Z$ ~-- линейные пространства
+    \[ X \stackrel{A}{\rightarrow} Y \stackrel{B}{\rightarrow} Z \] 
+    $A \in \Lin(X,Y), B \in \Lin(Y,Z)$, $C = BA, C(x) := B(Ax), x \in X \Rightarrow C \in \Lin(X,Z), C$ ~-- произведение $BA$
+\end{definition}
+
+Всё самое тривиальное для операторов в линейных простаранствах мы вспомнили
+
+\section{Линейные операторы в нормированных пространствах}
+Линейные операторы в нормированных пространствах ~-- главный объект, который изучает функциональный анализ.
+\begin{definition}[Огранисченный оператор]
+    $(X, || \cdot||)$, $(Y, || \cdot ||), A \in \Lin(X,Y) $. $A$ ~-- \textbf{ ограниченный}, если $\forall C \subset X, C$ ~-- ограниченное $\Rightarrow A(C)$ ~-- ограниченное 
+    в $Y$.
+\end{definition}
+Оказывается, для операторов ограниченность эквивалентна непрерывности. Казалось бы, ограниченность сильно слабее, но если к ней добавить  линейность, то будет аж непрерывность. \\
+Обычно если в теореме 2 свойства, то говорят <<если и только если>>, а если условий несколько, то говорят <<равносильность>>. Подлые анголосаксы говорят Following Conditions are Equivalent.
+
+\begin{theorem}[эквивалентность ограниченности и непрерывности линейного оператора]
+    $(X, ||\cdot||), (Y, ||\cdot||), A \in \Lin(X,Y)$. Следующие условия равносильны (СУР) (FCE)
+    \begin{enumerate}
+        \item $A$ непрерывен в точке $0$ 
+        \item $A$ непрерывен $\forall x \in X$  % (.) точка 
+        \item $\exists C > 0 : ||Ax|| \leq C||x|| \, \forall x \in X $
+        \item $A$ ограниченный
+        \item $\exists r > 0 \: A(B_r(0))$ ~-- ограниченное множество в $Y$.
+    \end{enumerate}
+\end{theorem}
+
+Доказательство очень простое, и, конечно, строится на линейности
+\begin{proof}[$1 \Rightarrow 2$]
+    $A$ непрерывен в точке $0$.
+    Пусть $\varepsilon > 0 \, \exists \delta > 0, \, ||x|| < \delta \Rightarrow ||Ax|| < \varepsilon (A(\bZero)) = \bZero$.
+    утверждается, что те же самые $\varepsilon$ и $\delta$ подходят.
+    \begin{gather*}
+        \text{пусть } x_0 \in X, \text{проверим, что } A \text{ непрерывен в } x_0 \\
+        \text{пусть } ||x-x_0|| < \delta \Rightarrow ||A(x-x_0)|| < \varepsilon \Rightarrow ||Ax - Ax_0|| < \varepsilon
+    \end{gather*}
+\end{proof}
+$2 \Rightarrow 1$ очевидно 
+\begin{proof}[$1 \Rightarrow 3$]
+    Пусть $\varepsilon > 0 \, \exists \delta > 0 : ||x|| < \delta \Rightarrow ||Ax|| < \varepsilon$.
+    \begin{gather*}
+        z \in X, z \ne 0 \quad x = \frac{z}{||z||} \cdot \delta \Rightarrow ||x|| = \delta \Rightarrow ||Ax|| < \varepsilon \\
+        \Rightarrow ||A\left( \frac{z}{||z||} \cdot \delta\right)|| < \varepsilon \Rightarrow ||Az|| < \frac{\varepsilon}{\delta} ||z|| \text{т.е.} C = \frac{\varepsilon}{\delta}
+    \end{gather*}
+\end{proof}
+
+\begin{proof}[$3 \Rightarrow 4$]
+    $B \subset X$, $B$ ~-- ограниченное, то есть $\exists M > 0 : (\forall x \in B \land ||x|| < M) \stackrel{3}{\Rightarrow} ||Ax|| \leq C||x|| \leq CM \, \forall x \in B \Rightarrow 
+    \{ A(B) \}$ ~-- ограниченное.
+\end{proof}
+$4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
+\begin{proof}[$5 \Rightarrow 1$]
+    $\exists R > 0 \, A(B^x_r(0)) \subset B^y_R(0)$
+    \begin{gather*}
+        ||x|| < r \Rightarrow ||Ax|| < R \\
+        \intertext{непрерывность в 0 означает} 
+        \text{ пусть } \varepsilon > 0 \quad ||x|| < \delta(\varepsilon) \Rightarrow ||Ax|| < \varepsilon \\
+        \delta(\varepsilon) = \varepsilon \cdot \frac{r}{R}\\
+        ||z|| < \varepsilon \cdot \frac{r}{R} \Rightarrow ||z \cdot \frac{R}{\varepsilon} || < r \Rightarrow ||A \left( z \cdot \frac{R}{z} \right) || < R \Rightarrow ||Az|| < \varepsilon
+    \end{gather*}
+\end{proof}
+
+с помощью теоремы, которую мы только что доказали, введём норму в этом пространстве.
+\begin{definition}[норма оператора]
+    $(X, ||\cdot||), (Y, ||\cdot||)$
+    \[ \underbrace{\B(X,Y)}_{\text{bounded}} = \{ A \in \Lin(X,Y), A \text{ ~-- ограниченный} \} \]
+    $A \in \B(X,Y)$
+    \[ ||A|| = \inf \{ c > 0 : ||Ax|| \leq C||x|| \, \forall x \in X \} \]
+    то бишь точная нижняя грань множества величин, на которые наш оператор увеличивает норму элемента.
+\end{definition}
+
+Раз мы так объявили норму, то надо проверять аксиомы нормы. 
+
+\begin{statement}
+    $(X, || \cdot||), (Y, ||\cdot||), A \in \B(X,Y)$
+    \begin{enumerate}
+        \item $\forall x \in X \, ||Ax|| \leq ||A||  ||x||$ (то есть $\inf$ в определении нормы $=\min)$
+        \item $||A||y$ удовлетворяет аксиомам нормы
+    \end{enumerate}
+\end{statement}
+
+\begin{proof}
+    $x$ - фиксирован, $\Rightarrow \, \forall c > ||A||, ||Ax|| \leq C ||x|| \Rightarrow ||Ax|| \leq ||A|| \cdot ||x||$. Был фиксирован, теперь любой,
+     первое утверждение доказано. Теперь второе. 
+     \begin{gather*}
+        \alpha \in k, \alpha \ne 0, x \in X, x \text{ ~-- фиксирован } \\
+        (\alpha A) (x) = \alpha A x \\
+        \forall x \in X \quad ||(\alpha A)(x) || = ||\alpha \cdot Ax|| = |\alpha| \cdot ||A x|| \leq |\alpha| \cdot ||A|| \cdot ||x|| \\
+        \Rightarrow ||\alpha A|| \leq |\alpha| ||A||
+     \end{gather*}
+     Очевидное замечание по слёзной просьбе двух студенток, которые ничего не понимали.
+     Если мы докажем $||Ax|| \leq M||x|| \, \forall x \in X$, то $||A|| \leq M$
+
+     \begin{gather*}
+        \Rightarrow \left| \left| \frac{1}{\alpha}(\alpha A) \right| \right| \leq \frac{1}{|\alpha} ||\alpha A|| \Rightarrow |\alpha| || A|| \leq ||\alpha A|| \\
+        \Rightarrow ||\alpha A || = |\alpha| ||A|| \\
+        A,B \in \B(X,Y), x \in X 
+     \end{gather*}
+     \begin{multline*}
+        ||(A+B)(x)|| = ||Ax + Bx|| \leq ||Ax|| + ||Bx|| \leq ||A|| \cdot ||x|| + ||B|| \cdot ||x|| = \\
+        = (||A|| + ||B||) ||x|| \quad \forall x \in X \\
+        \Rightarrow ||A+B| \leq ||A||+ ||B||
+     \end{multline*}
+     Как только есть какая-то константа, то настоящая норма меньше или равна этой константы. $||A|| = 0 \Rightarrow \, \forall x \in X \, ||Ax|| \leq ||A|| \cdot ||X|| = 0$.
+     $\Rightarrow Ax = 0 \, \forall x \in X \Rightarrow A = \varnothing \Rightarrow ||A||$ ~-- настоящая норма
+\end{proof}
+
+\begin{theorem}[вычисление нормы непрерывного оператора]
+    $(X, ||\cdot||), (Y, ||\cdot||), A \in \B(X,Y) \Rightarrow$ 
+    \[ ||A|| = \underbrace{\sup_{\{||x|| \leq 1\}} ||Ax||}_a = \underbrace{\sup_{\{||x|| < 1\}} ||Ax||}_b = \underbrace{\sup_{\{||x|| = 1\}} ||Ax||}_c = \underbrace{\sup_{\{x \in X, x \ne 0\}} \frac{||Ax||}{||x||}}_d \]
+\end{theorem} %тут везде фигурные скобки вниз супремума
+
+\begin{proof}
+    Очевидно $a \geq b, a \geq c, d \geq c$.
+    Докажем $||A|| \geq a \geq b \geq ||A||, quad ||A|| \geq d \geq c \geq ||A||$.
+       \[ ||Ax|| \leq ||A|| \cdot ||x|| \leq ||A|| \quad \forall x, ||x|| \geq 1 \Rightarrow \sup_{\{||x|| \geq 1 \}} ||Ax|| \leq ||A|| \Rightarrow a \leq ||A|| \]
+    Доказали $||A|| \geq a$. \\
+    Пусть $\varepsilon > 0 \, z \in X, z \ne 0 \Rightarrow \left| \left| \frac{z}{||z||(1+\varepsilon)} \right| \right| = \frac{1}{1+\varepsilon} < 1$
+    \begin{gather*}
+        \left| \left| A(\frac{z}{||z||(1+\varepsilon)}) \right| \right| \leq b \Rightarrow ||Az|| \leq b(1+\varepsilon) ||z|| \quad \forall z \in X \\
+        \Rightarrow ||A|| \leq b(1 + \varepsilon) \, \forall \varepsilon > 0 \Rightarrow ||A|| \leq b
+    \end{gather*}
+    Закончили с первой цепочкой неравенств. \\
+    Пусть $x \ne 0 \Rightarrow ||Ax|| \leq ||A|| \cdot ||x|| \Rightarrow \frac{||Ax||}{||x||} \leq ||A|| \Rightarrow d = \sup_{\{x \ne 0 \}} \frac{||Ax||}{||x||} \leq ||A||$.
+    \begin{gather*}
+        \text{пусть } z \in X, z \ne 0, \, \left| \left| \frac{z}{||z||} \right|\right| = 1 \Rightarrow ||A\left(\frac{z}{||z||}\right)|| \leq c \Rightarrow ||Az|| \leq C||z|| \forall z \in X
+        \intertext{c ~-- супремум по единичной сфере}
+        \Rightarrow ||A|| \leq C
+    \end{gather*}
+\end{proof}
+
+\begin{example}
+    $C[a,b]$, $h(x) \in C[a,b]$ ~-- фиксированная функция. $f \in  C[a,b], M_n(f) := h(x) \cdot f(x)$.
+    \[ M_n \in \Lin(C[a,b]) \]
+    
+\end{example}
+Проверим, что он непрерывен и сосчитаем его норму.
+\begin{proof}
+    \begin{multline*}
+        ||M_n(f)||_\infty = \max_{x \in [a,b]} | h(x) \cdot f(x)| \leq \max_{x \in [a,b]} |h(x)| \cdot \max_{x \in [a,b]} |f(x)| = ||h||_\infty \cdot ||f||_\infty \\
+        \Rightarrow M_n \in \B(C[a,b]), ||M_n||_{\B(C[a,b])} \leq ||h||_\infty
+    \end{multline*}
+    получили непрерывность. Раз есть общая консатнта, не зависящая от $f$, то мы получаем и оценку для нормы.
+
+    \begin{gather*}
+        \chi_{[a,b]}(x) 1 \, \forall x \in [a,b] \, \chi_{[a,b]} \in C[a,b], ||\chi_{[a,b]} ||_\infty = 1 \\
+        ||M_n|| \geq ||M_n(f)|| \forall f, ||f|| = 1 \Rightarrow ||M_n|| \geq || M_n \cdot (\chi_{[a,b]}) ||_\infty = ||h||_\infty \\
+        \Rightarrow ||M_n||_{\B(C[a,b])} = ||h||_\infty
+    \end{gather*}
+\end{proof}
+
+Теперь посмотрим на оператор дифференцирования, это очень важный пример.
+\begin{example}
+    $Y = C[a,b], X = \{f: \, \exists f^\prime \in C[a,b] \}$, $0 \leq a \leq b$
+    \begin{gather*}
+        X \subset Y, X \text{ ~-- подпространство } Y, \text{ то есть } \\
+        ||f||_X = ||f||_Y = \max_{x \in [a,b]} |f(x)| \\
+        D(f) = f^\prime \Rightarrow D \in \Lin(X,Y), \\
+        D(x^n) = n x^{n-1} \quad \sup_{n \in \bN} \frac{||D(x^n)||}{||x^n||} = \sup_{n \in \bN} \frac{nb^{n-1}}{b^n} = +\infty
+    \end{gather*}
+    при таком определении нормы оператор дифференцирования  $D$ не непрерывен.
+\end{example}
+
+\begin{example}
+    $Y = C[a,b], X = C^{(1)}[a,b]$
+    \begin{gather*}
+        ||f||_X = \max \{ ||f||_\infty, ||f^\prime||_\infty \} \\
+        D(f) = f^\prime \quad ||D(f)|| = ||f^\prime||_\infty = \max_{x \in [a,b]} |f^\prime(x)| \leq \underbrace{\max \{ ||f||_\infty, ||f||_\infty \}}_{||f||_X} \\ 
+        \Rightarrow D \in \B(X, Y), ||D|| \leq 1
+    \end{gather*}
+\end{example}
+
+\end{document}

@@ -278,8 +278,7 @@
     $K$ -- компакт, $(K, \rho)$, $\Phi \subset C(K)$. $\Phi$ -- относительно компактно $\Leftrightarrow$ 
     \begin{enumerate}
         \item $\Phi$ -- ограниченное в $C(K)$ 
-        \item $\Phi$ 00 равностепенно непрерывно 
-        \item $\Phi \in EC$ equicontinuous
+        \item $\Phi$ -- равностепенно непрерывно ($\Phi \in EC$ equicontinuous)
     \end{enumerate}
     
 \end{theorem}
@@ -288,11 +287,185 @@
     $\Rightarrow$ \\
     $\Phi$ -- относительно компактно $\Rightarrow \Phi$ -- вполне ограничено $\Rightarrow \Phi$ -- ограничено, то есть 
     $\exists M \geq 0$ т.ч. $||f|| \leq M \, \forall f \in \Phi \Leftrightarrow \, \forall x \in K, \, \forall f \in \Phi \, |f(x)| \leq M$.
-    $\varepsilon > 0 \, \exists \varepsilon$-сеть $\seq{ \phi_j}^n_{j=1}, \phi_j \in C(K)$, $\phi_j$ -- равномерно непрерывна $ \exists \delta_j > 0$ \\
-    $x,y \in K, \rho(x,y) < \delta_j \Rightarrow |\phi_j(x) - \phi_j(y)| < \varepsilon $\\
-    $\delta = \min_{1 \leq j \leq n} \delta_j$
-    (продолжение следует) / (упражнение)
+    $\varepsilon > 0 \, \exists \varepsilon$-сеть $\seq{ \varphi_j}^n_{j=1}, \varphi_j \in C(K)$, $\varphi_j$ -- равномерно непрерывна $ \exists \delta_j > 0$ \\
+    $x,y \in K, \rho(x,y) < \delta_j \Rightarrow |\varphi_j(x) - \varphi_j(y)| < \varepsilon $\\
+    $\delta = \min_{1 \leq j \leq n} \delta_j$ \\
+    \marginpar{10.10.2023}
+    при описании относительного компакта мы получили такой результат: $C(K)$ -- полное $\Rightarrow \Phi$ относительный компакт $\Leftrightarrow \Phi$ -- вполне ограничено. 
+    Будем этим пользоваться. \\
+    $\Rightarrow \Phi$ -- вполне ограниченное $\Rightarrow \Phi$ -- ограничено \\
+    Пусть $\varepsilon > 0 \Rightarrow \, \exists \seq{\varphi_j}^n_{j=1}$-$\varepsilon$-сеть для $\Phi$. 
+    $\varphi_j \in C(K) \Rightarrow \varphi_j$ ~-- равномерно непрерывна \\
+    $\exists \delta_j > 0 \, \forall x,y \in K, \rho(x,y) < \delta_j \Rightarrow |\varphi_j(x) - \varphi_j(y)| < \varepsilon$
+    \begin{gather*}
+        \delta = \min_{1 \leq j \leq n} \delta_j, \delta > 0 \\
+        \text{ пусть } f \in \Phi \Rightarrow \, \exists j: ||f-\varphi_j|| < \varepsilon \text{ то есть } \\
+        \intertext{надо оценить этот модуль через неравенство треугольника; справа, очевидно, будет 3 слагаемых}
+        \max_{x \in K} |f(x) - \varphi_j(x)| < \varepsilon \Rightarrow
+    \end{gather*}
+    \begin{multline*}
+        \text{ пусть } x,y \in K, \rho(x,y) < \delta, |f(x) - f(y)| \leq \underbrace{|f(x) - \varphi_j(x)|}_{< \varepsilon} + \\
+        + \underbrace{|\varphi_j(x) - \varphi_j(y)|}_{<\varepsilon \text{ так как } \delta \leq \delta_j} 
+        + |\varphi_j(y) - f(y)| < 3 \varepsilon
+    \end{multline*}
+    мы и проверили равностепенную непрерывность. Тривиальная часть доказательства закончена. \\
+    $\Leftarrow$ \\
+    $\Phi$ -- ограничено $\Rightarrow \, \exists M > 0: f \in \Phi \Rightarrow ||f|| \leq M \Rightarrow |f(x)| \leq M \, \forall x \in K$.
+    Надо по определению построить кончную $\varepsilon$-сеть в множестве непрерывных функций. но мы воспользуемся двумя облегчающими хитростями:
+    1. $\Phi \subset C(K)$, а
+    если множество имеет $\varepsilon$-сеть в меньшем пространстве, то в большем и подавно. Более того, сеть можно построить из элементов меньшего множества. Мы выберем ограниченные функции.
+    2. выберем относительно компактную $\varepsilon$-сеть в $m(K)$ вместо конечной в $C(K)$, и этого будет достаточно.
+    \[ \varepsilon > 0 \quad \Phi \subset C(K) \subset m(K) = \{ f: K \rightarrow \bC, \sup_{x \in K} |f(x)| < + \infty \} \]
+    
+    \begin{gather*}
+        \varepsilon > 0 \quad \exists \delta \text{ из определения } (EC) \\
+        \text{ применим к этой парочке лемму о разбиении}(K, \rho), \delta > 0  \\
+        \exists \seq{C_j}^n_{j=1}, \diam C_j < \delta, K = \bigcup^n_{j=1} C_j, C_j \bigcap C_i = \varnothing (j \ne i), C_j \ne \varnothing \\
+        \Psi = \left\{ g(x) = \sum^n_{j=1} y_j \chi_{C_j} (x)  \right\} \subset m(K), y_j \in \bC, 1 \leq j \leq n \\
+        g \in \Psi, ||g||_\infty = \sup_{x \in K} |g(x)| = \max_{1 \leq j \leq n} |y_j| = ||y||_{l^\infty_n}, y = (y_1, \ldots, y_n) \\
+        F: l^\infty_n \rightarrow \Psi, F(y) = \sum^n_{j=1} y_j \chi_{C_j}(x)
+    \end{gather*}
+
+   Мы выяснили, что $F$ биекция, изометрия, линейное.
+   \begin{gather*}
+        Q = \{ y = (y_1, \ldots, y_n), |y_j| \leq M \} \text{ полидиск, что бы это пока не значило} \\
+        Q \text{ -- компакт }, F \text{ -- непрерывна } \Rightarrow F(Q) \text{ -- компакт в } m(K) \\
+        E:= F(Q), E = \left\{ g(x) = \sum^n_{j=1} y_j \chi_{C_j}(x), |y_j| \leq M \right\}
+   \end{gather*}
+
+
+    вот у нас есть компакт $E$, и мы собираемся проверить, что он и будет $\varepsilon$-сетью для $\Phi$. Будет полезно в каждом множестве выбрать по точечке.
+    Пусть $x_j \in C_j, f \in \Phi, y_j := f(x_j)$.
+    \[ g(x) = \sum^n_{j=1} f(x_j) \chi_{C_j}(x), g \in E, |y_j| \leq M \] 
+    Пусть $x \in K \Rightarrow \, \exists j, x \in C_j \Rightarrow g(x) = f(x_j) \Rightarrow$
+    \[ |f(x) - g(x)| = |f(x) - f(x_j)| < \varepsilon \text{ т.к. } \rho(x, x_j) < \delta \]
+    Вот это и то, что было обещано. $E$ -- компактная $\varepsilon$-сеть.
 \end{proof}
 
+\begin{remark}
+    Условия теоремы не зависимы.
+\end{remark}
 
+\begin{example}
+    $C[0,1]$. $f_n(x) = x^2 + n$, $\seq{f_n}$ -- равностепенно непрерывны, но $\seq{f_n}$ не ограничено.
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \draw[->,line width=1pt] (-2,0) -- (2,0) node[right]{$x$};
+            \draw[->,line width=1pt] (0, -0.5) -- (0, 3.5) node[above]{$f_n(x)$};
+            \draw[red, line width=1pt, domain=-2:2, samples=100] plot(\x,{(\x)^2-1});
+            \draw[blue, line width=1pt, domain=-2:2, samples=100] plot(\x,{(\x)^2});
+            \draw[green, line width=1pt, domain=-2:2, samples=100] plot(\x,{(\x)^2+1});
+        \end{tikzpicture}
+    \end{figure}
+    
+\end{example}
+
+ограниченная, но не равностепенно непрерывная
+\begin{example}
+    $C[0,1], f_n(x) = x^n$. $\seq{f_n}$ -- ограничены, но не равностепенно непрерывны.
+\end{example}
+
+
+\begin{theoremwobox}[достаточные условия равностепенной непрерывности]
+    $(K, \rho)$ -- компакт, $\Phi \subset C(K)$.
+    Сначала какие-то абстрактные множества, потом будут более конкретные.
+    \begin{enumerate}
+        \item Если $\exists M > 0, \alpha > 0, \beta > 0$ такие что 
+        \item \begin{multline*}
+            \forall f \in \Phi, (\forall x,y \in K \rho(x,y) < \beta) \Rightarrow |f(x) - f(y)| \leq M(\rho(x,y))^\alpha \\
+            \Rightarrow \Phi \in (EC)
+        \end{multline*}
+        \item $C[a,b], \Phi \subset C[a,b]$, пусть $\exists L > 0$ 
+        \[ \forall f \in \Phi \, \exists f^\prime(x), x \in (a,b), |f^\prime(x)| \leq L \Rightarrow \Phi \in (EC) \]
+        \item чуть более общий случай. $K \subset G \subset \bR^n$, $K$ -- компакт, $G$ -- открытое.
+        \[ \exists L > 0 : \forall f \in \Phi, \exists \left| \frac{\partial f}{\partial x_j}  (x) \right| (1 \leq j \leq n), \forall f \in G \,  \Rightarrow \Phi \in (EC)  \] 
+        \item про аналитические функции. предполагать можно будет гораздо меньшее. 
+        $K \subset G \subset \bC$, $G$ -- открытое, $K$ -- компакт. 
+        \[ \exists L > 0, f \in \Phi, f \text{ аналаитическая в } G, \exists f^\prime(x), \underbrace{|f(x)|}_{\text{ТУТ}} \leq L, \forall x \in G \] 
+    \end{enumerate}
+        ТУТ НЕ ПРОИЗВОДНАЯ, НА ЭКЗАМЕНЕ ЧАСТО ОШИБАЮТСЯ!!!!
+\end{theoremwobox}
+
+Аналитичность -- фантастическое свойство, в отличие от, например, дифференцируемости. Именно из-за неё ТАМ как раз и не производная.
+
+\begin{proof}[1]
+    Пусть $\varepsilon > 0$, $x, y \in K$, пусть $\rho(x,y) < \beta$, пусть $\delta < \beta, \rho(x,y) < \delta, \delta(\varepsilon) = ?$. 
+    \begin{gather*}
+        f \in \Phi \Rightarrow |f(x) - f(y)| \leq M \rho(x,y)^\alpha < M \delta^\alpha \leq \varepsilon \\
+        \Rightarrow \delta \leq \left( \frac{\varepsilon}{M} \right)^{\frac{1}{\alpha}}, \\
+        \delta(\varepsilon) = \min \{ \beta, \left( \frac{\varepsilon}{M} \right)^{\frac{1}{\alpha}} \},
+    \end{gather*}
+\end{proof}
+
+Будем сводить остальные доказательства к первому пункту, находя $M, \alpha, \beta$. Второй пункт теперь совсем лёгкий. 
+\begin{proof}[2]
+    $\Phi \subset C[a,b], \, x,y \in [a,b], f \in \Phi$. Для оценки разности $f(x) - f(y)$ воспользуемся теоремой Лагранжа. 
+    \begin{multline*}
+        f(x) - f(y) = f^\prime(c)(x-y) \Rightarrow |f(x) - f(y)| \leq |f(c)||x-y| \leq L|x-y| \\
+        M = L, \alpha = 1, (\beta - \forall) \stackrel{1}{\Rightarrow} \Phi \in (EC)
+    \end{multline*}
+\end{proof}
+
+\begin{proof}[3]
+    Пусть $z, y \in K$ такие что $[z,y] \subset G, f \in \Phi$ 
+Оценим разность $f(y) - f(z)$. 
+    \begin{gather*}
+        \Gamma: [0,1] \rightarrow [y,z] \\
+        \Gamma(t) = ty + (1-t)z, \Gamma(0) = z, \Gamma(1) = y \\
+        \text{ опять можем воспользоваться теоремой Лагранжа } \\
+        f(y) - f(z) = f(\Gamma(1)) - f(\Gamma(0)) = (f(\Gamma(c)))^\prime_t \\
+        (f(\Gamma(t)))^\prime_t = (f(ty + (1-t)z))^\prime_t = \sum^n_{j=1} \frac{\partial f}{\partial x_j} (\ldots) (y_j - z_j) \\
+        |f(\Gamma(t))^\prime| \leq L \sum^n_{j=1} |y_j - z_j| \stackrel{\text{КБШ}}{\leq} \sqrt{n} \left( \sum^n_{j=1} (y_j - z_j)^2 \right)^\frac{1}{2} = L \sqrt{n} \rho(y,z)
+    \end{gather*}
+    Если выбртаь $\beta$ достаточно маленьким, то наш отрезок будет лежать в этом компакте. $F = \bR^n \setminus G$ -- замккнутое, $\rho(x,F)$ -- непрерывная функция  в 
+    $\bR^n$ $\Rightarrow \rho(x,F)$ непрерывна на $K \Rightarrow \, \exists x_o \in K, \rho(x_0,F) = \min_{x \in K} \rho(x,F)$
+
+    \begin{gather*}
+        x_0 \notin F \Rightarrow \rho(x_0, F) > 0, r := \rho(x_0, F) \\
+        \forall x \in K \, B_r(x) \subset G, \beta = r \\
+        \rho(x,y) < r \Rightarrow y \in B_r(x) \subset G \Rightarrow \\
+        \text{ отрезок } [x,y] B_r(x) \subset G \\
+        \Rightarrow |f(x) - f(y)| \leq L \sqrt{n} \rho(x,y)
+    \end{gather*}
+    $z$ и $y$, которые с самого начала были выбраны вместо $x$ и $y$, чтобы не смущаться от $dx$, обратно превратились в $x$ и $y$, все же поняли? \\
+    На пальцах: наш компакт настолько утоплен в $G$, что если мы возьмём шарик радиуса $r$, то шарик всё еще лежит в $G$.
+\end{proof}
+
+\begin{proof}[4]
+    Букву $r$, которую мы нашли в предыдущем пункте, будем изо всех сил использовать. $K \subset G \subset \bC$. В 3 пункте выяснили, что 
+    $\exists r > 0: B_r(x) \subset G \, \forall x \in K, \beta = \frac{r}{3}$.
+    \begin{gather*}
+        x,y \in K, \rho(x,y) < \beta, \gamma = \{ \zeta \in \bC: |x - \zeta| = 2 \beta \} \\
+        f \in \Phi
+        \intertext{  разницу собираемся оценивать с помощью формулу Коши, поэтому никакие проивзодные и не нужны!!!} \\
+        f(x) = \frac{1}{2 \pi i} \int_\gamma \frac{f(\zeta)}{\zeta - x} d \zeta \\
+        f(y) = \frac{1}{2\pi i} \int_\gamma \frac{f(\zeta)}{\zeta - y} d\zeta \\
+        f(x) - f(y) = \frac{1}{2 \pi i} \int_\gamma f(\zeta) \frac{x-y}{(\zeta-x)(\zeta - y)} d \zeta \\
+        \intertext{оцениваем самым грубом образом, отправляя модули под интегралы} \\
+        |f(\zeta)| \leq L, |\zeta - x| = 2 \beta, |z-y| \geq \beta 
+    \end{gather*}
+    \begin{multline*}
+        |f(x) - f(y)| \leq \frac{1}{2 \pi} L \cdot |x-y| \cdot |\gamma| \cdot \frac{1}{(2\beta) \cdot \beta} = |x-y|L \frac{(2\beta) \cdot 2 \pi}{(2 \pi)(2 \beta) \beta} = \\
+        = \frac{L}{\beta} |x-y|
+    \end{multline*}
+    и в обозначениях 1 пункта получаем $M = \frac{L}{\beta}, \alpha = 1, \beta = \frac{r}{3}, \stackrel{(1)}{\Rightarrow} \Phi \in (EC)$
+\end{proof}
+Перед тем, как мы покинем относительно компакты, пара упражнений, которые на экзамене спрашивали в качестве задачи на 5.
+\begin{statement}
+    $1 \leq p < + \infty$. $\Phi \subset l^p, \Phi$ -- относительно компактно $\Leftrightarrow$ 
+    \begin{enumerate}
+        \item $\Phi$ -- ограничено в $l^p$ \\
+        \item $\forall \varepsilon > 0 \, \exists N \in \bN : \forall x = \seq{x_j}^\infty_{j=1} \in \Phi, \left( \sum^\infty_{j=N+1} |x_j|^p \right)^{\frac{1}{p}} < \varepsilon$ 
+    \end{enumerate}
+\end{statement}
+\begin{statement}
+    $\Phi \subset C_0, \Phi$  -- относительно компактно $\Leftrightarrow$ 
+    \begin{enumerate}
+        \item $\Phi$ -- ограничено \\
+        \item $\varepsilon > 0 \, \exists N \in \bN : \forall x \in \Phi \quad \sup_{j \geq N+1} |x_j| < \varepsilon $
+    \end{enumerate}
+\end{statement}
+Мы сейчас находимся на перепутье функционального анализа. Можно отправиться в Гильбертовы пространства, в линейные операторы или еще куда-то. Изучить-то придётся всё, но
+мы начинаем линейные операторы. 
 \end{document}
