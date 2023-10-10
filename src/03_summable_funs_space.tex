@@ -278,7 +278,7 @@ $||f||_\infty = 0 \Leftrightarrow \mu \{ x: |f(x)| > 0 \} = 0 \Leftrightarrow f(
     Теперь осталось рассмотреть случай $p = \infty$. $\{ f_n \}^\infty_{n=1}$ фундаментальная, $f_n \in L^\infty$, 
     \[ |f_n(x)| \leq ||f_n||_\infty \quad x \in X \setminus e_n, \mu e_n = 0 \quad n \in \bN \]
     $ e = \cup^\infty_{n=1}, X_1 = X \setminus e \Rightarrow f_n \in m(X_1)$~--- ограниченная функция. $m(X_1)$~--- полное $\Rightarrow \{f_n\}$~--- фундаментальна в 
-    $m(X_1) \Rightarrow \exists ./ f \in m(X_1) \quad \sup_{x \in X_1} |f(x) - f_n(x)| \underset{n \to \infty}{\longrightarrow} 0$. Положим
+    $m(X_1) \Rightarrow \exists \, f \in m(X_1) \quad \sup_{x \in X_1} |f(x) - f_n(x)| \underset{n \to \infty}{\longrightarrow} 0$. Положим
     $f(x) = 0$ если $x \in e \Rightarrow \liml_{n \to \infty} ||f_n - f||_{L\infty} = 0 $
  \end{proof}
 
@@ -413,7 +413,7 @@ $(F, || \cdot ||_p) $~--- не полное, $F$~--- не замкнуто.
     Пусть $ m > n$. %рисунок 2
     \[ \int_{-1}^1 |f_m(x) - f_n(x)| dx = \frac{1}{2} \left( \frac{1}{n} - \frac{1}{m} \right) \leq \frac{1}{2n} \underset{n, m \to \infty}{\longrightarrow} 0 \]
 
-    Пусть $\exists ./ f \in C[-1,1] : \normunder{f-f_n}{1} \underset{n \to \infty}{\longrightarrow} 0$ 
+    Пусть $\exists \, f \in C[-1,1] : \normunder{f-f_n}{1} \underset{n \to \infty}{\longrightarrow} 0$ 
     \begin{gather*}
         m \geq n \quad \int^1_{\frac{1}{n}} \underbrace{|f(x) - 1|}_{=0} dx  \underset{m \to \infty}{\longrightarrow} 0  \\
         \int^1_{\frac{1}{n}} {|f(x) - 1|} dx \leq \int^1_0 |f(x) - f_m(x)|dx \underset{m \to \infty}{\longrightarrow} 0

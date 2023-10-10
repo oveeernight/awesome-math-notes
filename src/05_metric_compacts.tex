@@ -45,7 +45,7 @@
     $F$ -- $\varepsilon$-сеть для $A$, если 
     \begin{multline*}
         \forall a \in A \, \exists f \in F: \rho(a,f) < \varepsilon \\
-        (\Leftrightarrow \, \forall a \in A B_\varepsilon(a) \cap F \ne \varnothing) \Leftrightarrow (A \subset \bigcup U_{f \in F} B_{\varepsilon}(f))
+        (\Leftrightarrow \, \forall a \in A B_\varepsilon(a) \cap F \ne \varnothing) \Leftrightarrow (A \subset \bigcup_{f \in F} B_{\varepsilon}(f))
     \end{multline*}
 \end{definition}
 
@@ -53,7 +53,7 @@
     $A$ -- \textbf{вполне ограниченное множество}, если для $\forall \varepsilon > 0 \, \exists$ конечная $\varepsilon$-сеть для $A$.
 \end{definition}
 
-Описание компактных и относительно-компактных множеств в терминах почти ограниченных -- как раз наша главная цель.
+Описание компактных и относительно-компактных множеств в терминах вполне ограниченных -- как раз наша главная цель.
 Мы будем использовать это новое описание так: если мы в полном метрическом пространстве, то там относительная компактность и вполне ограниченность -- одно и то же.
 А проверять вполне ограниченность - гораздо проще, чем проверять относительную компактность. Предъявим $\varepsilon$-сеть и всё!
 
@@ -62,7 +62,7 @@
 \end{remark}
 
 \begin{example}
-    $(\bR^n, || \cdot ||_2) = l^2_n \quad A \subset \bR^N$. $A$ -- ограниченное $\Leftrightarrow A$ вполне ограниченное
+    $(\bR^n, || \cdot ||_2) = l^2_n \quad A \subset \bR^n$. $A$ -- ограниченное $\Leftrightarrow A$ вполне ограниченное
 \end{example}
 
 \begin{proof}
