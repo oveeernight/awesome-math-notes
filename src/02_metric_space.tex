@@ -75,10 +75,11 @@ $(X, \rho)\text{~--- метрическое пространство} \Rightarro
 \end{definition}
 
 \begin{theorem}[Свойства фундаментальных последовательностей]
+\label{theo:cauchy-seq-properties}
     $(X,\rho)$~--- метрическое пространство, $\{x_n\}^\infty_{n=1}$~--- фундаментальная последовательность, тогда выполняется:
     \begin{enumerate}
         \item $\{x_n\}^\infty_{n=1}$~--- ограниченная, т.е. $\exists R > 0 \, \exists x_0 \in X \, \forall n \in \bN \, x_n \in B_R(x_0)$
-        \item $\exists \{x_{n_k}\}^\infty_{k=1}\text{~--- подпоследовательность } \exists a \liml x_{n_k} = a \Rightarrow \liml_{n \to \infty} x_n = a $
+        \item $\exists \{x_{n_k}\}^\infty_{k=1}\text{~--- подпоследовательность } \Rightarrow (\exists a \in X \liml_{k \to \infty} x_{n_k} = a \Rightarrow \exists a \in X \liml_{n \to \infty} x_n = a = \liml_{k \to \infty} x_{n_k}) $
         \item $\{ \varepsilon_k \}_{k=1}^\infty$~--- произвольная последовательность действительных чисел $\land \forall k \in \bN \varepsilon_k > 0 \Rightarrow \exists \{x_{n_k}\}^\infty_{k=1}$~--- подпоследовательность $\forall j \in \bN (j > k \Rightarrow \rho(x_{n_k}, x_{n_j}) < \varepsilon_k)$
     \end{enumerate}
 \end{theorem}
@@ -194,92 +195,99 @@ $(X, || \cdot ||)$ будем обозначать нормированное п
 \end{theorem}
 
 \begin{proof}
-    Предположим, что наше пространство полное ($\Rightarrow)$. $(X, \rho)$~--- полное, $\seq{x_k}^\infty_{k=1}$.
+    Предположим, что наше пространство полное ($\Rightarrow)$. $(X, \rho)$~--- полное, $\seq{x_k}^\infty_{k=1}$~--- последовательность, при этом
     \[ \sum^\infty_{k=1} ||x_k|| \tag{**} \text { сходится } \]
     Цель такая: последовательность $S_n$~--- фундаментальная. Сейчас применим критерий Коши к ряду (**). Это ряд из чисел, так что всё в порядке.
-    Пусть $\varepsilon > 0$. По критерию Коши $\exists N \in \bN \forall n \in \bN \forall p \in \bN (n > N \Rightarrow \sum^{n+p}_{k=n} ||x_k|| < \varepsilon)$.
+    Пусть $\varepsilon > 0$. По критерию Коши $\exists N \in \bN \forall n \in \bN \forall p \in \bN (n > N \Rightarrow \sum^{n+p}_{k=n+1} ||x_k|| < \varepsilon)$.
 
     $S_n = \sum^n_{k=1} x_k$.
     \begin{multline*}
-        \sum^{n+p}_{k=n+1} ||x_k|| = \underline{||S_{n+p} - S_n||} = \left|\left| \sum^p_{k=1}  x_{n+k}\right|\right| \leq \sum^p_{k=1}||x_{n+k}|| \underline{< \varepsilon}\\
-        \Rightarrow \underline{\seq{S_n}^\infty_{n=1} \text{~--- фундаментальная}}, (X, \rho) \text{~--- полное} \\
+        ||S_{n+p} - S_n|| = \left|\left| \sum^p_{k=1}  x_{n+k}\right|\right| \leq \sum^p_{k=1}||x_{n+k}|| = \sum^{n+p}_{k=n+1} ||x_k|| < \varepsilon\\
+        \Rightarrow \seq{S_n}^\infty_{n=1} \text{~--- фундаментальная}, (X, \rho) \text{~--- полное} \\
         \Rightarrow \exists S \in X \liml_{n \to \infty}{S_n} = S \\
         \Rightarrow \sum^\infty_{k=1} x_k \text{ сходится }
     \end{multline*}
-    Мы так запаслись номерами, чтобы выражение было меньше $\varepsilon$
-    
+    Мы так запаслись номерами, чтобы выражение было меньше $\varepsilon$.
 
     Теперь ($\Leftarrow$). У нас кроме определения ничего нет. Возьмём какую-то фундаментальную последовательность. Откуда взять предел? Есть соотношения между элементами последовательности. Возьмём подпоследовательность, ведь у нас есть следствие \ref{cor:subseq-metric-sum-converges}! 
-    Из свойств фундаментальных последовательностей, мы знаем, что существует подпоследовательность 
+    Из свойств фундаментальных последовательностей, мы знаем, что
     \begin{gather*}
-        \{x_{n_k} \}_{k=1}^\infty:||x_{n_1}|| + \sum_{k=1}^\infty ||x_{n_{k+1} - x_{n_k}}|| < +\infty \\
-         \Rightarrow x_{n_1} + \sum^n_{k=1} (x_{n_{k+1}} - x_{n_k}) \text{~--- сходится, но:} \\
-        S_m = x_{n_1} + \sum^{m-1}_{k=1}(x_{n_{k+1}} - x_{n_k}) = x_{n_m} \Rightarrow \exists S \in X \liml_{n \to \infty} x_{n_m} = S
+        \exists \{x_{n_k}\}_{k=1}^\infty\text{~--- подпоследовательность} ||x_{n_1}|| + \sum_{k=1}^\infty ||x_{n_{k+1}} - x_{n_k}|| \text{ сходится} \\
+         \Rightarrow \text{последовательность } x_{n_1} + \sum^{\infty}_{k=1} (x_{n_{k+1}} - x_{n_k}) \text{ сходится}
     \end{gather*}
+    Но её последовательность частичных сумм~--- это в точности оригинальная подпоследовательность:
+    \begin{gather*}
+        S_m = x_{n_1} + \sum^{m-1}_{k=1}(x_{n_{k+1}} - x_{n_k}) = x_{n_m} \Rightarrow \exists S \in X \liml_{k \to \infty} x_{n_k} = S
+    \end{gather*}
+    Далее из части 2 Теоремы \ref{theo:cauchy-seq-properties}
+    \[ \exists S \in X \liml_{m \to \infty} x_{n_m} = S \Rightarrow \exists S \in X \liml_{n \to \infty} x_{n} = S \]
 \end{proof}
 
 \section{Пространства ограниченных функций}
 \begin{definition}
-    Пусть $A$~--- произвольное множество. Стандартное обозначение $m(A)$~--- множество всех ограниченных функций.
-    \[ m(A) = \{ f: A \rightarrow \bR \text{ или } \bC, \sup_{x \in A} |f(x)| < \infty \} \]
+    Пусть $A$~--- произвольное множество. Стандартное обозначение $m(A)$~--- множество всех ограниченных функций из него в комплексные (или только в действительные, не важно) числа
+    \[ m(A) = \{ f | f: A \rightarrow \bC \land \sup_{x \in A} |f(x)| < +\infty \} \]
 \end{definition}
 
-$f \in m(A), ||f||_{\infty} = \sup_{x \in A} |f(x)|$.
+$f \in m(A) \Rightarrow ||f||_{\infty} = \sup_{x \in A} |f(x)|$.
 
 \begin{theorem}
     $(m(A), || \cdot ||_{\infty})$~--- банахово пространство
 \end{theorem}
+
 \begin{proof}
-    Нужно проверить две вещи. Во-первых, что норма удовлетворяет аксиомам нормы. А во-вторых, что пространство с таким определением является полным.
-     Просто по определению, никаких хитрых критериев. Возьмём
-    фундаментальную подпоследовательность и покажем, что у нее есть предел.
+    Нужно проверить две вещи. Во-первых, что $|| \cdot ||_\infty$ удовлетворяет аксиомам нормы. А во-вторых, что пространство с таким определением является полным.
+    Просто по определению, никаких хитрых критериев~--- возьмём фундаментальную подпоследовательность и покажем, что у нее есть предел.
 
     Проверяем, что $|| \cdot ||_\infty$ удовлетворяет аксиомам нормы.
-    \[ ||f||_\infty = \sup_{x \in A} |f(x)| \geq 0, ||f||_\infty 0 \Rightarrow f(x) 0 \forall x \in A \text{ т.е. } f = \mathbb{0} \]
 
-    $\lambda \in \bR$ (или $\bC$). $||\lambda f|| = \sup_{x \in A} |\lambda| \cdot ||f||_\infty$
+    \[ \forall \lambda \in \bC ||\lambda f||_\infty = \sup_{x \in A} |\lambda| \cdot ||f(x)|| = |\lambda| \cdot \sup_{x \in A} ||f(x)|| = |\lambda| \cdot ||f||_\infty \]
 
     Нужно проверить неравенство треугольника.
 
-    $f, g \in m(A)$. $x$~--- фиксированная точка в $A$
+\begin{gather*}
+    \forall f \in m(A) \forall g \in m(A) \forall x \in A |f(x) + g(x)| \leq |f(x)| + |g(x)| \leq ||f||_\infty + ||g||_\infty \\
+    \Rightarrow \forall f \in m(A) \forall g \in m(A) ||f+g||_\infty = \sup_{x \in A} |f(x) + g(x)| \leq ||f||_\infty + ||g||_\infty
+\end{gather*}
 
-    $|f(x) + g(x)| \leq |f(x)| + |g(x)| \leq ||f||_\infty + ||g||_\infty \forall x \in A$
-    \[\Rightarrow ||f+g||_\infty = \sup_{x \in A} |f(x) + g(x)| \leq ||f||_\infty + ||g||_\infty\]
+    Следующая аксиома нормы:
+    \[ ||f||_\infty = 0 \Leftrightarrow \forall x \in A f(x) = 0  \text{ т.е. $f$~--- нулевая функция} \]
     Теперь мы проверили аксиомы нормы. Доказываем полноту. 
-    $\{f_n\}$~--- фундаментальная в $m(A)$.
-    \[ \varepsilon > 0 \, \exists \, N \in \bN: (m > N \, \wedge \, n > N)  \Rightarrow ||f_n - f_m||_\infty < \varepsilon \text{ т.е. } \sup_{x \in A} |f_n(x) - f_m(x)| \]
-    Первый вопрос: откуда взять претендента на роль предела? Еще желательно, чтобы он был единственный. Фиксируем $x$. Если для супремума есть неравенство, то и для
-    $x$ тем более.
-    $|f_n(x) - f_m(x)| < \varepsilon$ при $n,m > N$. 
-     $\Rightarrow \{f_n(x)\}^\infty_{n=1}$~--- последовательность чисел в $\bC$ или $\bR$.
+    $\{f_n\}^\infty_{n=0}$~--- фундаментальная в $m(A)$.
+\begin{multline*}
+    \forall \varepsilon > 0 \exists N \in \bN \forall m \in \bN \forall n \in \bN(\\
+    (m > N \land n > N) \Rightarrow ||f_n - f_m||_\infty < \varepsilon) \text{ т.е. } \sup_{x \in A} |f_n(x) - f_m(x)| < \varepsilon
+\end{multline*}
+    Первый вопрос: откуда взять претендента на роль предела? Еще желательно, чтобы он был единственный. Берём $\varepsilon, N$ из формулы выше, фиксируем $x$. Если для супремума есть неравенство, то и для $x$ тем более.
+    $\forall x \in A ((n > N \land m > N) \Rightarrow |f_n(x) - f_m(x)| < \varepsilon)$.
+    $\Rightarrow \{f_n(x)\}^\infty_{n=0}$~--- фундаментальная последовательность чисел в $\bC$.
      
-     $\Rightarrow \{f_n(x) \}^\infty_{n=1}$~--- фундаментальная $\Rightarrow \exists \liml_{n \to \infty} f_n(x)$
+    $\Rightarrow \forall x \in A \exists L \in \bC \liml_{n \to \infty} f_n(x) = L$
 
-     \[ f(x) = \liml_{n \to \infty} f_n(x)  \forall x \in A \text {x фиксированный}\]
+    Определим $f \coloneqq (x \in A \mapsto \liml_{n \to \infty} f_n(x))$
     \begin{gather*}
-        |f_n(x) = f_m(x)| < \varepsilon \quad \text { пусть } m \to \infty \\
-        \Rightarrow |f_n(x) - f(x)| \leq \varepsilon, x \in A \, \forall x \in A \\
-        \Rightarrow ||f_n-f||_\infty = \sup_{x \in A} |f_n(x) - f(x)| \leq \varepsilon \text{ при } n > A
+        (n > N \land m > N \Rightarrow \forall x \in A |f_n(x) - f_m(x)| < \varepsilon) \quad \text { пусть } m \to \infty \\
+        \Rightarrow (n > N \Rightarrow \forall x \in A |f_n(x) - f(x)| \leq \varepsilon) \\
+        \Rightarrow (n > N \Rightarrow ||f_n-f||_\infty = \sup_{x \in A} |f_n(x) - f(x)| \leq \varepsilon)
     \end{gather*}
-     Последнее сображение, которое нужно добавить, это то, что $f$~--- элемент $A$. Мы можем записать $f$ как $f = (f - f_n) + f_n, f_n \in m(A), f-f_n \in m(A)$.
+     Последнее сображение, которое нужно добавить, это то, что $f$~--- элемент $A$. Для $n > N$ можем записать $f$ как $f = (f - f_n) + f_n, f_n \in m(A), f-f_n \in m(A)$.
 
-     \[\Rightarrow \liml_{n \to \infty} || f - f_n|| = 0 \Leftrightarrow \liml_{n \to \infty} f_n = f \in m(A) \]
+     \[\Rightarrow ||f||_\infty = ||(f - f_n) + f_n||_\infty \leq ||f - f_n||_\infty + ||f_n||_\infty < +\infty \Rightarrow f \in m(A) \]
  \end{proof}
  Давайте заметим, что у нас получилось определение равномерной непрерывности из математического анализа.
 
-\[ \liml_{n \to \infty} f_n = f \in m(A) \Leftrightarrow \liml_{n \to \infty} \sup_{x \in A} |f_n(x) - f(x)| = 0 \Leftrightarrow f_n \darrow{A, n \to \infty}  f \] 
+\[ \liml_{n \to \infty} f_n = f \in m(A) \Leftrightarrow \liml_{n \to \infty} \sup_{x \in A} |f_n(x) - f(x)| = 0 \Leftrightarrow f_n \darrow{\begin{subarray}{c}x \in A \\ n \to \infty\end{subarray}}  f \] 
 
 \begin{definition}[Топологический компакт]
     Множество $K$~--- топологический компакт, если оно обладает следующими свойствами
     \begin{enumerate}
-        \item $\forall\{G_\alpha\}_{\alpha \in A}, G_\alpha$~--- открытые множества $K \subset \bigcup_{\alpha \in A} G_\alpha \exists \{\alpha_j\}_{j=1}^n, K \subset \bigcup^n_{j=1} G_{\alpha_j} $
-        \item Хаусдорфовость 
-        $\forall x,y (x \ne y) \in K \,\exists U,V$~--- открытые множества, $x \in U, y \in V, U \cap V = \varnothing $
+        \item $(\forall \alpha \in A\, G_\alpha$~--- открытое множество $\land K \subseteq \bigcup_{\alpha \in A} G_\alpha \Rightarrow \exists \{\alpha_j\}_{j=1}^n$~--- конечная подпоследовательность $ K \subseteq \bigcup^n_{j=1} G_{\alpha_j}) $
+        \item Хаусдорфовость $\forall x \in K \forall y \in K (x \ne y \Rightarrow \exists U \exists V (U$~---  открытое множество $\land V$~--- открытое множество $\land x \in U \land y \in V \land U \cap V = \varnothing))$
     \end{enumerate}
 \end{definition}
 
 \begin{definition}
-    $C(K) = \{ f: K \rightarrow \bR, f \text { непрерывна} \}$
+    $C(K) = \{ f | f: K \rightarrow \bR \land f \text { непрерывна} \}$
     \[ ||f||_{C(K)} = ||f||_\infty = \sup_{x \in K} |f(x)| = \max_{x \in K} |f(x)| \]
 
 \end{definition}
