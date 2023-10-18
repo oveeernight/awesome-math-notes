@@ -113,7 +113,7 @@
         \exists M \in \bN \quad \left( \sum^\infty_{k=N+1} \left( \frac{1}{2^k} \right)^p \right)^{\frac{1}{p}} < \varepsilon \\
         \Pi^* = \seq{x = \seq{x_1, \ldots, x_N, 0, 0, \ldots}}, |x_j| \leq \frac{1}{2^j}, \, 1 \leq j \leq N \quad x_{N+k} =0, k \in \bN
     \end{gather*}
-    Если мы забудим, про нули, то можем думать, что $\Pi^*$ лежит в $\bR^n$, и там оно ограниченное, а значит и вполне ограниченное.
+    Если мы забудем, про нули, то можем думать, что $\Pi^*$ лежит в $\bR^n$, и там оно ограниченное, а значит и вполне ограниченное.
     $\Pi^* \subset \bR^n$, $\Pi^*$ -- ограниченное $\Rightarrow$ вполне ограниченное $\Rightarrow$ 
     $\exists F \subset \Pi^*$ -- конечная $\varepsilon$-сеть. \\
     Докажем, что $F$ -- $2\varepsilon$-сеть для $\Pi$.
@@ -125,7 +125,7 @@
     \end{gather*}
 \end{example}
 
-Таким образом, все множества можно описать в пространстве $l^\infty$.
+Таким образом, все множества можно описать в пространстве $l^p$.
 Перед тем, как доказывать основную теорему, несколько свойств вполне ограниченных множеств.
 
 \begin{property}
@@ -200,28 +200,26 @@
     $A$ -- компакт, $\seq{x_n}^\infty_{n=1}$ -- фундаментальная, $x_n \in A$. \\
     $A$ -- компакт $\Rightarrow \, \exists \seq{x_{n_j}}, \liml_{k \to \infty} x_{n_j} = x_0, x_0 \in A $. Тогда по свойствам фундаментальных последовательностей 
     $\liml_{n \to \infty} x_n = x_0 \Rightarrow (A, \rho)$ -- полное метрическое пространство.
-    Проверили первое условие. Теперь надо проверить второе: сначала покроем наш компакт безумным количеством шариков, а они ведь открытые множества, а среди
+    Проверили первое условие. Теперь надо проверить второе: сначала покроем наш компакт безумным количеством шариков, а они ведь открытые множества, и среди
     них существует конечное подпокрытие. 
     \begin{gather*}
-        \let \varepsilon > 0 \quad A \subset \bigcup_{a \in A} B_\varepsilon(a) \, \wedge \, A \text { -- компакт } \Rightarrow , \exists \seq{a_j}^n_{j=1}, a_j \in A : \\
+        \text{пусть } \varepsilon > 0 \quad A \subset \bigcup_{a \in A} B_\varepsilon(a) \land A \text { -- компакт } \Rightarrow , \exists \seq{a_j}^n_{j=1}, a_j \in A : \\
         A \subset \bigcup^n_{j=1} B_\varepsilon(a_j) \Rightarrow F = \seq{a_j}^n_{j=1} \text{ -- } \varepsilon\text{-сеть для } A
     \end{gather*}
     Это была тривиальная часть теоремы. 
-
-    $\Leftrightarrow$. \\
-
-    $ \seq{x_n}^\infty_{n=1}, x_n \in A$ 
+    $\Leftarrow$. \\
+    $ \seq{x_n}^\infty_{n=1}, x_n \in A$.
     Собираемся применять лемму о разбиении. $\varepsilon_1 = \frac{1}{2}$. По лемме $\exists \seq{C_j^{(1)}}^{N_1}_{j=1}$.
-    $A = \bigcup^{N_1}_{j=1} C_j^(1), \diam C_j^(1) \leq 1$.
+    $A = \bigcup^{N_1}_{j=1} C_j^{(1)}, \diam C_j^{(1)} \leq 1$.
     Когда-то в детстве мы азнимались бесконечным делением пополам. Тут будем делать то же самое.
-    $\exists j: C^(1)_j$ содержит бесконечное число элементов $\seq{x_n}$. $A_1 := C_j^(1)$.
+    $\exists j: C^{(1)}_j$ содержит бесконечное число элементов $\seq{x_n}$. $A_1 := C_j^{(1)}$.
     \begin{gather*}
         \varepsilon_2 = \frac{1}{2^2}, \text{ по лемме о разбиении к } A_1 \Rightarrow \exists \seq{C_j^{(2)}}_{j=1}^{N_2} \\
         \diam C_j^{(2)} \leq \frac{1}{2} \quad A_1 = \bigcup^{N_2}_{j=1} C_j^{(2)} \\
         \exists 1 \leq j \leq N_2 \quad C_j^{(2)} \text {содержит бесконечное количетсво элементов в } x_n \\
         \text{ и так далее } \seq{A_m}^\infty_{m=1}, A_{m+1} \subset A_m, \diam_{A_m} \leq \frac{1}{2^m} \\
         A_m \text{ содержит бесконечное число элементов } \seq{x_n}^\infty_{n=1} (*)\\
-        X_{n_1} \in A_1, \quad \exists n_2 > n_1 : x_{n_2} \in A_2 \text{ т.к. (*)} \\
+        x_{n_1} \in A_1, \quad \exists n_2 > n_1 : x_{n_2} \in A_2 \text{ т.к. (*)} \\
         \text{ и так далее } \exists n_k \text{ т.ч. } n_k > n_{k-1} \quad x_{n_k} \in A_k \\
         \seq{x_{n_k}}^\infty_{k=1}, x_{n_k} \in A_k, \diam A_k \underset{k \to \infty}{\longrightarrow} 0 \quad A_{k+1} \subset A_k \\
         \Rightarrow \seq{x_{n_k}}^\infty_{k=1} \text{ -- фундаментальная } \wedge A \text{ -- полное } \\
@@ -266,7 +264,7 @@
 \begin{definition}
     $(K, \rho)$ -- метрический компакт.
      $C(K) = \seq{f: K \rightarrow \bR (\bC), f \text{ -- непрерывная}}, ||f|| = \max_{x \in K} |f(x)| \Phi \subset C(K)$.
-    $\Phi$ -- \textbf{ равностепенно непрерывна}, если 
+    $\Phi$ -- \textbf{ равностепенно непрерывно}, если 
     \[ \forall \varepsilon > 0 \, \exists \delta > 0 \, \, \forall f \in \Phi, \, \forall x, y \in K, \rho(x,y) < \delta \Rightarrow |f(x) - f(y)| < \varepsilon \] 
     $EC$ -- equicontinuous.
 \end{definition}
@@ -311,9 +309,9 @@
     мы и проверили равностепенную непрерывность. Тривиальная часть доказательства закончена. \\
     $\Leftarrow$ \\
     $\Phi$ -- ограничено $\Rightarrow \, \exists M > 0: f \in \Phi \Rightarrow ||f|| \leq M \Rightarrow |f(x)| \leq M \, \forall x \in K$.
-    Надо по определению построить кончную $\varepsilon$-сеть в множестве непрерывных функций. но мы воспользуемся двумя облегчающими хитростями:
-    1. $\Phi \subset C(K)$, а
-    если множество имеет $\varepsilon$-сеть в меньшем пространстве, то в большем и подавно. Более того, сеть можно построить из элементов меньшего множества. Мы выберем ограниченные функции.
+    Надо по определению построить конечную $\varepsilon$-сеть в множестве непрерывных функций. Но мы воспользуемся двумя облегчающими хитростями:
+    1. $\Phi \subset C(K)$, а $C(K) \subset m(K)$, и
+    если множество имеет $\varepsilon$-сеть в большем пространстве, то в меньшем и подавно. Более того, сеть можно построить из элементов меньшего множества. Мы выберем ограниченные функции.
     2. выберем относительно компактную $\varepsilon$-сеть в $m(K)$ вместо конечной в $C(K)$, и этого будет достаточно.
     \[ \varepsilon > 0 \quad \Phi \subset C(K) \subset m(K) = \{ f: K \rightarrow \bC, \sup_{x \in K} |f(x)| < + \infty \} \]
     
@@ -372,17 +370,17 @@
     Сначала какие-то абстрактные множества, потом будут более конкретные.
     \begin{enumerate}
         \item Если $\exists M > 0, \alpha > 0, \beta > 0$ такие что 
-        \item \begin{multline*}
+        \begin{multline*}
             \forall f \in \Phi, (\forall x,y \in K \rho(x,y) < \beta) \Rightarrow |f(x) - f(y)| \leq M(\rho(x,y))^\alpha \\
             \Rightarrow \Phi \in (EC)
         \end{multline*}
         \item $C[a,b], \Phi \subset C[a,b]$, пусть $\exists L > 0$ 
         \[ \forall f \in \Phi \, \exists f^\prime(x), x \in (a,b), |f^\prime(x)| \leq L \Rightarrow \Phi \in (EC) \]
         \item чуть более общий случай. $K \subset G \subset \bR^n$, $K$ -- компакт, $G$ -- открытое.
-        \[ \exists L > 0 : \forall f \in \Phi, \exists \left| \frac{\partial f}{\partial x_j}  (x) \right| (1 \leq j \leq n), \forall f \in G \,  \Rightarrow \Phi \in (EC)  \] 
+        \[ \exists L > 0 : \forall f \in \Phi, \exists \left| \frac{\partial f}{\partial x_j}  (x) \right| \leq L (1 \leq j \leq n), \forall x \in G \,  \Rightarrow \Phi \in (EC)  \] 
         \item про аналитические функции. предполагать можно будет гораздо меньшее. 
         $K \subset G \subset \bC$, $G$ -- открытое, $K$ -- компакт. 
-        \[ \exists L > 0, f \in \Phi, f \text{ аналаитическая в } G, \exists f^\prime(x), \underbrace{|f(x)|}_{\text{ТУТ}} \leq L, \forall x \in G \] 
+        \[ \exists L > 0, f \in \Phi, f \text{ аналитическая в } G, \exists f^\prime(x), \underbrace{|f(x)|}_{\text{ТУТ}} \leq L, \forall x \in G \] 
     \end{enumerate}
         ТУТ НЕ ПРОИЗВОДНАЯ, НА ЭКЗАМЕНЕ ЧАСТО ОШИБАЮТСЯ!!!!
 \end{theoremwobox}
@@ -394,7 +392,7 @@
     \begin{gather*}
         f \in \Phi \Rightarrow |f(x) - f(y)| \leq M \rho(x,y)^\alpha < M \delta^\alpha \leq \varepsilon \\
         \Rightarrow \delta \leq \left( \frac{\varepsilon}{M} \right)^{\frac{1}{\alpha}}, \\
-        \delta(\varepsilon) = \min \{ \beta, \left( \frac{\varepsilon}{M} \right)^{\frac{1}{\alpha}} \},
+        \delta(\varepsilon) = \min \left\{ \beta, \left( \frac{\varepsilon}{M} \right)^{\frac{1}{\alpha}} \right\},
     \end{gather*}
 \end{proof}
 
@@ -416,7 +414,7 @@
         \text{ опять можем воспользоваться теоремой Лагранжа } \\
         f(y) - f(z) = f(\Gamma(1)) - f(\Gamma(0)) = (f(\Gamma(c)))^\prime_t \\
         (f(\Gamma(t)))^\prime_t = (f(ty + (1-t)z))^\prime_t = \sum^n_{j=1} \frac{\partial f}{\partial x_j} (\ldots) (y_j - z_j) \\
-        |f(\Gamma(t))^\prime| \leq L \sum^n_{j=1} |y_j - z_j| \stackrel{\text{КБШ}}{\leq} \sqrt{n} \left( \sum^n_{j=1} (y_j - z_j)^2 \right)^\frac{1}{2} = L \sqrt{n} \rho(y,z)
+        |f(\Gamma(t))^\prime| \leq L \sum^n_{j=1} |y_j - z_j| \stackrel{\text{КБШ}}{\leq} L\sqrt{n} \left( \sum^n_{j=1} (y_j - z_j)^2 \right)^\frac{1}{2} = L \sqrt{n} \rho(y,z)
     \end{gather*}
     Если выбртаь $\beta$ достаточно маленьким, то наш отрезок будет лежать в этом компакте. $F = \bR^n \setminus G$ -- замккнутое, $\rho(x,F)$ -- непрерывная функция  в 
     $\bR^n$ $\Rightarrow \rho(x,F)$ непрерывна на $K \Rightarrow \, \exists x_o \in K, \rho(x_0,F) = \min_{x \in K} \rho(x,F)$
@@ -428,7 +426,7 @@
         \text{ отрезок } [x,y] B_r(x) \subset G \\
         \Rightarrow |f(x) - f(y)| \leq L \sqrt{n} \rho(x,y)
     \end{gather*}
-    $z$ и $y$, которые с самого начала были выбраны вместо $x$ и $y$, чтобы не смущаться от $dx$, обратно превратились в $x$ и $y$, все же поняли? \\
+    $z$ и $y$, которые с самого начала были выбраны вместо $x$ и $y$, чтобы не смущаться из-за $dx$, обратно превратились в $x$ и $y$, все же поняли? \\
     На пальцах: наш компакт настолько утоплен в $G$, что если мы возьмём шарик радиуса $r$, то шарик всё еще лежит в $G$.
 \end{proof}
 
