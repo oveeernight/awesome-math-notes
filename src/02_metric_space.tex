@@ -117,6 +117,7 @@ $(X, \rho)\text{~--- метрическое пространство} \Rightarro
 \end{proof}
 
 \begin{theorem}[О замкнутом подмножестве]
+\label{theo:closed-subset-complete-space}
     $(X,\rho)$~--- метрическое пространство, тогда
     \begin{enumerate}
         \item $(X, \rho)$~--- полное, $Y \subseteq X$, $Y$~--- замкнутое $\Rightarrow (Y, \rho)$~--- полное
@@ -158,9 +159,9 @@ $(X, \rho)\text{~--- метрическое пространство} \Rightarro
 
 \begin{definition}[Норма]
     $X$~--- линейное пространство, $p : X \rightarrow \bR$. $p$~--- норма $\Leftrightarrow $ ($p$~--- полунорма $\land $ ($p(x) = 0 \Leftrightarrow x = \mathbb{0}$)).
-    Будем обозначать $||x|| := p(x)$.
+    Будем обозначать $||x|| \coloneqq p(x)$.
 \end{definition}
-$(X, || \cdot ||)$ будем обозначать нормированное пространство. и при $(x \in X \land y \in X)$ $\rho(x,y) := ||x-y||$. Тогда $(X,||\cdot ||)$~--- метрическое пространство.
+$(X, || \cdot ||)$ будем обозначать нормированное пространство. и при $(x \in X \land y \in X)$ $\rho(x,y) \coloneqq ||x-y||$. Тогда $(X,||\cdot ||)$~--- метрическое пространство.
 
 \begin{definition}[банахово пространство]
     $(X, || \cdot ||)$~--- банахово, если оно полное
@@ -232,6 +233,7 @@ $(X, || \cdot ||)$ будем обозначать нормированное п
 $f \in m(A) \Rightarrow ||f||_{\infty} = \sup_{x \in A} |f(x)|$.
 
 \begin{theorem}
+\label{theo:bounded-func-space-is-banach}
     $(m(A), || \cdot ||_{\infty})$~--- банахово пространство
 \end{theorem}
 
@@ -281,7 +283,7 @@ $f \in m(A) \Rightarrow ||f||_{\infty} = \sup_{x \in A} |f(x)|$.
 \begin{definition}[Топологический компакт]
     Множество $K$~--- топологический компакт, если оно обладает следующими свойствами
     \begin{enumerate}
-        \item $(\forall \alpha \in A\, G_\alpha$~--- открытое множество $\land K \subseteq \bigcup_{\alpha \in A} G_\alpha \Rightarrow \exists \{\alpha_j\}_{j=1}^n$~--- конечная подпоследовательность $ K \subseteq \bigcup^n_{j=1} G_{\alpha_j}) $
+        \item $(\forall \alpha \in A\, G_\alpha$~--- открытое множество $\land K \subseteq \bigcup_{\alpha \in A} G_\alpha) \Rightarrow \exists \{\alpha_j\}_{j=1}^n$~--- конечная последовательность элементов A $ K \subseteq \bigcup^n_{j=1} G_{\alpha_j} $ (т.е. у каждого покрытия K открытыми множествами существует конечное подпокрытие)
         \item Хаусдорфовость $\forall x \in K \forall y \in K (x \ne y \Rightarrow \exists U \exists V (U$~---  открытое множество $\land V$~--- открытое множество $\land x \in U \land y \in V \land U \cap V = \varnothing))$
     \end{enumerate}
 \end{definition}
@@ -293,69 +295,73 @@ $f \in m(A) \Rightarrow ||f||_{\infty} = \sup_{x \in A} |f(x)|$.
 \end{definition}
 
 \begin{corollary}
-    $K$~--- топологический компакт $\Rightarrow C(K)$~--- банахово
+    $K$~--- топологический компакт $\Rightarrow (C(K), ||\cdot||_\infty)$~--- банахово
 \end{corollary}
 
 \begin{proof}
-    $C(K) \subset m(K)$. $C(K)$~--- подпространство в алгебраическом смысле. Проверим, что $C(K)$~--- замкнуто в $m(K)$
+    Имеем дело с непрерывными функциями на компакте, поэтому $C(K) \subset m(K)$. $C(K)$~--- подпространство в алгебраическом смысле. 
 
-    \[ \{ f_n \}, f_n = C(K), \liml_{n \to \infty} |f - f_n|_\infty = 0 \stackrel{замечание}{\Leftrightarrow} f_n \darrow{K, n \to \infty} f \stackrel{из анализа}{\Rightarrow} f \in C(K) \Rightarrow C(K) замкнуто \]
-    тогда $m(K)$~--- полное и $C(K)$~--- полное.
+    Пусть $\seq{f_n}_{n=0}^\infty$~--- произвольная фундаментальная последовательность в $C(K)$, $f \in m(K)$~--- её предел (существует по теореме \ref{theo:bounded-func-space-is-banach}). Это значит, что $f_n(x) \darrow{\begin{subarray}{c}x \in K\\ n \to \infty\end{subarray}} f(x)$. Тогда из анализа знаем, что $f \in C(K)$. Из-за произвольности выбора последовательности $C(K)$ замкнуто.
+
+        По теореме \ref{theo:closed-subset-complete-space}  $(C(K), ||\cdot||_\infty)$ является полным, то есть $(C(K), ||\cdot||_\infty)$~--- банахово.
 \end{proof}
 
 
 \section{Пространство последовательностей с $\sup$ нормой}
 
 \begin{definition}
-    $\bC^n, n \in \bN, l_n = \{x^\infty = (x_1, \ldots, x_n), x_j \in \bC \} $
-    \[ ||x||_\infty =  \max_{1 \leq j \leq n} |x_j| \]
-
+    $n \in \bN, l^\infty_n = \{ x = (x_1, \ldots, x_n), x_j \in \bC \}$
+    \[ ||x||_\infty = \max_{j \in (1\ldots n)} |x_j| \]
 \end{definition}
-$A = \{ 1, 2, \ldots, n \}, l_n^\infty = m(A) \Rightarrow l^\infty_n$~--- полное
-Удобно думать, что последовательность~--- это функция на множестве натуральных чисел.
+
+Также об этом пространстве можно думать как о пространстве $m((1\ldots n))$, то есть оно полное.
+
+Напомним, что последовательность~--- это функция на множестве натуральных чисел. Далее это используется явно.
 
 \begin{definition}[$l^\infty$]
     \begin{gather*}
-        l^\infty = \{ X  = \{x_j\}_{j=1}^\infty, \sup_{j \in \bN} |x_j| < + \infty \} \\
-        ||x||_\infty \sup_{j \in \bN} |x_j| \quad A = \{1, 2,3, \ldots, n, \ldots \} \\
-        X = \seq{x}{j}_{j=1}^\infty \in m(A), \underset{f: A \rightarrow \bC}{f(j) = x_j} \\
-        l^\infty := m(\bN) \Rightarrow l^\infty \text {~--- полное}
+        l^\infty \coloneqq m(\bN), ||x||_\infty = \sup_{j \in \bN} |x_j|
     \end{gather*}    
 \end{definition}
 
- \begin{definition}
+То есть $l^\infty$~--- пространство последовательностей. Оно является обобщением пространств $l^\infty_n$ на цепочки произвольных длин.
+
+Отметим, что $l^\infty$~--- полное.
+
+\begin{definition}
     \begin{gather*}
-        c = \{ X = \seq{x}{j}^\infty_{j=1}, x_j \in \bC \quad \exists \liml_{n \to \infty}{x_n = x_0} \} \\
-        c \subset l^\infty, ||x|| = ||x||_\infty = \sup ||X|| \\
-        c_0 = \{x=\{x\}_{j=1}^\infty, \liml_{n \to \infty} x_j = 0\}, c_0 \subset c \subset l^\infty 
+        c \coloneqq \{ X = \seq{x_j}^\infty_{j=1}, x_j \in \bC \quad \exists \, x_0 \in \bC  \liml_{n \to \infty}{x_n = x_0} \} \\
+        c \subset l^\infty, ||X|| = ||X||_\infty = \sup_{j \in \bN} |x_j| \\
+        c_0 \coloneqq \{x=\{x_j\}_{j=1}^\infty, \liml_{n \to \infty} x_j = 0\}, c_0 \subset c \subset l^\infty 
     \end{gather*}
-    $c, c_0$~--- замкнутые подпространства в $l^\infty \Rightarrow c, c_0$~--- банаховы. 
- \end{definition}
+\end{definition}
+
+$c, c_0$~--- замкнутые подпространства в $l^\infty \Rightarrow c, c_0$~--- банаховы. 
 
  \section{Пространства $n$ раз непрерывно дифференцируемых функций на отрезке}
 
- \begin{definition}[норма $n$ производной]
-    \[n \in \bN \quad C^{(n)}[a,b] = \{ f: [a,b] \rightarrow \bR \} \, \exists \, f^{(n)} \in C[a,b] \]
-    \[ ||\underset{C[a,b]}{|f||_{(n)}}  = \max_{0 \leq k \leq n}, f^{0} = f \]
+ \begin{definition}[норма $n$-той производной]
+    \[n \in \bN \quad C^{(n)}[a,b] = \{ f | f: [a, b] \rightarrow \bR \land \, \exists \, f^{(n)} \in C[a,b] \} \]
+    \[ ||f||_{C^{(n)}}  = \max_{0 \leq k \leq n} f^{(k)} \]
  \end{definition}
 
- \begin{theorem}B
-    $C^{(n)}[a,b]$~--- банахово.
+ \begin{theorem}
+     $(C^{(n)}[a,b], ||\cdot||_{C^{(n)}})$~--- банахово.
  \end{theorem}
 
  \begin{proof}
     \begin{gather*}
         \{f_m\}^\infty_{m=1} \text{~--- фундаментальная последовательность в } C^{(n)}[a,b] \\
-        \varepsilon > 0 \exists N : (m > n \, \wedge \, q > n) \Rightarrow \normunder{f_m-f_q}{C^{(n)}} 
-        < \varepsilon \Rightarrow \normunder{f_m^{(k)} < f_q^{(k)}}{\infty} < \varepsilon\\ 
-         k = 0,1,\ldots,n 
+        \textcolor{red}{\forall \,  \varepsilon > 0 \, \exists \, N \in \bN \, \forall \, m \in \bN \, \forall \, q \in \bN (m > N \land q > N) \Rightarrow} \normunder{f_m-f_q}{C^{(n)}} < \varepsilon \\
+        \Rightarrow \textcolor{red}{\ldots} \forall \, k \in (0\ldots n) \normunder{f_m^{(k)} - f_q^{(k)}}{\infty} < \varepsilon\\
+        \Rightarrow \forall \, k \in (0\ldots n) \seq{f_m^{(k)}}_{m=1}^\infty \text{~--- фундаментальная}
     \end{gather*}
 
-    \begin{multline}
-        \{f_m^{(k)} \} \text {~--- фундаментальная в полном пространстве } C[a,b]\\
-         \Rightarrow \exists \varphi_k \in C[a,b], f_n^{(k)} \darrow{[a,b]} \varphi_k, k = 0,1, \ldots, n \\
-        \stackrel{\text{Анализ}}{\Rightarrow} (f_k^{(n)} \darrow{[a,b]} \varphi_0 \, \wedge \, \varphi_k^{0} \darrow{[a,b]} \varphi_1) \Rightarrow \varphi_1 = \varphi_0^\prime, \varphi_2 = \varphi_0^{\prime\prime}, \ldots, \varphi_n = \varphi_0^{(n)}
-    \end{multline}
+    \begin{multline*}
+        \textcolor{blue}{\forall \, k \in (0\ldots n)} \{f_m^{(k)} \} \text {~--- фундаментальная в полном пространстве } C[a,b]\\
+        \Rightarrow \textcolor{blue}{\ldots} \exists \varphi_k \in C[a,b] f_m^{(k)}(x) \darrow{\begin{subarray}{c}x \in [a,b] \\ m \to \infty\end{subarray}} \varphi_k(x) \\
+    \end{multline*}
+     Из анализа известно, что $\forall \, x \in [a, b] \, \forall \, k \in (1\ldots n)\varphi_{k-1}'(x) = \varphi_{k}(x)$. Кроме того, $\forall \, m \in \bN f_m^{(n)}$ непрерывна на $[a, b]$ $\Rightarrow \varphi_n$ непрерывна на $[a, b]$. То есть произвольно выбранная фундаментальная последовательность стремится к функции, непрерывно дифференцируемой $n$ раз.
  \end{proof}
 
 \end{document}
