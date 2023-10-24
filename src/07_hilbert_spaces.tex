@@ -1,0 +1,155 @@
+% !TeX root = ./document.tex
+\documentclass[document]{subfiles}
+\begin{document}
+\chapter{Гильбертовы пространства}
+Кто-то говорил, что матобесам в курсе ФА надо читать только гильбертовы пространства. Но неизвестно, как жить без трех китов функционального анализа, которые нас ждут дальше :(. 
+А вы бы хотели 32 лекции про гильбертовы пространства?
+
+\begin{definition}
+    $H$ -- линейное пространство над $\bC$. Скалярное произведение $H \times H \rightarrow \bC$, $x,y \in X, (x,y)$ -- скалярное проихведение удовлетворяет следующим аксиомам
+    \begin{enumerate}
+        \item $(\lambda x, y) = \lambda(x,y), \lambda \in \bC, \: x,y \in H$ 
+        \item $(x, y+z) = (x,y) + (x,z)$
+        \item $(y,x) = \overline{(x,y)}$ (комплексное сопряжение) 
+        \item $(x,x) \geq 0, (x,x) = 0 \Leftrightarrow x = 0$
+    \end{enumerate}
+    если $H$ над $\bR$, то 3 выглядит как $(y,x) = (x,y)$
+\end{definition}
+
+Снабдим $H$ нормой: $\norm{x} := \sqrt{(x,x)}$ -- норма, порожденная скалярным произведением. $(H, \norm{x})$ называется предгильбертовым пространством.
+
+Если $(H, \norm{\cdot})$ полное, то $H$ -- гильбертово.
+
+\begin{property}[скалярное произведение]
+    \begin{enumerate}
+        \item $x,y \in H \Rightarrow |(x,y)| \leq \norm{x} \cdot \norm{y}$ (неравенство К-Б)
+        \item $\norm{x} = \sqrt{(x,x)}$ удовлетворяет аксиомам нормы
+        \item $\norm{x+y}^2 + \norm{x-y}^2 = 2(\norm{x}^2 + \norm{y}^2)$ (тождество параллеллограмма)
+        \item непрерывность $(x,y)$, то есть $\liml_{n \to \infty} x_n = x, \liml_{n \to \infty} y_n = y \Rightarrow \liml_{n \to \infty} (x_n, y_n) = (x,y)$
+    \end{enumerate}
+\end{property}
+
+\begin{proof}[2]
+    \begin{gather*}
+        \norm{x} = 0 \Leftrightarrow (x,x) = 0 \Leftrightarrow x = 0 \\
+        \norm{\lambda x}^2 = (\lambda x, \lambda x) = \lambda \cdot \overline{\lambda} (x,x) = |\lambda|^2 \norm{x}^2
+    \end{gather*}
+    \begin{multline*}
+        \norm{x+y}^2 = (x+y, x+y) = \norm{x}^2 + (x,y) + (y,x) + \norm{y}^2 = \\
+        = \norm{x}^2 + 2 \Real (x,y) + \norm{y}^2 \leq \norm{x}^2 + 2 \norm{x} \cdot \norm{y} + \norm{y}^2 = \\
+        = (\norm{x} + \norm{y})^2
+    \end{multline*}
+\end{proof}
+Кто не верит в тождество параллелограмма, может проверить сам
+\begin{proof}[4]
+    \begin{multline*}
+        |(x,y) - (x_n, y_n)| \leq |(x,y) - (x, y_n)| + |(x,y_n) - (x_n, y_n)| = \\
+        = |(x,y - y_n)| + |(x-x_n, y_n)| \stackrel{\text{К-Б}}{\leq} \\
+        \leq \norm{x} \cdot \underbrace{\norm{y-y_n}}_{\to 0} + \underbrace{\norm{x - x_n}}_{\to 0} \underbrace{\norm{y_n}}_{\leq M} \underset{n \to \infty}{\longrightarrow} 0
+    \end{multline*}
+    $\liml_{n \to \infty} \norm{y_n} = \norm{y} \Rightarrow \: \exists M : \norm{y_n} \leq M $
+\end{proof}
+
+\begin{example}
+    \begin{gather*}
+        l^2_n = \seq{x: x = \seq{x_1, \ldots, x_n}, x_j \in \bC}, \norm{x}_2 = \sqrt{\sum^n_{k=1} \abs{x_j}^2} \\
+        (x,y) = \sum^n_{j=1} x_j \overline{x_j}, l^2_n \text{ -- гильбертово} \\
+        y = (y_1, \ldots, y_n), y_j \in \bC, \overline{y_j} \text{ -- комплексное сопряжение}
+    \end{gather*}
+\end{example}
+
+\begin{example}[$l^2$]
+    $l^2 = \seq{x: x = \seq{x_j}_{j=1}^\infty, \norm{x} = \sqrt{\sum^\infty_{j=1} \abs{x_j}^2} < +\infty}$. $(x,y) = \sum^\infty_{j=1} x_j \overline{y_j}$.
+    $l^2$ -- гильбертово 
+\end{example}
+Главый пример
+\begin{example}
+    $(X, U, \mu)$ -- пространство с мерой. $L^2(X, \mu),$
+     \[\norm{f} = \left( \int_X \abs{f(x)}^2 d\mu \right)^{\frac{1}{2}} < +\infty \]
+    $(f,g) = \int_X f(x) \cdot \overline{g(x)} d\mu, L^2(X,\mu)$ -- полное, $\Rightarrow$ гильберттово
+\end{example}
+
+\begin{example}[пространство Харди]
+    $H^2$ 2 = пространство Харди
+    \[ H^2 = \seq{f(z) = \sum^{+\infty}_{n=0} a_n z^n, \norm{f}^2 = \sum^{+\infty}_{n=0} \abs{a_n}^2 < +\infty} \]
+    $H^2$ линейно изомеметрически изоморфно $l^2$. 
+    \[ (f,g) = \sum^\infty_{n=0} a_n \overline{b_n}, g(z) = \sum^{+\infty}_{n=0} b_n z^n \Rightarrow H^2 \text{ гильбертово} \] 
+\end{example}
+
+Отметим, где $f$ будет аналитической
+
+\begin{gather*}
+    \sum^{+\infty{n=0}} \abs{a_n}^2 < + \infty \Rightarrow \liml_{n \to \infty} \abs{a_n} = 0 \Rightarrow \overline{\liml_{n \to \infty}} \sqrt[n]{\abs{a_n}} \leq 1 \\
+    \Rightarrow R \geq 1
+    \intertext{где  R -- радиус круга сходимости ряда  $\sum^{+\infty}_{n=0} a_n z^n$}
+    R = \frac{1}{\overline{\liml_{n \to \infty}} \sqrt[n]{\abs{a_n}}}, f \in H^2 \Rightarrow f \text{ аналитическая в } \seq{z: \abs{z} < 1}
+\end{gather*}
+
+ Теперь примеры предгильбертовых пространств
+ \begin{example}
+    $F$ -- финитные последовательности. \\
+    $(x,y) \in F, (x,y) = \sum^\infty_{j=1} x_j \overline{y_j}$ (конечная сумма $F \subset l^2, \norm{x} = \sqrt{\sum^N_{j=1} \abs{x_j}^2}), x_{N+k} = 0 \: k \in \bN$.
+    $F$ -- предгильбертово (не полное)
+ \end{example}
+
+ \begin{example}
+    $C[a,b] = \seq{f: [a,b] \rightarrow \bC}$
+    \[ \norm{f} = \left( \int^b_a \abs{f(x)}^2 dx \right)^{\frac{1}{2}}, (f,g) = \int^b_a f(x) \overline{g(x)} dx \]
+    не полное $\Rightarrow$ предгильбертово
+ \end{example}
+
+ \begin{example}
+    $\Rho - \seq{p(x) = \sum^n_{k=0} a_k x^k, a_k \in \bC, n \geq 0}$. \\
+    $q(x) = \sum^n_{k=0} b_k x^k, (p,q) = \sum^n_{k=0} a_k \overline{b_k}$ предгильбертово. $\Rho$ -- линейно изометрически изоморфно $F$ : $p(x) \rightarrow (a_0, a_1, \ldots, a_n) \in F$. 
+    Пополное $p$ по этой норме до гильбертова простарнства есть $l^2$.
+ \end{example}
+
+ \begin{example}
+    $\Rho, \Rho \subset C[a,b]$. $(p,q) = \int^b_a p(x) \overline{q(x)} dx$ -- предгильбертово, пополнением $\Rho$ будет $L^2(a,b)$ по мере Лебега.
+ \end{example}
+
+ \begin{definition}
+    $H$ -- гильбертово,
+    \begin{enumerate}
+        \item $x,y \in H, (x,y) = 0$, то $x \perp y $ ($x$ ортогонален $y$)
+        \item $M \subset H, M$ -- подмножество. Ортогональным дополнением к нему будем называть \\
+        \[ M^\perp  = \seq{y \in H: (y,x) = 0 \: \forall x \in M }\]
+    \end{enumerate}
+ \end{definition}
+
+\begin{property}
+    $M \subset H$ -- гильбертово $\Rightarrow M^\perp$ -- замкнутое подпространство
+\end{property}
+
+\begin{proof}
+    \begin{gather*}
+        y, z \in M^\perp, \lambda \in \bC, \text{ пусть } x \in M \\
+        (\lambda y + z, x) = \lambda \underbrace{(y,x)}_{=0} + \underbrace{(z,x)}{=0} \Rightarrow \lambda y + z \in M^\perp \\
+        \text{пусть } \seq{y_n}^\infty_{n=1}, y_n \in M^\perp, \liml_{n \to \infty} y_n = y_0, \text{ пусть } x \in M \\
+        \liml_{n \to \infty} \underbrace{(y_n,x)}_{=0} = (y_0, x) \Rightarrow (y_0,x) = 0 \Rightarrow y_0 \in M^\perp
+    \end{gather*}
+\end{proof}
+
+В гильбертовом пространстве всегда существует элемент наилучшего приближения, он ещё и единственный!
+
+\begin{theorem}[о существовании элемента наилучшего приближения в гильбертовом пространстве]
+    $H$ -- гильбертово, $M \subset H, M$ -- замкнутое подпространство, $x \in H \Rightarrow \: \existu y \in M : \norm{x-y} = \min_{h \in M} \norm{x-h}$
+\end{theorem}
+
+Для произвольного метрического пространства мы доказывали, что если есть конечномерное подпрострнство, то элемент существует. Доказательство начнём с простой леммы.
+
+\begin{lemma}
+    $H$ -- гильбертово, замкнутое подпространство $M \subset H$. $x \in H \setminus M, \: u,v \in M, \: d = \inf_{h \in M} \norm{x-h} $
+    \[ \Rightarrow \norm{u-v}^2 \leq 2(\norm{u-x}^2 + \norm{v-x}^2) - 4d^2 \]
+\end{lemma}
+\begin{proof}
+    Применим тождество параллелограмма к $(u-x), (v-x)$
+    \[ \norm{u-v}^2 + \norm{u+v-2x}^2 = 2(\norm{u-x}^2 + \norm{v-x}^2) \]
+    тут 3 слагаемых из 4 участвуютв формулировке леммы, нужно оценить только второе слагаемое. 
+    \begin{gather*}
+        \norm{2x - u -v} = 2 \norm{x - \frac{u+v}{2}} \geq 2d \\
+        \frac{u-v}{2} \in M \Rightarrow \norm{u-v}^2 \leq 2(\norm{u-x}^2 + \norm{v-x}^2) - 4d^2
+    \end{gather*}
+\end{proof}
+продолжение следует
+\end{document}
