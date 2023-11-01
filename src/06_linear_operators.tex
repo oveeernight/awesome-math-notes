@@ -7,11 +7,11 @@
 \section{Линейные операторы в линейных пространствах} % мб главу так назвать
  
 \begin{definition}[Линейный оператор]
-    $X,Y$ ~-- линейны над $k (k = \bR$ или $\bC)$. $A: X \rightarrow Y, A$ ~-- \textbf{ линейный оператор}, если 
+    $X,Y$ ~--- линейны над $k (k = \bR$ или $\bC)$. $A: X \rightarrow Y, A$ ~--- \textbf{ линейный оператор}, если 
     \[ A(\alpha x + \beta z) = \alpha A x + \beta A z, \quad x,z \in X, \alpha, \beta \in k \] 
 \end{definition}
  
-$\Lin(X,Y)$ ~-- множество линейных операторов из $X$ в $Y$. Также нам понадобится линейное пространство над $k$
+$\Lin(X,Y)$ ~--- множество линейных операторов из $X$ в $Y$. Также нам понадобится линейное пространство над $k$
 \begin{gather*}
     \alpha \in k, A \in \Lin(X,Y), (\alpha A)(x) := \alpha Ax, \bZero(x) = 0 \text{ (0 в пространстве Y)} \\
     A, B \in \Lin(X,Y), (A+B)(x) := Ax + Bx 
@@ -39,39 +39,39 @@ $\Lin(X,Y)$ ~-- множество линейных операторов из $X
 \end{example}
  
 \begin{example}[оператор, но не линейный]x =
-    $X$ ~-- линейное пространство, $x_0 \in X, x_0 \ne 0$, $Ax = x + x_0 \Rightarrow A$ ~-- не линейный.
+    $X$ ~--- линейное пространство, $x_0 \in X, x_0 \ne 0$, $Ax = x + x_0 \Rightarrow A$ ~--- не линейный.
 \end{example}
  
 Перед тем, как доказывать теорему, еще одно небольшое определение.
 \begin{definition}[Выпуклое множество]
-    $B \subset X, X$ ~-- линейное пространство. $B$ ~-- \textbf{ выпуклое }, если 
+    $B \subset X, X$ ~--- линейное пространство. $B$ ~--- \textbf{ выпуклое }, если 
     \[ \forall x,z \in B, \forall t, 0 \leq t \leq 1 \Rightarrow tx + (1-t)z \in B \]
     то есть отрезок, соединяющий любые две точки, полностью лежит в этом множестве
 \end{definition}
  
 \begin{theorem}[простейшие свойства линейного оператора]
-    $X,Y$ ~-- линейные пространства над $k$ ($\bR$ или $\bC$), $A \in \Lin(X,Y)$
+    $X,Y$ ~--- линейные пространства над $k$ ($\bR$ или $\bC$), $A \in \Lin(X,Y)$
     \begin{enumerate}
-        \item $L \subset X, L$ ~-- подпространство в $X$ $\Rightarrow A(L)$ ~-- подпространство в $Y$ (образ подпространства ~-- подпространство)
-        \item $M \subset Y, M$ ~-- подпространство в $Y \Rightarrow$ $\underbrace{A^{-1}(M)}_{\text{прообраз}}$ ~-- подпространство в $X$
-        \item $B \subset X, B$ ~-- выпуклое $\Rightarrow A(B)$ ~-- выпуклое в $Y$
-        \item $C \subset Y, C$ ~-- выпуклое $\Rightarrow A^{-1}(C)$ ~-- выпуклое в $X$
-        \item пусть $A$ ~-- биекция $\Rightarrow A^{-1} \in \Lin(Y,X)$
+        \item $L \subset X, L$ ~--- подпространство в $X$ $\Rightarrow A(L)$ ~--- подпространство в $Y$ (образ подпространства ~--- подпространство)
+        \item $M \subset Y, M$ ~--- подпространство в $Y \Rightarrow$ $\underbrace{A^{-1}(M)}_{\text{прообраз}}$ ~--- подпространство в $X$
+        \item $B \subset X, B$ ~--- выпуклое $\Rightarrow A(B)$ ~--- выпуклое в $Y$
+        \item $C \subset Y, C$ ~--- выпуклое $\Rightarrow A^{-1}(C)$ ~--- выпуклое в $X$
+        \item пусть $A$ ~--- биекция $\Rightarrow A^{-1} \in \Lin(Y,X)$
     \end{enumerate}
 \end{theorem}
 Все 5 свойств доказывать не будем, покажем только несколько и скажем, что остальные доказываются аналогично.
 \begin{proof}[1]
-    $L$ ~-- подпространство, $y,v \in A(L), \alpha \in k$. Наша мечта ~-- проверить $(\stackrel{?}{\Rightarrow} \alpha y + v \in A(L))$, не обязательно писать $\alpha$ и $\beta$.
+    $L$ ~--- подпространство, $y,v \in A(L), \alpha \in k$. Наша мечта ~--- проверить $(\stackrel{?}{\Rightarrow} \alpha y + v \in A(L))$, не обязательно писать $\alpha$ и $\beta$.
     \begin{gather*}
         \Rightarrow \, \exists x,y \in L : (Ax = y \land Au = v) \Rightarrow A(\alpha x + u) = \alpha A x + A u = \alpha y + v \\
         \alpha x + u \in L \Rightarrow A(\alpha x + u) \in A(L) \Rightarrow \alpha y + v \in A(L)
     \end{gather*}
 \end{proof}
  
-3 проверяется тютелька в тютельку как 1, а 2 ~-- как 4, поэтому проверим 4.
+3 проверяется тютелька в тютельку как 1, а 2 ~--- как 4, поэтому проверим 4.
  
 \begin{proof}[4]
-    $C$ ~-- выпуклое, $x,u \in A^{-1}(C), 0 \leq t \leq 1$. 
+    $C$ ~--- выпуклое, $x,u \in A^{-1}(C), 0 \leq t \leq 1$. 
     \begin{gather*}
         (y := Ax \land v := Au) \quad y,v \in C \Rightarrow ty + (1-t)v \in C \\
         A(tx + (1-t)u) = t Ax + (1-t) A u = ty + (1-t) v \in C \\
@@ -90,26 +90,26 @@ $\Lin(X,Y)$ ~-- множество линейных операторов из $X
  
 \begin{definition}[Ядро линейного оператора]
     $A \in \Lin(X,Y)$
-    \[ \Ker A = \{ x \in X: Ax = 0 \} \text{ ~-- ядро } A \] 
-    \[ \Imm A = \{ y \in Y: \, \exists x: Ax = y \} = A(X) \text{ ~-- образ } A \] 
+    \[ \Ker A = \{ x \in X: Ax = 0 \} \text{ ~--- ядро } A \] 
+    \[ \Imm A = \{ y \in Y: \, \exists x: Ax = y \} = A(X) \text{ ~--- образ } A \] 
 \end{definition}
  
 \begin{corollary}
-    $X,Y$ ~-- линейные пространства, $\Rightarrow \Ker A$ ~-- подпространство в $X$, $\Imm A$ ~-- подпространство в $Y$.
+    $X,Y$ ~--- линейные пространства, $\Rightarrow \Ker A$ ~--- подпространство в $X$, $\Imm A$ ~--- подпространство в $Y$.
 \end{corollary}
  
 \begin{definition}[произведение операторов]
-    $X, Y,Z$ ~-- линейные пространства
+    $X, Y,Z$ ~--- линейные пространства
     \[ X \stackrel{A}{\rightarrow} Y \stackrel{B}{\rightarrow} Z \] 
-    $A \in \Lin(X,Y), B \in \Lin(Y,Z)$, $C = BA, C(x) := B(Ax), x \in X \Rightarrow C \in \Lin(X,Z), C$ ~-- произведение $BA$
+    $A \in \Lin(X,Y), B \in \Lin(Y,Z)$, $C = BA, C(x) := B(Ax), x \in X \Rightarrow C \in \Lin(X,Z), C$ ~--- произведение $BA$
 \end{definition}
  
 Всё самое тривиальное для операторов в линейных простаранствах мы вспомнили
  
 \section{Линейные операторы в нормированных пространствах}
-Линейные операторы в нормированных пространствах ~-- главный объект, который изучает функциональный анализ.
+Линейные операторы в нормированных пространствах ~--- главный объект, который изучает функциональный анализ.
 \begin{definition}[Огранисченный оператор]
-    $(X, || \cdot||)$, $(Y, || \cdot ||), A \in \Lin(X,Y) $. $A$ ~-- \textbf{ ограниченный}, если $\forall C \subset X, C$ ~-- ограниченное $\Rightarrow A(C)$ ~-- ограниченное 
+    $(X, || \cdot||)$, $(Y, || \cdot ||), A \in \Lin(X,Y) $. $A$ ~--- \textbf{ ограниченный}, если $\forall C \subset X, C$ ~--- ограниченное $\Rightarrow A(C)$ ~--- ограниченное 
     в $Y$.
 \end{definition}
 Оказывается, для операторов ограниченность эквивалентна непрерывности. Казалось бы, ограниченность сильно слабее, но если к ней добавить  линейность, то будет аж непрерывность. \\
@@ -122,7 +122,7 @@ $\Lin(X,Y)$ ~-- множество линейных операторов из $X
         \item $A$ непрерывен $\forall x \in X$  % (.) точка 
         \item $\exists C > 0 : ||Ax|| \leq C||x|| \, \forall x \in X $
         \item $A$ ограниченный
-        \item $\exists r > 0 \: A(B_r(0))$ ~-- ограниченное множество в $Y$.
+        \item $\exists r > 0 \: A(B_r(0))$ ~--- ограниченное множество в $Y$.
     \end{enumerate}
 \end{theorem}
  
@@ -146,10 +146,10 @@ $2 \Rightarrow 1$ очевидно
 \end{proof}
  
 \begin{proof}[$3 \Rightarrow 4$]
-    $B \subset X$, $B$ ~-- ограниченное, то есть $\exists M > 0 : (\forall x \in B \land ||x|| < M) \stackrel{3}{\Rightarrow} ||Ax|| \leq C||x|| \leq CM \, \forall x \in B \Rightarrow 
-    \{ A(B) \}$ ~-- ограниченное.
+    $B \subset X$, $B$ ~--- ограниченное, то есть $\exists M > 0 : (\forall x \in B \land ||x|| < M) \stackrel{3}{\Rightarrow} ||Ax|| \leq C||x|| \leq CM \, \forall x \in B \Rightarrow 
+    \{ A(B) \}$ ~--- ограниченное.
 \end{proof}
-$4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
+$4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
 \begin{proof}[$5 \Rightarrow 1$]
     $\exists R > 0 \, A(B^x_r(0)) \subset B^y_R(0)$
     \begin{gather*}
@@ -164,7 +164,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
 с помощью теоремы, которую мы только что доказали, введём норму в этом пространстве.
 \begin{definition}[норма оператора]
     $(X, ||\cdot||), (Y, ||\cdot||)$
-    \[ \underbrace{\B(X,Y)}_{\text{bounded}} = \{ A \in \Lin(X,Y) \land A \text{ ~-- ограниченный} \} \]
+    \[ \underbrace{\B(X,Y)}_{\text{bounded}} = \{ A \in \Lin(X,Y) \land A \text{ ~--- ограниченный} \} \]
     $A \in \B(X,Y)$
     \[ ||A|| = \inf \{ C : C > 0 \land \norm{Ax} \leq C\norm{x} \: \forall x \in X \} \]
     то бишь точная нижняя грань множества величин, на которые наш оператор увеличивает норму элемента.
@@ -184,7 +184,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
     $x$ - фиксирован, $\Rightarrow \, \forall c > ||A||, ||Ax|| \leq C ||x|| \Rightarrow ||Ax|| \leq ||A|| \cdot ||x||$. Был фиксирован, теперь любой,
      первое утверждение доказано. Теперь второе. 
      \begin{gather*}
-        \alpha \in k, \alpha \ne 0, x \in X, x \text{ ~-- фиксирован } \\
+        \alpha \in k, \alpha \ne 0, x \in X, x \text{ ~--- фиксирован } \\
         (\alpha A) (x) = \alpha A x \\
         \forall x \in X \quad ||(\alpha A)(x) || = ||\alpha \cdot Ax|| = |\alpha| \cdot ||A x|| \leq |\alpha| \cdot ||A|| \cdot ||x|| \\
         \Rightarrow ||\alpha A|| \leq |\alpha| ||A||
@@ -203,7 +203,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
         \Rightarrow ||A+B|| \leq ||A||+ ||B||
      \end{multline*}
      Как только есть какая-то константа, то настоящая норма меньше или равна этой константы. $||A|| = 0 \Rightarrow \, \forall x \in X \, ||Ax|| \leq ||A|| \cdot ||x|| = 0$.
-     $\Rightarrow Ax = 0 \, \forall x \in X \Rightarrow A = \bZero \Rightarrow ||A||$ ~-- настоящая норма
+     $\Rightarrow Ax = 0 \, \forall x \in X \Rightarrow A = \bZero \Rightarrow ||A||$ ~--- настоящая норма
 \end{proof}
  
 \begin{theorem}[вычисление нормы непрерывного оператора]
@@ -225,13 +225,13 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
     Пусть $x \ne 0 \Rightarrow ||Ax|| \leq ||A|| \cdot ||x|| \Rightarrow \frac{||Ax||}{||x||} \leq ||A|| \Rightarrow d = \sup_{\{x \ne 0 \}} \frac{||Ax||}{||x||} \leq ||A||$.
     \begin{gather*}
         \text{пусть } z \in X, z \ne 0, \, \left| \left| \frac{z}{||z||} \right|\right| = 1 \Rightarrow ||A\left(\frac{z}{||z||}\right)|| \leq c \Rightarrow ||Az|| \leq C||z|| \forall z \in X
-        \intertext{c ~-- супремум по единичной сфере}
+        \intertext{c ~--- супремум по единичной сфере}
         \Rightarrow ||A|| \leq C
     \end{gather*}
 \end{proof}
  
 \begin{example}
-    $C[a,b]$, $h(x) \in C[a,b]$ ~-- фиксированная функция. $f \in  C[a,b], M_h(f) := h(x) \cdot f(x)$.
+    $C[a,b]$, $h(x) \in C[a,b]$ ~--- фиксированная функция. $f \in  C[a,b], M_h(f) := h(x) \cdot f(x)$.
     \[ M_h \in \Lin(C[a,b]) \]
  
 \end{example}
@@ -253,7 +253,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
 \begin{example}
     $Y = C[a,b], X = \{f: \, \exists f^\prime \in C[a,b] \}$, $0 \leq a \leq b$
     \begin{gather*}
-        X \subset Y, X \text{ ~-- подпространство } Y, \text{ то есть } \\
+        X \subset Y, X \text{ ~--- подпространство } Y, \text{ то есть } \\
         ||f||_X = ||f||_Y = \max_{x \in [a,b]} |f(x)| \\
         D(f) = f^\prime \Rightarrow D \in \Lin(X,Y), \\
         D(x^n) = n x^{n-1} \quad \sup_{n \in \bN} \frac{||D(x^n)||}{||x^n||} = \sup_{n \in \bN} \frac{nb^{n-1}}{b^n} = +\infty
@@ -323,17 +323,17 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
 Позже вычислим норму интегрального оператора, который часто встречается в анализе и в матфизике.
  
 \begin{theorem}[полнота пространства операторов, действующих в банахово пространство]
-    $(X, \norm{\cdot})$ -- нормированное, $(Y, \norm{\cdot})$ -- банахово $\Rightarrow \B(X,Y)$ -- банахово.
+    $(X, \norm{\cdot})$ --- нормированное, $(Y, \norm{\cdot})$ --- банахово $\Rightarrow \B(X,Y)$ --- банахово.
 \end{theorem}
  
 \begin{proof}
     Тут без хитростей. По определению возьмём фундаментальную последовательность и покажем, что у нее есть предел. Сначала надо добыть оператор, который будет претендентом на звание предела.
-    $\seq{A_n}_{n=1}^\infty$ -- фундаментальная, $A_n \in \B(X,Y)$. Пусть $\varepsilon > 0 \: \exists N \in \bN \: (n > N \land m > N) \Rightarrow \norm{A_n -A_m} < \varepsilon$.
-    $x \in X, x$ -- фиксирован, $\Rightarrow \norm{A_n x - A_m x} = \norm{(A_n-A_m)x} < \varepsilon \norm{x}$. Тогда $\seq{A_n x}^\infty_{n=1}$ -- фундаментальная в $Y, Y$ -- банахово $\Rightarrow$
+    $\seq{A_n}_{n=1}^\infty$ --- фундаментальная, $A_n \in \B(X,Y)$. Пусть $\varepsilon > 0 \: \exists N \in \bN \: (n > N \land m > N) \Rightarrow \norm{A_n -A_m} < \varepsilon$.
+    $x \in X, x$ --- фиксирован, $\Rightarrow \norm{A_n x - A_m x} = \norm{(A_n-A_m)x} < \varepsilon \norm{x}$. Тогда $\seq{A_n x}^\infty_{n=1}$ --- фундаментальная в $Y, Y$ --- банахово $\Rightarrow$
     \begin{gather*}
         \exists \liml_{n \to \infty} A_n x \in Y, Ax := \liml_{n \to \infty} A_n x \text{ поточечный предел} \\
-        \lim \text{ -- линейная } \Rightarrow A \in \Lin(X,Y) \\
-        x \text{ -- фиксирован } \norm{A_n x - A_m x} < \varepsilon \norm{x}, \text{ пусть } m \to \infty \\
+        \lim \text{ --- линейная } \Rightarrow A \in \Lin(X,Y) \\
+        x \text{ --- фиксирован } \norm{A_n x - A_m x} < \varepsilon \norm{x}, \text{ пусть } m \to \infty \\
         \Rightarrow \norm{A_n x - Ax} \leq \varepsilon \norm{x} \quad \forall x \in X \\
         \Rightarrow A_n - A \in \B(X,Y), \norm{A_n - A} \leq \varepsilon \Rightarrow A = (A - A_n) +  A_n \Rightarrow A \in \B(X,Y)
     \end{gather*}
@@ -344,12 +344,12 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
 \section{Линейные функционалы} 
  
 \begin{definition}[линейный функционал]
-    $X$ -- линейное пространство над $k$ ($\bR$ или $\bC$). $\Lin(X,k)$ -- линейные функционалы на $X$
+    $X$ --- линейное пространство над $k$ ($\bR$ или $\bC$). $\Lin(X,k)$ --- линейные функционалы на $X$
 \end{definition}
  
 \begin{definition}[сопряжённое пространство]
-    $(X, \norm{\cdot}), X^* = \B(X, \bC)$  (или же $X^* = \B(X, \bR))$ -- сопряжённое пространство.
-    $X^*$ -- линейные \textbf{НЕПРЕРЫВНЫЕ} функционалы.
+    $(X, \norm{\cdot}), X^* = \B(X, \bC)$  (или же $X^* = \B(X, \bR))$ --- сопряжённое пространство.
+    $X^*$ --- линейные \textbf{НЕПРЕРЫВНЫЕ} функционалы.
 \end{definition}
  
 Про неперывность надо помнить. На экзамене часто спрашивают, что такое сопряжённое пространство, и не могут выпытать непрерывность. Что делают с такими студентами? Выгоняют.
@@ -360,14 +360,14 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
 \end{corollary}
  
 \begin{corollary}
-    $(X, \norm{\cdot})$ $\Rightarrow X^*$ -- банахово
+    $(X, \norm{\cdot})$ $\Rightarrow X^*$ --- банахово
 \end{corollary}
 \begin{proof}
-    $\bR$ и $\bC$ -- полные $\Rightarrow \B(X, \bC)$ -- банахово ($\Rightarrow \B(X, \bR)$ -- банахово).
+    $\bR$ и $\bC$ --- полные $\Rightarrow \B(X, \bC)$ --- банахово ($\Rightarrow \B(X, \bR)$ --- банахово).
 \end{proof}
  
 \begin{example}
-    $X = l^p, (1 \leq p \leq + \infty), i \in \bN$ -- фиксированное число 
+    $X = l^p, (1 \leq p \leq + \infty), i \in \bN$ --- фиксированное число 
     \begin{gather*}
         x \in l^p \Rightarrow x = \seq{x_n}^\infty_{n=1}, x_n \in \bC, f(x) := x_i \Rightarrow f \in X^*, \norm{f} = 1 \\
         |f(x)|  = |x_i| \leq \left(\sum^\infty_{n=1} |x_n|^p \right)^{\frac{1}{p}}  \text{ при } 1 \leq p < +\infty \text{ и } \\
@@ -376,11 +376,11 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
         \norm{f} = \sup_{\seq{\norm{x} = 1}} |f(x)| \geq |f(e_i)| = 1
     \end{gather*}
 \end{example}
-Со временем мы сосчитаем, что такое сопряженное пространство к $l^p$ для конечных $p$. По секрету, это $l^q$, где $p$ и $q$ -- сопряжены.
+Со временем мы сосчитаем, что такое сопряженное пространство к $l^p$ для конечных $p$. По секрету, это $l^q$, где $p$ и $q$ --- сопряжены.
  
 Почему всегда рассматривается компакт? Потому что на компакте функция достигает свой максимум, и иначе непонятно, как норму вводить.
 \begin{example}
-    $C(K) = \{ f: K \rightarrow \bC \land f \text{ непрерывные } \}, x_0 \in K, K$ -- компакт. \\
+    $C(K) = \{ f: K \rightarrow \bC \land f \text{ непрерывные } \}, x_0 \in K, K$ --- компакт. \\
     $f \in C(K), G(f) := f(x_0) \Rightarrow G \in X^*, \norm{G} = 1$ (функционал значения в точке,подлые англосаксы говорят point evaluation).
     \begin{gather*}
         G \in \Lin(C(K), \bC) \\
@@ -405,7 +405,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
 Доказательство начнём с важной леммы, помогающий вычислить норму линейного функционала. Когда мы сосчитаем норму линейного функционала, то будет очень нетрудно применить
  это для вычисления нормы линейного оператора.
 \begin{lemma}
-    $\varphi(t) \in C[a,b], \varphi$ -- фиксирована. $f \in C[a,b], G(f) := \int^b_a f(t) \varphi(t)dt \Rightarrow G \in (C[a,b])^*, \norm{G} = \int^b_a | \varphi(t)| dt$. 
+    $\varphi(t) \in C[a,b], \varphi$ --- фиксирована. $f \in C[a,b], G(f) := \int^b_a f(t) \varphi(t)dt \Rightarrow G \in (C[a,b])^*, \norm{G} = \int^b_a | \varphi(t)| dt$. 
 \end{lemma}
  
 \begin{proof}[Доказательство леммы]
@@ -418,7 +418,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
     \end{multline*}
     Теперь оценка $\norm{G}$ снизу. Сначала тривиальные замечания. Если $\varphi(t) \geq 0 \: \forall t \in [a,b]$, то $\chi_{[a,b]}(x) \equiv 1$
     \[ |G(\chi_[a,b])| = \left| \int^b_a \varphi(t) dt \right| = \int^b_a \varphi(t) dt \]
-    Если $\varphi(t) \leq 0 \, \forall t \in [a,b]$ -- то же самое.
+    Если $\varphi(t) \leq 0 \, \forall t \in [a,b]$ --- то же самое.
     \[ g(t) = \sign \, \varphi(t) = \begin{cases}
         1 & \varphi(t) > 0 \\
         -1 & \varphi(t) < 0 \\
@@ -427,14 +427,14 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
     $G(g) = \int^b_a |\varphi(t)| dt$, но $g \notin C[a,b]$.
     До сих пор мы всегда находили пробную функцию, на котором достигался $\sup$, а здесь такого элемента нет.
     Поэтому будем приближать $\varphi$ непрерывными функциями  с точностью до $\varepsilon$, вот такая идея. \\
-    Пусть $\varepsilon > 0, \varphi \in C[a,b] \Rightarrow \varphi$ -- равномерно непрерывна на $[a,b] \Rightarrow$
+    Пусть $\varepsilon > 0, \varphi \in C[a,b] \Rightarrow \varphi$ --- равномерно непрерывна на $[a,b] \Rightarrow$
     \[ \exists \delta > 0 \: |s-t| < \delta \Rightarrow |\varphi(t) - \varphi(s)| < \varepsilon \quad a \leq s, t \leq b \]
     $a = t_0 < t_1 < \ldots < t_n = b, t_k - t_{k-1} < \delta$. \\
-    Рассмотрим $\seq{\Delta_j}^n_{j=1}$. $\Delta_j$ -- интервалы $[t_{k-1}, t_k]$.
+    Рассмотрим $\seq{\Delta_j}^n_{j=1}$. $\Delta_j$ --- интервалы $[t_{k-1}, t_k]$.
     Нумерация будет не по порядку, как сперва может показаться, а совершенно другая, и она никак не будет зависеть от расположения на отрезке.
-     Разобьём интервал на 2 сорта. Первый -- где функция положительна или отрицательна, то есть не меняет знак. Второй -- где меняет знак или обращается в 0.
-    $\Delta_1, \ldots, \Delta_r$ -- те интервалы, на которых $\varphi(t) > 0, t \in \Delta_j$ или $\varphi(t) < 0, t \in \Delta_j$ $(1 \leq j \leq r)$ \\
-    $\Delta_{r+1}, \ldots, \Delta_n$ -- те интервалы, для которых $\exists s \in \Delta_j : \varphi(s) = 0, n \geq j > r$. \\
+     Разобьём интервал на 2 сорта. Первый --- где функция положительна или отрицательна, то есть не меняет знак. Второй --- где меняет знак или обращается в 0.
+    $\Delta_1, \ldots, \Delta_r$ --- те интервалы, на которых $\varphi(t) > 0, t \in \Delta_j$ или $\varphi(t) < 0, t \in \Delta_j$ $(1 \leq j \leq r)$ \\
+    $\Delta_{r+1}, \ldots, \Delta_n$ --- те интервалы, для которых $\exists s \in \Delta_j : \varphi(s) = 0, n \geq j > r$. \\
     \begin{gather*}
         \text{пусть } t \in \Delta_j, j > r \Rightarrow \, \exists s \in \Delta_j, \varphi(s) = 0 \Rightarrow \\
         |\varphi(t)| = |\varphi(t) - \varphi(s)| < \varepsilon \Rightarrow \int_{\Delta_j} |\varphi(t)| dt < \varepsilon | \Delta_j| \\
@@ -463,7 +463,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
     Оценим сначала норму оператора сверху. $( \K f)(s) = \int^b_a k(s,t) f(t) dt, f \in C[a,b]$. $M = \max_{a \leq s \leq b} \int^b_a |k(s,t)| dt$. Мы как раз
     хотим показать, что норма оператора будет равна $M$.
        \[ |(Kf)(s)| \leq \int_a^b |k(s,t)| |f(t)| dt \leq ||f||_\infty \int^b_a |k(s,t) |dt \leq M \norm{f}_\infty \]
-       \[ \norm{\K f} = \max_{s} | \K f(s)| \leq < M \cdot \norm{f} \: \forall f \in C[a,b] \Rightarrow \K \in \B(C[a,b]) \]
+       \[ \norm{\K f}_\infty = \max_{s} | \K f(s)| \leq M \cdot \norm{f} \: \forall f \in C[a,b] \Rightarrow \K \in \B(C[a,b]) \]
        $\norm{K}_{\B(C[a,b])} \leq M$ \\
        Теперь оценим $\norm{\K}$ снизу. 
        \begin{gather*}
@@ -484,17 +484,17 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
 \section{Изоморфные линейные пространства}
  
 \begin{definition}[изоморфность пространств]
-    $(X, \norm{\cdot})$, $(Y, \norm{\cdot})$ -- \textbf{ линейно изоморфны}, если $\exists A \in \B(X,Y), \: \exists A^{-1} \in \B(Y,X)$. $A$ -- \textbf{линейный изоморфизм}
+    $(X, \norm{\cdot})$, $(Y, \norm{\cdot})$ --- \textbf{ линейно изоморфны}, если $\exists A \in \B(X,Y), \: \exists A^{-1} \in \B(Y,X)$. $A$ --- \textbf{линейный изоморфизм}
 \end{definition}
  
 \begin{remark}
-    <<Изоморфность>> -- отношение эквивалентности на множестве нормированных пространств.
+    <<Изоморфность>> --- отношение эквивалентности на множестве нормированных пространств.
 \end{remark}
  
 Когда можно сказать, что два пространства изоморфны? 
 \begin{theorem}[критерий линейного изоморфизма]
-    $(X, \norm{\cdot}), (Y, \norm{\cdot}), A \in \Lin(X,Y), A(X) = Y$ (то есть $A$ -- сюръекция).\\
-    $A$ -- линейный изоморфизм $\Leftrightarrow \text{ пусть } 0 < c_1 < C_2 < + \infty$ т.ч. $c_1\norm{x} \leq \norm{Ax} \leq C_2 \norm{x}, \: \forall x \in X$
+    $(X, \norm{\cdot}), (Y, \norm{\cdot}), A \in \Lin(X,Y), A(X) = Y$ (то есть $A$ --- сюръекция).\\
+    $A$ --- линейный изоморфизм $\Leftrightarrow \text{ пусть } 0 < c_1 < C_2 < + \infty$ т.ч. $c_1\norm{x} \leq \norm{Ax} \leq C_2 \norm{x}, \: \forall x \in X$
 \end{theorem}
  
 \begin{proof}
@@ -507,11 +507,11 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
         \frac{1}{\norm{A^{-1}}} \cdot \norm{x} \leq \norm{Ax} \quad c_1 = \frac{1}{\norm{A^{-1}}}
     \end{gather*}
     $\Leftarrow$ \\
-    $\norm{Ax} \leq C_2 \norm{x} \Rightarrow A \in \B(X,Y) (\norm{A} \leq C_2)$. Теперь проверим, что $A$ -- инъекция.
+    $\norm{Ax} \leq C_2 \norm{x} \Rightarrow A \in \B(X,Y) (\norm{A} \leq C_2)$. Теперь проверим, что $A$ --- инъекция.
     Без неравенства снизу мы сейчас как раз выведем, что образы различных иксов различны. 
     Пусть $Ax_1 = Ax_2 \Rightarrow A(x_1 - x_2) = 0$
     \begin{gather*}
-        0 = \norm{A(x_1-x_2)} \geq c \norm{x_1 - x_2} \Rightarrow x_1 = x_2 \Rightarrow A \text{ -- биекция } \\
+        0 = \norm{A(x_1-x_2)} \geq c \norm{x_1 - x_2} \Rightarrow x_1 = x_2 \Rightarrow A \text{ --- биекция } \\
         \stackrel{\text{доказали}}{\Rightarrow} \: \exists A^{-1} \in \Lin(Y,X) \\
         \begin{cases}
             c_1 \norm{x} \leq \norm{Ax} \: \forall x \in X \\
@@ -533,36 +533,36 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
 Часто бывает, что на одном и том же пространстве определены две различные нормы. Какие же нормы будут называться эквивалентными?
  
 \begin{definition}
-    $X$ -- линейное пространство, $\norm{\cdot}_1, \norm{\cdot}_2$ -- две нормы на $X$. $\norm{\cdot}_1$ эквивалентна $\norm{\cdot}_2$, если 
+    $X$ --- линейное пространство, $\norm{\cdot}_1, \norm{\cdot}_2$ --- две нормы на $X$. $\norm{\cdot}_1$ эквивалентна $\norm{\cdot}_2$, если 
     \[ \liml_{n \to \infty} \norm{x_n - x_0}_1 = 0 \Leftrightarrow \liml_{n \to \infty} \norm{x_n - x_0}_2 = 0 \]
-    По-другому можно сказать, что топологии, которые задают эти  нормы, одинаковые: $\Leftrightarrow G \subset X, G$ -- открытое в $(X, \norm{\cdot}_1) \Leftrightarrow G$ -- открытое в $(X, \norm{\cdot}_2)$
+    По-другому можно сказать, что топологии, которые задают эти  нормы, одинаковые: $\Leftrightarrow G \subset X, G$ --- открытое в $(X, \norm{\cdot}_1) \Leftrightarrow G$ --- открытое в $(X, \norm{\cdot}_2)$
 \end{definition}
  
 \begin{corollary}
-    $X$ -- линейное, $\norm{\cdot}_1, \norm{\cdot}_2$ -- нормы на $X$. $\norm{\cdot}_1$ эквивалентна $\norm{\cdot} \Leftrightarrow 
-    \, \exists 0 < c_1 < c_2 + \infty$ т.ч. 
-    \[ c_1 \norm{x}_1 \leq \norm{x_2} \leq C_2 \norm{x}_1\]
+    $X$ --- линейное, $\norm{\cdot}_1, \norm{\cdot}_2$ --- нормы на $X$. $\norm{\cdot}_1$ эквивалентна $\norm{\cdot}_2 \Leftrightarrow 
+    \, \exists 0 < c_1 < c_2 \leq +\infty$ т.ч. 
+    \[ c_1 \norm{x}_1 \leq \norm{x}_2 \leq C_2 \norm{x}_1\]
     хотя в определении не утверждалось, что одну норму можно оценить через другую
 \end{corollary}
  
 \begin{proof}
-    $X = (X, \norm{\cdot}_1), Y = (X, \norm{\cdot}_2)$ -- как бы 2 разных пространства, но на одном множестве. Рассмотрим оператор
-    $Ix = x$. Ясно, что $I \in \Lin(X,Y)$, $I$ -- биекция, $I^{-1} \in \Lin(Y,X)$. Что означает, что $\norm{\cdot}_1$ эквивалентна $\norm{\cdot}_2$?
-    $\Leftrightarrow I, I^{-1}$ непрерывны $\Leftrightarrow$ $I$ -- линейный изоморфизм $X$ и $Y$ $\stackrel{\text{т.критерий линейного изоморфизма}}{\Longleftrightarrow} c_1 \norm{x_1} \leq \underbrace{\norm{Ix}_2}_{\norm{x}_2} \leq C_2\norm{x}_1$
+    $X = (X, \norm{\cdot}_1), Y = (X, \norm{\cdot}_2)$ --- как бы 2 разных пространства, но на одном множестве. Рассмотрим оператор
+    $Ix = x$. Ясно, что $I \in \Lin(X,Y)$, $I$ --- биекция, $I^{-1} \in \Lin(Y,X)$. Что означает, что $\norm{\cdot}_1$ эквивалентна $\norm{\cdot}_2$?
+    $\Leftrightarrow I, I^{-1}$ непрерывны $\Leftrightarrow$ $I$ --- линейный изоморфизм $X$ и $Y$ $\stackrel{\text{т.критерий линейного изоморфизма}}{\Longleftrightarrow} c_1 \norm{x}_1 \leq \underbrace{\norm{Ix}_2}_{\norm{x}_2} \leq C_2\norm{x}_1$
 \end{proof}
  
 Не очень скоро мы получим обобщение этой теоремы. Окажется, что если пространство банахово в обеих нормах, то только одно из последних неравенств влечёт другое.
 \begin{statement}
-    $(X, \norm{\cdot}), (Y, \norm{\cdot})$ -- линейно изоморфны. Пусть $X$ -- банахово, тогда $Y$ -- банахово.
+    $(X, \norm{\cdot}), (Y, \norm{\cdot})$ --- линейно изоморфны. Пусть $X$ --- банахово, тогда $Y$ --- банахово.
 \end{statement}
 \begin{proof}
     \begin{gather*}
-        A: X \rightarrow Y \quad A \in \B(X,Y) \quad A \text{ -- линейный изоморфизм }\\
+        A: X \rightarrow Y \quad A \in \B(X,Y) \quad A \text{ --- линейный изоморфизм }\\
         A^{-1}: Y \rightarrow X \quad A^{-1} \in \B(Y,X) \\
-        \seq{y_n}^\infty_{n=1} \text{ -- фундаментальная в } Y \quad x_n = A^{-1} y_n \\
+        \seq{y_n}^\infty_{n=1} \text{ --- фундаментальная в } Y \quad x_n = A^{-1} y_n \\
         \norm{x_n - x_m} \leq \norm{A^{-1}} \cdot \norm{y_n - y_m} \Rightarrow \seq{x_n}^\infty_{n=1} \text{ фундаментальная в } X \\
         \intertext{теперь применяем наш, слава богу, непрерывный оператор}
-        \Rightarrow \: \exists \liml_{n \to \infty} x_n = x_0 \Rightarrow \liml_{n \to \infty} A x_n = A x_0 \Rightarrow \land \liml_{n \to \infty} y_n = A x_0 \Rightarrow \\
+        \Rightarrow \: \exists \liml_{n \to \infty} x_n = x_0 \Rightarrow \liml_{n \to \infty} A x_n = A x_0 \land \liml_{n \to \infty} y_n = A x_0 \Rightarrow \\
         Y \text{ полное}
     \end{gather*}
 \end{proof}
@@ -570,23 +570,24 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
 \section{Конечномерные пространства}
  
 \begin{definition}[Размерность пространства]
-    $X$ -- линейное пространство над $\bC$ или $\bR$. Если $\exists n$ линейно независимых 
+    $X$ --- линейное пространство над $\bC$ или $\bR$. Если $\exists n$ линейно независимых 
     элементов в $X$, и $\forall (n+1)$ элементов линейно зависимы, то $\dim X = n$
 \end{definition}
  
 \begin{definition}
-    Если $\forall n \in \bN \: \exists n$ линейно незаисимых элементов, то $X$ -- \textbf{ бесконечномерное}
+    Если $\forall n \in \bN \: \exists n$ линейно незаисимых элементов, то $X$ --- \textbf{ бесконечномерное}
 \end{definition}
  
 \begin{theorem}
-    $(X, \norm{\cdot}), (Y, \norm{\cdot})$ -- линейные пространства над $\bC, \dim X = \dim Y = n$.
+    $(X, \norm{\cdot}), (Y, \norm{\cdot})$ --- линейные пространства над $\bC, \dim X = \dim Y = n$.
     \[ \Rightarrow X \text{ линейно изоморфно } Y \]
 \end{theorem}
  
-Поскольку мы обсудили, что изоморфность -- отношение эквивалентности, то можно зафиксировать
+\begin{proof}
+Поскольку мы обсудили, что изоморфность --- отношение эквивалентности, то можно зафиксировать
 \begin{gather*}
     X = l^2_n = \seq{x=(x_1, \ldots, x_n), x_j \in \bC, \norm{X} = \left( \sum^n_{j=1} |x_j|^2\right)^{\frac{1}{2}}}
-    \seq{f_j}^n_{j=1} \text{ -- базис в } Y \\
+    \seq{f_j}^n_{j=1} \text{ --- базис в } Y \\
     A : l^2_n \rightarrow Y, A(e_j) = f_j \\
     \intertext{утверждается, что это и будет линейный изоморфизм} 
     A\left(\sum^n_{j=1} x_j e_j\right) = \sum^n_{j=1} x_j f_j, A \in \Lin(l^2_n, Y) \\
@@ -594,31 +595,33 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
     \norm{Ax} = \norm{\sum^n_{j=1} x_j f_j} \leq \sum^n_{j=1} |x_j| \norm{f_j} \stackrel{\text{КБШ}}{\leq} \underbrace{\left(\sum^n_{j=1} |x_j|^2 \right)^{\frac{1}{2}}}_{\norm{x}_{l^2_n}} \underbrace{\left( \sum^n_{j=1} \norm{f_j}^2\right)^\frac{1}{2}}_{:= M} \\
     \intertext{мы оценили норму оператора $A$}
     \Rightarrow \norm{Ax}_Y \leq \norm{x}_{l^2_n} \cdot M \Rightarrow A \in \B(l^2_n, Y), \norm{A} \leq M \\
-    g(x) := \norm{Ax} \text{ -- функция на } l^2_n \Rightarrow g(x) \text{ -- непрерывна на } l^2_n 
+    g(x) := \norm{Ax} \text{ --- функция на } l^2_n \Rightarrow g(x) \text{ --- непрерывна на } l^2_n 
 \end{gather*}
  
-Теперь рассмортим эту функцию не на всём пространстве, а на единичной сфере $S = \seq{x \in l^2_n, \norm{x}_2 = 1}$ -- компакт в $l^2_n$.
+Теперь рассмотрим эту функцию не на всём пространстве, а на единичной сфере $S = \seq{x \in l^2_n, \norm{x}_2 = 1}$ --- компакт в $l^2_n$.
 \begin{gather*}
     x \in S, g(x) > 0, g \text{ непрерывная на компакте } S \Rightarrow \\
-    \exists x_0 \in S, g(x_0) = \max_{x \in S} \min g(x), r = g(x_0), r > 0 \\
+    \exists x_0 \in S, g(x_0) =  \min_{x \in S} g(x), r = g(x_0), r > 0 \\
     \text{пусть } x \in l^2_n, x \ne 0 \quad \frac{x}{\norm{x}} \in S \Rightarrow g\left( \frac{x}{\norm{x}} \right) \geq r \Rightarrow \\
     \norm{A\left(\frac{x}{\norm{x}}\right)} \geq r \Rightarrow \norm{Ax} \geq r \norm{x} \: \forall x \in l^2_n \\
-    \Rightarrow \text{ -- линейная изометрия}
+    \Rightarrow \text{ --- линейная изометрия}
 \end{gather*}
+
+\end{proof}
  
 \begin{corollary}
     $(X, \norm{\cdot}), \dim X = n \in \bN \Rightarrow$
     \begin{enumerate}
-        \item $X$ -- банахово 
-        \item $K \subset X, K$ -- относительно компактно $\Leftrightarrow K$ -- ограничено
-        \item $K \subset X, K$ -- компакт $\Leftrightarrow K$ -- ограничено и замкнуто  
+        \item $X$ --- банахово 
+        \item $K \subset X, K$ --- относительно компактно $\Leftrightarrow K$ --- ограничено
+        \item $K \subset X, K$ --- компакт $\Leftrightarrow K$ --- ограничено и замкнуто  
     \end{enumerate}
 \end{corollary}
-Мы когда-нибудь выясним, что если в пространстве единичный шар -- компакт, то это пространство конечномерное.
+Мы когда-нибудь выясним, что если в пространстве единичный шар --- компакт, то это пространство конечномерное.
 \begin{proof}
     \begin{enumerate}
-        \item $l^2_n$ -- полное, $X$ -- линейно изоморфно $l^2_n$ и по утверждению из конца предыдущего параграфа $\Rightarrow l^2_n X$ банахово 
-        \item $A \in \B(l^2_n, X), A^{-1} \in \B(X, l^2_n), A, A^{-1}$ -- непрерывны 
+        \item $l^2_n$ --- полное, $X$ --- линейно изоморфно $l^2_n$ и по утверждению из конца предыдущего параграфа $\Rightarrow l^2_n X$ банахово 
+        \item $A \in \B(l^2_n, X), A^{-1} \in \B(X, l^2_n), A, A^{-1}$ --- непрерывны 
         \item аналогично 2
     \end{enumerate}
 \end{proof}
@@ -656,7 +659,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
     \end{tikzpicture}
 
     \begin{gather*}
-        A \text{ -- линейный изоморфизм} \\
+        A \text{ --- линейный изоморфизм} \\
         T = UA \in \Lin(l^2_n, Y) \stackrel{\text{доказали}}{\Rightarrow} T \in \B(l^2_n, Y) \\
         \Rightarrow U = TA^{-1} \quad A, A^{-1} \text{ непрерывны } \Rightarrow U \in \B(X,Y)
     \end{gather*}
@@ -692,11 +695,11 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
 \begin{proof}
     \begin{gather*}
         \B(X, \bC) = \Lin(X, \bC) \\
-        \text{пусть } \seq{e_j}^n_{j=1} \text{ -- базис } X, x \in X \Rightarrow x = \sum^n_{j=1} x_j e_j \\
+        \text{пусть } \seq{e_j}^n_{j=1} \text{ --- базис } X, x \in X \Rightarrow x = \sum^n_{j=1} x_j e_j \\
         f_j(x) = x_j, f_j : X \rightarrow \bC, f_j \in \Lin(X, \bC) 
         \intertext{проверим $\seq{f_j}^n_{j=1}$ базис в $X^*$}
-        f \in X^*, x = \sum^n_{j=1} x_j e_j \Rightarrow f(x) = \sum^n_{j=1} x_j f(e_j) = \sum^n_{j=1} \alpha_j x_j = \alpha_j f(e_j) \\
-        \Rightarrow f(x) \sum^n_{j=1} \alpha_j f_j(x) \: \forall x \in X \\
+        f \in X^*, x = \sum^n_{j=1} x_j e_j \Rightarrow f(x) = \sum^n_{j=1} x_j f(e_j) = \sum^n_{j=1} \alpha_j x_j, \alpha_j = f(e_j) \\
+        \Rightarrow f(x) = \sum^n_{j=1} \alpha_j f_j(x) \: \forall x \in X \\
         \Rightarrow f = \sum^n_{j=1} \alpha_j f_j
     \end{gather*}
     Проверим, что $\seq{f_j}^n_{j=1}$ линейно независимы
@@ -706,7 +709,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
             0 & j \ne k \\
             1 & j = k
         \end{cases} \Rightarrow \underbrace{ \left(\sum^n_{j=1} c_j f_j \right) (e_k)}_{=0} = c_k \Rightarrow c_k = 0, 1, \ldots, n \\
-        \Rightarrow \seq{f_j}^n_{j=1} \text{ -- базис в } X^*
+        \Rightarrow \seq{f_j}^n_{j=1} \text{ --- базис в } X^*
     \end{gather*}
 \end{proof}
 
@@ -717,8 +720,8 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
 Начнём с некоторого общего определения, которое касается метрических пространств.
  
 \begin{definition}
-    $(X,\rho)$ -- метрическое, $Y \subset X, x_0 \in X, \rho(x_0,Y) = \inf_{y \in Y} \rho(x_0, y)$. Если $\exists y_0 \in Y$ т.ч.$ \rho(x_0, Y) = \rho(x_0,y_0)$, то
-    $y_0$ -- \textbf{элемент наилучшего приближения} для $x_0$ в $Y$
+    $(X,\rho)$ --- метрическое, $Y \subset X, x_0 \in X, \rho(x_0,Y) = \inf_{y \in Y} \rho(x_0, y)$. Если $\exists y_0 \in Y$ т.ч.$ \rho(x_0, Y) = \rho(x_0,y_0)$, то
+    $y_0$ --- \textbf{элемент наилучшего приближения} для $x_0$ в $Y$
 \end{definition}
 
 Возникают вопросы, существует ли он, и если да, то единственный ли? Тривиальное замечание
@@ -730,16 +733,16 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
 теперь мы имеем дело с конечномерным подпространством
 
 \begin{theorem}
-    $(X, \norm{\cdot})$ -- нормированное, $L \subset X$. $L$ -- подпространство (в алгебраическом смысле), $\dim L = n < + \infty \Rightarrow$
+    $(X, \norm{\cdot})$ --- нормированное, $L \subset X$. $L$ --- подпространство (в алгебраическом смысле), $\dim L = n < + \infty \Rightarrow$
     \begin{enumerate}
-        \item $L$ -- замкнутое \\
-        \item $\forall x_0 \in X \: \exists y_0 \in L$ -- элемент наилучшего приближения
+        \item $L$ --- замкнутое \\
+        \item $\forall x_0 \in X \: \exists y_0 \in L$ --- элемент наилучшего приближения
     \end{enumerate}
 \end{theorem}
 
 \begin{proof}[1]
-    Естественно, о компактности никакой речи быть не может, но конечномерность нам поможет. Во-первых, мы уже отмечали, что все конечномерные пространства -- полные. Ещё мы доказывали линейную изоморфность.
-Таким образом, $L$ -- полное. А ещё почти на первой лекции мы обсуждали, что если есть полное подмножество метрического пространства, то оно автоматически оказывается замкнутым.
+    Естественно, о компактности никакой речи быть не может, но конечномерность нам поможет. Во-первых, мы уже отмечали, что все конечномерные пространства --- полные. Ещё мы доказывали линейную изоморфность.
+Таким образом, $L$ --- полное. А ещё почти на первой лекции мы обсуждали, что если есть полное подмножество метрического пространства, то оно автоматически оказывается замкнутым.
 \end{proof}
 
 \begin{proof}[2]
@@ -751,7 +754,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
         d < \norm {x_0 - y_n} \leq d + \frac{1}{n}
         \seq{y_n}^\infty_{n=1} \text{ ограничена в } L \\
         \dim L < + \infty \Rightarrow \seq{y_n}^\infty_{n=1} \text{ относительно компактна } \Rightarrow \\
-        \exists \seq{n_k}^\infty_{k=1} \: \exists \liml_{k \to \infty} y_{n_k} = y_0, L \text{ -- замкнуто } \Rightarrow y_0 \in L \\
+        \exists \seq{n_k}^\infty_{k=1} \: \exists \liml_{k \to \infty} y_{n_k} = y_0, L \text{ --- замкнуто } \Rightarrow y_0 \in L \\
         d \leq \norm{x_0 - y_{n_k}} \leq d + \frac{1}{n_k} \Rightarrow \text{при } k \to \infty \norm{x_0 - y_0} = d
     \end{gather*}
 \end{proof}
@@ -762,7 +765,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
 
 \begin{example}[$l_2^\infty$]
     $\norm{(x,y)} = \max \seq{|x|, |y|}$. $L = \{(x,y): y = kx, k \ne 0 \}$.
-    $(\cdot)$ -- элемент наилучшего приближения, единственный
+    $(\cdot)$ --- элемент наилучшего приближения, единственный
     \begin{tikzpicture}
         %тут будет рисунок 1
     \end{tikzpicture}
@@ -770,7 +773,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
     \begin{tikzpicture}
         % рисунок 2
     \end{tikzpicture}
-    все точки будут лежать на одном и том же расстоянии от $(x_1,y_1)$. $\forall x \in [x_1 - y_1, x_1 + y_1], y = 0 \: \forall (\cdot)$ -- элемент наилучшего приближения
+    все точки будут лежать на одном и том же расстоянии от $(x_1,y_1)$. $\forall x \in [x_1 - y_1, x_1 + y_1], y = 0 \: \forall (\cdot)$ --- элемент наилучшего приближения
 \end{example}
 
 \begin{example}[$l^1_2$]
@@ -778,7 +781,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
     %рисунок 3
     $L = \{ (x,y) : y = kx, k \ne \pm 1 \}$, тогда $\exists$ единственный элемент наилучшего приближения
     %рисунок 4
-    $L = \{y = x \}$, все точки отрезка -- элементы наилучшего приближения
+    $L = \{y = x \}$, все точки отрезка --- элементы наилучшего приближения
 \end{example}
 
 \begin{example}[$l^2_2$]
@@ -790,47 +793,50 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
 \begin{example}
     $1 < p < + \infty$%
     %рисунок 6,
-    $\exists$ единственный элемент. $e_j$ -- шар $l^p_2, 1 < p < + \infty$
+    $\exists$ единственный элемент. $e_j$ --- шар $l^p_2, 1 < p < + \infty$
 \end{example}
 
 \begin{corollary}[про многочлены]
     $C_{\bR}[a,b] = \seq{f: [a,b] \rightarrow \bR}$,
     \begin{gather*}
-        \P_n \seq{p(x) = \sum^n_{k=0} a_k x^k, a_k \in \bR} \\
-        E_n(f) = \inf_{p \in \P_n} \norm{f - p}_\infty \\
+        \Rho_n \seq{p(x) = \sum^n_{k=0} a_k x^k, a_k \in \bR} \\
+        E_n(f) = \inf_{p \in \Rho_n} \norm{f - p}_\infty \\
         \Rightarrow \exists p_0 \text{ т.ч. } E_n(f) = \norm{f - p_0}_\infty, p_0 \intertext{носит торжественное название многочлена наилучшего приближения}
     \end{gather*}
 \end{corollary}
 
 \begin{proof}
-    $\dim \P_n = n+1 \Rightarrow \: \exists p_0$ 
+    $\dim \Rho_n = n+1 \Rightarrow \: \exists p_0$ 
 \end{proof}
 
 \begin{remark}
-    $\existu p_0$, так как $p_9(x) = 0$ только в $n$ точках 
+    $\existu p_0$, так как $p_0(x) = 0$ только в $n$ точках.
     В пространстве непрерывных функций единичный шар устроен совершенно кошмарно, хотя норма устроена похожим образом на $l^\infty$. В шаре полно отрезков.
 \end{remark}
 
 \section{Конечномерность нормированного пространства с компактным единичным шаром}
 
 \begin{lemma}[Ф.Рисс, о почти перпендикуляре]
-    $(X, \norm{\cdot}), L \subsetneq X X, L$ -- замкнутое подпространство, $0 < \varepsilon < 1$
+    $(X, \norm{\cdot}), L \subsetneq X, L$ --- замкнутое подпространство, $0 < \varepsilon < 1$
     \[ \Rightarrow \exists x_0, \norm{x_0} = 1, \rho(x_0, L) > 1 - \varepsilon \]
 \end{lemma}
-Перед доказательсвтом сначала картинка, поясняющая, причём тут <<почти перпендикуляр>>
+Перед доказательством появится картинка, поясняющая, причём тут <<почти перпендикуляр>>
 \begin{tikzpicture}
     %почти перпендикуляр
 \end{tikzpicture}
-хочется, чтобы был элемент на расстоянии 1. вот хочется чтобы $x_0$ был почти перпендикуляром. 1 обеспечить нельзя, но $1 - \varepsilon$ -- можно.
+хочется, чтобы был элемент на расстоянии 1. вот хочется чтобы $x_0$ был почти перпендикуляром. 1 обеспечить нельзя, но $1 - \varepsilon$ --- можно.
 
 \begin{proof}
     \begin{gather*}
         z \in X \setminus L, d = \rho(z, L) = \inf_{y \in L} \norm{z - y} \Rightarrow \: \exists y_0 \in L : d \leq \norm{z - y_0} < d(1 + \varepsilon) \\
         x_0 = \frac{z - y_0}{\norm{z-y_0}}, \norm{x_0} = 1
-        \intertext{оценим норму разности}
-        \text{пусть } y \in L \quad \norm{x_0 -y} = \norm{\frac{z-y_0}{\norm{z-y_0}} - y} = \frac{1}{\norm{z-y_0}} \underbrace{\norm{z - \overbrace{y_0 - y\norm{z-y_0}}_{\in L}}}_{\geq d} \geq \frac{d}{d(1+\varepsilon)} = \frac{1}{1+\varepsilon} \\
-        \forall y \in L \Rightarrow \rho(x_0, L) \geq \frac{1}{1 + \varepsilon} > 1 - \varepsilon
     \end{gather*}
+    оценим норму разности
+    \begin{multline*}
+        \text{пусть } y \in L \quad \norm{x_0 -y} = \norm{\frac{z-y_0}{\norm{z-y_0}} - y} = \frac{1}{\norm{z-y_0}} \underbrace{\norm{z - \overbrace{y_0 - y\norm{z-y_0}}^{\in L}}}_{\geq d} \geq \\
+         \frac{d}{d(1+\varepsilon)} = \frac{1}{1+\varepsilon}
+    \end{multline*}
+    $ \forall y \in L \Rightarrow \rho(x_0, L) \geq \frac{1}{1 + \varepsilon} > 1 - \varepsilon$
 \end{proof}
 
 \begin{remark}
@@ -838,13 +844,13 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
 \end{remark}
 
 \begin{corollary}[из замечания]
-    $(X, \norm{\cdot}), L \subsetneq X, L$ -- подпространство, $\dim L < + \infty$ 
+    $(X, \norm{\cdot}), L \subsetneq X, L$ --- подпространство, $\dim L < + \infty$ 
     \[ \Rightarrow \exists x_0 \in X \setminus L, \norm{x_0} = 1, \rho(x_0,L) = 1 \] 
 \end{corollary}
 
 А это следствие нам понадобится несколько раз.
 \begin{corollary}
-    $(X, \norm{\cdot}), \seq{L_n}^\infty_{n=1}$, $L_n$ -- замкнутые подпространства. $L_n \subsetneq L_{n+1}, L_1 \ne \varnothing \Rightarrow$
+    $(X, \norm{\cdot}), \seq{L_n}^\infty_{n=1}$, $L_n$ --- замкнутые подпространства. $L_n \subsetneq L_{n+1}, L_1 \ne \varnothing \Rightarrow$
     \[ \exists \seq{y_n}^\infty_{n=1}, y_n = L_n, \rho(y_{n+1}, L_n) \geq \frac{1}{2}, \norm{y_n} = 1 \]
 \end{corollary}
 
@@ -854,25 +860,25 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
 
 \begin{theorem}[Ф.Рисс]
     $(X, \norm{\cdot}), B = \seq{x: \norm{x} < 1}$. $\overline{B} = \seq{x: \norm{x} \leq 1}$
-    \[ \overline{B} \text{ -- компакт } \Leftrightarrow \dim X < + \infty \]
+    \[ \overline{B} \text{ --- компакт } \Leftrightarrow \dim X < + \infty \]
 \end{theorem}
 
 \begin{proof}
     $\Leftarrow$ уже доказали \\
     $\Rightarrow$ \\
-    пусть $\dim X = \infty \Rightarrow \: \exists \seq{x_n}^\infty_{n=1}$ -- линейно независимы
+    пусть $\dim X = \infty \Rightarrow \: \exists \seq{x_n}^\infty_{n=1}$ --- линейно независимы
     \begin{gather*}
         L_n = \Lin \seq{x_j}^n_{j=1}, \dim L_n = n, L_n \subsetneq L_{n+1} \\
-        \stackrel{\text{Сл.2}}{\Rightarrow} \: \exists \seq{y_n}^\infty_{n=1}, \norm{y_n} = 1, \rho(y_n, L_{n+1}) > \frac{1}{2} \Rightarrow \\
+        \stackrel{\text{Сл.2}}{\Rightarrow} \: \exists \seq{y_n}^\infty_{n=1}, \norm{y_n} = 1, \rho(y_n, L_{n-1}) > \frac{1}{2} \Rightarrow \\
         \norm{y_n-y_m} > \frac{1}{2} \: \forall n, m \Rightarrow \: \nexists \text{ фундаментальной подпоследовательности } \Rightarrow \\
         \nexists \seq{y_{n_k}} : \: \exists \liml_{k \to \infty} y_{n_k} \Rightarrow \overline{B} \text{ не компакт}
     \end{gather*}
 \end{proof}
 
-Вот так нам удалось установить, что если в пространстве единичный шар -- компакт, то пространство конечномерное.
+Вот так нам удалось установить, что если в пространстве единичный шар --- компакт, то пространство конечномерное.
 
 \begin{theorem}[о продолжении линейного оператора]
-    $(X, \norm{\cdot})$ -- нормированное, $(Y, \norm{\cdot})$ -- банахово, $L \subset X, L$ -- подпространство в алгебраическом смысле
+    $(X, \norm{\cdot})$ --- нормированное, $(Y, \norm{\cdot})$ --- банахово, $L \subset X, L$ --- подпространство в алгебраическом смысле
     \[ \overline{L} = X, A \in \B(L,Y) \Rightarrow \: \existu V \in \B(X,Y) : \norm{V}_{\B(X,Y)} = \norm{A}_{\B(L,Y)} \] 
 \end{theorem}
 
@@ -880,21 +886,21 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
     Сначала мы должны распростарнить оператор, то есть определить, как он будет действовать на произвольный элемент $X$. Пусть $x \in X$.
     \begin{gather*}
         \exists \seq{x_n}^\infty_{n=1}, x_n \in L, \liml_{n \to \infty} \norm{x-x_n} = 0 \\
-        \seq{A x_n}^\infty_{n=1}, A x_n \in Y, \seq{A x_n}^\infty_{n=1} \text{-- фундаментальная  в } Y, \norm{Ax_n - Ax_m} \underset{n, m \to \infty}{\longrightarrow} 0
+        \seq{A x_n}^\infty_{n=1}, A x_n \in Y, \seq{A x_n}^\infty_{n=1} \text{--- фундаментальная  в } Y, \norm{Ax_n - Ax_m} \underset{n, m \to \infty}{\longrightarrow} 0
     \end{gather*}
-    Раз последовательность имеет предел, то она фундаментальная. Значит мы не зря в условии требовали банаховость. $Y$ -- банахово, тогда 
+    Раз последовательность имеет предел, то она фундаментальная. Значит мы не зря в условии требовали банаховость. $Y$ --- банахово, тогда 
     $\exists \liml_{n \to \infty} A x_n \in Y$
     \[ Vx := \liml_{n \to \infty} A X_n \]
     надо убедиться, что определение корректно, то есть что предел не зависит от изначально выбранной последовательности:
     \begin{gather*}
         \text{пусть } \seq{z_n}^\infty_{n=1} \liml_{n \to \infty} z_n = x \Rightarrow \: \exists \liml_{n \to \infty} A z_n \\
-        z_n \in L \quad \norm{A x_n - Az_n} \leq \norm{A} \underbrace{\norm{x_n - z_n}_{\underset{n \to \infty}{\longrightarrow} -}} \Rightarrow \liml_{n \to \infty} Ax_n = \liml_{n \to \infty} Az_n 
+        z_n \in L \quad \norm{A x_n - Az_n} \leq \norm{A} \underbrace{\norm{x_n - z_n}}_{\underset{n \to \infty}{\longrightarrow} 0} \Rightarrow \liml_{n \to \infty} Ax_n = \liml_{n \to \infty} Az_n 
         \intertext{корректность проверена}
         \text{пусть } x \in L, \text{ пусть } x_n = x \: \forall n \in \bN \Rightarrow Vx = \liml_{n \to \infty} A x_n = Ax \Rightarrow V |_L = A \\
-        \text{пусть } \liml_{n \to \infty} x_n = x \Rightarrow x = \liml_{n \to \infty} x_n, Vx = \liml_{n \to \infty} A x_n \Rightarrow \\
+        \text{пусть } \liml_{n \to \infty} x_n = x \Rightarrow Vx = \liml_{n \to \infty} A x_n \Rightarrow \\
         \liml{n \to \infty} \norm{x_n} = \norm{x} \quad \norm{Vx} \leq \liml_{n \to \infty}  \norm{A} \cdot \norm{x_n} = \norm{A} \norm{x} \\
         \Rightarrow \norm{V} \leq \norm{A} \\
-        \norm{V} = \sup_{\norm{x} = 1, x \in X} \norm{ Vx} \geq \sup_{{\norm{x} = 1, x \in X}} \norm{Vx} = \norm{A} \\
+        \norm{V} = \sup_{\{x \in X: \norm{x} = 1\}} \norm{ Vx} \geq \sup_{\{x \in L: \norm{x} = 1\}} \norm{Vx} = \norm{A} \\
         \Rightarrow \norm{V} = \norm{A}
     \end{gather*}
 \end{proof}
@@ -904,7 +910,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
 \section{Факторпространство}
 
 \begin{definition}[класс эквивалентности]
-    $X$ -- линейное пространство над $\bC$, $Y$ -- подпространство. $X / Y = \seq{\overline{x}}_{x \in X}$
+    $X$ --- линейное пространство над $\bC$, $Y$ --- подпространство. $X / Y = \seq{\overline{x}}_{x \in X}$
     \begin{gather*}
         x \sim z \text{ если } x - z \in Y \\
     \overline{x} = \seq{z: z = x + h, h \in Y}  \\
@@ -912,22 +918,22 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
     \lambda \in \bC, \lambda \overline{x} = \overline{(\lambda x)} \\
     \varphi: X \Rightarrow X / Y \quad \varphi(x) = \overline{x}
     \end{gather*}
-    $\varphi$ -- линейное (канонический гомоморфизм).
+    $\varphi$ --- линейное (канонический гомоморфизм).
 \end{definition}
 
 Если пространство будет не замкнутым, то будут ненулевые элементы с нулевой нормой (те, что лежат в замыкании).
 
 \begin{definition}
-   $(X, \norm{\cdot})$ -- нормированное, $Y$ -- замкнутое подпространство. $X / Y = \seq{\overline{x}}_{x \in X}$,
+   $(X, \norm{\cdot})$ --- нормированное, $Y$ --- замкнутое подпространство. $X / Y = \seq{\overline{x}}_{x \in X}$,
     \[ \norm{\overline{x}} = \inf_{z \in \overline{x}} \norm{z} = \inf_{y \in Y} \norm{x-y} = \rho(x,Y)\]
 \end{definition}
 
 \begin{theorem}
-    $(X, \norm{\cdot}), Y$ -- замкнутое подпространство $\Rightarrow$ 
+    $(X, \norm{\cdot}), Y$ --- замкнутое подпространство $\Rightarrow$ 
     \begin{enumerate}
         \item $\norm{\overline{x}}$ в $X / Y$ удовлетворяет аксиомам нормы 
         \item $\varphi: X \rightarrow X/Y, \varphi(x) = \overline{x} \Rightarrow \varphi \in \B(X, X/Y), \norm{\varphi} = 1$
-        \item Если $X$ -- банахово, то $X /Y$ -- банахово
+        \item Если $X$ --- банахово, то $X /Y$ --- банахово
     \end{enumerate}
 \end{theorem}
 
@@ -936,7 +942,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
         \lambda \in \bC, \lambda \ne 0, x \in X \\
         \norm{\overline{\lambda x}} = \inf_{z \in \overline{x}} \norm{\lambda z} = |\lambda| \inf_{z \in \overline{x}} \norm{z} = |\lambda| \cdot \norm{\overline{x}} \\
         \text{пусть } \overline{x}, \overline{u} \in X / Y, z \in \overline{x}, v \in \overline{y} \\
-        \norm{\overline{x} + \overline{u}} \leq \norm{z + v} \leq \norm{z} + \norm{v}  \quad \forall z \in \overline{x}, \forall v \in \overline{u} \\
+        \norm{\overline{x} + \overline{u}} \leq \norm{z + v} \leq \norm{z} + \norm{v}  \quad \forall z \in \overline{x}, \forall v \in \overline{y} \\
         \Rightarrow \norm{\overline{x} + \overline{u}} \leq \inf_{z \in \overline{x}} \norm{z} + \inf_{v \in \overline{u}} \norm{v} = \norm{\overline{x}} + \norm{\overline{u}} 
         \intertext{ теперь проверяем в 0, тут как раз нужна замкнутость} 
         \norm{\overline{x}} = 0 \quad \norm{\overline{x}} = \rho(x,Y) = 0 \Rightarrow x \in Y \Rightarrow \overline{x} = Y = \overline{0}
@@ -948,15 +954,15 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
     По лемме о почти перпендикуляре, пусть $\varepsilon > 0 \: \exists x_0, \norm{x_0} = 1$
     \begin{gather*}
         \rho(x_0,Y) > 1 - \varepsilon \Rightarrow \norm{\varphi(x_0)} = \rho(x_0, Y) > 1 - \varepsilon \\
-        \Rightarrow \norm{\varphi} = \sup_{\seq{x: \norm{x} =1}} \norm{\varphi(x)} > 1 - \varphi \: \forall \varepsilon > 0 \Rightarrow \norm{\varphi} = 1
+        \Rightarrow \norm{\varphi} = \sup_{\seq{x: \norm{x} =1}} \norm{\varphi(x)} > 1 - \varepsilon \: \forall \varepsilon > 0 \Rightarrow \norm{\varphi} = 1
     \end{gather*}
 \end{proof}
 \begin{proof}[3]
-    Воспользуемся критерием полноты: если сходится ряд из норм, то сходится и сам ряд. $X/Y$ -- полное?
+    Воспользуемся критерием полноты: если сходится ряд из норм, то сходится и сам ряд. $X/Y$ --- полное?
     \begin{gather*}
         \text{пусть } \seq{x_n}^\infty_{n=1} \: \sum^\infty_{n=1} \norm{\overline{x_n}} < + \infty \left( \stackrel{?}{\Rightarrow} \sum^\infty_{n=1} \overline{x_n} \text{сходится в } X/Y \right) \\
         \norm{\overline{x_n}} = \inf_{z \in \overline{x_n}} \norm{z} \Rightarrow \: \exists z_n \in \overline{x_n} : \norm{z_n} \leq 2 \norm{\overline{x_n}} \\
-        \Rightarrow \sum^\infty_{n=1} \norm{z_n} < + \infty  X \text{ -- банахово, и по критерию полноты} \Rightarrow \\
+        \Rightarrow \sum^\infty_{n=1} \norm{z_n} < + \infty  X \text{ --- банахово, и по критерию полноты} \Rightarrow \\
         \exists S = \sum^\infty_{n=1} z_n, s \in X 
         \intertext{рассмотрим частичные суммы}
         \begin{cases}
@@ -964,7 +970,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~-- ограниченное)
             \varphi(s_n) = \sum^n_{k=1} \varphi(z_k) = \sum^n_{k=1} \overline{x_k} 
         \end{cases} \varphi \text{ непрерывна} \Rightarrow \\
         \liml_{n \to \infty} \varphi(s_n) = \varphi(s) \in X/Y \\
-        \Rightarrow \: \exists \liml_{n \to \infty} \sum^n_{k=1} \overline{x_k} = \sum^\infty_{k=1} \overline{x_k} \Rightarrow X / Y \text{ -- банахово}
+        \Rightarrow \: \exists \liml_{n \to \infty} \sum^n_{k=1} \overline{x_k} = \sum^\infty_{k=1} \overline{x_k} \Rightarrow X / Y \text{ --- банахово}
     \end{gather*}
 \end{proof}
 
