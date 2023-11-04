@@ -1,8 +1,8 @@
 % !TeX root = ./document.tex
 \documentclass[document]{subfiles}
 \begin{document}
-\chapter{Линейные операторы}
- 
+\part{Линейные операторы}
+\chapter{Линейные операторы в линейных пространствах} 
 Первый парагарф про линейные пространства будет совсем простой, здесь будут самые тривиальные свойства, следующие из линейности.
 \section{Линейные операторы в линейных пространствах} % мб главу так назвать
  
@@ -649,6 +649,8 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
         \Rightarrow T \in \B(l^2_n, Y), \norm{T} \leq M
     \end{gather*}
     теперь произвольный случай, пусть $U \in \Lin(X,Y), \dim X = n$ \\
+    \begin{figure}
+    \centering
     \begin{tikzpicture}[baseline= (a).base]
         \node[scale=2] (a) at (0,0){
             \begin{tikzcd}[every arrow/.append style={shift left}, column sep = huge]
@@ -657,7 +659,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
             \end{tikzcd}
         };
     \end{tikzpicture}
-
+\end{figure}
     \begin{gather*}
         A \text{ --- линейный изоморфизм} \\
         T = UA \in \Lin(l^2_n, Y) \stackrel{\text{доказали}}{\Rightarrow} T \in \B(l^2_n, Y) \\
@@ -763,45 +765,51 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
     $\dim L < + \infty$, элемент наименьшего приближения может быть не единственным.
 \end{remark}
 
+\begin{figure}
+    \begin{subfigure}[h]{0.50\textwidth}
+        \includegraphics*{images/chapter5/example1_1.pdf}\caption{Пример 5.10, $k \ne 0$}
+    \end{subfigure}
+    \begin{subfigure}[h]{0.40\textwidth}
+        \includegraphics*{images/chapter5/example1_2.pdf}\caption{Пример 5.10, $k = 0$}
+    \end{subfigure}
+    \begin{subfigure}[h]{0.50\textwidth}
+        \includegraphics*{images/chapter5/example2_1.pdf}\caption{Пример 5.11, $k \ne \pm 1$}
+    \end{subfigure}
+    \begin{subfigure}[h]{0.40\textwidth}
+        \includegraphics*{images/chapter5/example2_2.pdf}\caption{Пример 5.11, $k = 1$}
+    \end{subfigure}
+    \begin{subfigure}[h]{0.50\textwidth}
+        \includegraphics*{images/chapter5/example3_1.pdf}\caption{Пример 5.12, $l_2^2$}
+    \end{subfigure}
+    \begin{subfigure}[h]{0.40\textwidth}
+        \includegraphics*{images/chapter5/example3_2.pdf}\caption{Пример 5.12, $1 < p < +\infty$}
+    \end{subfigure}
+\end{figure} 
 \begin{example}[$l_2^\infty$]
     $\norm{(x,y)} = \max \seq{|x|, |y|}$. $L = \{(x,y): y = kx, k \ne 0 \}$.
     $(\cdot)$ --- элемент наилучшего приближения, единственный
-    \begin{tikzpicture}
-        %тут будет рисунок 1
-    \end{tikzpicture}
-
-    \begin{tikzpicture}
-        % рисунок 2
-    \end{tikzpicture}
-    все точки будут лежать на одном и том же расстоянии от $(x_1,y_1)$. $\forall x \in [x_1 - y_1, x_1 + y_1], y = 0 \: \forall (\cdot)$ --- элемент наилучшего приближения
+   \\
+    Если допустить $k = 0$, то все точки будут лежать на одном и том же расстоянии от $(x_1,y_1)$. $\forall x \in [x_1 - y_1, x_1 + y_1], y = 0 \: \forall (\cdot)$ --- элемент наилучшего приближения
 \end{example}
 
 \begin{example}[$l^1_2$]
-    $\norm{(x, y)}_1 = |x| + |y|$
-    %рисунок 3
-    $L = \{ (x,y) : y = kx, k \ne \pm 1 \}$, тогда $\exists$ единственный элемент наилучшего приближения
-    %рисунок 4
+    $\norm{(x, y)}_1 = |x| + |y|$,
+    $L = \{ (x,y) : y = kx, k \ne \pm 1 \}$, тогда $\exists$ единственный элемент наилучшего приближения. Если же
     $L = \{y = x \}$, все точки отрезка --- элементы наилучшего приближения
 \end{example}
 
 \begin{example}[$l^2_2$]
-    $l_2^2 = \seq{(x,y) : \norm{(x,y)}_2 = \sqrt[root]{|x|^2 + |y|^2}}$
-    %рисунок 5
-    $\forall L \: \exists$ единственный элемент приближения 
+    $l_2^2 = \seq{(x,y) : \norm{(x,y)}_2 = \sqrt{|x|^2 + |y|^2}} \: \forall L \: \exists!$ элемент наилучшего приближения, при
+    $1 < p < +\infty$ аналогично
 \end{example}
 
-\begin{example}
-    $1 < p < + \infty$%
-    %рисунок 6,
-    $\exists$ единственный элемент. $e_j$ --- шар $l^p_2, 1 < p < + \infty$
-\end{example}
 
 \begin{corollary}[про многочлены]
     $C_{\bR}[a,b] = \seq{f: [a,b] \rightarrow \bR}$,
     \begin{gather*}
         \Rho_n \seq{p(x) = \sum^n_{k=0} a_k x^k, a_k \in \bR} \\
         E_n(f) = \inf_{p \in \Rho_n} \norm{f - p}_\infty \\
-        \Rightarrow \exists p_0 \text{ т.ч. } E_n(f) = \norm{f - p_0}_\infty, p_0 \intertext{носит торжественное название многочлена наилучшего приближения}
+        \Rightarrow \: \exists p_0 \text{ т.ч. } E_n(f) = \norm{f - p_0}_\infty, p_0 \intertext{носит торжественное название многочлена наилучшего приближения}
     \end{gather*}
 \end{corollary}
 
@@ -815,17 +823,18 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
 \end{remark}
 
 \section{Конечномерность нормированного пространства с компактным единичным шаром}
+\begin{figure}
+    \centering
+    \includegraphics*{images/chapter5/almost_perp.pdf}\caption{Почти перпендикуляр}
+\end{figure}
+
 
 \begin{lemma}[Ф.Рисс, о почти перпендикуляре]
     $(X, \norm{\cdot}), L \subsetneq X, L$ --- замкнутое подпространство, $0 < \varepsilon < 1$
     \[ \Rightarrow \exists x_0, \norm{x_0} = 1, \rho(x_0, L) > 1 - \varepsilon \]
 \end{lemma}
-Перед доказательством появится картинка, поясняющая, причём тут <<почти перпендикуляр>>
-\begin{tikzpicture}
-    %почти перпендикуляр
-\end{tikzpicture}
-хочется, чтобы был элемент на расстоянии 1. вот хочется чтобы $x_0$ был почти перпендикуляром. 1 обеспечить нельзя, но $1 - \varepsilon$ --- можно.
-
+На рисунке 5.2 показано, причём тут <<почти перпендикуляр>>.
+Хочется, чтобы $x_0$, был элемент на расстоянии 1, но 1 обеспечить нельзя, но $1 - \varepsilon$ --- можно.
 \begin{proof}
     \begin{gather*}
         z \in X \setminus L, d = \rho(z, L) = \inf_{y \in L} \norm{z - y} \Rightarrow \: \exists y_0 \in L : d \leq \norm{z - y_0} < d(1 + \varepsilon) \\
@@ -974,4 +983,6 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
     \end{gather*}
 \end{proof}
 
+
 \end{document}
+
