@@ -142,7 +142,7 @@ $A = \left( \int_X |f|^p d \mu \right)^{\frac{1}{p}}, B = \left( \int_X |g|^q d 
 \begin{theorem}[Неравенство Минковского]
     $(X, U, \mu)$, $f, g$~--- измеримые, $1 \leq p < + \infty \Rightarrow$
     \[ \underbrace{\left( \int_X |f(x) + g(x)|^p d \mu \right)^{\frac{1}{p}}}_{C}  \leq \underbrace{\left( \int_X |f(x)|^p d \mu \right)^{\frac{1}{p}}}_{A} + 
-    \underbrace{\left( \int_X |fg(x)|^p d \mu \right)^{\frac{1}{p}}}_{B} \tag{*} \]
+    \underbrace{\left( \int_X |g(x)|^p d \mu \right)^{\frac{1}{p}}}_{B} \tag{*} \]
     
 \end{theorem}
 \begin{proof}
@@ -402,9 +402,9 @@ $(F, || \cdot ||_p) $~--- не полное, $F$~--- не замкнуто.
     Предъявим фундаментальную последовательность, предел которой не будет непрерывной функцией.
 
     $f_n = \begin{cases}
-        0, -1 \leq x \leq 0 \\
-        nx, x \in [0, \frac{1}{n}] \\
-        1, x \in [\frac{1}{n}, 1]
+        0 & -1 \leq x \leq 0 \\
+        nx & x \in [0, \frac{1}{n}] \\
+        1 & x \in [\frac{1}{n}, 1]
     \end{cases}, f \in C[-1,1]$ % тут рисунок f
 
     $f_n$~--- фундаментальная в $(C[-1,1], p=1)$
@@ -964,8 +964,8 @@ $M$~--- \textbf{ множество второй категории}, если $
 \section{Полные и плотные множества в $L^p$}
 Сначала небольшое замечание. $(X, U, \mu)$~--- пространство с мерой $e \in U$~--- измеримые множества, 
 $\chi_e(x) = \begin{cases}
-    1, x \in E \\
-    0, x \notin E
+    1 & x \in E \\
+    0 & x \notin E
 \end{cases}$~--- характеристическая функция. $\chi \in L^\infty(X, \mu), \, \forall e \in U$
 \[ \chi_e \in L^p(X, \mu) \text{ при } 1 \leq p < + \infty \Leftrightarrow \int_X (\chi_e(x))^p d\mu < + \infty \Leftrightarrow \mu e < + \infty \]
 
@@ -1028,8 +1028,8 @@ $\chi_e(x) = \begin{cases}
 
 \begin{corollary}
     $l^\infty, A \subset \bN$, $X^A = \seq{x^A_n}^\infty_{n=1}, X^A_n = \begin{cases}
-        1, n \in A \\
-        0, n \notin A
+        1, & n \in A \\
+        0, & n \notin A
     \end{cases} \Rightarrow$
     \[ \seq{X^A}_{A \subset \bN} \text{~--- полное семейство в } l^\infty \]
 \end{corollary}

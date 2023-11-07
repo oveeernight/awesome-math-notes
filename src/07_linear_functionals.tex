@@ -1,0 +1,271 @@
+% !TeX root = ./document.tex
+\documentclass[document]{subfiles}
+\begin{document}
+\part{Линейные функционалы}
+\chapter{Геометрический смысл линейного функционала}
+Линейное пространство, без нормы, без топологии, может, уже даже в алгебре доказали.
+
+\begin{theorem}
+    $X$ --- линейное пространство над $\bC$ ($\bR$)
+    \begin{enumerate}
+        \item $f \in \Lin(X, \bC), f \ne \bZero, L = \Ker f \Rightarrow$ 
+        \[ \dim (X / L) = 1 \]
+        $\codim L \coloneqq \dim (X / L)$ --- коразмерность, не то чтобы мы будем этим пользоваться, просто сообщение по секрету
+        \item пусть $L \subset X, L$ --- подпространство, такое что $\dim (X/L) = 1$. $x_0 \in X \setminus L \Rightarrow \: \exists! f \in \Lin(X, \bC), 
+        L = \Ker f, f(x_0) = 1$
+    \end{enumerate}
+\end{theorem}
+
+Поскольку образ одномерен, это и означает, что фактор по ядру имеет такую же размерность, а образ у нас это $\bC$
+
+\begin{proof}[1 утверждение]
+    Пусть $x_0 \in X \setminus L \Rightarrow f(x_0) \ne 0, v = \frac{x_0}{f(x_0)} \Rightarrow f(v) = 1$
+    \begin{gather*}
+        (X/L) = \seq{\overline{x}}_{x \in X}, \overline{x} = \seq{x + y | y \in L} \\
+        \text{возьмём какой-то } x \in X, \alpha \coloneqq f(x), f(\alpha v) = \alpha f(v) = \alpha \\
+        \Rightarrow f(x-\alpha v) = 0 \Rightarrow x - \alpha v \in L \Rightarrow \overline{x} = \alpha \overline{v} \\
+        \Rightarrow \dim(X/L) = 1
+    \end{gather*}
+\end{proof}
+
+\begin{proof}[2 утверждение]
+    \begin{gather*}
+        (X/L) = \seq{\overline{x}}_{x \in X} \dim(X / L) = 1 \Rightarrow \: \forall x \in X \: \exists \alpha \in \bC : \overline{x} = \alpha \overline{x_0} \\
+        \text{определим } f: X \rightarrow \bC \\
+        \text{установили, что } \forall x \: \exists \alpha \in \bC : \overline{x} = \alpha \overline{x_0}, \: f(x) \coloneqq \alpha \Rightarrow f \in \Lin(X, \bC) \\
+        f(x_0) = 1 \\
+        \text{пусть } f(x) = 0 \Rightarrow \overline{x} = 0 \cdot \overline{x_0} = \overline{0} = L \Rightarrow x \in L \Rightarrow \\
+        \Ker f = L 
+        \intertext{Проверим единственность:}
+        \text{пусть } g \in \Lin(X, \bC), \Ker g = L, g(x_0) = 1 \\
+        \forall x \in X \: x = y + \alpha x_0 \text{ где } y \in L, \alpha \in \bC \\
+        \Rightarrow f(x) = \alpha, g(x) = \alpha
+    \end{gather*}
+\end{proof}
+
+докажем теперь что-то с функционалами для нормированного пространства
+
+\begin{theorem}[норма линейного функционала]
+    $(X, \norm{\cdot})$ --- нормированное пространство. $f \in X^*, f \ne \bZero, L = \Ker f, f(x_0) = 1 \Rightarrow \norm{f} = \frac{1}{\rho(x_0,L)}$
+\end{theorem}
+
+\begin{proof}
+    \begin{gather*}
+        L = f^{-1}(0) \Rightarrow L \text{ --- замкнутое}\\
+        d = \rho(x, L) = \inf_{y \in L} \norm{x_0 -y} \\
+        1 = f(x_0) = f(x_0-y) \Rightarrow \abs{f(x_0-y)} \leq \norm{f} \cdot \norm{x_0 -y} \: \forall y L \\
+        \Rightarrow 1 \leq \norm{f} \inf_{y \in L} \norm{x_0 - y} = \norm{f} \cdot d \Rightarrow \frac{1}{d} \leq \norm{f}
+    \end{gather*}
+    Получили неравенство в одну сторону. Теперь в другую:
+    \begin{gather*}
+        x \notin L \Rightarrow f(x) \ne 0, \: f\left( \frac{x}{f(x)} \right) = 1, f(x_0) = 1 \Rightarrow \\
+        f \left(\frac{x}{f(x)} -x \right) = 0 \Rightarrow \frac{x}{f(x)} - x_0 = y, y \in L \\
+        \Rightarrow \frac{x}{f(x)} = x_0 -(-y) \Rightarrow \norm{ \frac{x}{f(x)}} = \norm{x_0 -(-y)} \geq d \\
+        \Rightarrow \abs{f(x)} \leq \frac{1}{d} \cdot \norm {x} \Rightarrow \norm{f} \leq \frac{1}{d}
+    \end{gather*}
+    Вот и получили, что было обещано: $\norm{f} = \frac{1}{d}$
+\end{proof}
+
+\begin{remark}
+    В условиях теоремы, $M = f^{-1}(1)$, тогда $M = x_0 + L, \rho(x_0, L) = \rho(0, M)$. Вместо того, чтобы рассматривать ядро, можно рассматривать такое <<сдвинутое ядро>>.
+    Подпространство $L$ можно сдвинуть на  вектор, это довольно очевидно, не будем это доказывать.
+\end{remark}
+
+\section{Продолжение линейного функционалов}
+
+Новый раздел, в котором наконец появится существенная теорема, до этого были так...
+
+Будет задан функционал с дополнительным условием, и мы будем продолжать его на всё пространство так, чтобы условие сохранилось. Нам понадобится не только анализ, но и математическая логика, в частности, лемма Цорна. Поскольку 
+нам никто её не рассказывал, придётся её рассказать.
+Нам понадобится индукция: но не обычная, ведь у нас какие-то гигантские пространства, переход от $n$ к $n+1$ нам ничем не поможет, нужен более хитрый трюк.
+
+\begin{definition}[частично упорядоченное множество]
+    $\Rho$ \textbf{ частично упорядоченное множество}, если $\R \subset \Rho \times \Rho, (a,b) \in \R$, то есть $a \leq b$. $\R$ --- порядок, если выполнены аксиомы 
+    \begin{enumerate}
+        \item $\forall a \in \Rho, (a,a) \in \R$, то есть $a \leq a$ (рефлексивность)
+        \item если $(a \leq b \land b \leq c) \Rightarrow a \leq c$ (транзитивность)
+        \item если $(a \leq b \land b \leq a)$, то $a = b$ (антисимметричность)
+    \end{enumerate}
+    важно, что не для всех элементов определён порядок, а для каких-то
+\end{definition}
+
+\begin{definition}[линейно упорядоченное множество]
+    $\Rho$ --- частично упорядоченное, $A \subset \Rho$, $A$ --- линейно упорядочено, если $\forall a,b \in A, a \leq b$ или $b \leq a$
+\end{definition}
+
+\begin{definition}[верхняя грань множества]
+    $A \subset \Rho$, $x$ --- верхняя грань для $A$, если $a \leq x \: \forall a \in A$
+\end{definition}
+
+\begin{definition}[максимальный элемент множества]
+    $y$ --- максимальный элемент в $\Rho$, если $y \leq a \Rightarrow y = a$.
+    Максимальный в том смысле, что больше него не существует, но таких максимумом может быть хоть миллион, и они между собой не сравнимы.
+\end{definition}
+
+
+\begin{lemma*}[Цорн]
+    Если в $\Rho$ любое линейно упорядоченное множество имеет верхнюю грань, то в $\Rho$ есть максимальный элемент
+\end{lemma*}
+
+\begin{axiom*}[Выбора]
+    $\seq{B_\alpha}_{\alpha \in A}$, $B_\alpha \ne \bZero \Rightarrow \: \exists C = \{ b_\alpha: b_\alpha \in B_\alpha \}_{\alpha \in A}$
+\end{axiom*}
+Если есть алгоритм выбора элементов из множества, то пользуемся им, без этой аксиомы. \\
+
+Для общего развития: Аксиома Выбора $\Leftrightarrow$ Лемма Цорна. \\ 
+Закончили с ликбезом по теории множеств.
+
+\begin{definition}[выпуклый функционал]
+    $X$ --- линейное пространство над $\bC$ ($\bR$). $p: x \rightarrow \bR, p$ --- выпуклый функционал, если 
+    \begin{enumerate}
+        \item $p(x+y) \leq p(x) = p(y) \: \forall x,y \in X$ 
+        \item $p(tx) = tp(x) \: \forall t \geq 0$
+    \end{enumerate} 
+\end{definition}
+
+\begin{remark}
+    $p$ --- полунома, тогда $p(\lambda x) = \abs{\lambda} p(x) \: \forall \lambda \in \bC (\bR) \Rightarrow p$ --- выпуклный функционал
+\end{remark}
+
+Считается, что весь линейный функциональный анализ стоит на трёх китах, и мы дошли до Кита №1.
+\begin{theorem}[Хан-Банах, о продолжении линейного функционала в вещественном пространстве]
+    $X$ --- линейное пространство над $\bR$, $p: X \rightarrow \bR$, $p$ --- выпуклый функционал.
+    $L \subset X, L$ --- подпространство, $f \in \Lin(L, \bR), f(x) \leq p(x) \: \forall x \in L$ (говорят $f$ подчинён $p$)
+    \[ \exists g \in \Lin(X, \bR), g(x) = f(x), x \in L \quad g(x) \leq p(x) \: \forall x \in X \]
+\end{theorem}
+Тут очень важно, что пространство вещественное, у нас будет другая теорема для комплексного. Эта теорема всё время возникает, мы ей либо по умолчанию пользуемся, либо следствиями из неё.
+
+Доказательство будет состоять из 2 частей. Первая: --- естественная часть МА, покажем, что существует функционал, продлённый на одну размерность больше и который совпадает с $f$ на подпространстве. Во второй части продлим на всё $X$, там нам и понадобится это логическое жульничество.
+\begin{proof}
+   \begin{gather*}
+        f \in \Lin(L, \bR), z \in X \setminus L \\
+        L_1 = \calL(L, z) = \seq{x + tz : t \in \bR, x \in L} \\
+        \intertext{докажем, что $\exists f_1 \in \Lin(L, \bR): f_1 |_L = f, f_1(y) \leq p(y) \: \forall y \in L_1$; мы можем распоряться только значением $f_1$}
+        f_1(z) = c \quad c \in \bR, \text{ выберем <<с>> так, как надо } \\
+        y = x + tz \in L_1 \Rightarrow f_1(y) = f(x) + tc \\
+        \intertext{хотим доказать $f(x) + tc \leq p(x+tz) \forall t \in \bR$, и, так как можно из функционала выносить только положительные числа, это эквивалентно} 
+        \begin{cases}
+            f(x) + tc \leq p(x + tz) & t > 0 \\
+            f(x) - tc \leq p(x - tz) & t > 0
+        \end{cases} \Leftrightarrow \\
+        \begin{cases}
+            f \left( \frac{x}{t} \right) + c \leq p \left( \frac{x}{t} + z \right) & \forall t \\
+            f\left(\frac{x}{t}\right)-c \leq p \left( \frac{x}{t} -z \right)  & \forall t
+        \end{cases}, \frac{x}{t} \in L \Leftrightarrow x \in L \\
+        u = \frac{x}{t}, u \in L, v = \frac{x}{t} \Leftrightarrow \left. \begin{bmatrix}
+            f(u) + c \leq p(u+z) \\
+            f(v) - c \leq p(v-z)
+        \end{bmatrix}  \right\} \Leftrightarrow \\
+        f(v) - p(v-z) \leq c \leq p(u+z) - f(u), \: u,v \in L 
+        \intertext{если такое $c$ есть, все хорошо, а если нет --- ужасно}
+        \text{обозначим} A = \seq{f(v) - p(v-z) : v \in L} \subset \bR, B = \seq{p(u+z) - f(u): u \in L } \subset \bR \\
+        \intertext{проверим, что $\forall a \in A, \forall b \in B a \leq b$. это и будет означать, что между этими множествами и есть какой-то элемент (из-за полноты вещественной прямой)}
+        f(v) - p(v-z) \leq p(u+z) - f(u) \Leftrightarrow \\
+        f(v) + f(u) \leq p(u+z) + p(v-z) \\
+        f(v) + f(u) = f(u+v) \leq p(u+v) \text{ из-за выпуклости } p \leq p(u+z) + p(v-z), u+v \in L \\
+        \Rightarrow \: \exists c \in \bR: f_1(z) = c \Rightarrow f_1(y) \leq p(y) \: \forall y \in L_1, f_1|_L = f
+   \end{gather*}
+   итак, мы продолжили функционал на размерность+1, и
+   если бы было сепарабельное или банахово пространство, мы бы ограничились обычной индукцией, увеличивая размерность на 1, и по непрерывности пришли бы к пределу, и замыкание было бы всем $X$.
+   Но раз у нас всего этого нет, мы будем пользоваться леммой Цорна, которая по всем кардиналам эквивалентна трансфинитной индукции.
+   Что же у нас тут будет частично упорядоченным множеством? Рассмотрим все возможные продолжения линйеного фунционала, удовлетворяющие условиям
+   \[ \Rho = \seq{(M,h)} \] 
+   где $L \subset M$ --- подпространство $X$, $h \in \Lin(M, \bR), h_L = f, h(x) \leq p(x) \: \forall x \in M$. Докажем, что $\exists M = x$, то есть 
+   $(X, h) \in \Rho$. Раз в множестве $p$ есть максимальный элемент, то он равен $M$, вот такой краткий план. \\
+   Как определяется частичный порядок в $\Rho$? 
+   $(M_1,h_1) \leq (M_2,h_2)$, если $M_1 \subset M_2, {h_2}_{M_1} = h_1$ \\
+   $\seq{(M_\alpha, h_\alpha)}_{\alpha \in A}$ --- линейно упорядоченное множество. \\
+   Построим верхнюю грань: 
+   \[ M_0 = \bigcup_{\alpha \in A} M_\alpha, h_0: M_0 \rightarrow \bR \]
+   пусть $x \in M_0 \Rightarrow \: \exists \alpha \in A : x \in M_\alpha, h_0(x) \coloneqq h_\alpha(x)$
+   и то, и другое определение требует обоснования корректности, ведь объединение подпространств не обязано быть подпространством (на вещественной плоскости: объединение 2 прямых, проходящих через 0 --- непонятно, что вообще такое).
+   Проверим, что $M_0$ --- подпространство
+   \begin{gather*}
+        \text{пусть } x,y \in M_0 \Rightarrow \: \exists \alpha, \beta \in A \: x \in M_\alpha, y \in M_\beta \\
+        \intertext{вспоминаем про линейный порядок}
+        (M_\alpha, h_\alpha) \leq (M_\beta, h_\beta) \text{ или }  (M_\beta, h_\beta) \leq (M_\alpha, h_\alpha) \\
+        \text{ пусть } (M_\alpha, h_\alpha) \leq (M_\beta, h_\beta) \Rightarrow M_\alpha \subset M_\beta \Rightarrow x \in M_\beta \Rightarrow \lambda x + \mu y \in M_\beta \\
+        \Rightarrow \lambda x + \mu y \in M_0 \Rightarrow M_0 \text{ подпространство }
+        \intertext{проверим корректность определения $h_0$, то есть что оно не должно зависеть от того, возьмём мы $\alpha$ или $\beta$}
+        \text{пусть } x \in M_0, \text{ пусть } x \in M_\alpha, x \in M_\beta, \text{ пусть } (M_\alpha, h_\alpha) \leq (M_\beta, h_\beta) \text{  или наоборот } \\
+        \Rightarrow h_\alpha(x) = h_\beta(x) \Rightarrow  \left.\begin{bmatrix}
+            h_0(x) = h_\alpha(x) \\
+            h_0(x) - h_\beta(x)
+        \end{bmatrix}  \right\} \text{ корректное определение } \\
+        h_0(x) \leq p(x) \: \forall x \in M_0 \text{ (очевидно) } \Rightarrow (M_0, h_0) \in \Rho \\
+        \alpha \in A \quad (M_\alpha, h_\alpha) \leq (M_0,h_0) \text{ --- верхняя грань} 
+        \intertext{теперь, когда мы рассмотрели произвольное линейное упорядоченное множество и доказали, что у него есть верхняя грань, мы можем применить лемму Цорна}
+        \Rightarrow \text{ в } \Rho \: \exists \text{ максимальный элемент } (M,h) \in \Rho \\
+        \text{пусть } m \subsetneq X \: \exists z \in X \setminus M, M_1 = \Lin(M,z) \\
+        \intertext{построим, как в первой части продолжение $(M_1,f_1) \in \Rho$}
+        (M,h) \leq (M_1,f_1), M \subsetneq M_1 \text{ противоречит максимальности } (M,h) \\
+        \Rightarrow M = x, (M,h) \text{ --- искомое продолжение}
+   \end{gather*}
+\end{proof}
+
+Прежде, чем рассказать комплексный аналог, сначала применение вещественного случая.
+
+\begin{theorem}[обобщённый предел ограниченной последовательности]
+    \begin{gather*}
+        l^\infty_{\bR} = \seq{x = \seq{x_n}^\infty_{n=1}, x_n \in \bR, \norm{x} = \sup_{n \in \bN} \abs{x_n} < + \infty} \\
+        \Rightarrow \: \exists F \in \B(l^\infty, \bR) = (l^\infty)^* \\
+        \forall x \in l^\infty \: \underline{\liml} x_n \leq F(x) \leq \overline{\liml} x_n
+    \end{gather*}
+    в частности, если $\exists \liml_{n \to \infty} x_n = x_0$, то $F(x) = x_0$
+\end{theorem}
+То есть каждой ограниченности сопоставляется число, причём это отображение линейное.
+
+\begin{proof}
+    \begin{gather*}
+        x \in l^\infty, p(x) \coloneqq \overline{\liml} x_n, x = \seq{x_n}^\infty_{n=1} \in l^\infty 
+        \intertext{откуда же берётся неравенство треугольника, которое фигурирует в выпуклости. когда в детстве мы доказывали такое неравенство, оно даже в Демидовиче есть:}
+        \overline{\liml} (x_n + y_n) \leq \overline{\liml} x_n + \overline{\liml} y_n \\
+    \end{gather*}
+    напоминание, как это доказывается через альтернативное определение верхнего предела
+    \begin{gather*}
+        a_n = \sup \{x_n, x_{n+1}, \ldots \}, a_n \text{ убывают }, \liml_{n \to \infty} a_n = a, a = \overline{\liml} x_n. \\
+        b_n = \sup_{k \geq 0} \{ y_{n+k} \}, b_n \text{ убывают к } b, b = \overline{\liml} y_n. \\
+        c_n = \sup_{k \geq 0} \{x_{n+k} + y_{n+k} \}, c_n \text{ убывают к } c = \overline{\liml} (x_n + y_n) \\
+        \text{пусть k \geq 0} \quad x_{n+k} + y_{n+k} \leq a_n + b_n \: \forall k \Rightarrow c_n \leq a_n + b_n \Rightarrow c < a + b
+    \end{gather*}
+    Вот мы доказали, что это функционал 
+    \begin{gather*}
+        c = \seq{ x = \seq{x_n}^\infty_{n=1}, \: \exists \liml_{n \to \infty} x_n = x_0} \\
+        g: c \Rightarrow \bR \quad x = \seq{x_n}^\infty_{n=1} \in C \Rightarrow g(x) = x_0 \\
+        g(x) = \liml_{n \to \infty} x_n \leq p(x)  = \overline{\liml} x_n \\
+        \text{по теореме Хана-Банаха } \exists F: l^\infty \rightarrow \bR, F(x) \leq p(x) \\
+        F(x) = g(x) = x_0, \text{ если } x \in c \\
+        x \in l^\infty, p(-x) = \overline{\liml} (-x_n) = - \underline{\liml} x_n \\
+        -F(x) = F(-x) \leq p(-x) =- \underline{\liml}_{x_n} \Rightarrow F(x) \geq \underline{\liml} x_n
+    \end{gather*}
+    В формулировке обещалось $\norm{F}=1$. мы можем взять $x = (1, 1, 1, \ldots)$
+        \begin{gather*}
+        F(x) = 1, \norm{x}_\infty = 1 \Rightarrow \norm{F} \geq 1 \\
+        \forall x \: \abs{F(x)} \leq \overline{\liml} x_n \leq \sup x_n = \norm{x}_\infty \Rightarrow \norm{F} \leq 1
+        \end{gather*}
+\end{proof}
+
+Хочется последнее неравенство записать в более общем случае.
+
+
+\begin{gather*}
+    F(x) = 1, \norm{x}_\infty = 1 \Rightarrow \norm{F} \geq 1 \\
+    \forall x \: \abs{F(x)} \leq \overline{\liml} x_n \leq \sup x_n = \norm{x}_\infty \Rightarrow \norm{F} \leq 1
+    \end{gather*}
+\begin{statement}
+    \begin{enumerate}       
+        \item $X$ --- линейное, $p(x)$ --- выпуклый функционал, $f \in \Lin(X, \bR)$
+        \[ f(x) \leq p(x) \Rightarrow f(x) \geq -p(-x) \] 
+        \item если $p(x)$ полунорма, $f(x) \leq p(x) \: \forall x \in X \Rightarrow \abs{f(x)} \leq p(x)$
+    \end{enumerate}
+\end{statement}
+
+\begin{proof}
+    \begin{enumerate}
+        \item $f(x) \leq p(x) \Rightarrow f(-x) \leq p(-x) \Rightarrow -f(x) \leq p(-x) \Rightarrow f(x) \geq -p(x) $
+        \item $p$ --- полунорма $\Rightarrow p(-x) = p(x) \Rightarrow -p(x) \leq f(x) \leq p(x) \Rightarrow \abs{f(x)} \leq p(x)$
+    \end{enumerate}
+\end{proof}
+
+
+\end{document}

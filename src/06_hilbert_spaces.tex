@@ -562,7 +562,7 @@ Cейчас выясним, когда неравенство превращае
             f_y: H \rightarrow \bC \quad x \mapsto (x,y) \: \forall x \in H \\
             \Rightarrow f_y \in H^*, \norm{f_y}_{H^*} = \norm{y}_H
         \end{gather*}
-        \item $ f \in H^* \Rightarrow \: \exists! y \in H : f = f_y$
+        \item $ f \in H^* \Rightarrow \: \exists! y \in H : f = f_y$, то есть $f(x) = (x,y) \: \forall x \in H$
     \end{enumerate}
 \end{theorem*}
 
@@ -577,4 +577,133 @@ Cейчас выясним, когда неравенство превращае
         \Rightarrow \norm{f_y}_{H^*} = \norm{y}_H
     \end{gather*}
 \end{proof}
+
+\begin{proof}[2 часть]
+    Намёк, откуда брать $y$: мы знаем, что $f_y(x) = 0 \Leftrightarrow (x,y) = 0 \Leftrightarrow x \in \seq{y}^\perp$. Сначала рассмотрим и отбросим тривиальный случай:
+    пусть $f(x) = \bZero$, то есть $f(x) = 0 \: \forall x \in H \Rightarrow$ пусть $y = 0, f = f_0$. \\
+    Теперь пусть $f \ne \bZero, N = \Ker f (N = f^{-1}(0)) \Rightarrow n \subsetneq H, f$ --- непрерывный $\Rightarrow N$ --- замкнутое подпространство. Значит, существует нетривиальное ортогональное дополнение $N^\perp$, то есть $N^\perp \ne \seq{0}$,
+    пусть $x_0 \in N^\perp, x_0 \ne 0$
+    \begin{gather*}вообще, это
+        v = \frac{x_0}{f(x_0)}, f(x_0) \ne 0, f(v) = 1, f(v) = \frac{1}{f(x_0)} \cdot f(x_0) = 1
+        \intertext{установим следующую вещь: $\dim N^\perp = 1$, то есть все элементы дополнения кратны $v$;
+          вообще, это очевидно, гомоморфный образ группы изоморфен факторгруппе по ядру гомоморфизма, помните такую скороговорку из алгебры? но сейчас докажем аккуратно}
+        \text{пусть } u \in N^\perp \quad \alpha \coloneqq f(u) \quad f(\alpha v) = \alpha f(v) = \alpha \\
+        \left. \begin{matrix}
+            \Rightarrow f(u - \alpha v) = 0 \Rightarrow u - \alpha v \in N \\
+            u,v \in N^\perp \Rightarrow u - \alpha v \in N^\perp
+        \end{matrix} \right\} u - \alpha v = 0 \Rightarrow u = \alpha  v \\
+        \forall u \in N^\perp f(u) = \alpha \Rightarrow u = \alpha v \\
+        u = \alpha v \Rightarrow f(u) = \alpha
+        \intertext{$v$ уже почти то, что нам надо, но мы его еще должны нормировать, чтобы не отправлять те же элементы в 0, что и $f$; найдём $\beta: f_{\beta v} (v) = 1 = f(v)$}
+        f_{\beta v} (v) = (v, \beta v) = \overline{\beta} \norm{v}^2 = 1 \Rightarrow \beta = \frac{1}{\norm{v}^2} \\
+        y = \frac{v}{\norm{v}^2} \\
+        \text{пусть } x \in H, x = h + \alpha v, h \in N, \alpha v \in N^\perp\\
+        f(x) = \alpha, f_y(x) = \alpha \Rightarrow f = f_y
+    \end{gather*}
+    Всё, что осталось проверить, это единственность:
+    \begin{gather*}
+        f_y = f_z \Rightarrow (x,y) = (x,z) \: \forall x \in H \\
+        \Rightarrow (x,y-z) = 0 \: \forall x \in H \Rightarrow y - z = 0 
+    \end{gather*}
+\end{proof}
+
+\begin{remark}
+    Рассмотрим отображение $C: H \rightarrow H^*, C(y) = f_y$. Во-первых, с суммой всё в порядке: $C(y+z) = f_{y+z} = f_y + f_z = C(y) + C(z)$. А с умножением на комплексное число уже не всё хорошо:
+    пусть $\alpha \in \bC, C(\alpha y) = f_{\alpha y}, f_{\alpha y} = (x, \alpha y) = \overline{\alpha}(x,y) = \overline{\alpha} f_y(x), C(\alpha y) = \overline{\alpha} C(y)$ , то есть умножение не совсем линейное.
+    Но $\norm{C(y)}_{H^*} = \norm{y}_H$, $C$ --- \textbf{антилинейный изометрический изоморфизм}.
+    Удобно думать, что сопряжённое к гильбертову пространство --- это оно само. Говорят: $H^* = H$, а имеют в виду это взаимно-однозначное соответствие $C(H) = H^*$. Это очень просто, но фантастически удобно: сопряжённое ---
+    это оно само, но за удобство надо платить: $\alpha$ переходит в $\overline{\alpha}$.
+\end{remark}
+
+\begin{example}
+    Есть $l^2, (x,y) = \sum_{n=1}^\infty x_n \overline{y_n}, \: x,y \in l^2$. Как устроены все линейные функционалы в пространстве последовательностей $l^2$?$f \in (l^2)^* \Rightarrow \: \exists! y \in l^2: f(x) = (x,y) = \sum^\infty_{n=1} x_n \overline{y_n}$.
+\end{example}
+\begin{example}
+    $(X, \mu)$, $l^2(X,\mu), (f,g) = \int_X f(x) \overline{g(x)} d \mu$
+    \[ F \in (L^2(X,\mu))^* \Rightarrow \: \exists! g \in L^2(X\mu) : F(f) - \int_X f(x) \overline{g(x)} d \mu \]
+\end{example}
+
+Посмотрим сейчас чуть-чуть, как эта теория применяется к классическим рядам Фурье, которые были у нас в анализе.
+
+\section{Классичеческие ряды Фурье}
+Как сходятся ряды Фурье в $L^2$ по мере Лебега?
+\begin{example}
+    \[ L^2_{\bR} [-\pi,\pi] \text{ по мере Лебега } dx, (f,g) = \int^\pi_{-\pi} f(x)g(x) dx, \{1, \cos nx, \sin nx\}_{n \in \bN} \]
+\end{example}
+Для того, чтобы что-то утверждать, нам понадобится второй вариант теоремы Вейерштрасса: но доказывать мы его не будем. 
+\begin{theorem*}[Вейерштрасса]
+    $f \in \tilde{C}_{\bR}[-\pi, \pi] (f \in C[-\pi, \pi], f(-\pi) = f(\pi))$
+    \begin{multline*}
+        \forall \varepsilon > 0 \: \exists T(x) = a_0 + \sum^n_{k=1} a_k \cos kx + b_k \sin kx \\
+         \norm{fT}_\infty = \max_{x \in [-\pi,\pi]} \abs{f(x) - T(x)} < \varepsilon
+    \end{multline*}
+    то есть существует многочлен, который приближает нашу функцию с точностью до $\varepsilon$
+\end{theorem*}
+
+\begin{theorem}
+    $\{1, \cos nx, \sin nx\}_{n \in \bN}$ --- полная О.С. в $L^2_{\bR}[-\pi, \pi]$
+\end{theorem}
+\begin{proof}
+    \begin{gather*}
+        \int^\pi_{-\pi} \cos (nx) \sin(mx) dx = 0 \quad \int^\pi_{-\pi} (\cos (nx))^2 dx = \pi = \int^\pi_{-\pi} (\sin nx)^2 dx \\
+        \int^\pi_{-\pi} 1 dx = 2\pi \quad \int^\pi_{-\pi} \cos nx \cos(mx) dx = 0 (n \ne m) \\
+        \int^\pi_{-\pi} \sin nx \sin(mx) dx = 0 (n \ne m) \\
+        \Rightarrow \{ 1, \cos nx, \sin nx \}_{n \in \bN} \text{ --- ортонормированная система}
+        \intertext{мы уже доказали, что $C[-\pi,\pi]$ плотно в $L^2[-\pi,\pi]$ по мере Лебега, то есть любую функцию из $L^2$ можно приблизить сколь угодно хорошо,
+        найдя такую функцию $g$, что разница интегралов будет меньше $\varepsilon$, но $g$  в отличие от $f$ --- $2\pi$-периодическая}
+        \Rightarrow \tilde{C}[-\pi,\pi] \text{ плотно в } L^2[-\pi,\pi] \\
+        \exists g \in \tilde{C}[-\pi,\pi] \quad \left( \int^\pi_{-\pi} \abs{f(x) - g(x)}^2 dx \right)^{\frac{1}{2}} < \varepsilon  % каждый из интегралов и от $f$, и от $g$ будет меньше $\frac{\varepsilon}{2} 
+        \exists \delta > 0: g(x) = f(x), x \in [-\pi, \pi - \delta] \\
+        \Rightarrow \tilde{C}[-\pi,\pi] \text{ плотно в } L^2[-\pi,\pi] \\
+        \forall \varepsilon > 0 \: \forall f \in L^2[-\pi,\pi] \: \exists g \in \tilde{C}[-\pi,\pi], \norm{f-g}_{L^2} < \varepsilon
+        \intertext{по теоремере Вейерштрасса $\exists T = \alpha_0 + \sum^n_{k=1} \alpha_k \cos kx + \beta_k \sin_kx$}
+        \norm{g-T}_\infty < \varepsilon \Rightarrow \norm{g-T}_2 = \left( \int^\pi_{-\pi} \abs{g(x) - T(x)}^2 dx \right)^{\frac{1}{2}} < (\varepsilon^2 \cdot 2\pi)^{\frac{1}{2}} = \sqrt{2\pi} \cdot \varepsilon \\
+        \Rightarrow \norm{f-T}_2 < \varepsilon(1 + 2 \sqrt{2\pi}) \Rightarrow \{1, \cos nx, \sin nx \} \text{ --- полная}
+    \end{gather*}
+\end{proof}
+
+\begin{corollary}
+    Пусть $f \in L^2_{\bR}[-\pi,\pi]$. Коэффициенты Фурье:
+    \[ a_0 = \frac{1}{2\pi} \int^\pi_{-\pi} f(x) dx, a_k = \frac{1}{\pi} \int^\pi_{-\pi} f(x) \cos kx dx, b_k = \frac{1}{\pi} \int^\pi_{-\pi} f(x) \sin kxdx \]
+    Теперь что же значит $f(x)$ разлагается в свой ряд Фурье?
+    \begin{gather*}
+        S_n(x) = a_0 + \sum^n_{k=1} (a_k \cos kx + b_k \sin kx) \Rightarrow \\
+        \left( \int^\pi_{-\pi} \abs{f(x)-S_n(x)}^2 dx \right)^{\frac{1}{2}} \underset{n \to \infty}{\longrightarrow} 0 \tag{*} \\
+        f(x) = a_0 + \sum^\infty_{k=1} (a_k + \cos kx + b_k \sin kx) \text{ в смысле (*)}
+    \end{gather*}
+\end{corollary}
+
+\begin{example}
+    $L^2_{\bC}[-\pi,\pi], f \in L^2_{\bC}[-\pi,\pi], f = u + iv$
+    \[u, v \in L^2_{\bR}[-\pi,\pi] \Rightarrow \seq{\frac{1}{\sqrt{2\pi}}, \frac{\cos nx}{\sqrt{\pi}}, \frac{\sin nx}{\sqrt{\pi}}} \text{ -- ОНБ} \]
+\end{example}
+
+\begin{example}
+    $L^2_{\bC}[-\pi, \pi], \seq{e^{inx}}_{n \in \bZ}$ --- полная О.С.
+\end{example}
+
+\begin{gather*}
+    (f,g) = \int^\pi+{-\pi} f(x) \overline{g(x)} dx, (e^{inx}, e^{imx}) = \int^\pi_{-\pi} e^{i(n-m)x}dx = \begin{cases}
+        0 & n \ne m \\
+        2 \pi & n = m
+    \end{cases} \\
+    c_n = \frac{1}{2\pi} \int^\pi_{-\pi} f(x) e^{-inx} dx = \frac{1}{2} (a_n - i b_n), n \ne 0 \\
+    c_ 0 = a_0 \\
+    \sum^n_{k=-n} c_k e^{-ikx} = a_0 + \sum^n_{k=1} (a_k \cos kx + b_k \sin kx) = S_n x \\
+    \norm{f - S_n}_2 \underset{n \to \infty}{\longrightarrow} 0 \Rightarrow \seq{e^{inx}}_{n \in \bZ} \text{ --- полная система}
+\end{gather*}
+
+\begin{example}
+    $L^2_{\bR}[0,\pi], \seq{\cos nx}^{+\infty}_{n=0}$ --- полная О.С.
+\end{example}
+
+\begin{proof}
+    \begin{gather*}
+        f \in L^2_{\bR}[0,\pi], \text{ пусть } f(-x) = f(x), x \in (0, \pi] \\
+        f \in L^2_{\bR}[-\pi,\pi], b_k = \frac{1}{\pi} \int^\pi_{-\pi} f(x) \sin kx dx = 0 \\
+        \norm{f-S_n(f)}_{L^2[-\pi,\pi]} \underset{n \to \infty}{\longrightarrow} 0 \Rightarrow \norm{f - (a_0 + \sum^n_{k=1} a_k \cos kx)}_2 \underset{k \to \infty}{\longrightarrow} 0
+    \end{gather*}
+\end{proof}
+
+Прощаемся с гильбертовыми пространствами.
 \end{document}
