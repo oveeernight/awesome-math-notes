@@ -6,7 +6,7 @@
 самым рабочим. А компакт~--- вещь очень полезная. Компакты в гигантских пространствах напоминают компакты в $\bR^n$ или в $\bC^n$ и обладают теми же полезными свойствами.
 
 \begin{definition}[Метрика]
-    $X$~--- множество. $\rho: X \times X \rightarrow \bR$, $\rho$~--- \textbf{метрика}, если при $x \in X \land y \in X \land z \in X$ она обладает следующими свойствами 
+    $X$~--- множество. $\rho: X \times X \rightarrow \bR$, $\rho$~--- \textbf{метрика}, если при $\forall x \in X, \: \forall y \in X, \: \forall z \in X$ она обладает следующими свойствами 
     \begin{enumerate}
         \item $\rho(x,y) \geq 0 \land (\rho(x,y) = 0 \Leftrightarrow x = y)$
         \item $\rho(y,x) = \rho(x,y)$
@@ -25,13 +25,13 @@ $F \text{~--- замкнутое} \Leftrightarrow F \subset X \land X \setminus 
 
 В метрическом пространстве удобно характеризовать замкнутое множества с помощью последовательностей. Вспомним, что такое сходящаяся последовательность.
 
-$\{x_n\}_{n=1}^\infty\text{~--- последовательность} \land \forall n \in \bN x_n \in X \land \liml_{n \to \infty} x_n = x_0 \Leftrightarrow \liml_{n \to \infty} \rho(x_n, x_0) = 0$
+$\{x_n\}_{n=1}^\infty\text{~--- последовательность}$ и $\forall n \in \bN x_n \in X \land \liml_{n \to \infty} x_n = x_0 \Leftrightarrow \liml_{n \to \infty} \rho(x_n, x_0) = 0$
 
-$(X, \rho)\text{~--- метрическое пространство} \Rightarrow (F$~--- замкнутое $\Leftrightarrow$ $\{x_n\}_{n=1}^\infty$~--- последовательность $\land \forall n \in \bN x_n \in F \land (\liml_{n \to \infty } x_n = x_0 \Rightarrow x_0 \in F))$
+$(X, \rho)\text{~--- метрическое пространство} \Rightarrow (F$~--- замкнутое $\Leftrightarrow$ $\{x_n\}_{n=1}^\infty$~--- последовательность $\land \forall n \in \bN \: x_n \in F$ и $(\liml_{n \to \infty } x_n = x_0 \Rightarrow x_0 \in F))$
 
 
 \begin{definition}[Фундаментальная последовательность]
-    $\{x_n\}^\infty_{n=1} \text{~--- фундаментальная} \Leftrightarrow \forall \varepsilon > 0 \exists N \in \bN \forall n \in \bN \forall m \in \bN ((n > N \land m > N) \Rightarrow \rho(x_n, x_m) < \varepsilon) \Leftrightarrow \liml_{n,m \to \infty} \rho(x_n,x_m) = 0 $
+    $\{x_n\}^\infty_{n=1} \text{~--- фундаментальная} \Leftrightarrow \: \forall \varepsilon > 0 \: \exists N \in \bN \: \forall n \in \bN  \: \forall m \in \bN\: ((n > N \land m > N) \Rightarrow \rho(x_n, x_m) < \varepsilon) \Leftrightarrow \liml_{n,m \to \infty} \rho(x_n,x_m) = 0 $
 \end{definition}
 
 
@@ -49,9 +49,9 @@ $(X, \rho)\text{~--- метрическое пространство} \Rightarro
 \begin{remark}[о пользе полноты]
     $F: X \rightarrow \bR, (X,\rho)$~--- метрическое пространство, $F$~--- непрерывная.
 
-    Стоит задача найти $x_0 \in X$ т.ч. $F(x_0) = 0$ \\
+    Стоит задача найти $x_0 \in X$ т.ч. $F(x_0) = 0$. \\
     Алгоритм: $\{x_n\}^\infty_{n=1}, \liml_{n \to \infty} F(x_n) = 0, \liml_{n, m \to \infty} \rho(x_n, x_m) = 0$
-    Если $(X, \rho)$~--- полное, то $\liml_{n \to \infty} x_n = x_0, F(x_0) = 0$
+    Если $(X, \rho)$~--- полное, то $\liml_{n \to \infty} x_n = x_0, F(x_0) = 0$.
     А если нет, то из наших вычислений вообще ничего не следует, возможно, решения вообще нет.
 \end{remark}
 
@@ -69,32 +69,32 @@ $(X, \rho)\text{~--- метрическое пространство} \Rightarro
 
 Потом приведем примеры поинтереснее. Кстати, древние греки пришли в ужас, когда узнали, что $\bQ$~--- неполное.
 
-\begin{definition}
+\begin{definition}[ограниченное множество]
     $(X,\rho)\text{~--- метрическое пространство}, A \subset X, A$~--- ограниченное, если 
-    \[ \exists R > 0 \exists x_0 \in X A \subset B_R(x_0) \]
+    \[ \exists R > 0 \: \exists x_0 \in X : A \subset B_R(x_0) \]
 \end{definition}
 
 \begin{theorem}[Свойства фундаментальных последовательностей]
 \label{theo:cauchy-seq-properties}
     $(X,\rho)$~--- метрическое пространство, $\{x_n\}^\infty_{n=1}$~--- фундаментальная последовательность, тогда выполняется:
     \begin{enumerate}
-        \item $\{x_n\}^\infty_{n=1}$~--- ограниченная, т.е. $\exists R > 0 \, \exists x_0 \in X \, \forall n \in \bN \, x_n \in B_R(x_0)$
+        \item $\{x_n\}^\infty_{n=1}$~--- ограниченная, т.е. $\exists R > 0 \: \exists x_0 \in X \: \forall n \in \bN \, x_n \in B_R(x_0)$
         \item $\exists \{x_{n_k}\}^\infty_{k=1}\text{~--- подпоследовательность } \Rightarrow (\exists a \in X \liml_{k \to \infty} x_{n_k} = a \Rightarrow \exists a \in X \liml_{n \to \infty} x_n = a = \liml_{k \to \infty} x_{n_k}) $
-        \item $\{ \varepsilon_k \}_{k=1}^\infty$~--- произвольная последовательность действительных чисел $\land \forall k \in \bN \varepsilon_k > 0 \Rightarrow \exists \{x_{n_k}\}^\infty_{k=1}$~--- подпоследовательность $\forall j \in \bN (j > k \Rightarrow \rho(x_{n_k}, x_{n_j}) < \varepsilon_k)$
+        \item $\{ \varepsilon_k \}_{k=1}^\infty$~--- произвольная последовательность действительных чисел, $\forall k \in \bN \: \varepsilon_k > 0 \Rightarrow \exists \{x_{n_k}\}^\infty_{k=1}$~--- подпоследовательность $\forall j \in \bN \: (j > k \Rightarrow \rho(x_{n_k}, x_{n_j}) < \varepsilon_k)$
     \end{enumerate}
 \end{theorem}
 
 \begin{proof}[1 утверждение]
-    Возьмём $\varepsilon = 1$, тогда из фундаментальности $\exists N \, \forall n \in \bN (n > N \Rightarrow \rho (x_n, x_N) < 1)$.
+    Возьмём $\varepsilon = 1$, тогда из фундаментальности $\exists N \: \forall n \in \bN \: (n > N \Rightarrow \rho (x_n, x_N) < 1)$.
 
     Возьмём $R = \max \{ \rho(x_1, x_N), \ldots, \rho(x_{N-1},x_{N}) \} + 1$. Единичка на всякий случай.
         
-    Тогда $\forall n \in \bN x_n \in B_R(x_N)$.
+    Тогда $\forall n \in \bN \: x_n \in B_R(x_N)$.
 \end{proof}
 \begin{proof}[2 утверждение]
-    Возьмём $\varepsilon > 0$, тогда по фундаментальности $\exists N \forall n \in \bN \forall m \in \bN ((\textcolor{blue}{\underline{n > N}} \, \land \, m > N) $ $\Rightarrow \underline{\rho(x_n, x_m)} < \varepsilon)$. Возьмём это $N$.
+    Возьмём $\varepsilon > 0$, тогда по фундаментальности $\exists N  \: \forall n \in \bN  \: \forall m \in \bN \: ((\textcolor{blue}{\underline{n > N}} \, \land \, m > N) $ $\Rightarrow \underline{\rho(x_n, x_m)} < \varepsilon)$. Возьмём это $N$.
 
-    $\exists a \liml x_{n_k} = a \Rightarrow \exists n_k (\rho(x_{n_k}, a) < \varepsilon \land \textcolor{blue}{\underline{n_k > N}})$. Возьмём это $n_k$.
+    $\exists a \liml x_{n_k} = a \Rightarrow \: \exists n_k (\rho(x_{n_k}, a) < \varepsilon \land \textcolor{blue}{\underline{n_k > N}})$. Возьмём это $n_k$.
 
     Возьмём некоторое $m > N$. Тогда $\rho(x_m, a) < \underline{\rho(x_m, x_{n_k})} + \rho(x_{n_k}, a) < 2 \varepsilon$
 \end{proof}
@@ -125,9 +125,9 @@ $(X, \rho)\text{~--- метрическое пространство} \Rightarro
 \end{theorem}
 
 \begin{proof}[1 утверждение]
-        Доказательство следует прямо из определения. Знаем, что $Y$~--- замкнутое поднмножество полного пространства.
-        Берем фундаментальную последовательность. $Y \subset X$, пусть $\{x_n\}^\infty_{n=1}, \forall n \in \bN x_n \in Y$~--- фундаментальная.
-        $\forall n \in \bN x_n \in X, X$~--- полное $\Rightarrow \exists x_0 \in X \liml_{n \to \infty} x_n = x_0$. $Y$~--- замкнутое, значит $x_0 \in Y \Rightarrow (Y, \rho)$~--- полное.
+        Доказательство следует прямо из определения. Знаем, что $Y$~--- замкнутое подмножество полного пространства.
+        Берем фундаментальную последовательность. $Y \subset X$, пусть $\{x_n\}^\infty_{n=1}, \forall n \in \bN \: x_n \in Y$~--- фундаментальная.
+        $\forall n \in \bN \: x_n \in X, X$~--- полное $\Rightarrow \exists x_0 \in X \liml_{n \to \infty} x_n = x_0$. $Y$~--- замкнутое, значит $x_0 \in Y \Rightarrow (Y, \rho)$~--- полное.
 \end{proof}
 \begin{proof}[2 утверждение]
         Второй пункт не труднее первого. Пусть $\{x_n\}^\infty_{n=1}$~--- произвольная фундаментальная последовательность в $Y$.
@@ -139,7 +139,7 @@ $(X, \rho)\text{~--- метрическое пространство} \Rightarro
 
 Сначала введём понятие полунормы.
 \begin{definition}[полунорма]
-    Пусть $X$~--- линейное пространство над $\bR$ или $\bC$. Отображение $p: X \rightarrow \bR$ называется полунормой, если при $x \in X \land y \in X \land (\lambda \in \bR \lor \lambda \in \bC)$
+    Пусть $X$~--- линейное пространство над $\bR$ или $\bC$. Отображение $p: X \rightarrow \bR$ называется полунормой, если при $\forall x \in X \: \forall y \in X \: \forall \lambda \in \bR (\bC)$
     \begin{enumerate}
         \item $p(x + y) \leq p(x) + p(y)$ (полуаддитивность)
         \item $p(\lambda x) = |\lambda| p(x)$
@@ -148,7 +148,7 @@ $(X, \rho)\text{~--- метрическое пространство} \Rightarro
 
 \begin{property}
     $p$~--- полунорма $\Rightarrow$
-    \[ \forall x \in X p(x) \geq 0 \land p(\mathbb{0}) = 0 \]
+    \[ \forall x \in X \: (p(x) \geq 0 \land p(\mathbb{0}) = 0) \]
 \end{property}
 
 \begin{proof}
@@ -168,15 +168,15 @@ $(X, || \cdot ||)$ будем обозначать нормированное п
 Еще пару определений перед критерием банахова пространства.
 
 \begin{definition}[подпространство в алгебраическом смысле]
-    $X$~--- линейное пространство, $L \subset X$. $L$~--- подпространство в алгебраическом смысле $\Leftrightarrow$ $\forall x \in L \forall y \in L \forall \alpha \in K \forall \beta \in K \alpha x + \beta y \in L$.
+    $X$~--- линейное пространство, $L \subset X$. $L$~--- подпространство в алгебраическом смысле $\Leftrightarrow$ $\forall x \in L \: \forall y \in L \: \forall \alpha \in K \: \forall \beta \in K \: \alpha x + \beta y \in L$.
 \end{definition}
 
 \begin{definition}[подпространство]
     $(X, || \cdot ||)$, $L \subset X$, $L$~--- подпространство, если
-    \begin{itemize}
+    \begin{enumerate}
         \item $L$ подпространство в алгебраическом смысле
         \item $L = \overline{L}$ ($\overline{L}$~--- замыкание)
-    \end{itemize}
+    \end{enumerate}
 \end{definition}
 
 Теперь нам потребуется сходимость рядов. Для того, чтобы говорить о сходимости, нужна топология.
