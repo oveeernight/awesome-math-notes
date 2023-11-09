@@ -315,13 +315,14 @@ $A = \{ 1, 2, \ldots, n \}, l_n^\infty = m(A) \Rightarrow l^\infty_n$~--- пол
 Удобно думать, что последовательность~--- это функция на множестве натуральных чисел.
 
 \begin{definition}[$l^\infty$]
-    \begin{gather*}
-        l^\infty = \{ X  = \{x_j\}_{j=1}^\infty, \sup_{j \in \bN} |x_j| < + \infty \} \\
-        ||x||_\infty \sup_{j \in \bN} |x_j| \quad A = \{1, 2,3, \ldots, n, \ldots \} \\
-        X = \seq{x}{j}_{j=1}^\infty \in m(A), \underset{f: A \rightarrow \bC}{f(j) = x_j} \\
-        l^\infty := m(\bN) \Rightarrow l^\infty \text {~--- полное}
-    \end{gather*}    
+      \[  l^\infty = \{ X  = \{x_j\}_{j=1}^\infty, \sup_{j \in \bN} |x_j| < + \infty \}  \]
 \end{definition}
+
+\begin{gather*}
+    ||x||_\infty = \sup_{j \in \bN} |x_j| \quad A = \{1, 2,3, \ldots, n, \ldots \} \\
+    X = \seq{x}_{j=1}^\infty \in m(A), f : A \rightarrow \bC, j \mapsto x_j \\
+    l^\infty := m(\bN) \Rightarrow l^\infty \text {~--- полное}
+\end{gather*}
 
  \begin{definition}
     \begin{gather*}
@@ -334,9 +335,9 @@ $A = \{ 1, 2, \ldots, n \}, l_n^\infty = m(A) \Rightarrow l^\infty_n$~--- пол
 
  \section{Пространства $n$ раз непрерывно дифференцируемых функций на отрезке}
 
- \begin{definition}[норма $n$ производной]
+ \begin{definition}[норма $n$-ой производной]
     \[n \in \bN \quad C^{(n)}[a,b] = \{ f: [a,b] \rightarrow \bR \} \, \exists \, f^{(n)} \in C[a,b] \]
-    \[ ||\underset{C[a,b]}{|f||_{(n)}}  = \max_{0 \leq k \leq n}, f^{0} = f \]
+    \[ ||\norm{f}_{C^{(n)}[a,b]}  = \max_{0 \leq k \leq n} \{ \norm{f}^{(k)}_\infty \} f^{(0)} = f \]
  \end{definition}
 
  \begin{theorem}B
@@ -346,16 +347,18 @@ $A = \{ 1, 2, \ldots, n \}, l_n^\infty = m(A) \Rightarrow l^\infty_n$~--- пол
  \begin{proof}
     \begin{gather*}
         \{f_m\}^\infty_{m=1} \text{~--- фундаментальная последовательность в } C^{(n)}[a,b] \\
-        \varepsilon > 0 \exists N : (m > n \, \wedge \, q > n) \Rightarrow \normunder{f_m-f_q}{C^{(n)}} 
-        < \varepsilon \Rightarrow \normunder{f_m^{(k)} < f_q^{(k)}}{\infty} < \varepsilon\\ 
+        \varepsilon > 0 \: \exists N : (m > N \land q > N) \Rightarrow \normunder{f_m-f_q}{C^{(n)}} 
+        < \varepsilon \Rightarrow \normunder{f_m^{(k)} - f_q^{(k)}}{\infty} < \varepsilon\\ 
          k = 0,1,\ldots,n 
     \end{gather*}
 
-    \begin{multline}
+    \begin{multline*}
         \{f_m^{(k)} \} \text {~--- фундаментальная в полном пространстве } C[a,b]\\
-         \Rightarrow \exists \varphi_k \in C[a,b], f_n^{(k)} \darrow{[a,b]} \varphi_k, k = 0,1, \ldots, n \\
-        \stackrel{\text{Анализ}}{\Rightarrow} (f_k^{(n)} \darrow{[a,b]} \varphi_0 \, \wedge \, \varphi_k^{0} \darrow{[a,b]} \varphi_1) \Rightarrow \varphi_1 = \varphi_0^\prime, \varphi_2 = \varphi_0^{\prime\prime}, \ldots, \varphi_n = \varphi_0^{(n)}
-    \end{multline}
+         \Rightarrow \exists \varphi_k \in C[a,b], f_m^{(k)} \darrow{[a,b]} \varphi_k, k = 0,1, \ldots, n \\
+        \stackrel{\text{Анализ}}{\Rightarrow} (f_k^{(0)} \darrow{[a,b]} \varphi_0 \land f_k^\prime \darrow{[a,b]} \varphi_1) \Rightarrow \varphi_1 = \varphi_0^\prime, \varphi_2 = \varphi_0^{\prime\prime}, \ldots, \varphi_n = \varphi_0^{(n)} \\
+        \Rightarrow \max \left\{ \norm{f^{(k)}_m - \varphi_0^{(k)}}_\infty \right\} \underset{m \to \infty}{\longrightarrow} 0
+    \end{multline*}
+    а этот максимум это и есть $\norm{f_m - \varphi_0}_{C^{(n)}[a,b]}$
  \end{proof}
 
 \end{document}
