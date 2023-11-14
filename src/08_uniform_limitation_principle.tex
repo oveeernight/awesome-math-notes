@@ -1,0 +1,228 @@
+% !TeX root = ./document.tex
+\documentclass[document]{subfiles}
+\begin{document}
+
+\chapter{Принцип равномерной ограниченности}
+
+Принцип равномерной ограниченности, тут будет много теорем, они все связаны с первой, а всё вместе это второй кит линейного функционального анализа.
+
+\begin{theorem}[принцип равномерной ограниченности]
+    $(X, \norm{\cdot})$ --- банхово, $(Y, \norm{\cdot})$ --- нормированное, $\seq{U_\alpha}_{\alpha \in A}, U_\alpha \in \B(X,Y)$
+    \[ \forall x \in X \: \sup_{\alpha \in A} \norm{U_\alpha x} < +\infty \Rightarrow \: \exists M > 0 : \norm{U_\alpha} \leq M \: \forall \alpha \in A \]
+    
+\end{theorem}
+
+Причём тут равномерность? 
+\begin{gather*}
+    \norm{U_\alpha} = \sup_{\seq{x \in X : \norm{x} \leq 1}} \norm{U_\alpha x}  \\ 
+    \sup_{\alpha \in A} \sup_{\seq{x \in X : \norm{x} \leq 1}} \norm{U_\alpha x} < + \infty
+\end{gather*}
+предполагаем для одного икса, а оказывается, что можно взять $\sup$ по единичной сфере, а потом ещё раз взять $\sup$, и это фантастически полезно и в то же время странно. Начнём с простой леммы.
+
+\begin{lemma}
+    $(X, \norm{cdot}), (Y, \norm{\cdot})$ ---  нормированные
+    \begin{gather*}
+        U \in \Lin(X,Y), \: \exists \varepsilon > 0, R > 0, a \in X : \\
+        U(B_\varepsilon(a)) \subset \overline{B_r(0)} \Rightarrow U \in \B(X,Y) \\
+        \norm{U} \leq \frac{2R}{\varepsilon}
+    \end{gather*}
+\end{lemma}
+
+Новизна этой простой леммы состоит в том, что не обязательно брать шар в точке 0, суть остаётся такой же, но чуть-чуть ухудшается норма.
+
+\begin{proof}
+    \begin{gather*}
+        \text{пусть } z \in X, \norm{z} < e, a \in B_\varepsilon(a), a + z \in B_\varepsilon(a) \\
+        z = (a+z) - a \Rightarrow \norm{Uz} \leq \norm{U(a+z)} + \norm{U(a)} \leq R + R = 2R \\
+        \text{пусть } x \in X, x \ne 0 \: \norm{x} < 1 \Rightarrow \norm{\varepsilon x} < \varepsilon \Rightarrow \norm{U(\varepsilon x)} \leq 2R \Rightarrow \norm{Ux} \leq \frac{2R}{\varepsilon} \\
+        \norm{U} = \sup_{\seq{x \in X: \norm{x} \leq 1}} \norm{Ux} \leq \frac{2R}{\varepsilon}
+    \end{gather*}
+\end{proof}
+
+
+\begin{proof}[Доказательство теоремы]
+    Вспомним теорему Бэра о категориях: полное метрическое пространство нельзя представить как счётное объединение всюду плотных множеств.
+    \begin{gather*}
+        n \in \bN, D_n = \seq{ y \in Y: \norm{y} \leq n} \\
+        \Rightarrow U^{-1}_\alpha(D_n) \text{ --- замкнутое множество в } X, \alpha \in A \\
+        E_n = \bigcap_{\alpha \in A} U^{-1}_\alpha (D_n), E_n \text{ --- замкнутое}
+        \intertext{Проверим, что $X = \bigcup^\infty_{m=1} E_n$}
+        \text{пусть } x \in X \Rightarrow \sup_{\alpha \in A} \norm{U_\alpha x} < + \infty \Rightarrow \: \exists n \in \bN \\ 
+        \sup_{\alpha \in A} \norm{U_\alpha x} < n \Rightarrow x \in U^{-1}_\alpha (D_n) \: \forall \alpha \in A \\
+        \Rightarrow x \in E_n \\
+        X = \bigcup^\infty_{n=1} E_n, X \text{ --- банахово}, E_n \text{ --- замкнутые } \Rightarrow
+        \intertext{по теорему Бэра о категориях $\Rightarrow$} 
+        \exists n_0 : \Int(E_{n_0}) \ne \bZero, \text{ то есть} \\
+        \exists B_\varepsilon(a) \subset E_{n_0} = \bigcap_{\alpha \in A} U^{-1}_\alpha(D_{n_0}) \Rightarrow \\
+        U_\alpha(B_\varepsilon(a)) D_{n_0} \text{ по лемме } \Rightarrow \norm{U \alpha} \leq \frac{2n_0}{\varepsilon} \: \forall \alpha \in A 
+    \end{gather*}
+\end{proof}
+
+\begin{corollary}[Принцип фиксации особенности]
+    $X$ --- банахово, $Y$ --- нормированное, $\seq{U_\alpha}_{\alpha \in A}, U_\alpha \in \B(X,Y)$
+    \[ \text{пусть } \sup_{\alpha \in A} \norm{U_\alpha} = +\infty \Rightarrow \: \exists x_0 \in X : \sup_{\alpha \in A} \norm{U_\alpha(x_0)} = +\infty \]
+    
+\end{corollary}
+
+\begin{statement}
+    В условиях следствия $E = \seq{x \in X: \sup_{\alpha \in A} \norm{U_\alpha x} = +\infty}$. Доказать, что
+    \begin{enumerate} 
+        \item $E$ --- всюду плотно в $X$ 
+        \item $X \subset E$ --- множество первой категории
+    \end{enumerate}
+\end{statement}
+
+
+\begin{definition}[сильный предел]
+    \[(X, \norm{\cdot}), (Y, \norm{\cdot}), \seq{U_n}^\infty_{n=1}, U_n \in \Lin(X,Y) \]
+    Если $\forall x \in X \: \liml_{n \to \infty} U_n x = Ux$, то 
+    $U$ --- \textbf{поточечный} (или сильный) предел $\seq{U_n}$. Обозначение $U= s-\lim U_n$ (s = strong)
+\end{definition}
+Он хоть и сильный, но куда слабее сходимости по норме.
+
+Отметим простые свойства: 
+
+\begin{enumerate}
+    \item $U_n \in \Lin(X,Y) \Rightarrow U \in \Lin(X,Y)$
+    \item Если $U_n, U \in \B(X,Y), \liml_{n \to \infty} {U-U_n} = 0 \Rightarrow$ 
+    \[ \liml_{n \to \infty} U_nx = Ux \: \forall x \in X \] 
+\end{enumerate}
+
+\begin{proof}[2]
+    $\norm{Ux - U_n x} \leq \underbrace{\norm{U - U_n}}_{\to 0} \cdot \norm{x} \Rightarrow \liml_{n \to \infty} U_n x = Ux $
+\end{proof}
+
+\begin{remark}
+    $U = s-\lim U_n \not \Rightarrow \liml_{n \to \infty} \norm{U - U_n} = 0$
+\end{remark}
+
+Пример, где поточечный предел существует и равен нулю, а предела по норме не существует
+\begin{example}
+    \begin{gather*}
+        X = l^1 = \seq{x = \seq{x_n}^\infty_{n=1}, x_n \in \bC, \norm{x}_l = \sum^\infty_{n=1} \abs{x_n}} \\
+        f_n: l^1 \rightarrow \bC \quad f_n \in (l^1)^* \quad f_n(x) = x_n, \norm{f_n} = 1 \\
+        x \in l^1 \Rightarrow \liml_{n \to \infty} x_n = 0 \Rightarrow \liml_{n \to \infty} f_n(x) = 0 \: \forall x \in L^1 \\
+        \bZero = s-\lim f_n, \text{ но } \norm{f_n - \bZero} = \underbrace{\norm{f_n}}_{n \not \to 0} = 1
+    \end{gather*}
+\end{example}
+
+\begin{example}
+    $H$ --- сепарабельное гильбертово пространство, $\seq{e_n}^\infty_{n=1}$ --- ортонормированный базис.
+    \begin{gather*}
+        x \in H, x = \sum^\infty_{k=1} (x,e_k) e_k \quad S_n(x) = \sum^n_{k=1} (x,e_k) e_k \\
+        \Rightarrow \forall x \in H \: \liml_{n \to \infty} S_n x = x, Ix = x \forall x \in H (I \text{ --- тождественный}) \\
+        \Rightarrow I = s-\lim S_n \\
+        (I-S_n)(e_{n+1}) = I(e_{n+1}) = e_{n+1} \Rightarrow \norm{I - S_n} = 1 \\
+        \norm{I - S_n} \underset{n \to \infty}{\not \longrightarrow} 0
+    \end{gather*}
+\end{example}
+
+Несмотря на то, что сильная сходимость слабее сходимости по норме, иногда оказывается, что сильный предел является непрерывным оператором.
+
+\begin{theorem}
+    $(X, \norm{\cdot})$ --- банахово, $(Y, \norm{\cdot})$ --- нормированное
+    $U_n \in \B(X,Y), \text{ пусть } U = s-\lim U_n \Rightarrow$ 
+    \[ U \in \B(X,Y), \norm{U} \leq \underline{\liml} \norm{U_n} \leq \sup_{n \in \bN} \norm{U_n} < + \infty \]
+\end{theorem}
+
+\begin{proof}
+    Собираемся изо всех сил использовать принцип равномерной ограниченности. $\forall x \: \exists \liml_{n \to \infty} U_n(x) \Rightarrow \sup_{n} \norm{U_n x} < + \infty$.
+    По принципу $\Rightarrow \sup_n \norm{U_n} < + \infty$
+    \begin{gather*}
+        \text{пусть } b = \underline{\liml} \norm{U_n} \Rightarrow \: \exists \seq{U_{n_k}} : b = \liml_{k \to \infty} \liml_{k \to \infty} \norm{U_{n_k}} \\
+        \text{пусть } x \in X \Rightarrow Ux = \liml_{k \to \infty} U_{n_k}(x) \Rightarrow \\
+        \norm{Ux} = \liml_{k \to \infty} \norm{U_{n_k} x} \leq \liml_{k \to \infty} \norm{U_{n_k}} \cdot \norm{x} = b \norm{x} \: \forall x \in X \\
+        \Rightarrow U \in \B(X,Y) , \norm{U} \leq b
+    \end{gather*} 
+\end{proof}
+
+\begin{remark}
+    $U = s-\lim U_n$, возможно $\norm{U} < \underline{\lim} \norm{U_n}$
+\end{remark}
+
+\begin{example}
+    $f_n: l^1 \rightarrow \bC, f_n(x) = x_n, \bZero = s-\lim f_n, \norm{f_n} = 1 \: \forall n. \norm{\bZero} = 0$
+\end{example}
+
+\begin{theorem}[Банах-Штейнгауз, критерий существования сильного предела]
+    $X,Y$ --- банахово, $U_n \in \B(X,Y)$. Для того чтобы существовал $s-\lim U_n$, необходимо и достаточно 
+    \begin{enumerate}
+        \item $\exists M > 0: \norm{U_n} \leq m \: \forall n \in \bN$ 
+        \item $\exists E \subset X, E$ полное, то есть $\overline{\calL(E)} = X$. $\seq{U_nx}$ --- фундаментальная для $\forall x \in E$ 
+    \end{enumerate}
+\end{theorem}
+
+Существует множество вариантов этой теоремы, и все они по-своему полезные, поэтому у нас будет очень много замечаний потом
+
+\begin{proof}
+    $\Rightarrow$ пусть $U = s-\lim U_n$, мы уже доказали, что $\sup_n\norm {U_n} < + \infty$, а второе утверждение очевидно\\
+    $\Leftarrow$ \\
+    Пусть $x \in \calL(E)$, то есть $x = \sum^N_{k=1} c_k x_k, \: c_k \in \bC, x_k \in E$
+    \begin{gather*}
+        \norm{U_n(x) - U_m(x)} \leq \sum^N_{k=1} \abs{c_k} \cdot \norm{U_n x_k - U_m x_k} \Rightarrow \seq{U_n x} \text{ --- фундаментальная}
+        \intertext{Пусть $x \in X$, проверим, что $\seq{U_nx}^\infty_{n=1}$ фундаментальна}
+        x \in X, \varepsilon > 0 \quad \exists z \in \calL(E), \norm{x-z} < \varepsilon \\
+        \exists N \in \bN \: n, m > N \Rightarrow \norm{U_n z - U_mz} < \varepsilon \\ 
+        \norm{U_nx - U_mx} \leq \underbrace{\norm{U_nx - U_nz}}_{\leq \norm{U_n} \cdot \norm{x-z} \leq M \varepsilon} + \underbrace{\norm{U_nz - U_mz}}_{\varepsilon}
+        + \underbrace{\norm{U_mz - U_mx}}_{\leq M\varepsilon} \\
+        < \varepsilon(2M+1) \Rightarrow \seq{U_nx}^\infty_{n=1} \text{ фундаментальна} \\
+        Y \text{ банахово} \Rightarrow \: \exists \liml_{n \to \infty} U_n x \: \forall x \in X \Rightarrow \: \exists U = s-\liml U_n
+    \end{gather*}
+\end{proof}
+
+\begin{remark}
+    \begin{enumerate}
+        \item $\Rightarrow$ $X$ --- банахово, $Y$ --- нормированное 
+        \item $\Leftarrow$ $Y$ --- банахово, $X$ --- нормированное
+        \item В условии 2 теоремы моэно сформулировать 2':
+            \[ \exists E \subset X, \overline{\calL(E)} = X, \: \exists \liml_{n \to \infty} U_n x \] 
+    \end{enumerate}
+\end{remark}
+
+Заплатим жестокую цену за такую теорему: раньше $U$ не было, оно появлялось, критерий существования всё-таки, а здесь же мы предположим сразу непрерывность этого $U$
+\begin{theorem}[Банах-Штейнгаус]
+    $X$ --- банахово, $Y$ --- нормированное, $U_n \in \B(X,Y), U \in \B(X,Y)$ \\
+    $ u = s-\lim U_n \Leftrightarrow$ 
+    \begin{enumerate}
+        \item $\sup_n \norm{U_n} \leq M < +\infty$ 
+        \item $\exists E \subset X, \overline{\calL(E)} = X, \: \forall x \in E \: \exists \liml_{n \to \infty} U_n x $
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    $\Rightarrow$ очевидно \\ 
+    $\Leftarrow$  \\
+    \begin{gather*}
+        \forall x \in \calL(E) \Rightarrow \: \exists \liml_{n \to \infty} U_nx \\
+        \text{пусть } x \in X, \varepsilon > 0 \: \exists z \in \calL(E), \norm{x-z} < \varepsilon, \: \exists N: n \geq N \Rightarrow \norm{Uz-U_nz} < \varepsilon \\
+        \norm{Ux - U_nx} \leq \underbrace{\norm{Ux-Uz}}_{\leq \norm{U} \cdot \norm{x-z} \leq \norm{U}\varepsilon}+\underbrace{\norm{Uz-U_nz}}_{<\varepsilon} + \underbrace{\norm{U_nz-U_nx}}_{\norm{U_n} \cdot \norm{x-z} \leq M \varepsilon} 
+        \intertext{мы тут сразу пользуемся тем, что $U$ --- непрерывный оператор и у него есть норма} 
+        \leq \varepsilon(1 + \norm{U} + M) \Rightarrow \: \exists \liml_{n \to infty} U_n x = Ux \: \forall x \in X
+    \end{gather*}
+\end{proof}
+
+Маленькая историческая байка из серии <<Мифы и легенды из жизни Банаха>> о встрече Банаха и Штейнгауза .
+Банах чудесным образом родился, никто не знает его мать, имя ему досталось от отца Стефана его крестили и оставили (Банах --- это фамилия женщины, которая заботилась о нём с трехдневного возраста). В школе Банах интересовался только матемтикой,
+но рядом не оказалось никого, кто сказал бы ему идти на математический факультет, а ведь в Варшаве был хороший университет, преподавал там ученик Гаусса. В итоге Банах закончил что-то вроде политеха, издали 
+интересовавшись математикой. И вот, началась первая мировая война, Банаха не взяли в армию, а Штейнгауза взяли, но потом отослали обратно.\\
+
+
+Штейнгауз как-то шёл по улице и услышал, как 2 человека на лавочке что-то обсуждают, а доносятся от них умные типа <<Мера Лебега>>, Штейнгауз
+обратился к ним: <<Предмет вашей учебной беседы настолько интересен!>>. И начал он им навешивать всякую математическую лапшу на уши. Через несколько дней Банах решил какую-то задачку, и Штейнгауз у себя на дому устраивает встречу математиков, 
+они даже собирались организовать вчетвером краковское математическое ощество, но сам он потом уехал во Львов, перетащил туда Банаха. Банах устроился работать в какой-то из университетов и стал ликвидировать свою математическую безграмотность.
+Штейнгауз же потом говорил, что главный его вклад в функциональный анализ --- это открытие Банаха.
+
+
+\section{Применение принципа равномерной ограниченности к рядам Фурье}
+
+Пусть $f \in \tilde{C}[-\pi, \pi]$. Волна означает $f(-\pi) = f(\pi)$
+\begin{gather*}
+    C_n(f) = \frac{1}{2\pi} \int^{\pi}_{-\pi} f(x)e^{-inx}dx \\ 
+    S_n(f,x) = \sum^n_{k=-n} c_k e^{-ikx} = \int^\pi_{-\pi} f(t) D_n(x-t) dt \\
+    \text{ где } D_n(u) = \frac{1}{2\pi} \sum^n_{k=-n} e^{iku} = \frac{1}{2\pi} \frac{\sin(\left(n+\frac{1}{2}\right)u)}{\sin \left( \frac{u}{2} \right)} \text{ --- ядро Дирихле} \\
+    S_n(e^{ikx}) = e^{ikx} \text{ если } n \geq k \Rightarrow \liml_{n \to \infty} S_n (e^{ikx}) = e^{ikx} \\
+    If = f, I \text{ --- тождественный в } \tilde{C}[-\pi,\pi] \\
+    \seq{e^{ikx}}_{k \in \bZ} \text{ --- полная система в } \tilde{C}[-\pi,\pi] \text{ теорема Вейертршрасса}
+\end{gather*}
+
+\end{document}

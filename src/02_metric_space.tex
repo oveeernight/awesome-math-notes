@@ -90,7 +90,8 @@ $(X, \rho)\text{~--- метрическое пространство} \Rightarro
     Возьмём $R = \max \{ \rho(x_1, x_N), \ldots, \rho(x_{N-1},x_{N}) \} + 1$. Единичка на всякий случай.
         
     Тогда $\forall n \in \bN \: x_n \in B_R(x_N)$.
-\end{proof}
+\end{proof}  
+
 \begin{proof}[2 утверждение]
     Возьмём $\varepsilon > 0$, тогда по фундаментальности $\exists N  \: \forall n \in \bN  \: \forall m \in \bN \: ((\textcolor{blue}{\underline{n > N}} \, \land \, m > N) $ $\Rightarrow \underline{\rho(x_n, x_m)} < \varepsilon)$. Возьмём это $N$.
 
@@ -168,7 +169,8 @@ $(X, || \cdot ||)$ будем обозначать нормированное п
 Еще пару определений перед критерием банахова пространства.
 
 \begin{definition}[подпространство в алгебраическом смысле]
-    $X$~--- линейное пространство, $L \subset X$. $L$~--- подпространство в алгебраическом смысле $\Leftrightarrow$ $\forall x \in L \: \forall y \in L \: \forall \alpha \in K \: \forall \beta \in K \: \alpha x + \beta y \in L$.
+    $X$~--- линейное пространство, $L \subset X$. $L$~--- подпространство в алгебраическом смысле $\Leftrightarrow$ 
+    \[\forall x \in L \: \forall y \in L \: \forall \alpha \in K \: \forall \beta \in K \: \alpha x + \beta y \in L \]
 \end{definition}
 
 \begin{definition}[подпространство]
@@ -190,17 +192,15 @@ $(X, || \cdot ||)$ будем обозначать нормированное п
 \end{definition}
 В $\bR^n$ (или в $\bC^n$) если у нас была абсолютная сходимость, то была и обычная, но вообще говоря, это не так.
 
-\begin{theorem}[Критерий полноты нормированного пространства (банаховости)]
+\begin{theorem}[Критерий полноты нормированного пространства]
     $(X, || \cdot||)$ - полное $\Leftrightarrow$ из абсолютной сходимости ряда следует сходимость ряда.
 \end{theorem}
 
 \begin{proof}
     Предположим, что наше пространство полное ($\Rightarrow)$. $(X, \rho)$~--- полное, $\seq{x_k}^\infty_{k=1}$~--- последовательность, при этом
     \[ \sum^\infty_{k=1} ||x_k|| \tag{**} \text { сходится } \]
-    Цель такая: последовательность $S_n$~--- фундаментальная. Сейчас применим критерий Коши к ряду (**). Это ряд из чисел, так что всё в порядке.
-    Пусть $\varepsilon > 0$. По критерию Коши $\exists N \in \bN \forall n \in \bN \forall p \in \bN (n > N \Rightarrow \sum^{n+p}_{k=n+1} ||x_k|| < \varepsilon)$.
-
-    $S_n = \sum^n_{k=1} x_k$.
+    $S_n = \sum^n_{k=1} x_k$. Цель такая: последовательность $S_n$~--- фундаментальная. Сейчас применим критерий Коши к ряду (**). Это ряд из чисел, так что всё в порядке.
+    Пусть $\varepsilon > 0$. По критерию Коши $\exists N \in \bN  \, :\: \forall n \in \bN \: \forall p \in \bN \: (n > N \Rightarrow \sum^{n+p}_{k=n+1} ||x_k|| < \varepsilon)$.
     \begin{multline*}
         ||S_{n+p} - S_n|| = \left|\left| \sum^p_{k=1}  x_{n+k}\right|\right| \leq \sum^p_{k=1}||x_{n+k}|| = \sum^{n+p}_{k=n+1} ||x_k|| < \varepsilon\\
         \Rightarrow \seq{S_n}^\infty_{n=1} \text{~--- фундаментальная}, (X, \rho) \text{~--- полное} \\
@@ -255,14 +255,14 @@ $f \in m(A) \Rightarrow ||f||_{\infty} = \sup_{x \in A} |f(x)|$.
     Теперь мы проверили аксиомы нормы. Доказываем полноту. 
     $\{f_n\}^\infty_{n=0}$~--- фундаментальная в $m(A)$.
 \begin{multline*}
-    \forall \varepsilon > 0 \exists N \in \bN \forall m \in \bN \forall n \in \bN(\\
-    (m > N \land n > N) \Rightarrow ||f_n - f_m||_\infty < \varepsilon) \text{ т.е. } \sup_{x \in A} |f_n(x) - f_m(x)| < \varepsilon
+    \forall \varepsilon > 0 \: \exists N \in \bN \: \forall m \in \bN \: \forall n \in \bN\\
+    ((m > N \land n > N) \Rightarrow ||f_n - f_m||_\infty < \varepsilon) \text{ т.е. } \sup_{x \in A} |f_n(x) - f_m(x)| < \varepsilon
 \end{multline*}
     Первый вопрос: откуда взять претендента на роль предела? Еще желательно, чтобы он был единственный. Берём $\varepsilon, N$ из формулы выше, фиксируем $x$. Если для супремума есть неравенство, то и для $x$ тем более.
     $\forall x \in A ((n > N \land m > N) \Rightarrow |f_n(x) - f_m(x)| < \varepsilon)$.
     $\Rightarrow \{f_n(x)\}^\infty_{n=0}$~--- фундаментальная последовательность чисел в $\bC$.
      
-    $\Rightarrow \forall x \in A \exists L \in \bC \liml_{n \to \infty} f_n(x) = L$
+    $\Rightarrow \forall x \in A \: \exists L \in \bC \liml_{n \to \infty} f_n(x) = L$
 
     Определим $f \coloneqq (x \in A \mapsto \liml_{n \to \infty} f_n(x))$
     \begin{gather*}
@@ -360,5 +360,6 @@ $A = \{ 1, 2, \ldots, n \}, l_n^\infty = m(A) \Rightarrow l^\infty_n$~--- пол
     \end{multline*}
     а этот максимум это и есть $\norm{f_m - \varphi_0}_{C^{(n)}[a,b]}$
  \end{proof}
+
 
 \end{document}

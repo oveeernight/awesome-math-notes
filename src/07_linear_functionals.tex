@@ -3,7 +3,7 @@
 \begin{document}
 \part{Линейные функционалы}
 \chapter{Геометрический смысл линейного функционала}
-Линейное пространство, без нормы, без топологии, может, уже даже в алгебре доказали.
+Линейное пространство, без нормы, без топологии, может, уже даже в алгебре доказывали такую теорему.
 
 \begin{theorem}
     $X$ --- линейное пространство над $\bC$ ($\bR$)
@@ -267,5 +267,198 @@
     \end{enumerate}
 \end{proof}
 
+еперь, как было обещано, вариант теоремы продолжения линейного функционала для комплексного случая.
+
+\begin{theorem}[Баненблюст-Собчик, продолжение линейного функционала в комплексном линейном пространстве]
+    $X$ над $\bC$. В вещественном случае предполагали что $p$ --- выпуклый функционал, теперь предполагаем чуть большее: $p: X \rightarrow \bR, p$ --- полунорма,
+    $L \subset X$ --- подпространство, $f \in \Lin(L, \bC)$. Второе отличие состоит в том, что мы говорим $\abs{f(x)} \leq p(x) \: \forall x \in L \Rightarrow$ 
+    \[ \exists g \in \Lin(X, \bC), g |_L = f, \abs{g(x)} \leq p(x) \: \forall x \in X \]
+\end{theorem}
+
+\begin{proof}
+    Мы будем использовать доказательство для вещественного случая изо всех сил. Проведём овеществление $X$, то есть $X$ над $\bR$, $x,y \in X, \: a,b \in \bR \Rightarrow ax + by \in X$, то есть забудем на какое-то время,
+    что $X$ над $\bC$.
+    \begin{gather*}
+        f(x) = u(x) + iv(x), \: u,v : L \Rightarrow \bR 
+        \intertext{Проверим, что $u, v \in \Lin(L, \bR)$, а также покажем что между ними существует связь. Потом примением к u теорему Хана-Банаха, а там, глядишь, и получится то, что требовалось}
+        y \in X \Rightarrow f(y) = u(y) + iv(y) \\
+        \left. \begin{matrix}
+            \Rightarrow f(x) + f(y) = u(x) + u(y) + i(v(x) + v(y)) \\
+            f(x+y) = u(x+y) + iv(x+y)
+        \end{matrix} \right\} \Rightarrow \\
+        u(x+y) = u(x) + u(y) \quad v(x+y) = v(x) + v(y) \\
+        \left. \begin{matrix}
+            \text{пусть } a \in \bR \Rightarrow f(ax) = u(ax) + iv(ax) \\
+            f(ax) = af(x) = a(u(x) + iv(x))
+        \end{matrix} \right\} \Rightarrow u(ax) = a(u(x)), v(ax) = av(x)
+        \intertext{проверили, что они линейные функционалы в вещественном случае. оказывается, они еще и связаны между собой особым образом}
+        f(ix) = if(x) \\
+        u(ix) + iv(ix) = i(u(x) + iv(x)) \Rightarrow v(x) = -u(-ix)
+        \intertext{перед тем, как применять теорему Хана-Банаха проверим, чего меньше этот функционал}
+        u(x) \leq \abs{u(x)} \leq \abs{f(x)} \leq p(x) \text{ при } x \in L \\
+        \intertext{применяем теорему Хана-Банаха к $u$}
+        \exists \varphi \in \Lin(X, \bR), \varphi |_L = u, \varphi(x) \leq p(x) \: \forall x \in X
+        \intertext{на всякий случай отметим, что $\abs{\varphi(x)} \leq p(x)$ так как $p$ --- полунорма, вдруг пригодится}
+        \psi(x) \coloneqq - \varphi(ix) \Rightarrow \psi \in \Lin(X, \bR) \quad x \in X \\
+        g(x) \coloneqq \varphi(x) + i \psi(x), g |_L = f \Rightarrow g \in \Lin(X, \bR) 
+    \end{gather*}
+    $g$ линейный в вещественном смысле. Остаётся проверить  что он линейный в комплексном случае (можно вынести $i$) и что он подчинён $p$. Проверяем, что
+    $g(ix) = ig(x)$
+    \begin{multline*}
+        g(ix) = \varphi(ix) + i(-\varphi(-x)) = \varphi(-ix) + i\varphi(x) =  i(\varphi(x) - i\varphi(ix)) = \\ =
+         i(\varphi(x) + i \psi(x)) = ig(x)
+    \end{multline*}
+    $\Rightarrow g \in \Lin(X, \bC)$. Теперь проверяем подчинённость
+    \begin{gather*}
+        \text{пусть } x \in X \: g(x) \in \bC \Rightarrow g(x) = re^{i\theta}, r \geq 0 \Rightarrow
+        \intertext{такой трюк: воспользуемся линейностью $g$}
+        g(xe^{-i\theta}) = r \\
+        r = g(xe^{-i\theta}) = \varphi(xe^{-i\theta}) + i \psi(xe^{-i\theta})
+        \intertext{вспоминем, что $p$ --- полунорма}
+        \Rightarrow r = \varphi(xe^{-i\theta}) \leq p(xe^{-i\theta}) = \abs{e^{-i\theta}} \cdot p(x) = p(x) \\
+        \abs{g(x)} = r \leq p(x) \quad \forall x \in X
+    \end{gather*}
+\end{proof}
+
+\section{Продолжение линейных функционалов в нормированном пространстве}
+
+В этой части абсолютно все равно, пространство над $\bR$ или же $ \bC$
+
+\begin{theorem}[Хан-Банах]
+    $(X, \norm{\cdot})$ над $\bR$ или $\bC$, теперь всё равно. $L \subset X, L$ --- подпространство в алгебраическом смысле,
+    $f \in L^* (L^* = \B(L, \bC)) \Rightarrow$ 
+    \[ \exists g \in X^*, g |_L = f, \norm{g}_{X^*} = \norm{f}_{L^*} \]
+\end{theorem}
+Мы уже отмечали, что при продолжении норма может только увеличиться, но в условиях этой теорему норму же удаётся сохранить.
+
+\begin{proof}
+    Если $f = \bZero$, то $g = \bZero$ и так далее
+    \begin{gather*}
+        \text{пусть } f \ne \bZero, M \coloneqq \norm{f}_{L^*}, p(x) \coloneqq M \cdot \norm{x}, x \in X
+        \intertext{$\Rightarrow p$ --- норма ($\Rightarrow$ полунорма $\Rightarrow$ выпуклный функционал)} 
+        \text{пусть } x \in L \Rightarrow \abs{f(x)} \leq \norm{f}_{L^*} \cdot \norm{x} = p(x) \text{ (условие подчинения)}
+        \intertext{Теперь применяем теорема Хана-Банаха, если $X$ над $\bR$ или Б-Сопчика, если $X$ над $\bC$}
+        \exists g \in \Lin(X, \bR) (\Lin(X, \bR)) \\
+        g |_L = f, \quad \abs{g(x)} \leq p(x) \: \forall x \in X \\
+        \Rightarrow \abs{g(x)} \leq M \cdot \norm{X} \: \forall x \in X \Rightarrow \norm{g}_{X^*} \leq M \\
+        \Rightarrow \norm{g}_{X^*} \leq \norm{f}_{L^*} \\
+        (\norm{g}_{X^*} = \sup_{\seq{x \in X: \norm{x} \leq 1}} \abs{g(x)} \geq \sup_{\seq{x \in L: \norm{x} \leq 1}} = \norm{f}_{L^*}) \\
+        \Rightarrow \norm{g}_{X^*} = \norm{f}_{L^*}
+    \end{gather*}
+\end{proof}
+
+\begin{corollary}[о достаточном числе линейных функционалов]
+    $(X, \norm{\cdot}), x_0 \in X \Rightarrow \: \exists g \in X^*, \norm{g} = 1$, $g(x_0) = \norm{x_0}$, при этом 
+    \[ \norm{x_0} = \max \seq{ h(x_0) : h \in X^*, \norm{h} \leq 1} \]
+\end{corollary}
+
+\begin{proof}
+    Если $x_0 = 0$, то $\forall g \in X^*, \norm{g} = 1 \Rightarrow g(0) = 0$. \\ 
+    Пусть $x_0 \ne 0, L = \seq{\alpha x_0 : \alpha \in \bC}$
+    \begin{gather*}
+        f: L \rightarrow \bC \: f(\alpha x_0) \coloneqq \alpha \norm{x_0} \Rightarrow f \in \Lin(L, \bC) \\
+        \abs{f(\alpha x_0)} = \abs{\alpha} \Rightarrow \norm{f} = \sup_{\alpha \ne 0} \frac{\abs{f(\alpha x_0)}}{\norm{\alpha x_0}} = 1 \Rightarrow \norm{f}_{L^*} = 1
+        \intertext{по теореме Хана-Банаха для нормированного пространства}
+        \exists g \in X^*, \norm{g} = 1, g |_L = f \Rightarrow f(x_0) = f(x_0) = \norm{x_0} \\
+        \text{пусть } h \in X^*, \norm{h} \leq 1 \Rightarrow \abs{h(x_0)} \leq \norm{h} \cdot \norm{x_0} \leq \norm{x_0} \\
+        \Rightarrow \norm{x_0} \geq \sup_{\seq{h \in X^* : \norm{h} \leq 1}} \abs{h(x_0)}, \text{ но } \exists g, \norm{g} = 1, g(x_0) = \abs{x_0} \\
+        \Rightarrow \abs{x_0} = \max_{\seq{h \in X^* : \norm{h} \leq 1}} \{ h(x_0) \}
+    \end{gather*} 
+    в этом смысле и много, то есть есть такой, на котором максимум достигается
+\end{proof}
+
+\begin{remark}
+    $f \in X^* \Rightarrow \norm{f} = \sup_{\seq{x \in X : \norm{x} \leq 1}}$, то есть максимум может не достигаться
+\end{remark}
+
+\begin{example}
+    \begin{gather*}
+        C[-1,1] = X, \varphi(x) = \begin{cases}
+            -1 & -1 \leq x < 0 \\
+            1 & 0 \leq x \leq 1
+        \end{cases} \\
+        G_\varphi(f) = \int^1_{-1} f(x) \varphi(x) dx \quad G_\varphi \in (C[-1,1])^* \\
+        \norm{G_\varphi} = \int^1_{-1} \abs{\varphi(x)} dx = 2
+    \end{gather*}
+    В качестве упражнения доказать, что $\nexists f \in C[-1,1], \norm{f} \leq 1, \abs{G(f)} = 2$
+\end{example}
+
+\begin{corollary}[расстояние от элемента до подпространства]
+    $ (X, \norm{\cdot}), L \subset X, L = \overline{L}$ --- подпространство
+    \begin{gather*}
+        x_0 \in X, d = \rho(x_0, L) = \inf_{y \in L} \norm{x_0 - y} \Rightarrow \\
+        \exists g \in X^*, \norm{g} = 1, g |_L = 0, g(x_0) = d, \text{ при этом } \\
+        d = \max \seq{ \abs{h(x_0)}, h \in X^*, \norm{h} \leq 1, h |_L = 0}
+    \end{gather*}
+\end{corollary}
+
+Это следствие полезно для решения экстремальных задач: от инфимума можно перейти к максимуму и решать другую задачу.
+
+\begin{proof}
+    Если $x_0 \in L$, то $d = 0, \: \exists g |_L = 0, \norm{g} = 1 (\text{если } L \ne X)$
+    \begin{gather*}
+        \text{пусть } x_0 \in X \setminus L, M = \calL(L, x_0) = \seq{\alpha x_0 + y : \alpha \in \bC, y \in L} \\
+        f : M \rightarrow \bC, f(\alpha x_0 + y) \coloneqq \alpha \Rightarrow \: \forall y \in L \: f(y) = 0 \\
+        f^{-1}(0) = L, f \in \Lin(M, \bC), \norm{f} = \frac{1}{d}
+        \intertext{это уже вычислили в геометрическом смысле линейного функционала}
+        \text{ так как } f(x_0) = 1 \\
+        f_1 = df, \Rightarrow \norm{f_1}_{M^*} = 1, f_1(x_0) = d
+        \intertext{по теорему Хана-Банаха для нормированного пространства}
+        \exists g \in X^*, \norm{g}_{X^*} = 1, g |_M = f_1 \Rightarrow g(x_0) = d, g |_L = f |_L = 0
+        \intertext{это первая часть утверждения следствия}
+        \text{пусть } h \in X^*, \norm{h} \leq 1, h(y) = 0 \: \forall y \in L \Rightarrow \\
+        \abs{h(x_0)} = \abs{h(x_0) - y} \leq \norm{h} \cdot \norm{x_0-y} \leq \norm{x_0-y} \quad \forall y \in L \Rightarrow \\
+        \abs{h(x_0)} \leq d \Rightarrow \\
+        \sup \{ \abs{h(x_0)} : \norm{h} \leq 1, h|_L = 0 \} \leq d, \text{ но } \exists g  \Rightarrow \\
+        d = \max \{ \abs{h(x_0)} \cdot \norm{h} \leq 1, h |_L = 0 \}
+    \end{gather*}
+\end{proof}
+
+\begin{remark}
+    Следствие 1 --- частный случай следствия 2 при $L = \{ 0 \}$. На экзамене можно рассказать только второе следствие, отметив, что первое является его частным случаем
+\end{remark}
+
+\begin{corollary}[критерий полноты системы элементом в нормированном пространстве]
+    $(X, \norm{\cdot})$ --- нормированное пространство, $x_\alpha \in X, A$ --- множество индексов, $\seq{x_\alpha}_{\alpha \in A}$ --- полное семейство в $X \Leftrightarrow$
+    если $f \in X^*, f(x_\alpha) = 0, \alpha \in A \Rightarrow f = \bZero$
+\end{corollary}
+Критерий  проверять гораздо проще, чем определение.
+\begin{proof}
+    $\Rightarrow$ \\
+    \begin{gather*}
+        f(x_\alpha) = 0, L = \calL \seq{x_\alpha}_{\alpha \in A}, x \in L \Rightarrow \\
+        x = \sum^n_{k=1} c_k x_{\alpha_k} \Rightarrow f(x) = 0 \\
+        \text{пусть } z \in X, y_n \in L \: \exists \{y_n\}, \liml_{n \to \infty} y_n = z, f \text{ --- непрерывная} \Rightarrow \\
+        \liml_{n \to \infty} f(y_n) = f(z) \Rightarrow f(z) = 0 \\
+        \Rightarrow f = \bZero
+    \end{gather*}
+    $\Leftarrow$ \\
+    \begin{gather*}
+        \seq{x_\alpha}_{\alpha \in A} \text{ --- полная} \Leftrightarrow \overline{L} = X \\
+        \text{ пусть } L \subsetneq X \Rightarrow \: \exists x_0 \in X \setminus \overline{L} \stackrel{\text{Сл.2}}{\Rightarrow} \: \exists g \in X^* \\
+        g|_L = 0, g(x_0) = d(x_0, \overline{L}) \ne 0 \quad d = \rho(x_0, \overline{L}) \\
+        g(x_\alpha) = 0 \: \forall \alpha, g \ne \bZero
+    \end{gather*}
+\end{proof}
+
+Наконец, с помощью последнего следствия докажем такую теорему
+
+\begin{theorem}
+    $(X, \norm{\cdot})$. Если $X^*$ сепарабельно, то $X$ --- сепарабельно 
+\end{theorem}
+
+\begin{proof}
+    \begin{gather*}
+        \exists \seq{f_n}
+        \intertext{вспомним, что $\norm{f_n} = \sup_{\seq{x \in X: \norm{x} = 1}} \abs{f_n(x)}$}
+        \Rightarrow \: \exists x_n, \norm{x_n} = 1 \quad \norm{f_n} \geq \abs{f_n(x_n)} \geq \frac{1}{2} \norm{f_n} \\
+        \text{проверим, что } \{x_n\}^\infty_{n=1} \text{ --- полная в } X \\
+        \text{пусть } f \in X^*, f(x_n) = 0 \Rightarrow \: \exists \seq{f_{n_k}}^\infty_{k=1} \\
+        \liml_{k \to \infty} \norm{f-f_{n_k}} = 0 \underbrace{(f-f_{n_k})(x_{n_k})}_{=\abs{f_{n_k}(x_{n_k})}} \geq \frac{1}{2} \norm{f_{n_k}} \leq \norm{f-f_{n_k}} \cdot \underbrace{\norm{x_{n_k}}}_{=1} \underset{k \to \infty}{\longrightarrow} 0 \\
+        \Rightarrow \liml_{k \to \infty} \norm{f_{n_k}} = 0 \Rightarrow f = \bZero \\
+        \stackrel{\text{Сл.3}}{\Rightarrow} \seq{x_n}^\infty_{n=1} \text{ --- полная} \\
+        (E = \seq{\sum^n_{k=1} c_k x_k, c_k \in \bQ, n \in \bN} \text{ --- счётное всюду плотное в } X)
+    \end{gather*}
+\end{proof}
 
 \end{document}
