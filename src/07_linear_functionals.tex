@@ -52,14 +52,14 @@
 \begin{proof}
     \begin{gather*}
         L = f^{-1}(0) \Rightarrow L \text{ --- замкнутое}\\
-        d = \rho(x, L) = \inf_{y \in L} \norm{x_0 -y} \\
-        1 = f(x_0) = f(x_0-y) \Rightarrow \abs{f(x_0-y)} \leq \norm{f} \cdot \norm{x_0 -y} \: \forall y L \\
+        d = \rho(x_0, L) = \inf_{y \in L} \norm{x_0 -y} \\
+        1 = f(x_0) = f(x_0-y) \Rightarrow \abs{f(x_0-y)} \leq \norm{f} \cdot \norm{x_0 -y} \: \forall y \in L \\
         \Rightarrow 1 \leq \norm{f} \inf_{y \in L} \norm{x_0 - y} = \norm{f} \cdot d \Rightarrow \frac{1}{d} \leq \norm{f}
     \end{gather*}
     Получили неравенство в одну сторону. Теперь в другую:
     \begin{gather*}
         x \notin L \Rightarrow f(x) \ne 0, \: f\left( \frac{x}{f(x)} \right) = 1, f(x_0) = 1 \Rightarrow \\
-        f \left(\frac{x}{f(x)} -x \right) = 0 \Rightarrow \frac{x}{f(x)} - x_0 = y, y \in L \\
+        f \left(\frac{x}{f(x)} -x_0 \right) = 0 \Rightarrow \frac{x}{f(x)} - x_0 = y, y \in L \\
         \Rightarrow \frac{x}{f(x)} = x_0 -(-y) \Rightarrow \norm{ \frac{x}{f(x)}} = \norm{x_0 -(-y)} \geq d \\
         \Rightarrow \abs{f(x)} \leq \frac{1}{d} \cdot \norm {x} \Rightarrow \norm{f} \leq \frac{1}{d}
     \end{gather*}
@@ -71,7 +71,7 @@
     Подпространство $L$ можно сдвинуть на  вектор, это довольно очевидно, не будем это доказывать.
 \end{remark}
 
-\section{Продолжение линейного функционалов}
+\section{Продолжение линейного функционала}
 
 Новый раздел, в котором наконец появится существенная теорема, до этого были так...
 

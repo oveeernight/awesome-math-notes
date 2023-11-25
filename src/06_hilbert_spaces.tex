@@ -541,7 +541,7 @@ Cейчас выясним, когда неравенство превращае
         \intertext{проверим, что $\varphi$ --- сюръекция}
         \text{пусть } y = \seq{y_n}^\infty_{n=1} \in l^2 \\
         s_n = \sum_{k=1}^n y_k f_k, s_n \in H, \text{ пусть m > n } \\
-        \norm{s_m - s_n}^2 = \sum^m_{k = n + 1} \abs{y_k}^2 \underset{n, m \to 0}{\longrightarrow} 0 \Rightarrow \seq{s_n} \text{ --- фундаментальная} \\
+        \norm{s_m - s_n}^2 = \sum^m_{k = n + 1} \abs{y_k}^2 \underset{n, m \to \infty}{\longrightarrow} 0 \Rightarrow \seq{s_n} \text{ --- фундаментальная} \\
         \Rightarrow \: \exists \liml_{n \to \infty} s_n = s, s = \sum^\infty_{k=1} y_k f_k \Rightarrow \varphi(s) = y
      \end{gather*}
 \end{proof}
@@ -619,13 +619,13 @@ Cейчас выясним, когда неравенство превращае
     Есть $l^2, (x,y) = \sum_{n=1}^\infty x_n \overline{y_n}, \: x,y \in l^2$. Как устроены все линейные функционалы в пространстве последовательностей $l^2$?$f \in (l^2)^* \Rightarrow \: \exists! y \in l^2: f(x) = (x,y) = \sum^\infty_{n=1} x_n \overline{y_n}$.
 \end{example}
 \begin{example}
-    $(X, \mu)$, $l^2(X,\mu), (f,g) = \int_X f(x) \overline{g(x)} d \mu$
-    \[ F \in (L^2(X,\mu))^* \Rightarrow \: \exists! g \in L^2(X\mu) : F(f) - \int_X f(x) \overline{g(x)} d \mu \]
+    $(X, \mu)$, $L^2(X,\mu), (f,g) = \int_X f(x) \overline{g(x)} d \mu$
+    \[ F \in (L^2(X,\mu))^* \Rightarrow \: \exists! g \in L^2(X\mu) : F(f) = \int_X f(x) \overline{g(x)} d \mu \]
 \end{example}
 
 Посмотрим сейчас чуть-чуть, как эта теория применяется к классическим рядам Фурье, которые были у нас в анализе.
 
-\section{Классичеческие ряды Фурье}
+\section{Классические ряды Фурье}
 Как сходятся ряды Фурье в $L^2$ по мере Лебега?
 \begin{example}
     \[ L^2_{\bR} [-\pi,\pi] \text{ по мере Лебега } dx, (f,g) = \int^\pi_{-\pi} f(x)g(x) dx, \{1, \cos nx, \sin nx\}_{n \in \bN} \]
@@ -656,9 +656,9 @@ Cейчас выясним, когда неравенство превращае
         \exists \delta > 0: g(x) = f(x), x \in [-\pi, \pi - \delta] \\
         \Rightarrow \tilde{C}[-\pi,\pi] \text{ плотно в } L^2[-\pi,\pi] \\
         \forall \varepsilon > 0 \: \forall f \in L^2[-\pi,\pi] \: \exists g \in \tilde{C}[-\pi,\pi], \norm{f-g}_{L^2} < \varepsilon
-        \intertext{по теоремере Вейерштрасса $\exists T = \alpha_0 + \sum^n_{k=1} \alpha_k \cos kx + \beta_k \sin_kx$}
+        \intertext{по теоремере Вейерштрасса $\exists T = \alpha_0 + \sum^n_{k=1} \alpha_k \cos kx + \beta_k \sin kx$}
         \norm{g-T}_\infty < \varepsilon \Rightarrow \norm{g-T}_2 = \left( \int^\pi_{-\pi} \abs{g(x) - T(x)}^2 dx \right)^{\frac{1}{2}} < (\varepsilon^2 \cdot 2\pi)^{\frac{1}{2}} = \sqrt{2\pi} \cdot \varepsilon \\
-        \Rightarrow \norm{f-T}_2 < \varepsilon(1 + 2 \sqrt{2\pi}) \Rightarrow \{1, \cos nx, \sin nx \} \text{ --- полная}
+        \Rightarrow \norm{f-T}_2 < \varepsilon(1 + \sqrt{2\pi}) \Rightarrow \{1, \cos nx, \sin nx \} \text{ --- полная}
     \end{gather*}
 \end{proof}
 
@@ -683,7 +683,7 @@ Cейчас выясним, когда неравенство превращае
 \end{example}
 
 \begin{gather*}
-    (f,g) = \int^\pi+{-\pi} f(x) \overline{g(x)} dx, (e^{inx}, e^{imx}) = \int^\pi_{-\pi} e^{i(n-m)x}dx = \begin{cases}
+    (f,g) = \int^\pi_{-\pi} f(x) \overline{g(x)} dx, (e^{inx}, e^{imx}) = \int^\pi_{-\pi} e^{i(n-m)x}dx = \begin{cases}
         0 & n \ne m \\
         2 \pi & n = m
     \end{cases} \\
@@ -701,7 +701,7 @@ Cейчас выясним, когда неравенство превращае
     \begin{gather*}
         f \in L^2_{\bR}[0,\pi], \text{ пусть } f(-x) = f(x), x \in (0, \pi] \\
         f \in L^2_{\bR}[-\pi,\pi], b_k = \frac{1}{\pi} \int^\pi_{-\pi} f(x) \sin kx dx = 0 \\
-        \norm{f-S_n(f)}_{L^2[-\pi,\pi]} \underset{n \to \infty}{\longrightarrow} 0 \Rightarrow \norm{f - (a_0 + \sum^n_{k=1} a_k \cos kx)}_2 \underset{k \to \infty}{\longrightarrow} 0
+        \norm{f-S_n(f)}_{L^2[-\pi,\pi]} \underset{n \to \infty}{\longrightarrow} 0 \Rightarrow \norm{f - \left(a_0 + \sum^n_{k=1} a_k \cos kx\right)}_2 \underset{n \to \infty}{\longrightarrow} 0
     \end{gather*}
 \end{proof}
 

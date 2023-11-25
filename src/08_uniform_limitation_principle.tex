@@ -76,7 +76,7 @@
 \begin{definition}[сильный предел]
     \[(X, \norm{\cdot}), (Y, \norm{\cdot}), \seq{U_n}^\infty_{n=1}, U_n \in \Lin(X,Y) \]
     Если $\forall x \in X \: \liml_{n \to \infty} U_n x = Ux$, то 
-    $U$ --- \textbf{поточечный} (или сильный) предел $\seq{U_n}$. Обозначение $U= s-\lim U_n$ (s = strong)
+    $U$ --- \textbf{поточечный} (или сильный) предел $\seq{U_n}$. Обозначение $U= \slim U_n$ (s = strong)
 \end{definition}
 Он хоть и сильный, но куда слабее сходимости по норме.
 
@@ -93,7 +93,7 @@
 \end{proof}
 
 \begin{remark}
-    $U = s-\lim U_n \not \Rightarrow \liml_{n \to \infty} \norm{U - U_n} = 0$
+    $U = \slim U_n \not \Rightarrow \liml_{n \to \infty} \norm{U - U_n} = 0$
 \end{remark}
 
 Пример, где поточечный предел существует и равен нулю, а предела по норме не существует
@@ -102,7 +102,7 @@
         X = l^1 = \seq{x = \seq{x_n}^\infty_{n=1}, x_n \in \bC, \norm{x}_l = \sum^\infty_{n=1} \abs{x_n}} \\
         f_n: l^1 \rightarrow \bC \quad f_n \in (l^1)^* \quad f_n(x) = x_n, \norm{f_n} = 1 \\
         x \in l^1 \Rightarrow \liml_{n \to \infty} x_n = 0 \Rightarrow \liml_{n \to \infty} f_n(x) = 0 \: \forall x \in L^1 \\
-        \bZero = s-\lim f_n, \text{ но } \norm{f_n - \bZero} = \underbrace{\norm{f_n}}_{n \not \to 0} = 1
+        \bZero = \slim f_n, \text{ но } \norm{f_n - \bZero} = \underbrace{\norm{f_n}}_{n \not \to 0} = 1
     \end{gather*}
 \end{example}
 
@@ -111,7 +111,7 @@
     \begin{gather*}
         x \in H, x = \sum^\infty_{k=1} (x,e_k) e_k \quad S_n(x) = \sum^n_{k=1} (x,e_k) e_k \\
         \Rightarrow \forall x \in H \: \liml_{n \to \infty} S_n x = x, Ix = x \forall x \in H (I \text{ --- тождественный}) \\
-        \Rightarrow I = s-\lim S_n \\
+        \Rightarrow I = \slim S_n \\
         (I-S_n)(e_{n+1}) = I(e_{n+1}) = e_{n+1} \Rightarrow \norm{I - S_n} = 1 \\
         \norm{I - S_n} \underset{n \to \infty}{\not \longrightarrow} 0
     \end{gather*}
@@ -121,7 +121,7 @@
 
 \begin{theorem}
     $(X, \norm{\cdot})$ --- банахово, $(Y, \norm{\cdot})$ --- нормированное
-    $U_n \in \B(X,Y), \text{ пусть } U = s-\lim U_n \Rightarrow$ 
+    $U_n \in \B(X,Y), \text{ пусть } U = \slim U_n \Rightarrow$ 
     \[ U \in \B(X,Y), \norm{U} \leq \underline{\liml} \norm{U_n} \leq \sup_{n \in \bN} \norm{U_n} < + \infty \]
 \end{theorem}
 
@@ -137,15 +137,15 @@
 \end{proof}
 
 \begin{remark}
-    $U = s-\lim U_n$, возможно $\norm{U} < \underline{\lim} \norm{U_n}$
+    $U = \slim U_n$, возможно $\norm{U} < \underline{\lim} \norm{U_n}$
 \end{remark}
 
 \begin{example}
-    $f_n: l^1 \rightarrow \bC, f_n(x) = x_n, \bZero = s-\lim f_n, \norm{f_n} = 1 \: \forall n. \norm{\bZero} = 0$
+    $f_n: l^1 \rightarrow \bC, f_n(x) = x_n, \bZero = \slim f_n, \norm{f_n} = 1 \: \forall n. \norm{\bZero} = 0$
 \end{example}
 
 \begin{theorem}[Банах-Штейнгауз, критерий существования сильного предела]
-    $X,Y$ --- банахово, $U_n \in \B(X,Y)$. Для того чтобы существовал $s-\lim U_n$, необходимо и достаточно 
+    $X,Y$ --- банахово, $U_n \in \B(X,Y)$. Для того чтобы существовал $\slim U_n$, необходимо и достаточно 
     \begin{enumerate}
         \item $\exists M > 0: \norm{U_n} \leq m \: \forall n \in \bN$ 
         \item $\exists E \subset X, E$ полное, то есть $\overline{\calL(E)} = X$. $\seq{U_nx}$ --- фундаментальная для $\forall x \in E$ 
@@ -155,7 +155,7 @@
 Существует множество вариантов этой теоремы, и все они по-своему полезные, поэтому у нас будет очень много замечаний потом
 
 \begin{proof}
-    $\Rightarrow$ пусть $U = s-\lim U_n$, мы уже доказали, что $\sup_n\norm {U_n} < + \infty$, а второе утверждение очевидно\\
+    $\Rightarrow$ пусть $U = \slim U_n$, мы уже доказали, что $\sup_n\norm {U_n} < + \infty$, а второе утверждение очевидно\\
     $\Leftarrow$ \\
     Пусть $x \in \calL(E)$, то есть $x = \sum^N_{k=1} c_k x_k, \: c_k \in \bC, x_k \in E$
     \begin{gather*}
@@ -166,7 +166,7 @@
         \norm{U_nx - U_mx} \leq \underbrace{\norm{U_nx - U_nz}}_{\leq \norm{U_n} \cdot \norm{x-z} \leq M \varepsilon} + \underbrace{\norm{U_nz - U_mz}}_{\varepsilon}
         + \underbrace{\norm{U_mz - U_mx}}_{\leq M\varepsilon} \\
         < \varepsilon(2M+1) \Rightarrow \seq{U_nx}^\infty_{n=1} \text{ фундаментальна} \\
-        Y \text{ банахово} \Rightarrow \: \exists \liml_{n \to \infty} U_n x \: \forall x \in X \Rightarrow \: \exists U = s-\liml U_n
+        Y \text{ банахово} \Rightarrow \: \exists \liml_{n \to \infty} U_n x \: \forall x \in X \Rightarrow \: \exists U = \slim U_n
     \end{gather*}
 \end{proof}
 
@@ -182,7 +182,7 @@
 Заплатим жестокую цену за такую теорему: раньше $U$ не было, оно появлялось, критерий существования всё-таки, а здесь же мы предположим сразу непрерывность этого $U$
 \begin{theorem}[Банах-Штейнгаус]
     $X$ --- банахово, $Y$ --- нормированное, $U_n \in \B(X,Y), U \in \B(X,Y)$ \\
-    $ u = s-\lim U_n \Leftrightarrow$ 
+    $ u = \slim U_n \Leftrightarrow$ 
     \begin{enumerate}
         \item $\sup_n \norm{U_n} \leq M < +\infty$ 
         \item $\exists E \subset X, \overline{\calL(E)} = X, \: \forall x \in E \: \exists \liml_{n \to \infty} U_n x $
@@ -207,7 +207,7 @@
 интересовавшись математикой. И вот, началась первая мировая война, Банаха не взяли в армию, а Штейнгауза взяли, но потом отослали обратно.\\
 
 
-Штейнгауз как-то шёл по улице и услышал, как 2 человека на лавочке что-то обсуждают, а доносятся от них умные типа <<Мера Лебега>>, Штейнгауз
+Штейнгауз как-то шёл по улице и услышал, как 2 человека на ке что-то обсуждают, а доносятся от них умные типа <<Мера Лебега>>, Штейнгауз
 обратился к ним: <<Предмет вашей учебной беседы настолько интересен!>>. И начал он им навешивать всякую математическую лапшу на уши. Через несколько дней Банах решил какую-то задачку, и Штейнгауз у себя на дому устраивает встречу математиков, 
 они даже собирались организовать вчетвером краковское математическое ощество, но сам он потом уехал во Львов, перетащил туда Банаха. Банах устроился работать в какой-то из университетов и стал ликвидировать свою математическую безграмотность.
 Штейнгауз же потом говорил, что главный его вклад в функциональный анализ --- это открытие Банаха.
@@ -218,11 +218,100 @@
 Пусть $f \in \tilde{C}[-\pi, \pi]$. Волна означает $f(-\pi) = f(\pi)$
 \begin{gather*}
     C_n(f) = \frac{1}{2\pi} \int^{\pi}_{-\pi} f(x)e^{-inx}dx \\ 
-    S_n(f,x) = \sum^n_{k=-n} c_k e^{-ikx} = \int^\pi_{-\pi} f(t) D_n(x-t) dt \\
+    S_n(f,x) = \sum^n_{k=-n} c_k e^{-ikx} = \int^\pi_{-\pi} f(t) D_n(x-t) dt \quad c_k = \frac{1}{2\pi} \int^\pi_{-\pi} f(t) e^{ikt} dt \\
     \text{ где } D_n(u) = \frac{1}{2\pi} \sum^n_{k=-n} e^{iku} = \frac{1}{2\pi} \frac{\sin(\left(n+\frac{1}{2}\right)u)}{\sin \left( \frac{u}{2} \right)} \text{ --- ядро Дирихле} \\
     S_n(e^{ikx}) = e^{ikx} \text{ если } n \geq k \Rightarrow \liml_{n \to \infty} S_n (e^{ikx}) = e^{ikx} \\
     If = f, I \text{ --- тождественный в } \tilde{C}[-\pi,\pi] \\
-    \seq{e^{ikx}}_{k \in \bZ} \text{ --- полная система в } \tilde{C}[-\pi,\pi] \text{ теорема Вейертршрасса}
+    \liml_{n \to \infty} S_n(e^{ikx}) = I(e^{ikx}) = e^{ikx} \Rightarrow \\
+    \seq{e^{ikx}}_{k \in \bZ} \text{ --- полная система в } \tilde{C}[-\pi,\pi] \text{ по теореме Вейертршрасса} \\
+    I(f) = \liml_{n \to \infty} S_n(f), \text{ при } f = e^{ikx} \text{ или } f \in \calL{e^{ikx}}_{k \in \bZ}
 \end{gather*}
+
+\begin{theorem}
+    \begin{enumerate}
+        \item $\exists f \in \tilde{C}[-\pi,\pi]$ т.ч. $S_n(f,x)$ не сходятся равномерно, более того $\sup_n \norm{S_n(f,x)}_\infty = +\infty$ (Лебег, 1906)
+        \item пусть $x_0 \in [-\pi,\pi] \Rightarrow \: \exists f \in \tilde{C}[-\pi,\pi]$ т.ч. не $\exists \liml_{n \to \infty} S_n(f,x_0)$, более того $\sup_n \abs{S_n(f,x_0)} = +\infty$  (Дю Буа Реймонд, 1886)
+    \end{enumerate}
+\end{theorem}
+
+Для доказательства будем применять следствия из принципа равномерной ограниченности. 
+Если $S_n$ вычислять на базисе $e^{ikx}$, то сходимость будет, но теорему Банаха-Штейнгауза нельзя применять, потому что нет ограниченности по норме оператора $S_n$
+
+\begin{proof}[Доказательство теоремы Лебега]
+    Проверим, что $\sup_n \norm{S_n}_{\B(\tilde{C}[-\pi,\pi])} = \infty$
+    \begin{gather*}
+        S_n(f,x) = \int^\pi_{-\pi} = f(t) D_n(x-t)dt \quad S_n \in \Lin(\tilde{C}[-\pi,\pi]) \\
+        f \in \tilde{C}[-\pi,\pi], x \in [-\pi,\pi]
+        \intertext{мы уже вычисляли норму интегрального оператора в пространстве непрерывных функций}
+        \norm{S_n} = \max_{x \in [-\pi,\pi]} \int^\pi_{-\pi} \abs{D_n(x-t)}dt
+        \intertext{цель ближайших вычислений: проверить, что при $n \to \infty$ норма стремится к $\infty$. Сначала проверим, что она не зависит от $x$}
+        \int^\pi_{-\pi} \abs{D_n(x-t)}dt = [[\tau = x - t, d\tau = -dt]] = - \int^{x-\pi}_{x+\pi} \abs{D_n(\tau)}d\tau = [[D_n \text{ -- } 2\pi\text{-периодическая}]] \\
+         \int^\pi_{-\pi} \abs{D_n(\tau)}d\tau = [[\text{чётная}]] \\
+        = \frac{1}{\pi} \int^\pi_{0} \frac{\sin(n+\frac{1}{2})\tau}{\sin(\frac{\tau}{2})} d\tau \geq \frac{2}{\pi} \int^\pi_0 \frac{\abs{\sin(n+\frac{1}{2})}}{\tau}d\tau = \\
+        [[x \geq \sin x \quad v = \left( n + \frac{1}{2} \right) \Rightarrow \frac{d\tau}{\tau} = \frac{dv}{v}]] = \\
+        = \frac{2}{\pi} \int^{\left(n+\frac{1}{2}\right)\pi}_0 \frac{\abs{\sin v}}{v} dv \geq \frac{2}{\pi} \sum^n_{k=1} \int^{k\pi}_{(k-1)\pi} \frac{\abs{\sin v}}{v} dv \geq \\
+        [[v \in [(k-1)\pi,k\pi] \Rightarrow v \leq k\pi \Rightarrow \frac{1}{v} \geq \frac{1}{k\pi} ]] \\
+        \geq \frac{2}{\pi} \cdot \frac{1}{\pi} \underbrace{\sum^n_{k=1} \frac{1}{k}}_{\sigma_n} \geq \frac{2}{\pi^2} \sigma_n, \liml_{n \to \infty} \sigma_n = +\infty \\
+        x \in [k, k+1] \Rightarrow k \leq x \Rightarrow \frac{1}{k} \geq \frac{1}{x} \Rightarrow \frac{1}{k} \geq \int^{k+1}_k \frac{dx}{x} \Rightarrow \\
+        \sigma_n = 1 + \ldots + \frac{1}{n} \geq \int^{n+1}_1 \frac{dx}{x} = \ln(n+1) \\
+        \Rightarrow \norm{S_n} \geq \frac{2}{\pi^2}
+    \end{gather*}
+    как используем принцип фиксации особенности? Есть последовательность операторов $S_n$. При фиксированном $f$ она стремится к  $S_n(f)$. Мы оценили снизу норму и доказали, что она стремится к бесконечности. Если норма операторов не ограничена, 
+    то в нашем банаховом пространстве непрервны $2\pi$-периодических функций найдется такой элемент, на котором норма не ограничена, значит там тем более не может быть равномерной сходиомсти.
+\end{proof}
+
+\begin{proof}[Доказательство теоремы Дю Буа Реймонда]
+    Вместо линейных операторов теперь рассмотрим линейные функционалы. $x_0$ --- фиксирована, $S_n(f,x_0)$ --- линейные функционалы. $S_n(f,x_0) : \tilde{C}[-\pi,\pi] \rightarrow \bC$.
+    Там же, где мы вычисляли норму интегрального оператора, мы вычисляли норму линейного функционала (ссылку)
+    \begin{gather*}
+        S_n(f,x_0) = \int^\pi_{-\pi} f(t) D_n(x_0-t) dt \\
+        \text{норма функционала } \norm{S_n}_{(\tilde{C}[-\pi,\pi])^*} = \int^\pi_{-\pi} \abs{D_n(x_0-t)} dt \stackrel{\text{Лебег}}{=} \\
+        = \norm{S_n} \geq \frac{2}{\pi^2} \ln n \Rightarrow \sup_n \norm{S_n(f,x_0)}_{(\tilde{C}[-\pi,\pi])^*} = +\infty
+        \intertext{по принципу фиксации особенности} 
+        \Rightarrow \: \exists f \in \tilde{C}[-\pi,\pi] : \sup_n \abs{S_n(f,x_0)} = +\infty
+    \end{gather*}
+\end{proof}
+
+\begin{remark}
+    Пусть $E \subset [-\pi,\pi], E$ --- счётное $\Rightarrow \: \exists f \in \tilde{C}[-\pi,\pi] \: \forall x_0 \in E \: \sup_n \abs{S_n(f,x_0)} = +\infty$
+\end{remark}
+
+\begin{remark}
+    $\exists f \in L^1[-\pi,\pi] \: \forall x \in [-\pi, \pi]$ не $\exists \liml_{n \to \infty} S_n(f,x)$
+\end{remark}
+
+Этот пример построил Колмогоров  в 1926 году, а в 1923 построил такую функцию, у которой почти всюду не $\exists \liml$. Колмогоров был учеником Лузина. А он предъявил такую гипотезу
+
+\begin{remark}[Гипотеза Лузина, 1923]
+    $f \in L^2[-\pi,\pi] \Rightarrow S_n(f,x) \rightarrow f(x)$ почти всюду на $[-\pi,\pi]$.
+\end{remark}
+
+
+Шведский математик Карлесон В 22 года подумал улучшить пример Колмогорова. Поехал в Америку на семинар по тригонометрическим рядам, там рассказал Зигмунду, как собирается опровергать гипотизу Лузина. А тот его всячески поощрял. Весь мир тогда считал, что гипотеза неверна.
+
+Вот он несколько лет мучился и подумал, что  функция, которую он пытается построить, не существует. Так и оказалось.
+На международном математическом конгрессе в 1966 Карлесон показал, что гипотеза верна. Колмогоров вышел, пожал ему руку и сказал, что это главный
+результат математического анализа за весь XX век.
+
+\begin{lemma}[Риман-Лебег]
+    $ f \in \L^1[-\pi,\pi]$
+    \[c_n(f) = \frac{1}{2\pi} \int^\pi_{-\pi} f(x)e^{-inx} dx \Rightarrow \liml_{n \to \infty} c_n(f) = 0 \]
+\end{lemma}
+
+
+\begin{proof}
+    Будем думать, что $c_n \in \Lin(L^1, \bC)$  --- линейный функционал. При фиксированном $f c_n$ --- конкретное число
+    \begin{gather*}
+        f \in L^1 \quad \abs{c_n(f)} \leq \frac{1}{2\pi} \int^\pi_{-\pi} \abs{f(x)} dx = \frac{1}{2\pi} \norm{f}_1 \\
+        \Rightarrow c_n \in (L^1)^*, \norm{c_n}_{(L^1)^*} \leq \frac{1}{2\pi} \\
+        \seq{ \chi_{[a,b)}} \text{ --- полное семейство в } L^1[-\pi,\pi], -\pi \leq a < b \leq \pi \\
+        c_n(\chi_{[a,b)}) = \frac{1}{2\pi} \int^\pi_{-\pi} \chi_{[a,b)}(x) e^{-inx}dx = \frac{1}{2\pi} \int^b_a e^{-inx} dx = \\
+        = \frac{1}{2\pi} \frac{e^{-inb} - e^{-ina}}{-in} \Rightarrow \\ 
+        \abs{c_n(\chi_{[a,b)})} \leq \frac{2}{2\pi n} = \frac{1}{\pi n} \underset{n \to \infty}{\longrightarrow} 0 \\
+        c_n(\chi_{[a,b)}) \longrightarrow \bZero(\chi_{[a,b)}) \Rightarrow \\
+        \text{ по теореме Банаха-Штейнгауза } \forall f \in L^1 \quad c_n(f) \underset{n \to \infty}{\longrightarrow} 0
+    \end{gather*}
+\end{proof}
+
 
 \end{document}
