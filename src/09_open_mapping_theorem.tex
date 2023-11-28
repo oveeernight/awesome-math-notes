@@ -329,4 +329,95 @@ $X,Y$ --- нормированные пространства, $A \in \Lin(X,Y)$
     \end{gather*}
 \end{proof}
 
+Естественно, требются примеры, когда есть замкнутость, но нет непрерывности.
+\begin{remark}
+    $X,Y$ --- нормированные, $U \in \Lin(X,Y)$, $U \not \Rightarrow U$ --- непрерывный. 
+\end{remark}
+
+У нас было не так много не непрерывных операторов: например, оператор дифференцирования, им и воспользуемся.
+\begin{example}
+    \begin{gather*}
+        D(f) = f^\prime, Y = C[-1,1], X \subset Y, X = \seq{f: f\prime \in C[-1,1]} \\
+        \norm{f}_X = \norm{f}_Y = \max_{x \in [-1,1]} \abs{f(x)} \\
+        D(x^n) = nx^{n-1}, \norm{D(x^n)} = n, \norm{x^n} = 1 \Rightarrow \sup_{\norm{f} = 1} \norm{D(f)} = +\infty \\
+        \Rightarrow D \text{ не непрерывен}
+        \intertext{это воспоминание о не непреывности. Почему же он замкнут?}
+        \seq{f_n}^\infty_{n=1}, f_n \in X, f_n \stackrel{X}{\longrightarrow} f, D(f_n) \stackrel{Y}{\longrightarrow} g \stackrel{?}{\Rightarrow} [[\text{ замкнутость }]] D(f) = g \\
+        \intertext{когда-то в анализе доказали}
+        \left. \begin{matrix}
+            f_n \darrow{[-1,1]} f \\
+            f^\prime_n \darrow{[-1,1]} g
+        \end{matrix} \right\} \Rightarrow g = f^\prime, \text{то есть } D(f) = g \Rightarrow D \text{ замкнут}
+    \end{gather*}
+\end{example}
+
+Теорему о замкнутости графика нельзя применять, потому что $X$ --- не полное. Более того, $\overline{X} = Y$
+
+\section{Примеры неограниченных операторов в банаховом пространстве}
+
+Заодно ещё раз вспомним лемму Цорна, чтобы мы не думали, что это была экзотика для доказательства теоремы Хана-Банаха, а вполне рабочий инструмент, когда мы хотим постриоть максимальный элемент
+в бесконечных множествах, где обычная индукция не помогает.
+\begin{definition}[алгебраический базис]
+    $X$ --- линейное пространств над $\bC$ (или $\bR$). $\seq{x_\alpha}_{\alpha \in A}$ --- \textbf{алгебраический базис} (базис Гамеля), если 
+    $\forall x, x = \sum^n_{j=1} c_j x_{\alpha_j}$ такое представление единственно.
+\end{definition}
+В конечномерном пространстве разницы с предыдущим определением базиса нет. Но в бесконечномерных пространствах на конечное представление надежды нет.
+
+\begin{theorem}
+    $X$ --- линейное пространство $\Rightarrow$ в $X \: \exists$ базис Гамеля.
+\end{theorem}
+
+\begin{proof}
+    План такой: мы возьмём максимальное линейно-независимое множество и назовём его максимальным элементом, потом применим лемму Цорна. 
+    Когда мы говорим о линейной независимости, речь идёт только о конечных комбинациях
+    \begin{gather*}
+        \Rho = \seq{Y: Y \subset x, Y \text{ --- линейно независимое }} \\
+        \text{порядок } Y \leq Z, \text{ если } Y \subset Z, \: Y,Z \in \Rho
+        \intertext{для того, чтобы применить лемму Цорна, нужно установить, что в любом линейно упорядоченном множестве есть верхняя грань}
+        \seq{Y_\alpha}_{\alpha \in A} \text{ --- линейно упорядоченное множество, то есть} \\
+        \forall \alpha, \beta \text{ либо } Y_{\alpha} \subset Y_{\beta} \text{ или } Y_\beta \subset Y_\alpha \\
+        Y_0 = \bigcup_{\alpha \in A} Y_\alpha \Rightarrow Y_0 \text{ --- верхняя грань для } \seq{Y_\alpha}_{\alpha \in A} \\
+        [[\text{ лемма Цорна }]] \Rightarrow \text{ в } \Rho \: \exists \text{ максимальный элемент } Z
+        \intertext{проверим, что $\calL(Z) = X$. Допустим $\exists x_0 \in X \setminus \calL(Z)$} 
+        Y = x_0 \cup Z \Rightarrow Y \subset \Rho, Z \leq Y, Z \ne Y \\
+        \text{противоречие } \Rightarrow Z \text{ --- базис Гамеля}
+    \end{gather*}
+    
+\end{proof}
+
+С помощью этого базиса построим примеры, если их вообще можно назвать примерами, ведь они будут совсем-совсем неявными.
+\begin{example}
+    $X$ --- банахово, $\dim X = \infty$, пусть $\seq{x_\alpha}_{\alpha \in A}$ --- базис Гамеля
+    \begin{gather*}
+        \seq{\lambda_\alpha}_{\alpha \in A}, \lambda_{\alpha} \in \bC \quad \sup_{\alpha \in A} \abs{\lambda_\alpha} = +\infty \\
+        U: X \rightarrow X, U(x_\alpha) = \lambda_\alpha \cdot x_\alpha
+        \intertext{по линейности продолжим}
+        x \in X \Rightarrow x = \sum^n_{j=1} c_j x_{\alpha_j} \quad U(x) = \sum^n_{j=1} c_j \lambda_{\alpha_j} x_{\alpha_j} \\
+        U \in \Lin(X), \sup_{\alpha \in A} \frac{\norm{U(x_\alpha)}}{\norm{x_\alpha}} = \sup_{\alpha \in A} \abs{\lambda_\alpha} = +\infty \Rightarrow U \notin \B(x)
+    \end{gather*}
+\end{example}
+
+Пример не очень явный, но, тем не менее, вот такие ужасы. Теперь пусть будет не непрерывный линейный функционал.
+
+\begin{example}
+    $X$ --- банахово, $\seq{x_\alpha}_{\alpha \in A}$ --- базис Гамеля, $\seq{\lambda_\alpha}_{\alpha \in A}, \sup_{\alpha \in A} \abs{\lambda_\alpha} = +\infty$
+    \begin{gather*}
+        f: X \rightarrow \bC \quad f(x_\alpha) = \lambda_\alpha \cdot \norm{x_\alpha}
+        \intertext{продолжим по линейности}
+        \Rightarrow f \in \Lin(X, \bC), \sup_{\alpha} \frac{\abs{f(x_\alpha)}}{\norm{x_\alpha}} = +\infty \Rightarrow f \notin X^*
+    \end{gather*}
+\end{example}
+
+\begin{example}
+    \begin{gather*}
+        l^2, \seq{e_n}^\infty_{n=1}, e_n = (0, \ldots, 0, \underbrace{1}_n, 0, \ldots) \\
+        \Rho 9 \seq{Y \subset l^2, E = \seq{e_n}^\infty_{n=1}}, E \subset Y, Y \text{ --- линейно независимое} \\
+        \exists \text{ максимальный элемент} \\
+        \seq{e_\alpha}_{\alpha \in A} \text{ --- базис Гамеля} \\
+        \bN \subset A, \lambda_n = n, \text{ то есть } \\
+        f(e_n) = n, f(e_\alpha) = \lambda_\alpha, \lambda_\alpha \in \bC, \lambda_{\alpha} \text{ --- любое} \\
+        \sup_n \abs{f(e_n)} = +\infty \Rightarrow f \notin (l^2)^\infty \text{ при } \alpha \ne n
+    \end{gather*}
+\end{example}
+
 \end{document}

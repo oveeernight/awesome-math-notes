@@ -1,0 +1,372 @@
+% !TeX root = ./document.tex
+\documentclass[document]{subfiles}
+\begin{document}
+\chapter{Сопряжённые пространства}
+\section{Сопряженное пространство к $L^p$}
+
+На самом деле, в этой части всё докажем только для $l$, для $L$ только простую часть.
+
+Напоминание о том, что мы думаем о мерах: $(X, U, \mu)$ --- пространство с мерой, $\mu$ --- $\sigma$-конечная, то есть $X = \bigcup^\infty_{j=1} X_j, \mu(X_j) < +\infty$.
+$\mu$ --- полная мера, то есть если $A \subset U, \mu A = 0$, то  $\forall B \subset A \Rightarrow B \in U, \mu(B) = 0$
+
+\begin{theorem}[сопряжение к $L^p(X, U, \mu)$]
+    2 случая, во втором очень важно, что бесконечность не включается!
+    \begin{enumerate}
+        \item $1 \leq p \leq +\infty$
+         \begin{gather*}
+            g \in L^q(X,\mu) \quad \frac{1}{p} + \frac{1}{q} = 1 \\
+            g \text{ --- фиксирована}, h \in L^p, F_g(h) \coloneqq \int_X h(x) g(x) d\mu \Rightarrow F_g \in (L^p)^* \\
+            \norm{Fg} = \norm{g}_{L^q}
+        \end{gather*}
+        \item $1 \leq p < +\infty$, $F \in (L^p)^* \Rightarrow \: \exists! g \in L^q \text{ т.ч. } F = F_g$
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}[1 утверждение]
+    Ну тут совсем легко. $Fg \in \Lin(L^p, \bC)$ --- очевидно, просто потому что интеграл --- линейное действие. Теперь, как его оценить?
+    \begin{gather*}
+        g \in L^q, h \in L^p, \abs{F_g(h)} = \abs{\int_X hg d\mu} \leq [[\text{ Гельдер }]] \norm{h}_p \norm{g}_q \: \forall h \in L^p
+        \intertext{мы уже отмечали, что неравенство верно даже для бесконечных $p$ и $q$}
+        \Rightarrow F_g \in (L^p)^*, \norm{Fg} \leq \norm{g}_q
+        \intertext{чтобы получить неравенство в другую сторону, предъявим так называемую пробную функцию, на которой будет выполняться неравенство. Пусть сначала 
+        $1 < p \leq +\infty \Rightarrow 1 \leq q < +\infty$}
+        U(x) \coloneqq \begin{cases}
+             \frac{\overline{g(x)}}{\abs{g(x)}} \abs{g(x)}^{q-1} & g(x) \ne 0 \\
+             0 & g(x) = 0
+        \end{cases}, \overline{g(x)} \text{ --- комплексное сопряжение}
+        \intertext{Проверим, что $U \in  L^p$, чтобы к нему что-то применять}
+        \abs{U(x)}^p = \abs{g(x)}^{p(q-1)} = [[(q-1)p=q\left(1-\frac{1}{q}\right)p=q \cdot \frac{1}{p} \cdot p = q]] \abs{g}^q \\
+        \Rightarrow \left( \int_X \abs{U}^p d\mu \right)^{\frac{1}{p}} = \left( \int_X \abs{g}^q d\mu \right)^{\frac{1}{p}} \Rightarrow U \in L^p \\
+        F_g(U) = \int_X g(x) \frac{\overline{g(x)}}{\abs{g(x)}} \abs{g(x)}^{q-1} d\mu = \int_X \abs{g}^q d\mu = \norm{g}^q_q \\
+        \norm{F_g} = \sup_{h \in L^p, h \ne 0} \frac{\norm{F_g(h)}}{\norm{h}_p} \geq \frac{\abs{F_g(U)}}{\norm{h}_p} =  \frac{\norm{g}^q_q}{\norm{g}_q^{\frac{q}{p}}} \\
+        \Rightarrow \norm{F_g} \geq \norm{g}_q \Rightarrow \norm{F_g} = \norm{g}_{L^q}
+    \end{gather*}
+    Теперь пусть $p=1, q=\infty$. Опять хотим оценить снизу норму линейного функционала
+    \begin{gather*}
+        \text{если } \norm{g}_\infty = 0, \text{ то } g=0 \text{ п.в. } \Rightarrow F_g = \bZero, \norm{F_g} = 0 \\
+        \text{пусть } \norm{g}_\infty > 0, \text{ пусть } c > 0 \: \norm{g}_\infty > c > 0 \\
+        A = \seq{x \in X: \abs{g(x)} \geq c} \Rightarrow \mu(A) > 0
+        \intertext{Вот, наконец, где нам потребуется $\sigma$-конечность. Почему вообще существует такое множество $A$?}
+        \text{пусть } e \subset A, 0 < \mu e < +\infty \text{ т.к. } X = \bigcup^\infty_{j=1}, \mu(X_j) < +\infty \\
+        \Rightarrow A = \bigcup^\infty_{j=1} (A \cap X_j), e_j = A \cap X_j \Rightarrow \mu e_j < +\infty, \text{ если бы } \mu e_j = 0 \forall j, \text{ то } \mu A = 0 \\
+        \Rightarrow \: \exists e = e_j \quad 0 < \mu e < +\infty, e \subset A \\
+        U(x) = \frac{\overline{g(x)}}{\abs{g(x)}} \chi_e(x)\\
+        F_g(U) = \int_X g(x) \frac{\overline{g(x)}}{\abs{g(x)}} \chi_e(x) d\mu = \int_e \abs{g(x)} d\mu \geq c \mu(e) \\
+        U \in L^1, \norm{U}_1 = \int_X \abs{U(x)} d\mu = \int_e d\mu = \mu(e) \\
+        \norm{F_g} \geq \frac{\abs{F_g(U)}}{\norm{U}_1} \geq \frac{c\mu(e)}{\mu(e)} = c \: \forall c, 0 < c < \norm{g}_\infty \\
+        \Rightarrow \norm{F_g} \geq \norm{g}_\infty
+    \end{gather*}  
+\end{proof}
+
+Вторая, главная часть, без доказательства. Разве что скажем пару слов про единственность
+
+\begin{gather*}
+    F_g = F_v \Rightarrow F_{g-v} = 0 \Rightarrow \int_X h(gv) d\mu = 0 \: \forall h \in L^p \\
+    \norm{F_{g-v}} = \norm{g-v}_p = 0 \Rightarrow g = v \text{ п.в., то есть } g = v \text{ в } L^p
+\end{gather*}
+
+Для доказательства второй части нам не хватает одной теоремы из теории меры, а именно теоремы Никодима, который как раз сидел с Банахом на лавочке, когда мимо них проходил Штейнгауз, но у нас нет времени её доказывать.
+
+\begin{theorem*}[Сопряжённое пространство к $l^p$]
+    2 случая, во втором очень важно, что бесконечность не включается!
+    \begin{enumerate}
+        \item \begin{gather*}
+            1 \leq p \leq + \infty, y = \seq{y_n}^\infty_{n=1}, y \in l^q, y \text{ --- фиксирован} \\
+            x = \seq{x_n}^\infty_{n=1} \in l^p \quad F_y(x) \coloneqq \sum^\infty_{n=1} x_n y_n \Rightarrow F_y \in (l^p)^* \\
+            \norm{F_y} = \norm{y}_q
+        \end{gather*}
+        \item $1 \leq p < + \infty, F \in (l^p)^* \Rightarrow \: \exists! y \in l^q : F = F_y$
+    \end{enumerate}
+\end{theorem*}
+
+\begin{proof}[1 утверждение]
+    \begin{gather*}
+        F_y \in \Lin(l^p, \bC) \\
+        \abs{F_y(x)} = \abs{\sum^\infty_{n=1} x_n y_n} \leq [[\text{ Гельдер }]] \norm{x}_p \norm{y}_q \Rightarrow F_y \in (l^p)^*, \norm{F_y} \leq \norm{y}_q
+    \end{gather*}
+\end{proof}
+
+\begin{proof}[2 утверждение]
+    \begin{gather*}
+        F \in (l^p)^*, 1 \leq p < + \infty, \seq{e_n}^\infty_{n=1} \text{ --- базис в } l^p, 1 \leq p < + \infty \\
+        e_n = (0, \ldots, 0, \underbrace{1}_n, 0, \ldots)\\
+        y_n \coloneqq F(e_n) \\
+        x \in l^p \Rightarrow x = \sum^\infty_{n=1} x_n e_n, S_n = \sum^n_{k=1} x_k e_k \\
+        \liml_{n \to \infty} S_n = x \Rightarrow [[F \text{ непрерывенен }]] \liml_{n \to \infty} F(S_n) = F(x) \\
+        F(S_n) = \sum^n_{k=1} x_k y_k \Rightarrow F(x) = \sum^\infty_{k=1} x_k y_k \Rightarrow F = F_y
+        \intertext{осталось проверить 2 вещи: $y \in l^q$ и $\norm{F} \geq \norm{y}_q$. Пробные последовательности, которые мы будем брать тут, будут
+        напоминать пробные функции, которые мы брали в предыдущей теореме}
+        n \in \bN \quad x^{(n)} = \sum^n_{k=1} \frac{\overline{y_k}}{\abs{y_k}} \abs{y_k}^{q-1} e_k \text{ при } 1 < p < +\infty \Rightarrow q < +\infty \\
+        \norm{x^{(n)}}_p = \left( \sum^n_{k=1} \abs{y_k}^{(q-1)p}\right)^{\frac{1}{p}} = \left( \sum^n_{k=1} \abs{y_k}^q \right)^{\frac{1}{p}} \\
+        F(x^{(n)}) = \sum^n_{k=1} y_k \cdot \frac{\overline{y_k}}{\abs{y_k}} \cdot \abs{y_k}^{q-1} = \sum^n_{k=1} \abs{y_k}^q
+        \intertext{как обычно, когда вычисляем норму линейного функционала}
+        \norm{f} \geq \frac{\abs{f(x^{(n)})}}{\norm{x^(n)}_p} = \frac{\sum^n_{k=1} \abs{y_k}^q}{\left( \sum^n_{k=1} \abs{y_k}^q\right)^{\frac{1}{p}}} = \left( \sum^n_{k=1} \abs{y_k}^q \right)^{\frac{1}{q}} \: \forall n \in \bN \\
+        \Rightarrow y \in l^q,  \norm{F} \geq \norm{y}_q \\
+        \text{если } p = 1, q = \infty, \norm{F} \geq \abs{F(e_n)} = \abs{y_n} \: \forall n \Rightarrow y \in l^\infty \\
+        \norm{F} \geq \norm{y}_\infty\\
+    \end{gather*}
+\end{proof}
+
+Это замечание нужно было сделать про $L^p$, но сделаем  его тогда сразу и для $l^p$
+\begin{remark}
+    \begin{gather*}
+        1 \leq p \leq +\infty \\
+        T: l_q \rightarrow (l^p)^* \quad y \in l^q \\
+        T(y) = F_y
+    \end{gather*}
+    Если $1 \leq p < + \infty$, то $T$ --- линейный изометрический изоморфизм. Говорят $(l^p)^* = l^q$, а имеют в виду $T(l^q) = (l^p)^*$
+    \begin{gather*}
+        p = \infty, T(l^1) \subsetneq (l^\infty)^* \\
+        T \text{ --- изометрическое вложение}
+    \end{gather*}
+    То же самое для $L^p$:
+        \[ (X, U, \mu), T: L^q \rightarrow (L^p)^* \quad T(g) = F_g \]
+        Если $1 \leq p < +\infty, T$ --- линейный изометрический изоморфизм. Говорят $(L^p)^* = L^q$. Если $p = \infty, T(L^1) \subsetneq (L^\infty)^*$ --- 
+        изометрическое вложение
+\end{remark}
+
+Вспомним, что такое $c_0$
+\[ c_0 = \seq{ x = \seq{x_n}^\infty_{n=1}, x_n \in \bC, \: \exists \liml_{n \to \infty} x_n = 0}, c_0 \subset l^\infty \]
+
+\begin{theorem}[сопряжённое к $c_0$]
+    \begin{enumerate}
+        \item $F_y(x) = \sum^\infty_{n=1} x_n y_n \Rightarrow F_y \in (c_0)^*, \norm{F_y} = \norm{y}_1$
+        \item $F \subset (c_0)^* \Rightarrow \: \exists! y \in l^1 \text{ т.e. } F = F_y $
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}[1 утверждение]
+    \begin{gather*}
+        \abs{F_y(x)} = \abs{\sum^\infty_{n=1} x_n y_n} \leq \sup_{n \in \bN} \abs{x_n} \sum^\infty_{n=1} \abs{y_n} = \norm{x}_\infty \norm{y}_1 \\
+        \Rightarrow F_y \in (c_0)^*,  \norm{F_y} \leq \norm{y}_1
+    \end{gather*}
+    Это повторение доказательства для $l^p$ где $p=\infty$
+\end{proof}
+
+\begin{proof}[2 утверждение]
+    \begin{gather*}
+        F \in (c_0)^* \quad \seq{e_n}^\infty_{n=1} \text{ --- базис в } c_0, e_n = (0, \ldots, 0, \underbrace{1}_n, 0, \ldots) \\
+        y_n \coloneqq F(e_n) \quad x \in c_0, x = \sum^\infty_{n=1} x_n e_n \quad S_n = \sum^n_{k=1} x_k e_k \\
+        \liml_{n \to \infty} S_n = x, F \text{ --- непрерывный } \Rightarrow \liml_{n \to \infty} F(S_n) = F(x) \\
+        F(S_n) = \sum^n_{k=1} x_k y_k \Rightarrow F(x) = \sum^\infty_{k=1} x_k y_k \Rightarrow F = F_y \\
+        x^{(n)} = \sum^n_{k=1} \frac{\overline{y_k}}{\abs{y_k}} e_k \Rightarrow x^{(n)} \in c_0 \quad \norm{x^{(n)}}_\infty = 1 \\
+        \Rightarrow F(x^{(n)}) = \sum^n_{k=1} y_k \frac{\overline{y_k}}{\abs{y_k}} = \sum^n_{k=1} \abs{y_k} \\
+        \norm{F} \geq \abs{F(x^{(n)})} = \sum^n_{k=1} \abs{y_k} \quad \forall n \in \bN \Rightarrow y \in l^1 \\
+        \norm{F} \geq \norm{y}_1 \Rightarrow \norm{F} = \norm{y}_1
+    \end{gather*}
+\end{proof}
+
+\begin{remark}
+    \begin{gather*}
+        y \in l^1, T: l^1 \rightarrow (c_0)^* \\
+        T(y) = F_y \\
+        T \text{ --- линейный изометрический изоморфизм} 
+    \end{gather*}
+    Говорят $(c_0)^* = l^1$
+\end{remark}
+
+\[ c = \seq{x = \seq{x_n}^\infty_{n=1}, \: \exists \liml_{n \to \infty} x_n = x_0} \]
+Упражнение: 
+\begin{statement}
+    требуется доказать
+    \begin{enumerate}
+        \item $y = \seq{y_n}^{+\infty}_{n=0} \in l^1 \Rightarrow F_y(x) = \sum^{+\infty}_{n=0} x_n y_n, F_y \in (c)^*$
+        \item $F \in c^* \Rightarrow \: \exists! y \in l^1, y = \seq{y_n}^{+\infty}_{n=0} : F = F_y$
+    \end{enumerate}
+\end{statement}
+
+Чтобы получился базис, нужно, чтобы был какой-то $e_0$ помимо $e_n$ и нужно понять, как определять этот дополнительный элемент, подумайте чуть-чуть.
+
+\section{Второе сопряжённое}
+
+\begin{definition}
+    \[ X^{**} = (X^*)^*, \text{ то есть } X^{**} = \B(X^*, \bC) \text{ или } \B(X^*, \bR) \]
+\end{definition}
+
+
+Есть каноническое вложение $\pi: X \rightarrow X^{**}$. Пусть $x \in X$ --- фиксирован. Посмотрим, как этот фиксированный $x$ порождает множество линейных функционалов на множестве линейныйх функционалов на $X$
+
+\begin{gather*}
+    \text{пусть } f \in X^* \quad G_x(f) \coloneqq f(x) \\
+    \pi(x) \coloneqq G_x, \text{ то есть } (\pi(x))(f) \coloneqq f(x)
+\end{gather*}
+
+\begin{theorem}[каноническое вложение $X$ во второе сопряженное]
+    $(X, \norm{\cdot}), \pi: X \rightarrow X^{**} \Rightarrow$
+    \[ \pi \in \B(X, X^**), \norm{\pi(x)}_{X^{**}} = \norm{x}_X (\Rightarrow \norm{\pi} = 1) \]
+\end{theorem}
+\begin{proof}
+    Проверим, что при фиксированном $x, \pi(x) \in X^{**}$ есть линейность:
+    \begin{gather*}
+        \lambda \in \bC, f \in X^* \quad (\pi(x))(\lambda f) = (\lambda f)(x) = \lambda f(x) = \lambda \pi(x)(f) \\
+        f, g \in X^* \Rightarrow \pi(x)(f+g) = (f+g)(x) = f(x) + g(x) = (\pi(x))(f) + (\pi(x))(g) \\
+        \Rightarrow \pi(x) \in \Lin(X^*, \bC) \\
+        f \in X^* \quad \abs{(\pi(x))(f)} = \abs{f(x)} \leq \norm{f} \cdot \norm{x} \: \forall f \Rightarrow \pi(x) \in (X^*)^* \\
+        \norm{\pi(x)} \leq \norm{x}
+        \intertext{вспомним следствие из теоремы Хана-Банаха о достаточном числе линейныйх функционалов}
+        \exists g \in X^*, \norm{g} = 1, g(x) = \norm{x} \\
+        \norm{\pi(x)} \geq \abs{(\pi(x))(g)} = \abs{g(x)} = \norm{x} \\
+        \Rightarrow \norm{\pi(x)} = \norm{x}_X \Rightarrow \norm{\pi} = 1
+    \end{gather*}
+\end{proof}
+
+Вложение это как раз потому, что это отображение сохраняет норму.
+
+
+Следствие, которое когда-то было обещано:
+
+\begin{corollary}
+    $(X, \norm{\cdot}) \Rightarrow \overline{\pi(X)}^{X^{**}} = Y \Rightarrow Y \text{ --- пополнение } X$
+\end{corollary}
+
+Появляюстя теперь некоторые особенно хорошие банаховы пространства
+\begin{definition}[рефлексивное пространство]
+    Если $\pi(X) = X^{**}$, то $X$ --- рефлексивное пространство
+\end{definition}
+
+\begin{corollary}
+    $X$ --- рефлексивное $\Rightarrow X$ --- банахово
+\end{corollary}
+У нас были симметричные формулы для нормы элемента и для нормы линейного функционала, но всё-таки они отличались тем, что в норме функционала мы ставили $\sup$, а в рефлексивном 
+пространстве этого делать не надо.
+\begin{corollary}
+    $X$ --- рефлексивное $\Rightarrow \norm{f} = \max_{\seq{\norm{x} = 1}} \abs{f(x)}$
+\end{corollary}
+\begin{proof}
+    известно, что 
+    \[\norm{x} = \max_{\seq{\norm{f} = 1}}, \norm{f} = \sup_{\seq{\norm{x} = 1}} \abs{f(x)} \] 
+    \begin{multline*}
+        f \in X^* \Rightarrow \norm{f} = \max_{\seq{\varphi \in X^{**}: \norm{\varphi} = 1}} \abs{\varphi(f)} = [[\text{ рефлексивность }]] \\
+        = \max_{\seq{\pi(x), \norm{x} = 1}} \abs{(\pi(x))(f)} = \max_{\seq{\norm{x} = 1}} \abs{f(x)}
+    \end{multline*}
+\end{proof}
+
+\begin{example}
+    $1 < p < +\infty, L^p$ --- рефлексивные, $(L^p)^* \cong L^q, (L^q)^* \cong L^p$
+\end{example}
+
+\begin{example}
+    $H$ --- гильбертово, $H$ --- рефлексивное, $H^*$ --- сопряженное линейно изоморфно $H$, $H^{**}$ --- линейно изометрически изоморфно $H$
+\end{example}
+
+\begin{example}
+    $L^1, L^\infty, l^1, l^\infty, c_0, C$ --- не рефлексивны. Мы доказали, что $l^1 \subset (l^\infty)^*, l^\infty \text{ --- не сепарабельно} \Rightarrow (l^\infty)^* \text{ --- не сепарабельно}$ 
+\end{example}
+
+Единственный пример, когда мы реально можем сосчитать дважды сопряженное
+
+\begin{example}
+    $(c_0)^* = l^1, (l^1)^* = l^\infty \Rightarrow (c_0)^{**} = l^\infty$
+\end{example}
+
+\section{Слабая сходимость}
+Когда-то давно деткам рассказывали, что такое слабая топология, но лектора отговорили это делать, поэтому будет только слабая сходимость.
+
+\begin{definition}
+    $(X, \norm{\cdot})$, $\seq{x_n}^\infty_{n=1} x_n \in X, x_0 \in X$
+    \[ x_0 = \wlim x_n \text{ если } \forall f \in X^* \liml_{n \to \infty} f(x_n) = f(x_0) \]
+    w = weak
+\end{definition}
+
+Отметим его простейшие свойства 
+\begin{property}
+    \begin{enumerate}
+        \item Если $\exists \wlim x_n$, то он единственный
+        \item Если $\liml_{n \to \infty} \norm{x_0 - x_n} = 0$, то $x_0 = \wlim x_n$ (как раз почему слабая сходимость слабее сходимости по норме)
+    \end{enumerate}
+\end{property}
+
+\begin{proof}[1]
+    \begin{gather*}
+        \text{пусть } x_0 = \wlim x_n, y_0 = \wlim x_n \Rightarrow \: \forall f \in X^* \liml_{n \to \infty} f(x_n) = f(x_0), \liml_{n \to \infty} f(x_n) = f(y_0) \\
+        [[\text{ по следствию о достаточном числе линейныйх функционалов}]] \\
+        \exists g \in X^*, \norm{g} = 1 \quad g(x_0 - y_0) = \norm{x_0-y_0} \\
+        g(x_0) = g(y_0) \Rightarrow \norm{x_0 - y_0} = 0 \Rightarrow x_0 = y_0
+    \end{gather*}
+\end{proof}
+
+\begin{proof}[2]
+    Пусть $f \in X^*, \abs{f(x_0) - f(x_n)} \leq \norm{f} \cdot \underbrace{\norm{x_0 - x_n}}_{\underset{n \to \infty}{\longrightarrow}} 0 \ Rightarrow \liml_{n \to \infty} f(x_n) = f(x_0)$
+\end{proof}
+
+Воспользуемся теоремой Банаха-Штейнгауза чтобы получить критерий слабой сходимости.
+
+\begin{theorem}[критерий слабой сходимости]
+    $(Xm \norm{\cdot}), \seq{x_n}^\infty_{n=1}, x_n \in X$ 
+    \[ x_0 = \wlim x_n \Leftrightarrow \begin{cases}
+        \sup_{n \in \bN} \norm{x_n} < +\infty \\
+        E \subset X^*, E \text{ --- полное семейство, т.е. } \overline{\calL(E)} = X^* 
+    \end{cases} \]
+\end{theorem}
+
+$f \in E \Rightarrow \liml_{n \to \infty} f(x_n) = f(x_0)$
+
+\begin{proof}
+    Пока у нас нет никаких отображений, не говоря уже о том, что в теореме Банаха-Штейнгауза была куча нормированных пространств. К чему будет применять критерий? Тут 
+    нам и пригодится $\pi$
+    \begin{gather*}
+        \pi: X \rightarrow X^{**} \\ 
+        \liml_{n \to \infty} f(x_n) = f(x_0) \Leftrightarrow \liml_{n \to \infty} (\pi(x_n))(f) = \pi(x_0)(f)
+        \intertext{когда-то мы доказывали, что пространство линейных операторов $\Lin(X,Y)$, где $Y$ --- банахово, тоже будет банаховым}
+        x_0 = \wlim x_n \Leftrightarrow \pi(x_0) = \slim \pi(x_n) \Leftrightarrow \\
+        [[\pi(x) : X^* \rightarrow \bC \quad X^*, \bC \text{ --- банаховы, теорема Банаха-Штейнгауза}]] \\
+        \begin{cases}
+            \sup_n \norm{\pi(x_n)} < +\infty \\
+            E \subset X^*, \overline{\calL{E}} = X^*, \forall f \in E \liml_{n \to \infty} (\pi(x_n))(f) = (\pi(x_0))(f)
+        \end{cases} \Leftrightarrow \\
+        \begin{cases}
+            \sup_n \norm{\pi(x_n)} < +\infty \\
+            \forall f \in E, \overline{\calL(E)} = X^*, \liml_{n \to \infty} f(x_n) = f(x_0)
+        \end{cases}
+    \end{gather*}
+\end{proof}
+
+\begin{theorem}[слабая сходимость в конечномерном пространстве]
+    $(X, \norm{\cdot}), \dim X < +\infty \Rightarrow$
+    \[ x_0 = \wlim x^{(n)} \Leftrightarrow \liml_{n \to \infty} \norm{x_0 - x^{(n)}} = 0 \] 
+\end{theorem}
+
+\begin{proof}
+    \begin{gather*}
+        \text{пусть } \dim X = m, \seq{e_j}^m_{j=1} \text{ --- базис в } X \\
+        x \in X, x = \sum^m_{j=1} x_j e_j, \norm{x}_\infty \coloneqq \max_{1 \leq j \leq m} \abs{x_j}
+        x_0 = \wlim x^{(n)} \quad x^{(n)} = \sum^m_{j=1} x^{(n)}_j e_j \quad x_0 = \sum^n_{j=1} (x_0)_j e_j \\
+        f_j(x) \coloneqq x_j, f_j \in X^* \Rightarrow \liml_{n \to \infty} f_j(x^{(n)}) = f_j(x_0) \\
+        \liml_{n \to \infty} x_j^{(n)} = (x_0)_j \Rightarrow \norm{x_0 - x^{(n)}} \underset{n \to \infty}{\longrightarrow} 0
+        \intertext{когда-то мы доказывали, что в конечномерном пространстве все нормы эквивалентны}
+        \Rightarrow \norm{x_0 - x^{(n)}}_X \underset{n \to \infty}{\longrightarrow} 0
+    \end{gather*}
+\end{proof}
+
+Теперь, господа, какое-то странное определение-обозначение для того, чтобы забыть про $\pi$ и писать $X$. Есть $X, X^*$
+\begin{gather*}
+    x \in X, f \in X^* \\
+    <f,x> \coloneqq f(x) \\
+    <x,f> \coloneqq f(x)
+\end{gather*}
+Например, $1 < p < +\infty, f \in L^p, y \in L^q, <f,g> = \int_X fg d\mu$. Одна компонента --- функция, другая --- линейный функционал, и может быть наоборот
+
+\begin{theorem}[слабая сходимость в $l^p, 1 < p < + \infty$]
+    \[ x^{(n)} \in l^p, x = \wlim x^{(n)} \Leftrightarrow \begin{cases}
+        \sup_n \norm{x^{(n)}} < _\infty \\
+        \liml_{n \to \infty} x^{(n)}_j = x_j \: j \in \bN
+    \end{cases} \]
+\end{theorem}
+
+\begin{proof}
+    \begin{gather*}
+        x^{(n)} = \seq{x^{(n)}_j}^\infty_{j=1}, (l^p)^* = l^q, E = \seq{e_n}^\infty_{n=1} \subset l^q, e_n = (0, \ldots, 0,1, 0, \ldots) \\
+        \overline{\calL(E)} = l^q
+        \intertext{В $l^q$ мы выберем базис. Рассмотрим действие $f$ на произвольном элементе} 
+        x \in l^p \quad e_n \in l^q \Rightarrow e_n \in (l^p)^* \\
+        <e_n, x> = \sum^\infty_{j=1} (e_n)_j x_j = x_n, <e_m, x> = x_m
+        \intertext{применим критерий}
+        x = \wlim_{n \to \infty} x^{(n)} \Leftrightarrow \begin{cases}
+            \sup_n {\norm{x^{(n)}}}_p < +\infty \\
+            \liml_{n \to \infty} <e_j, x^{(n)}> =  <e_j,x> \: \forall j \\
+        \end{cases}
+        2 \Leftrightarrow \liml_{n \to \infty} x_j^{(n)} =
+    \end{gather*}
+\end{proof}
+
+\end{document}
