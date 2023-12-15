@@ -7,7 +7,7 @@
 Принцип равномерной ограниченности, тут будет много теорем, они все связаны с первой, а всё вместе это второй кит линейного функционального анализа.
 
 \begin{theorem}[принцип равномерной ограниченности]
-    $(X, \norm{\cdot})$ --- банхово, $(Y, \norm{\cdot})$ --- нормированное, $\seq{U_\alpha}_{\alpha \in A}, U_\alpha \in \B(X,Y)$
+    $(X, \norm{\cdot})$ --- банахово, $(Y, \norm{\cdot})$ --- нормированное, $\seq{U_\alpha}_{\alpha \in A}, U_\alpha \in \B(X,Y)$
     \[ \forall x \in X \: \sup_{\alpha \in A} \norm{U_\alpha x} < +\infty \Rightarrow \: \exists M > 0 : \norm{U_\alpha} \leq M \: \forall \alpha \in A \]
     
 \end{theorem}
@@ -20,10 +20,10 @@
 предполагаем для одного икса, а оказывается, что можно взять $\sup$ по единичной сфере, а потом ещё раз взять $\sup$, и это фантастически полезно и в то же время странно. Начнём с простой леммы.
 
 \begin{lemma}
-    $(X, \norm{cdot}), (Y, \norm{\cdot})$ ---  нормированные
+    $(X, \norm{\cdot}), (Y, \norm{\cdot})$ ---  нормированные
     \begin{gather*}
         U \in \Lin(X,Y), \: \exists \varepsilon > 0, R > 0, a \in X : \\
-        U(B_\varepsilon(a)) \subset \overline{B_r(0)} \Rightarrow U \in \B(X,Y) \\
+        U(B_\varepsilon(a)) \subset \overline{B_R(0)} \Rightarrow U \in \B(X,Y) \\
         \norm{U} \leq \frac{2R}{\varepsilon}
     \end{gather*}
 \end{lemma}
@@ -41,20 +41,20 @@
 
 
 \begin{proof}[Доказательство теоремы]
-    Вспомним теорему Бэра о категориях: полное метрическое пространство нельзя представить как счётное объединение всюду плотных множеств.
+    Вспомним теорему Бэра о категориях (тык \ref{chap3:baire}): полное метрическое пространство нельзя представить как счётное объединение всюду плотных множеств.
     \begin{gather*}
         n \in \bN, D_n = \seq{ y \in Y: \norm{y} \leq n} \\
         \Rightarrow U^{-1}_\alpha(D_n) \text{ --- замкнутое множество в } X, \alpha \in A \\
         E_n = \bigcap_{\alpha \in A} U^{-1}_\alpha (D_n), E_n \text{ --- замкнутое}
-        \intertext{Проверим, что $X = \bigcup^\infty_{m=1} E_n$}
+        \intertext{Проверим, что $X = \bigcup^\infty_{n=1} E_n$}
         \text{пусть } x \in X \Rightarrow \sup_{\alpha \in A} \norm{U_\alpha x} < + \infty \Rightarrow \: \exists n \in \bN \\ 
         \sup_{\alpha \in A} \norm{U_\alpha x} < n \Rightarrow x \in U^{-1}_\alpha (D_n) \: \forall \alpha \in A \\
         \Rightarrow x \in E_n \\
         X = \bigcup^\infty_{n=1} E_n, X \text{ --- банахово}, E_n \text{ --- замкнутые } \Rightarrow
-        \intertext{по теорему Бэра о категориях $\Rightarrow$} 
+        \intertext{по теореме Бэра о категориях $\Rightarrow$} 
         \exists n_0 : \Int(E_{n_0}) \ne \bZero, \text{ то есть} \\
         \exists B_\varepsilon(a) \subset E_{n_0} = \bigcap_{\alpha \in A} U^{-1}_\alpha(D_{n_0}) \Rightarrow \\
-        U_\alpha(B_\varepsilon(a)) D_{n_0} \text{ по лемме } \Rightarrow \norm{U \alpha} \leq \frac{2n_0}{\varepsilon} \: \forall \alpha \in A 
+        U_\alpha(B_\varepsilon(a))\subset D_{n_0} \text{ по лемме } \Rightarrow \norm{U \alpha} \leq \frac{2n_0}{\varepsilon} \: \forall \alpha \in A 
     \end{gather*}
 \end{proof}
 
@@ -64,11 +64,12 @@
     
 \end{corollary}
 
+Предлагается доказать следующее утверждение
 \begin{statement}
     В условиях следствия $E = \seq{x \in X: \sup_{\alpha \in A} \norm{U_\alpha x} = +\infty}$. Доказать, что
     \begin{enumerate} 
         \item $E$ --- всюду плотно в $X$ 
-        \item $X \subset E$ --- множество первой категории
+        \item $X \setminus E$ --- множество первой категории
     \end{enumerate}
 \end{statement}
 
@@ -101,8 +102,8 @@
     \begin{gather*}
         X = l^1 = \seq{x = \seq{x_n}^\infty_{n=1}, x_n \in \bC, \norm{x}_l = \sum^\infty_{n=1} \abs{x_n}} \\
         f_n: l^1 \rightarrow \bC \quad f_n \in (l^1)^* \quad f_n(x) = x_n, \norm{f_n} = 1 \\
-        x \in l^1 \Rightarrow \liml_{n \to \infty} x_n = 0 \Rightarrow \liml_{n \to \infty} f_n(x) = 0 \: \forall x \in L^1 \\
-        \bZero = \slim f_n, \text{ но } \norm{f_n - \bZero} = \underbrace{\norm{f_n}}_{n \not \to 0} = 1
+        x \in l^1 \Rightarrow \liml_{n \to \infty} x_n = 0 \Rightarrow \liml_{n \to \infty} f_n(x) = 0 \: \forall x \in l^1 \\
+        \bZero = \slim f_n, \text{ но } \norm{f_n - \bZero} = \underbrace{\norm{f_n}}_{\not \to 0} = 1
     \end{gather*}
 \end{example}
 
@@ -180,7 +181,7 @@
 \end{remark}
 
 Заплатим жестокую цену за такую теорему: раньше $U$ не было, оно появлялось, критерий существования всё-таки, а здесь же мы предположим сразу непрерывность этого $U$
-\begin{theorem}[Банах-Штейнгаус]
+\begin{theorem}[Банах-Штейнгауз]
     $X$ --- банахово, $Y$ --- нормированное, $U_n \in \B(X,Y), U \in \B(X,Y)$ \\
     $ u = \slim U_n \Leftrightarrow$ 
     \begin{enumerate}

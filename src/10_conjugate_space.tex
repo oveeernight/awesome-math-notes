@@ -457,7 +457,7 @@ $f \in E \Rightarrow \liml_{n \to \infty} f(x_n) = f(x_0)$
 
 \begin{proof}[1 утверждение]
     Для того, чтобы показать, что $1 \Leftrightarrow 2$ надо просто вспомнить, как устроены все линейные функционалы. 
-    По теореме Рисса $f \in H^* \Rightarrow \: \exists! y \in H : f(x) = (x,y) \: \forall x \in H$. Далее,
+    По теореме Рисса (тык \ref{chap6:riss})  $f \in H^* \Rightarrow \: \exists! y \in H : f(x) = (x,y) \: \forall x \in H$. Далее,
     $x = \wlim x_n \Leftrightarrow \: \forall f \in H^* \liml_{n \to \infty} f(x_n) = f(x) \Leftrightarrow \: \forall y \in H \liml_{n \to \infty} (x_n,y) = (x,y).$
     То есть $1 \Leftrightarrow 2$. 
 
@@ -783,7 +783,7 @@ $f \in E \Rightarrow \liml_{n \to \infty} f(x_n) = f(x_0)$
         G_y \in H^*, \norm{G_y} \leq \norm{T} \cdot \norm{y}
         \intertext{Из определения $G_y$, очевидно, $G_y \in \Lin(H, \bC)$}
         T^* y \coloneqq z, \text{ то есть } (Tx, y) = (x, T^*y) \: \forall x, y \in H
-        \intertext{воспользуемся теоремой Рисса. У нас есть непрервный оператор, значит, есть какой-то элемент, который его порождает}
+        \intertext{воспользуемся теоремой Рисса (тык \ref{chap6:riss}). У нас есть непрервный оператор, значит, есть какой-то элемент, который его порождает}
         \Rightarrow \exists! z \in H \\
         G_y(x) = (x,z)  \: \forall x \in H, \norm{G_y} = \norm{z} \\
         T^* y \coloneqq z, \text{ то есть } (Tx, y) = (x, T^*y) \: \forall x, y \in H
@@ -841,6 +841,8 @@ $\norm{T^* y} = \norm{G_y} \leq \norm{T} \cdot \norm{y}, T^*$ --- эрмитов
     \[ \exists T^{-1} \in \B(X,Y) \Leftrightarrow \. \exists (T^*)^{-1} \in \B(X^*, Y^*) \]
     и при этом $(T^*)^{-1} = (T^{-1})^*$
 \end{remark}
+\label{chap10:remark}
+
 В одну сторону как для гильбертовых пространств, в другую сторону, чтобы доказать похожее, мы пользовались фактом $T^{**} = T$, здесь же 
 этого нет. Оставим без доказательства.
 
