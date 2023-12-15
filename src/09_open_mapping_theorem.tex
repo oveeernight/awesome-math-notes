@@ -142,15 +142,18 @@ $X,Y$ --- нормированные пространства, $A \in \Lin(X,Y)$
 \end{example}
 
 
-Открытость отображение, если есть обратный, означает непрерывность обратного отображения. Так и отметим в общем виде 
+Открытость отображения, если есть обратное, означает непрерывность обратного отображения. Так и отметим в общем виде 
 
 \begin{statement}
     $(X, \tau_1), (Y, \tau_2)$ --- топологические пространства, $U: X \rightarrow Y, U$ --- биекция 
 
     $U$ --- открытое $\Leftrightarrow U^{-1}$ --- непрерывно
 \end{statement}
+\begin{figure}
+    \includegraphics{chapter9/xygwuv.pdf}\caption{Утверждение 9.1}
+\end{figure}
 \begin{proof}
-    \[V \coloneqq U^{-1} \quad X \stackrel{U}{\longrightarrow} Y \quad X \stackrel{V}{\longleftarrow} V \]
+    \[V \coloneqq U^{-1} \quad X \stackrel{U}{\longrightarrow} Y \quad X \stackrel{V}{\longleftarrow} Y \]
     \[ W = U(G) \quad G = V(W) \quad W = V^{-1}(G) \] 
     $U$ --- открытое $\Leftrightarrow$ ($G$ --- открыто $\Rightarrow W = U(G)$ --- открыто).
     $V$ --- непрерывно $\Leftrightarrow (G$ --- открыто $\Rightarrow V^{-1}(G) = W$ --- открыт)

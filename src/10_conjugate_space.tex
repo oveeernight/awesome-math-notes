@@ -25,7 +25,7 @@ $\mu$ --- полная мера, то есть если $A \subset U, \mu A = 0$
 \begin{proof}[1 утверждение]
     Ну тут совсем легко. $Fg \in \Lin(L^p, \bC)$ --- очевидно, просто потому что интеграл --- линейное действие. Теперь, как его оценить?
     \begin{gather*}
-        g \in L^q, h \in L^p, \abs{F_g(h)} = \abs{\int_X hg d\mu} \leq [[\text{ Гельдер }]] \norm{h}_p \norm{g}_q \: \forall h \in L^p
+        g \in L^q, h \in L^p, \abs{F_g(h)} = \abs{\int_X hg d\mu} \leq \left[\left[\text{ Гельдер }\right]\right] \norm{h}_p \norm{g}_q \: \forall h \in L^p
         \intertext{мы уже отмечали, что неравенство верно даже для бесконечных $p$ и $q$}
         \Rightarrow F_g \in (L^p)^*, \norm{Fg} \leq \norm{g}_q
         \intertext{чтобы получить неравенство в другую сторону, предъявим так называемую пробную функцию, на которой будет выполняться неравенство. Пусть сначала 
@@ -386,10 +386,10 @@ $f \in E \Rightarrow \liml_{n \to \infty} f(x_n) = f(x_0)$
             0 & m \ne j
         \end{cases}, e_m = \seq{\sigma_j^m}^\infty_{j=1}
         \intertext{Давайте убедимся, что слабый предел последовательностей $m$ равен 0}
-        \left. \begin{cases}
+        \left. \begin{matrix}
             \liml_{m \to \infty} \sigma_j^m = 0 \forall j \\
             \norm{e_m}_p = 1
-        \end{cases} \right\} [[\text{критерий слабой сходимости }]] \Rightarrow \\
+        \end{matrix} \right\} [[\text{критерий слабой сходимости }]] \Rightarrow \\
         \bZero = \wlim e_m \\
         \norm{e_m - \bZero} = 1 \Rightarrow \norm{e_m - \bZero}_p \not \longrightarrow 0
     \end{gather*}
@@ -398,17 +398,17 @@ $f \in E \Rightarrow \liml_{n \to \infty} f(x_n) = f(x_0)$
 
 Обсудим теперь, что такое слабая сходимость в больших пространствах $L^p$
 
-\begin{theorem}[Слабая сходимость в $L^p$]
+\begin{theoremwobox}[Слабая сходимость в $L^p$]
     $(X, U, \mu), 1 \leq p < +\infty, \seq{f_n}^\infty_{n=1}, f_n \in L^p, f \in L^p$
     \[ f = \wlim f_n \Leftrightarrow \begin{cases}
         \sup_n \norm {f_n}_p < +\infty \\
-        \liml_{n \to \infty} \int_A f_n d\mu = \int_A f d\mu \: A \in U, 1 < p < +\infty, \mu A < +\infty
+        \liml_{n \to \infty} \int_A f_n d\mu = \int_A f d\mu \: A \in U, 1 < p < +\infty, \mu A < +\infty \tag{2}
     \end{cases} \]
-    Второе условие может выглядеть $ \liml_{n \to \infty} \int_A f_n d\mu = \int_A f d\mu \: \forall A \in U, p = 1, \mu A < +\infty$
-\end{theorem}
+    \[ \liml_{n \to \infty} \int_A f_n d\mu = \int_A f d\mu \: \forall A \in U, p = 1, \mu A < +\infty  \tag{2\prime}\]
+\end{theoremwobox}
 
 \begin{proof}
-    Мы помним, что $(L^p)^* = L^q$ \footnote{пишем равно, но имеем в виду изометрический изоморфизм!}
+    Мы помним, что $(L^p)^* = L^q$ \footnote{пишем равно, но имеем в виду изометрический изоморфизм}
     \begin{gather*}
         g \in L^q, f \in L^p \\
         <g,f> = \int_x g(x) f(x) d \mu
@@ -416,10 +416,12 @@ $f \in E \Rightarrow \liml_{n \to \infty} f(x_n) = f(x_0)$
         \text{пусть } p > 1 \Rightarrow q < +\infty \Rightarrow E = \seq{\chi_A}_{A \in U, \mu(A) < +\infty} \text{ --- полное семейство в } L^q, \text{ т.е.} \\
         \overline{\calL(E)} = L^q \\
         g = \chi_A, f \in L^p \Rightarrow <\chi_A, f> = \int_A f(x) d\mu
-        \intertext{теперь воспользуемся критерием слабой сходимости}
+    \end{gather*}
+        теперь воспользуемся критерием слабой сходимости
+        \begin{gather*}
         f = \wlim f_n \Leftrightarrow [[\text{ критерий }]] \begin{cases}
-            \sup \norm_n \norm{f_n}_p < +\infty \\
-            \forall \chi_A \in E \liml_{n \to \infty} <\chi_A, f_n> = <\chi_A, f> \tag{2}
+            \sup_n \norm{f_n}_p < +\infty \\
+            \forall \chi_A \in E \liml_{n \to \infty} <\chi_A, f_n> = <\chi_A, f>
         \end{cases} \\
         2 \Leftrightarrow \liml_{n \to \infty} \int_A f_n d\mu = \int_A f d\mu \: \forall A \in U, \mu(A) < +\infty \\
     \end{gather*}
@@ -455,7 +457,7 @@ $f \in E \Rightarrow \liml_{n \to \infty} f(x_n) = f(x_0)$
 
 \begin{proof}[1 утверждение]
     Для того, чтобы показать, что $1 \Leftrightarrow 2$ надо просто вспомнить, как устроены все линейные функционалы. 
-    По теореме Риса $f \in H^* \Rightarrow \: \exists! y \in H : f(x) = (x,y) \forall x \in H$. Далее,
+    По теореме Рисса $f \in H^* \Rightarrow \: \exists! y \in H : f(x) = (x,y) \: \forall x \in H$. Далее,
     $x = \wlim x_n \Leftrightarrow \: \forall f \in H^* \liml_{n \to \infty} f(x_n) = f(x) \Leftrightarrow \: \forall y \in H \liml_{n \to \infty} (x_n,y) = (x,y).$
     То есть $1 \Leftrightarrow 2$. 
 
@@ -488,8 +490,8 @@ $f \in E \Rightarrow \liml_{n \to \infty} f(x_n) = f(x_0)$
     \[ f = \wstarlim f_n, \text{ если } \liml_{n \to \infty} f_n(x) = f(x) \: \forall x \in X \]
 \end{definition}
 
-Самый кошмар состоитот в том, что она нам она уже встречалась. Это сильная сходимость, если вместо линейныйх операторов у нас линейные функционалы. 
-Имеется понятие "Слабая топология", и ей соотвествует эта сходимость
+Самый кошмар состоит в том, что она нам она уже встречалась. Это сильная сходимость, если вместо линейных операторов у нас линейные функционалы. 
+Имеется понятие <<Слабая топология>>, и ей соотвествует эта сходимость
 \begin{remark}
     $f = \slim f_n \Leftrightarrow f = \wstarlim f_n$
 \end{remark}
@@ -513,7 +515,7 @@ $f \in E \Rightarrow \liml_{n \to \infty} f(x_n) = f(x_0)$
 \end{remark}
 
 Теперь воспользуемся теоремой Банаха-Штейнгауза, чтобы сформулировать критерий. Когда был критерий слабой сходимости, чтобы применять эту теорему 
-мы применяли $pi(x)$, здесь же этого не будет, мы сразу будем предполагать, что $X$ --- банахово
+мы применяли $\pi(x)$, здесь же этого не будет, мы сразу будем предполагать, что $X$ --- банахово
 \begin{theorem}[критерий слабой со * сходимости]
     $X$ --- банахово, $f_n \in X^*, f \in X^*$
     \[ f = \wstarlim f_n \Leftrightarrow \begin{cases}
@@ -574,9 +576,9 @@ $f \in E \Rightarrow \liml_{n \to \infty} f(x_n) = f(x_0)$
         \intertext{воспользуемся критерием слабой сходиости} 
         x = \wlim x^{(m)} \Leftrightarrow \begin{cases}
             \sup \norm{x^{(m)}}_1 < +\infty \\
-            \forall A \subset \bN \: \liml_{m \to \infty} <X^A, x^{(m)}> = <X^A, x> \tag{2} \\
-        \end{cases}
-        2 \Leftrightarrow \liml_{m \to \infty} \sum_{j \in A} x^{(m)}_j  = \sum_{j \in A} x_j
+            \forall A \subset \bN \: \liml_{m \to \infty} <X^A, x^{(m)}> = <X^A, x> (2)
+        \end{cases} \\
+        (2) \Leftrightarrow \liml_{m \to \infty} \sum_{j \in A} x^{(m)}_j  = \sum_{j \in A} x_j
     \end{gather*}
 \end{proof}
 
@@ -590,16 +592,16 @@ $f \in E \Rightarrow \liml_{n \to \infty} f(x_n) = f(x_0)$
     \end{gather*}
 \end{example}
 
-Поскольку $l^\infty$ фантастически гигантское пространство верна такая нетривиальная теорема, которую мы даже не будем доказывать
+Поскольку $l^\infty$ фантастически гигантское пространство, верна такая нетривиальная теорема, которую мы даже не будем доказывать
 
 \begin{remark}[для общего развития]
     $x^{(m)} \in l^1, x = \wlim x^{(m)} \Leftrightarrow \liml_{m \to \infty} \norm{x - x^{(m)}}_1 = 0$
 \end{remark}
 
-\begin{theorem}[аппроксимативная единица]
+\begin{theoremwobox}[аппроксимативная единица]
     \begin{gather*}
-        X = C[-1, 1], \mu$ на $[-1, 1], A \subset E[-1, 1], \mu(A) = \begin{cases}
-            1 & 0 \ne A \\
+        X = C[-1, 1], \mu \text{ на } [-1, 1], A \subset E[-1, 1], \mu(A) = \begin{cases}
+            1 & 0 \in A \\
             0 & 0 \notin A
         \end{cases} \\
         \seq{\varphi_n}^\infty_{n=1}, \varphi_n \in C[-1,1], \varphi_n(x) \geq 0 \\
@@ -607,19 +609,24 @@ $f \in E \Rightarrow \liml_{n \to \infty} f(x_n) = f(x_0)$
         g \in C[-1,1], F(g) = \int_{-1}^1 g(x) d \mu \\
         F_n(g) = \int^1_{-1} g(x) \varphi_n(x) dx \Rightarrow F = \wstarlim F_n
     \end{gather*}
+
+\begin{figure}
+    \includegraphics{chapter10/phi_n.pdf}\caption{Теорема 10.3}
+\end{figure}
         
-\end{theorem} % рисунок
+\end{theoremwobox} % рисунок
 
 \begin{proof}
     \begin{gather*}
         F(g) = \int^1_{-1} g(x) d\mu = g(0) \\
-        F_n (g) = \int^1_{-1} g(x) \varphi_n(x) dx = \int^{\frac{1}{n}}_{-\frac{1}{n}} g(x) \varphi_n(x) dx
+        F_n (g) = \int^1_{-1} g(x) \varphi_n(x) dx = \int^{\frac{1}{n}}_{-\frac{1}{n}} g(x) \varphi_n(x) dx \\
         [[\text{ теорема о среднем }]] = g(c_n) \int^{\frac{1}{n}}_{-\frac{1}{n}} \varphi_n(x) dx = g(c_n) \\
         \exists c_n \in \left[ -\frac{1}{n}, \frac{1}{n} \right] \\
         g \in C[-1,1] \Rightarrow \liml_{n \to \infty} g(c_n) = g(0) \Rightarrow \\
         \liml_{n \to \infty} F_n(g) = F(g) \: \forall g \in C[-1, 1] \Rightarrow F = \wstarlim F_n
     \end{gather*}
 \end{proof}
+
 
 \begin{theorem}[Банах-Алаоглу, слабая со * компактность единичного шара сопряженного пространства]
     $X$ --- сепарабельное, нормированное, 
@@ -629,7 +636,8 @@ $f \in E \Rightarrow \liml_{n \to \infty} f(x_n) = f(x_0)$
 
 Теорема утверждает гораздо большее на самом деле и могла бы быть даже четвёртвым китом, но четырёх китов не бывает: слишком уж неустойчивая конструкция.
 
-\begin{theorem}
+
+\begin{proof}
     Идея такая: выбрать подпоследовательность из $f_n$, которая будет сходиться на каждом элементе всюду плотного множества в $X$. 
     Выбирать мы будем, используя диагональный процесс.
     \begin{gather*}
@@ -643,18 +651,39 @@ $f \in E \Rightarrow \liml_{n \to \infty} f(x_n) = f(x_0)$
         \seq{f_{j,n}}^\infty_{n=1} \: \liml_{n \to \infty} f_{j,m} (x_k) = z_k, k = 1, 2, \ldots, j \\
         \Rightarrow \liml_{n \to \infty} f_{n,n} (x_j) = z_j \: \forall j \in \bN
     \end{gather*}
+    \[ \begin{matrix}
+        \textcolor{red}{f_{11}} & f_{12} & f_{13} & \ldots & f_{1n} & \ldots \\
+        f_{21} & \textcolor{red}{f_{12}} & f_{23} & \ldots & f_{2n} & \ldots \\
+        f_{31} & f_{32} & \textcolor{red}{f_{33}} & \ldots & f_{3n} & \ldots \\
+        \vdots &\vdots & \vdots & \vdots & \vdots & \vdots \\
+        f_{n1} &\ldots & \ldots & \ldots & \textcolor{red}{f_{nn}} & \ldots \\
+        \vdots &\vdots & \vdots & \vdots & \vdots & \vdots \\
 
-    Первая стрчока имеет предел в точке $x_1$, вторая --- подстрочка первой, есть пределы в точках $x_1, x_2$. Каждая  строчка добавляет новый предел. 
+    \end{matrix} \]
+    Первая строка имеет предел в точке $x_1$, вторая --- подстрочка первой, есть пределы в точках $x_1, x_2$. Каждая  строчка добавляет новый предел. 
     Диагольная последовательность, начиная с некоторого момента ($n \geq j$) на диагонали, будет подпоследовательностью $\seq{f_{j,m}}^\infty_{m=1}$. 
     По замечанию к критерию $\wstarlim$ сходимости $\exists f \in D : f = \wstarlim f_{n,n}$
-\end{theorem}
+\end{proof}
 
 
-\chapter{Сопряжённые операторы в нормированном пространстве}
+\section{Сопряжённые операторы в нормированном пространстве}
 
 \begin{definition}
     $(X, \norm{\cdot}), (Y, \norm{\cdot}), T \in \B(X,Y)$. Определим $T^* : Y^* \rightarrow X^*$: $f \in Y, x \in X, (T^* f)(x) \coloneqq f(Tx)$
 \end{definition}
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[baseline= (a).base]
+        \node[scale=1.2] (a) at (0,0){
+            \begin{tikzcd}[every arrow/.append style={shift left}, column sep = huge]
+                X \arrow[rr, "U"] \arrow[dr, dashed, "T^*f"] & &Y \arrow[dl, "U"]\\
+                & \bC &
+            \end{tikzcd}
+        };
+    \end{tikzpicture}\caption{Определение 10.5, коммутативная диаграмма}
+\end{figure}
+
 
 \begin{theorem}[простейшие свойства сопряженного оператора]
     $(X, \norm{\cdot}), (Y, \norm{\cdot}), T \in \B(X,Y) \Rightarrow$
@@ -664,6 +693,7 @@ $f \in E \Rightarrow \liml_{n \to \infty} f(x_n) = f(x_0)$
         \item $T, S \in \B(X,Y) \Rightarrow (T+S)^* = T^* + S^*$
         \item $(X, \norm{\cdot}), (Y, \norm{\cdot}), (Z, \norm{\cdot}), X \stackrel{T}{\longrightarrow} Y \stackrel{S}{\longrightarrow} Z, T \in \B(X,Y), S \in \B(Y,Z) \Rightarrow 
         (ST)^* = T^* S^* $
+    \end{enumerate}
 \end{theorem}
 
 \begin{proof}[1]
@@ -671,7 +701,8 @@ $f \in E \Rightarrow \liml_{n \to \infty} f(x_n) = f(x_0)$
     \begin{gather*}
         \alpha \in \bC, f \in Y^*, x \in X, (T^*(\alpha f))(x) = (\alpha f) (Tx) = \alpha f(Tx) = \alpha(T^*(f))(x) \: \forall x \in X \\
         \Rightarrow T^*(\alpha f) = \alpha T^* (f) \\
-        f, g \in Y^*, x \in X, (T^*(f+g))(x) = (f+g)(Tx) = f(Tx) + g(Tx) = (T^*(f))(x) + (T^*(g))(x) \: \forall x \in X
+        f, g \in Y^*, x \in X, (T^*(f+g))(x) = (f+g)(Tx) = f(Tx) + g(Tx) = \\ =
+        (T^*(f))(x) + (T^*(g))(x) \: \forall x \in X
         \intertext{линейность проверили. Теперь посчитаем норму $T^*$}
         \norm{T^*} = \sup_{\{f \in Y^*, \norm{f} \leq 1\}} \norm{T^* f} =
         \intertext{но при фиксированном $f$ у нас получается линейный функционал, поэтому} 
@@ -698,7 +729,7 @@ $f \in E \Rightarrow \liml_{n \to \infty} f(x_n) = f(x_0)$
     \end{gather*}
 \end{proof}
 
-Посмотрим, как выглядит сопряжённый оператор для интегрального оператора. Будем думать, что речь идёт о мере Лебега, чтобы не пугаться каких-то абстрактных мер, хотя Лебег тут совершенно не при чём.
+Посмотрим, как выглядит сопряжённый оператор для интегрального оператора. Будем думать, что речь идёт о мере Лебега, чтобы не пугаться каких-то абстрактных мер, хотя Лебег тут совершенно ни при чём.
 \begin{theoremwobox}
     \begin{gather*}
         x \in \bR^n, y \in \bR^n, K(x,y)  \in L^p(\bR^{n+m}), 1 \leq p < + \infty \\
@@ -720,8 +751,8 @@ $f \in E \Rightarrow \liml_{n \to \infty} f(x_n) = f(x_0)$
         x \in \bR^n, f \in L^q \\
         \abs{(Kf)(x)} = \abs{ \int_{\bR^m} K(x,y) f(y)dy} \leq [[\text{Гёльдер}]] \left( \int_{\bR^m} \abs{K(x,y)}^pdy \right) \cdot \norm{f}_q
         \intertext{последний интеграл конечен для п.в. $x$. Теперь хотим оценить норму этой штуки в $L^p$} 
-        \left( \int_{\bR^n} \abs{\K f(x)}^p dx \right)^{\frac{1}{p}} \leq \norm{f}_q \left(\underbrace{\int_{\bR^m} \left( \int_{\bR^m} \abs{K(x,y)}^p dy \right)dx}_{M}\right)^{\frac{1}{p}} = M \norm{f}_q \\ %attention
-        \Rightarrow \K \in \B(L^q(\bR^m), L^p(\bR^n)), \norm{K} \leq M
+        \left( \int_{\bR^n} \abs{\K f(x)}^p dx \right)^{\frac{1}{p}} \leq \norm{f}_q \underbrace{\left(\int_{\bR^n} \left( \int_{\bR^m} \abs{K(x,y)}^p dy \right)dx\right)^{\frac{1}{p}}}_{M} = M \norm{f}_q \\ %attention
+        \Rightarrow \K \in \B(L^q(\bR^n), L^p(\bR^n)), \norm{K} \leq M
     \end{gather*}
 \end{proof}
 
@@ -761,7 +792,8 @@ $f \in E \Rightarrow \liml_{n \to \infty} f(x_n) = f(x_0)$
 
 $\norm{T^* y} = \norm{G_y} \leq \norm{T} \cdot \norm{y}, T^*$ --- эрмитово сопряжение к $T$. Но слово <<эрмитовость>> скоро отомрёт.
 
-\begin{theorem}[простейшие свойства эрмитово сопряженного оператора]
+\begin{theoremwobox}[простейшие свойства эрмитово сопряженного оператора]
+    .
     \begin{enumerate}
         \item $T^{**} = T$
         \item $T^* \in \B(H), \norm{T^*} = \norm{T}$
@@ -770,7 +802,7 @@ $\norm{T^* y} = \norm{G_y} \leq \norm{T} \cdot \norm{y}, T^*$ --- эрмитов
         \item $(ST)^* = T^* S^*$
         \item $\exists T^{-1} \Leftrightarrow \: \exists (T^*)^{-1}$ и при этом $(T^*)^{-1} = (T^{-1})^*$
     \end{enumerate}
-\end{theorem}
+\end{theoremwobox}
 
 \begin{proof}[1]
     \begin{multline*}
@@ -804,6 +836,106 @@ $\norm{T^* y} = \norm{G_y} \leq \norm{T} \cdot \norm{y}, T^*$ --- эрмитов
     
 \end{proof}
 
+\begin{remark}
+    Если $X, Y$ --- банаховы, $T \in \B(X,Y)$
+    \[ \exists T^{-1} \in \B(X,Y) \Leftrightarrow \. \exists (T^*)^{-1} \in \B(X^*, Y^*) \]
+    и при этом $(T^*)^{-1} = (T^{-1})^*$
+\end{remark}
+В одну сторону как для гильбертовых пространств, в другую сторону, чтобы доказать похожее, мы пользовались фактом $T^{**} = T$, здесь же 
+этого нет. Оставим без доказательства.
+
+\begin{corollary}[интегральный оператор в $L^2$ и его сопряженный]
+    \begin{gather*}
+        H = L^2(\bR^n, dx), dx = \lambda_n \text{ --- мера Лебега} \\
+        K(x,y) \in L^2(\bR^{2n}, d\lambda_{2n}) \quad \left( \int_{\bR^n} \int_{\bR^n} \abs{K(x,y)}^2 dxdy \right)^{\frac{1}{2}} = M < +\infty \\
+        (\K f)(x) = \int_{\bR^n} K(x,y) f(y) dy \Rightarrow
+    \end{gather*}
+    \begin{enumerate}
+        \item $K \in \B(L^2(\bR^n))$
+        \item $\K^*$ --- эрмитово-сопряженный 
+        \item $(K^*g)(y) = \int_{\bR^n} \overline{K(x,y)} g(x) dx, \K^* \in \B(\L^2(\bR^n))$
+    \end{enumerate}
+    \[ (\K^* g)(y) = \int_{\bR^n} K^*(y,x) g(x) dx \Rightarrow K^*(y,x) = \overline{K(x,y)} \] 
+\end{corollary}
+
+Первое утверждение уже доказывали. %мб ссылку
+\begin{proof}[2 утверждение]
+    \begin{gather*}
+        (\K f, g) = (f, K^*, g) \quad f,g \in L^2(\bR^n) \\
+        (f,g) = \int_{\bR^n} f(x) \overline{g(x)} dx
+    \end{gather*}
+
+    \begin{multline*}
+        (\K f, g) = \int_{\bR^n} \left( \int_{\bR^n} K(x,y) f(y) dy \right) \overline{g(x)} dx = [[\text{ теорема Фубини }]] \\
+        = \int_{\bR^n} f(y) \left( \int_{\bR^n} K(x,y) \overline{g(x)} dx \right) dy = \left(f, \int_{\bR^n}  \overline{K(x,y)} g(x) dx \right) \Rightarrow \\
+        \Rightarrow (\K^* g)(y) = \int_{\bR^n} \overline{K(x,y)} g(x) dx
+    \end{multline*}
+\end{proof}
+
+Введём ещё одно полезное понятие.
+\begin{definition}
+    $X$ --- нормированное, $T \in \B(X)$. $Y \subset X, Y$ --- подпространство в алгебраическом смысле. $Y$ --- инвариантное подпространство для $T$, если $T(Y) \subset Y$.
+\end{definition}
+Иными словами, можно рассмотреть сужение оператора на $Y$, это тоже будет оператор.
+
+Прежде чем доказывать что-то простое, сначала небольшое замечание.
+\begin{remark}[Проблема Банаха]
+    $X$ --- банахово, $T \in \B(X)$. Существует ли замкнутое инвариантное подпространство $(Y \ne \{ 0 \}, Y \ne X)$
+\end{remark}
+
+Опять Енфло в 1974 предъявил контр-пример.
+
+Если $H$ --- гильбертово, то ответ неизвестен. Может так, может и не так, никто не знает. Стараются математики, бьются головой, всё бестолку. А мы докажем что-то совсем простое.
+
+\begin{theorem}
+    $H$ --- гильбертово, $T \in \B(H)$, $Y$ --- инвариантное подпространство для $T$ $\Rightarrow Y^\perp$ --- инвариантное для $T^*$
+\end{theorem}
+
+\begin{proof}
+    Просто по определению. Возьмём $x \in Y^\perp, y \in Y$
+    \begin{gather*}
+        (Tx, y) = (x, Ty) = 0 \text{ так как } x \in Y^\perp, Ty \in Y \\
+        \Rightarrow T^* x \in Y^\perp \Rightarrow T^*(Y^\perp) \subset Y^\perp
+    \end{gather*}
+\end{proof}
+
+\begin{definition}[саомсопряжённый оператор]
+    $H$ --- гильбертово пространство. $T \in \B(H), T$ --- \textbf{саомсопряжённый}, если $T = T^*$
+\end{definition} 
+\[ \Leftrightarrow (Tx, y) = (x, Ty) \: \forall x, y \in H \]
+
+\begin{example}
+    $H$ --- гильбертово, $M$ --- замкнутое подпространство. $P: H \rightarrow M, P \text{ --- ортогональный проектор, тогда } P = P^*$
+\end{example}
+
+\begin{corollary}[из последней теоремы]
+    $H$ --- гильбертово, $T \in \B(H), T = T^*$, $Y$ --- инвариантное подпространство для $T \Rightarrow Y^\perp$  ---
+    инвариантное подпространство для $T$
+\end{corollary}
+
+\begin{theorem}[о ядре и образе оператора и его сопряженного]
+    $H$ --- гильбертово пространство, $T \in \B(H) \Rightarrow$
+    \begin{enumerate}
+        \item $H = \Ker T \oplus \overline{T^*(H)}$ ($\overline{T^*(H)}$ --- замыкание образа)
+        \item $H = \Ker T^* \oplus \overline{T(H)}$ 
+    \end{enumerate}
+\end{theorem}
+ 
+Такое часто бывает полезно при разложении гильбертова пространства.
+
+\begin{proof}
+    Сначала сделаем абстрактное замечание. Пусть $L$ --- подпространство в алгебраическом смысле для $H$ (не обязательно замкнутое, даже интереснее, если оно не замкнутое). 
+    Может, мы когда уже отмечали, тогда $L^\perp = \overline{L}^\perp$. Если $M = \{x : x \perp L  \} = \{x : x \perp \overline{L}\} \Rightarrow$ 
+    \begin{gather*}
+        H = \overline{L} \oplus M \\
+        L \coloneqq T^*(H), \text{ вычислим } L^\perp \\
+        \text{пусть } x \perp T^*(H) \Leftrightarrow 0 = (x, T^*y) \: \forall y \in H \Leftrightarrow \\
+        \Leftrightarrow 0 = (Tx, y) \: \forall y \in H \Leftrightarrow Tx = 0 \Leftrightarrow x \in \Ker T \\
+        \Rightarrow H = \Ker T \oplus \overline{T^*(H)}
+        \intertext{применим 1 к $T^*$}
+        \Rightarrow H = \Ker T^* \oplus \overline{T^{**}(H)}, T^{**} = T
+    \end{gather*}
+\end{proof}
 
 \end{document}
 
