@@ -18,7 +18,7 @@ $\Lin(X,Y)$ ~--- множество линейных операторов из $
 \end{gather*}
 Если $X = Y$, пишем только $\Lin(X)$.
 \begin{example}[интегральный оператор]
-    $C[a,b], K(s,t) \in C([a,b] \times [a,b])$
+    $C[a,b], k(s,t) \in C([a,b] \times [a,b])$
     \begin{gather*}
         f \in C[a,b], (\K f)(s) = \int^b_a k(s,t) f(t) dt \\
         (\K f)(s) \in C[a,b], \K \in \Lin(C[a,b])
@@ -38,7 +38,7 @@ $\Lin(X,Y)$ ~--- множество линейных операторов из $
     \end{gather*}
 \end{example}
  
-\begin{example}[оператор, но не линейный]x =
+\begin{example}[оператор, но не линейный]
     $X$ ~--- линейное пространство, $x_0 \in X, x_0 \ne 0$, $Ax = x + x_0 \Rightarrow A$ ~--- не линейный.
 \end{example}
  
@@ -63,7 +63,7 @@ $\Lin(X,Y)$ ~--- множество линейных операторов из $
 \begin{proof}[1]
     $L$ ~--- подпространство, $y,v \in A(L), \alpha \in k$. Наша мечта ~--- проверить $(\stackrel{?}{\Rightarrow} \alpha y + v \in A(L))$, не обязательно писать $\alpha$ и $\beta$.
     \begin{gather*}
-        \Rightarrow \, \exists x,y \in L : (Ax = y \land Au = v) \Rightarrow A(\alpha x + u) = \alpha A x + A u = \alpha y + v \\
+        \Rightarrow \: \exists x,u \in L : (Ax = y \land Au = v) \Rightarrow A(\alpha x + u) = \alpha A x + A u = \alpha y + v \\
         \alpha x + u \in L \Rightarrow A(\alpha x + u) \in A(L) \Rightarrow \alpha y + v \in A(L)
     \end{gather*}
 \end{proof}
@@ -91,7 +91,7 @@ $\Lin(X,Y)$ ~--- множество линейных операторов из $
 \begin{definition}[Ядро линейного оператора]
     $A \in \Lin(X,Y)$
     \[ \Ker A = \{ x \in X: Ax = 0 \} \text{ ~--- ядро } A \] 
-    \[ \Imm A = \{ y \in Y: \, \exists x: Ax = y \} = A(X) \text{ ~--- образ } A \] 
+    \[ \Imm A = \{ y \in Y: \: \exists x: Ax = y \} = A(X) \text{ ~--- образ } A \] 
 \end{definition}
  
 \begin{corollary}
@@ -108,19 +108,20 @@ $\Lin(X,Y)$ ~--- множество линейных операторов из $
  
 \section{Линейные операторы в нормированных пространствах}
 Линейные операторы в нормированных пространствах ~--- главный объект, который изучает функциональный анализ.
-\begin{definition}[Огранисченный оператор]
+\begin{definition}[Ограниченный оператор]
     $(X, || \cdot||)$, $(Y, || \cdot ||), A \in \Lin(X,Y) $. $A$ ~--- \textbf{ ограниченный}, если $\forall C \subset X, C$ ~--- ограниченное $\Rightarrow A(C)$ ~--- ограниченное 
     в $Y$.
 \end{definition}
-Оказывается, для операторов ограниченность эквивалентна непрерывности. Казалось бы, ограниченность сильно слабее, но если к ней добавить  линейность, то будет аж непрерывность. \\
-Обычно если в теореме 2 свойства, то говорят <<если и только если>>, а если условий несколько, то говорят <<равносильность>>. Подлые анголосаксы говорят Following Conditions are Equivalent.
+Оказывается, для операторов ограниченность эквивалентна непрерывности. Казалось бы, ограниченность сильно слабее, но если к ней добавить  линейность, то будет аж непрерывность.
+
+Обычно если в теореме 2 свойства, то говорят <<если и только если>>, а если условий несколько, то говорят <<равносильность>>. Подлые англосаксы говорят Following Conditions are Equivalent.
  
 \begin{theorem}[эквивалентность ограниченности и непрерывности линейного оператора]
     $(X, ||\cdot||), (Y, ||\cdot||), A \in \Lin(X,Y)$. Следующие условия равносильны (СУР) (FCE)
     \begin{enumerate}
         \item $A$ непрерывен в точке $0$ 
         \item $A$ непрерывен $\forall x \in X$  % (.) точка 
-        \item $\exists C > 0 : ||Ax|| \leq C||x|| \, \forall x \in X $
+        \item $\exists C > 0 : ||Ax|| \leq C||x|| \: \forall x \in X $
         \item $A$ ограниченный
         \item $\exists r > 0 \: A(B_r(0))$ ~--- ограниченное множество в $Y$.
     \end{enumerate}
@@ -129,7 +130,7 @@ $\Lin(X,Y)$ ~--- множество линейных операторов из $
 Доказательство очень простое, и, конечно, строится на линейности
 \begin{proof}[$1 \Rightarrow 2$]
     $A$ непрерывен в точке $0$.
-    Пусть $\varepsilon > 0 \, \exists \delta > 0, \, ||x|| < \delta \Rightarrow ||Ax|| < \varepsilon \: (A(\bZero)) = \bZero$.
+    Пусть $\varepsilon > 0 \: \exists \delta > 0, \: ||x|| < \delta \Rightarrow ||Ax|| < \varepsilon \: (A(\bZero) = \bZero)$.
     утверждается, что те же самые $\varepsilon$ и $\delta$ подходят.
     \begin{gather*}
         \text{пусть } x_0 \in X, \text{проверим, что } A \text{ непрерывен в } x_0 \\
@@ -138,33 +139,34 @@ $\Lin(X,Y)$ ~--- множество линейных операторов из $
 \end{proof}
 $2 \Rightarrow 1$ очевидно 
 \begin{proof}[$1 \Rightarrow 3$]
-    Пусть $\varepsilon > 0 \, \exists \delta > 0 : ||x|| < \delta \Rightarrow ||Ax|| < \varepsilon$.
+    Пусть $\varepsilon > 0 \: \exists \delta > 0 : ||x|| \leq \delta \Rightarrow ||Ax|| < \varepsilon$.
     \begin{gather*}
         z \in X, z \ne 0 \quad x = \frac{z}{||z||} \cdot \delta \Rightarrow ||x|| = \delta \Rightarrow ||Ax|| < \varepsilon \\
-        \Rightarrow ||A\left( \frac{z}{||z||} \cdot \delta\right)|| < \varepsilon \Rightarrow ||Az|| < \frac{\varepsilon}{\delta} ||z|| \text{т.е.} C = \frac{\varepsilon}{\delta}
+        \Rightarrow ||A\left( \frac{z}{||z||} \cdot \delta\right)|| < \varepsilon \Rightarrow ||Az|| < \frac{\varepsilon}{\delta} ||z|| \text{ т.е. } C = \frac{\varepsilon}{\delta}
     \end{gather*}
 \end{proof}
  
 \begin{proof}[$3 \Rightarrow 4$]
-    $B \subset X$, $B$ ~--- ограниченное, то есть $\exists M > 0 : (\forall x \in B \land ||x|| < M) \stackrel{3}{\Rightarrow} ||Ax|| \leq C||x|| \leq CM \, \forall x \in B \Rightarrow 
+    $B \subset X$, $B$ ~--- ограниченное, то есть $\exists M > 0 : (\forall x \in B \: ||x|| < M) \stackrel{3}{\Rightarrow} ||Ax|| \leq C||x|| \leq CM \: \forall x \in B \Rightarrow 
     \{ A(B) \}$ ~--- ограниченное.
 \end{proof}
 $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
 \begin{proof}[$5 \Rightarrow 1$]
-    $\exists R > 0 \, A(B^x_r(0)) \subset B^y_R(0)$
+    $\exists R > 0 \: A(B^X_r(0)) \subset B^Y_R(0)$
     \begin{gather*}
         ||x|| < r \Rightarrow ||Ax|| < R \\
         \intertext{непрерывность в 0 означает} 
         \text{ пусть } \varepsilon > 0 \quad ||x|| < \delta(\varepsilon) \Rightarrow ||Ax|| < \varepsilon \\
         \delta(\varepsilon) = \varepsilon \cdot \frac{r}{R}\\
-        ||z|| < \varepsilon \cdot \frac{r}{R} \Rightarrow ||z \cdot \frac{R}{\varepsilon} || < r \Rightarrow ||A \left( z \cdot \frac{R}{z} \right) || < R \Rightarrow ||Az|| < \varepsilon
+        ||z|| < \varepsilon \cdot \frac{r}{R} \Rightarrow ||z \cdot \frac{R}{\varepsilon} || < r \Rightarrow ||A \left( z \cdot \frac{R}{\varepsilon} \right) || < R \Rightarrow ||Az|| < \varepsilon
     \end{gather*}
 \end{proof}
  
-с помощью теоремы, которую мы только что доказали, введём норму в этом пространстве.
+$(X, ||\cdot||), (Y, ||\cdot||)$
+\[ \underbrace{\B(X,Y)}_{\text{bounded}} = \{ A \in \Lin(X,Y) \text{ и } A \text{ ~--- ограниченный} \} \]
+
+С помощью теоремы, которую мы только что доказали, введём норму в этом пространстве.
 \begin{definition}[норма оператора]
-    $(X, ||\cdot||), (Y, ||\cdot||)$
-    \[ \underbrace{\B(X,Y)}_{\text{bounded}} = \{ A \in \Lin(X,Y) \land A \text{ ~--- ограниченный} \} \]
     $A \in \B(X,Y)$
     \[ ||A|| = \inf \{ C : C > 0 \land \norm{Ax} \leq C\norm{x} \: \forall x \in X \} \]
     то бишь точная нижняя грань множества величин, на которые наш оператор увеличивает норму элемента.
@@ -175,35 +177,36 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
 \begin{statement}
     $(X, || \cdot||), (Y, ||\cdot||), A \in \B(X,Y)$
     \begin{enumerate}
-        \item $\forall x \in X \, ||Ax|| \leq ||A||  ||x||$ (то есть $\inf$ в определении нормы $=\min)$
+        \item $\forall x \in X \: ||Ax|| \leq ||A||  \cdot ||x||$ (то есть $\inf$ в определении нормы $=\min)$
         \item $||A||$ удовлетворяет аксиомам нормы
     \end{enumerate}
 \end{statement}
  
 \begin{proof}
-    $x$ - фиксирован, $\Rightarrow \, \forall c > ||A||, ||Ax|| \leq C ||x|| \Rightarrow ||Ax|| \leq ||A|| \cdot ||x||$. Был фиксирован, теперь любой,
+    $x$ --- фиксирован,  по определению $\inf$ $\Rightarrow \: \forall C > ||A||, ||Ax|| \leq C ||x|| \Rightarrow ||Ax|| \leq ||A|| \cdot ||x||$. Был фиксирован, теперь любой,
      первое утверждение доказано. Теперь второе. 
      \begin{gather*}
         \alpha \in k, \alpha \ne 0, x \in X, x \text{ ~--- фиксирован } \\
         (\alpha A) (x) = \alpha A x \\
         \forall x \in X \quad ||(\alpha A)(x) || = ||\alpha \cdot Ax|| = |\alpha| \cdot ||A x|| \leq |\alpha| \cdot ||A|| \cdot ||x|| \\
-        \Rightarrow ||\alpha A|| \leq |\alpha| ||A||
+        \Rightarrow ||\alpha A|| \leq |\alpha|\cdot ||A|| \tag{*}
      \end{gather*}
      Очевидное замечание по слёзной просьбе двух студенток, которые ничего не понимали.
-     Если мы докажем $||Ax|| \leq M||x|| \, \forall x \in X$, то $||A|| \leq M$
- 
+     Если мы докажем $||Ax|| \leq M||x|| \: \forall x \in X$, то $||A|| \leq M$. Применим (*) к оператору $\alpha A$ и константе $\frac{1}{\alpha}$
      \begin{gather*}
-        \Rightarrow \norm{\frac{1}{\alpha}(\alpha A)} \leq \frac{1}{|\alpha|} ||\alpha A|| \Rightarrow |\alpha| || A|| \leq ||\alpha A|| \\
-        \Rightarrow ||\alpha A || = |\alpha| ||A|| \\
-        A,B \in \B(X,Y), x \in X 
+        \Rightarrow \norm{\frac{1}{\alpha}(\alpha A)} \leq \frac{1}{|\alpha|} ||\alpha A|| \Rightarrow 
+        \intertext{сократим константы слева и домножим обе части на $\abs{\alpha}$}
+        |\alpha| \cdot || A|| \leq ||\alpha A|| \\
+        \Rightarrow ||\alpha A || = |\alpha|\cdot ||A|| \\
      \end{gather*}
+     $ A,B \in \B(X,Y), x \in X  $
      \begin{multline*}
         ||(A+B)(x)|| = ||Ax + Bx|| \leq ||Ax|| + ||Bx|| \leq ||A|| \cdot ||x|| + ||B|| \cdot ||x|| = \\
         = (||A|| + ||B||) ||x|| \quad \forall x \in X \\
         \Rightarrow ||A+B|| \leq ||A||+ ||B||
      \end{multline*}
-     Как только есть какая-то константа, то настоящая норма меньше или равна этой константы. $||A|| = 0 \Rightarrow \, \forall x \in X \, ||Ax|| \leq ||A|| \cdot ||x|| = 0$.
-     $\Rightarrow Ax = 0 \, \forall x \in X \Rightarrow A = \bZero \Rightarrow ||A||$ ~--- настоящая норма
+     Как только есть какая-то константа, то настоящая норма меньше или равна этой константы. $||A|| = 0 \Rightarrow \: \forall x \in X \: ||Ax|| \leq ||A|| \cdot ||x|| = 0$.
+     $\Rightarrow Ax = 0 \: \forall x \in X \Rightarrow A = \bZero \Rightarrow ||A||$ ~--- настоящая норма
 \end{proof}
  
 \begin{theorem}[вычисление нормы непрерывного оператора]
@@ -214,19 +217,20 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
 \begin{proof}
     Очевидно $a \geq b, a \geq c, d \geq c$.
     Докажем $||A|| \geq a \geq b \geq ||A||, \quad ||A|| \geq d \geq c \geq ||A||$.
-       \[ ||Ax|| \leq ||A|| \cdot ||x|| \leq ||A|| \quad \forall x, ||x|| \geq 1 \Rightarrow \sup_{\{||x|| \geq 1 \}} ||Ax|| \leq ||A|| \Rightarrow a \leq ||A|| \]
+       \[ ||Ax|| \leq ||A|| \cdot ||x|| \leq ||A|| \quad \forall x, ||x|| \leq 1 \Rightarrow \sup_{\{||x|| \leq 1 \}} ||Ax|| \leq ||A|| \Rightarrow a \leq ||A|| \]
     Доказали $||A|| \geq a$. \\
-    Пусть $\varepsilon > 0 \, z \in X, z \ne 0 \Rightarrow \left| \left| \frac{z}{||z||(1+\varepsilon)} \right| \right| = \frac{1}{1+\varepsilon} < 1$
+    Пусть $\varepsilon > 0 \: z \in X, z \ne 0 \Rightarrow \left| \left| \frac{z}{||z||(1+\varepsilon)} \right| \right| = \frac{1}{1+\varepsilon} < 1$
     \begin{gather*}
-        \left| \left| A(\frac{z}{||z||(1+\varepsilon)}) \right| \right| \leq b \Rightarrow ||Az|| \leq b(1+\varepsilon) ||z|| \quad \forall z \in X \\
-        \Rightarrow ||A|| \leq b(1 + \varepsilon) \, \forall \varepsilon > 0 \Rightarrow ||A|| \leq b
+        \left| \left| A\left(\frac{z}{||z||(1+\varepsilon)}\right) \right| \right| \leq b \Rightarrow ||Az|| \leq b(1+\varepsilon) ||z|| \quad \forall z \in X \\
+        \Rightarrow ||A|| \leq b(1 + \varepsilon) \: \forall \varepsilon > 0 \Rightarrow ||A|| \leq b
     \end{gather*}
-    Закончили с первой цепочкой неравенств. \\
+    Получаем $\norm{A} \geq a \geq b \geq \norm{A}$, закончили с первой цепочкой неравенств. \\
     Пусть $x \ne 0 \Rightarrow ||Ax|| \leq ||A|| \cdot ||x|| \Rightarrow \frac{||Ax||}{||x||} \leq ||A|| \Rightarrow d = \sup_{\{x \ne 0 \}} \frac{||Ax||}{||x||} \leq ||A||$.
     \begin{gather*}
-        \text{пусть } z \in X, z \ne 0, \, \left| \left| \frac{z}{||z||} \right|\right| = 1 \Rightarrow ||A\left(\frac{z}{||z||}\right)|| \leq c \Rightarrow ||Az|| \leq C||z|| \forall z \in X
+        \text{пусть } z \in X, z \ne 0, \: \left| \left| \frac{z}{||z||} \right|\right| = 1 \Rightarrow \norm{A\left(\frac{z}{||z||}\right)} \leq c \Rightarrow ||Az|| \leq c||z|| \:\forall z \in X
         \intertext{c ~--- супремум по единичной сфере}
-        \Rightarrow ||A|| \leq C
+        \norm{A} \leq c \\
+        \norm{A} \geq d \geq c \geq \norm{A}
     \end{gather*}
 \end{proof}
  
@@ -243,15 +247,15 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
     \end{multline*}
     получили непрерывность; раз есть общая константа, не зависящая от $f$, то мы получаем и оценку для нормы
     \begin{gather*}
-        \chi_{[a,b]}(x) = 1 \, \forall x \in [a,b], \chi_{[a,b]} \in C[a,b], ||\chi_{[a,b]} ||_\infty = 1 \\
-        ||M_h|| \geq ||M_h(f)|| \forall f, ||f|| = 1 \Rightarrow ||M_h|| \geq || M_h(\chi_{[a,b]}) ||_\infty = ||h||_\infty \\
+        \chi_{[a,b]}(x) = 1 \: \forall x \in [a,b], \chi_{[a,b]} \in C[a,b], ||\chi_{[a,b]} ||_\infty = 1 \\
+        ||M_h|| \geq ||M_h(f)|| \: \forall f, ||f|| = 1 \Rightarrow ||M_h|| \geq || M_h(\chi_{[a,b]}) ||_\infty = ||h||_\infty \\
         \Rightarrow ||M_h||_{\B(C[a,b])} = ||h||_\infty
     \end{gather*}
 \end{proof}
  
 Теперь посмотрим на оператор дифференцирования, это очень важный пример.
 \begin{example}
-    $Y = C[a,b], X = \{f: \, \exists f^\prime \in C[a,b] \}$, $0 \leq a \leq b$
+    $Y = C[a,b], X = \{f: \: \exists f^\prime \in C[a,b] \}$, $0 \leq a \leq b$
     \begin{gather*}
         X \subset Y, X \text{ ~--- подпространство } Y, \text{ то есть } \\
         ||f||_X = ||f||_Y = \max_{x \in [a,b]} |f(x)| \\
@@ -265,10 +269,12 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
     $Y = C[a,b], X = C^{(1)}[a,b]$
     \begin{gather*}
         ||f||_X = \max \{ ||f||_\infty, ||f^\prime||_\infty \} \\
-        D(f) = f^\prime \quad ||D(f)|| = ||f^\prime||_\infty = \max_{x \in [a,b]} |f^\prime(x)| \leq \underbrace{\max \{ ||f||_\infty, ||f||_\infty \}}_{||f||_X} \\ 
+        D(f) = f^\prime \quad ||D(f)|| = ||f^\prime||_\infty = \max_{x \in [a,b]} |f^\prime(x)| \leq \max \{ ||f||_\infty, ||f^\prime||_\infty \} = 1 \cdot \norm{f}_X \\ 
         \Rightarrow D \in \B(X, Y), ||D|| \leq 1
     \end{gather*}
 \end{example}
+
+В зависимости от того, как мы определим норму в пространстве, один и тот же оператор может оказаться как непрерывным, так и не непрерывным.
  
  
 \begin{theorem}[вложение пространств в $l^p$]
@@ -283,8 +289,10 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
         \Rightarrow |x_n| \leq 1 \Rightarrow (|x_n|^{p_2}) < |x_n|^{p_1} \\
         \norm{Ax}_{p_2} = \left( \sum^\infty_{n=1} |x_n|^{p_2} \right)^{\frac{1}{p_2}} \leq \left( \sum^\infty_{n=1} |x_n|^{p_1} \right)^{\frac{1}{p_2}} = 1 \Rightarrow A \in \B(l^{p_1}, l^{p_2}) \\
         \norm{A} = \sup_{ \{ \norm{x}_{p_1} = 1 \}} \norm{Ax}_{p_2} \leq 1 \Rightarrow \norm{A}_{\B(l^{p_1}, l^{p_2})} \leq 1 \quad \text{ при } p_2 < + \infty \\
-        \text{ теперь } p_2 = +\infty \norm{x}_{p_1} = 1 \Rightarrow \sup_{n \in \bN} |x_n| \leq \norm{x}_{p_1} \Rightarrow \norm{x}_\infty \leq \norm{x}_{p_1} \Rightarrow  \\
-        A \in \B(l^{p_1}, l^{p_2}) \norm{A} \leq 1 \\
+        \text{ теперь } p_2 = +\infty \norm{x}_{p_1} = 1 \Rightarrow
+        \intertext{потому что сумма в какой-то степени $\geq$ супремума }
+         \sup_{n \in \bN} |x_n| \leq \norm{x}_{p_1} \Rightarrow \norm{x}_\infty \leq \norm{x}_{p_1} \Rightarrow  \\
+        A \in \B(l^{p_1}, l^{p_2}) \norm{A} \leq 1
     \end{gather*}
     если $e_1 = (1, 0, \ldots)$, $\norm{e_1}_p = 1 \: \forall p : 1 \leq p \leq + \infty$
     \[ \norm{A} = \sup_{\{\norm{x}_{p_1} = 1\}} \norm{Ax}_{p_2} \geq \norm{Ae_1}_{p_2} = 1 \Rightarrow \norm{A}_{\B(l^{p_1}, l^{p_2})} = 1 \quad \forall p_1 < p_2 \]
@@ -305,7 +313,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
         \intertext{ Вот у нас получилась константа, которая обслуживает все функции $f$. Тогда, во-первых, оператор непрерывен, а во-вторых, это и есть оценка для нормы}
         \Rightarrow A \in \B(L^\infty, L^{p_1}), \norm{A} \leq (\mu(X))^{\frac{1}{p_1}} \\
         \text{ пусть } p_2 < + \infty, f \in L^{p_2}, \left( \int_X |f|^{p_2} d\mu \right)^{\frac{1}{p_2}} = \norm{f}_{p_2} \\
-        \norm{Af}_{p_1} = \norm{f}_{p_1} = \left( \int_X |f|^{p_1} d\mu \right)^{\frac{1}{p_1}} \stackrel{\text{н. Гёльдера}}{\leq} \left[ \left( \int_X |f|^{p_2} d\mu\right)^{\frac{1}{p_2}} \left( \int_X \mathbb{1}^q d\mu \right)^{\frac{1}{q}} \right]^{\frac{1}{p_1}} = \\ %цвет нужен
+        \norm{Af}_{p_1} = \norm{f}_{p_1} = \left( \int_X |f|^{p_1} d\mu \right)^{\frac{1}{p_1}} \stackrel{\text{н. Гёльдера}}{\leq} \left[ \left( \int_X |f|^{p_2} d\mu\right)^{\frac{1}{p}} \left( \int_X \mathbb{1}^q d\mu \right)^{\frac{1}{q}} \right]^{\frac{1}{p_1}} = \\ %цвет нужен
         p = \frac{p_2}{p_1}, \frac{1}{q} = 1 - \frac{1}{p} = 1 - \frac{p_1}{p_2} \\
         = \left( \int_X |f|^{p_2} d\mu \right)^{\frac{1}{p_2}} \cdot (\mu(X))^{\left(1 - \frac{p_1}{p_2}\right) \frac{1}{p_1}} = \norm{f}_{p_2} (\mu(X))^{\frac{1}{p_1} - \frac{1}{p_2}} \\
         \Rightarrow A \in \B(L^{p_2}, L^{p_1}), \norm{A} \leq (\mu(X))^{\frac{1}{p_1} - \frac{1}{p_2}}
@@ -317,7 +325,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
         \norm{A} = \sup_{f \ne \mathbb{0}} \frac{\norm{Af}_{p_1}}{\norm{f}_{p_2}} \geq \frac{\norm{A(\chi_X)}_{p_1}}{\norm{\chi_X}_{p_2}} = \frac{\left( \int_X \chi_X^{p_1} d\mu \right)^{\frac{1}{p_1}}}{\left( \int_X \chi_X^{p_2} d\mu \right)^{\frac{1}{p_2}}} = \\
         = \frac{(\mu(X))^{\frac{1}{p_1}}}{\mu(X)^{\frac{1}{p_2}}} = \mu(X)^{\frac{1}{p_1}-\frac{1}{p_2}}
     \end{multline*}
-    если $p_2 = \infty, \norm{\chi_x}_\infty = 1 \Rightarrow \norm{A}_{\B(L^\infty,L^{p_1})} \geq \mu(X)^{\frac{1}{p_1}}$ 
+    если $p_2 = \infty, \norm{\chi_X}_\infty = 1 \Rightarrow \norm{A}_{\B(L^\infty,L^{p_1})} \geq \mu(X)^{\frac{1}{p_1}}$ 
 \end{proof}
  
 Позже вычислим норму интегрального оператора, который часто встречается в анализе и в матфизике.
@@ -356,7 +364,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
  
 \begin{corollary}
     $(X, \norm{\cdot}), f \in X^* \Rightarrow$
-    \[ \norm{f} = \sup_{\seq{\norm{x} \leq 1}} |f(x)| = \sup_{\seq{\norm{x} < 1}} |f(x)| = \sup_{\seq{\norm{x} = 1}} |f(x)| = \sup_{x \in X, x \ne 0} \frac{|f(x)|}{\norm{x}} \]
+    \[ \norm{f} = \sup_{\seq{\norm{x} \leq 1}} |f(x)| = \sup_{\seq{\norm{x} < 1}} |f(x)| = \sup_{\seq{\norm{x} = 1}} |f(x)| = \sup_{\{x \in X, x \ne 0\}} \frac{|f(x)|}{\norm{x}} \]
 \end{corollary}
  
 \begin{corollary}
@@ -370,21 +378,22 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
     $X = l^p, (1 \leq p \leq + \infty), i \in \bN$ --- фиксированное число 
     \begin{gather*}
         x \in l^p \Rightarrow x = \seq{x_n}^\infty_{n=1}, x_n \in \bC, f(x) := x_i \Rightarrow f \in X^*, \norm{f} = 1 \\
-        |f(x)|  = |x_i| \leq \left(\sum^\infty_{n=1} |x_n|^p \right)^{\frac{1}{p}}  \text{ при } 1 \leq p < +\infty \text{ и } \\
-         \leq \sup_n \norm{x_n} = \norm{x}_\infty \text{ при } p = +\infty\\
+        |f(x)|  = |x_i| \leq \left(\sum^\infty_{n=1} |x_n|^p \right)^{\frac{1}{p}} = 1 \cdot \norm{x}_p  \text{ при } 1 \leq p < +\infty \text{ и } \\
+         \leq \sup_n \norm{x_n} = 1 \cdot \norm{x}_\infty \text{ при } p = +\infty\\
         \Rightarrow f \in \B(X, \bC) = X^*, ||f|| \leq 1 \\
         \norm{f} = \sup_{\seq{\norm{x} = 1}} |f(x)| \geq |f(e_i)| = 1
     \end{gather*}
 \end{example}
 Со временем мы сосчитаем, что такое сопряженное пространство к $l^p$ для конечных $p$. По секрету, это $l^q$, где $p$ и $q$ --- сопряжены.
  
-Почему всегда рассматривается компакт? Потому что на компакте функция достигает свой максимум, и иначе непонятно, как норму вводить.
 \begin{example}
-    $C(K) = \{ f: K \rightarrow \bC \land f \text{ непрерывные } \}, x_0 \in K, K$ --- компакт. \\
-    $f \in C(K), G(f) := f(x_0) \Rightarrow G \in X^*, \norm{G} = 1$ (функционал значения в точке,подлые англосаксы говорят point evaluation).
+    $C(K) = \{f \: | \:  f: K \rightarrow \bC \text{ и } f \text{ непрерывная} \}, x_0 \in K, K$ --- компакт. Почему всегда рассматривается компакт? 
+    Потому что на компакте функция достигает свой максимум, и иначе непонятно, как норму вводить.
+
+    $f \in C(K), G(f) := f(x_0) \Rightarrow G \in X^*, \norm{G} = 1$ (функционал значения в точке, подлые англосаксы говорят point evaluation)
     \begin{gather*}
         G \in \Lin(C(K), \bC) \\
-        f \in C(K), |G(f)| = |f(x_0)| \leq \sup_{x \in K} |f(x)| = \norm{f}_{C(k)} \Rightarrow \\
+        f \in C(K), |G(f)| = |f(x_0)| \leq \sup_{x \in K} |f(x)| = \norm{f}_{C(K)} \Rightarrow \\
         G \in X^*, \norm{G} \leq 1 \\
         \begin{cases}
             \chi_K(x) = 1, \chi_K \in C(K), ||\chi_K|| = 1, \chi_K(x_0) = 1 \\
@@ -397,7 +406,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
 Сейчас докажем теорему про норму интегрального оператора в $C[a,b]$. Мы ей даже когда-то нескоро воспользуемся.
  
 \begin{theorem}
-    $C[a,b] = \seq{f | f: [a,b] \rightarrow \bR, f \text{ непрерывная }}$. Ядро интегрального оператора $k(s,t) \in C([a,b] \times [a,b])$, пусть $f \in C[a,b]$.
+    $C[a,b] = \seq{f \: | \:  f: [a,b] \rightarrow \bR, f \text{ непрерывная}}$. Ядро интегрального оператора $:= k(s,t) \in C([a,b] \times [a,b])$, пусть $f \in C[a,b]$.
     \[ (\K f)(s) := \int^b_a k(s,t)f(t) dt \quad \text{ при } s \in [a,b] \Rightarrow \] 
     $\K \in \B(C[a,b]), \norm{\K} = \max_{a \leq s \leq b} \int^b_a |k(s,t)| dt$
 \end{theorem}
@@ -417,30 +426,33 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
         G \in (C[a,b])^*, \norm{G} \leq \int^b_a |\varphi(t)| dt
     \end{multline*}
     Теперь оценка $\norm{G}$ снизу. Сначала тривиальные замечания. Если $\varphi(t) \geq 0 \: \forall t \in [a,b]$, то $\chi_{[a,b]}(x) \equiv 1$
-    \[ |G(\chi_[a,b])| = \left| \int^b_a \varphi(t) dt \right| = \int^b_a \varphi(t) dt \]
-    Если $\varphi(t) \leq 0 \, \forall t \in [a,b]$ --- то же самое.
-    \[ g(t) = \sign \, \varphi(t) = \begin{cases}
+    \[ |G(\chi_{[a,b]})| = \left| \int^b_a \varphi(t) dt \right| = \int^b_a \varphi(t) dt \]
+    Если $\varphi(t) \leq 0 \: \forall t \in [a,b]$ --- то же самое.
+    \[ g(t) = \sign \: \varphi(t) = \begin{cases}
         1 & \varphi(t) > 0 \\
         -1 & \varphi(t) < 0 \\
         0 &\varphi(t) = 0
     \end{cases} \]
     $G(g) = \int^b_a |\varphi(t)| dt$, но $g \notin C[a,b]$.
     До сих пор мы всегда находили пробную функцию, на котором достигался $\sup$, а здесь такого элемента нет.
-    Поэтому будем приближать $\varphi$ непрерывными функциями  с точностью до $\varepsilon$, вот такая идея. \\
+    Поэтому будем приближать $\varphi$ непрерывными функциями  с точностью до $\varepsilon$, вот такая идея. 
+
     Пусть $\varepsilon > 0, \varphi \in C[a,b] \Rightarrow \varphi$ --- равномерно непрерывна на $[a,b] \Rightarrow$
     \[ \exists \delta > 0 \: |s-t| < \delta \Rightarrow |\varphi(t) - \varphi(s)| < \varepsilon \quad a \leq s, t \leq b \]
-    $a = t_0 < t_1 < \ldots < t_n = b, t_k - t_{k-1} < \delta$. \\
+    $a = t_0 < t_1 < \ldots < t_n = b, t_k - t_{k-1} < \delta$.
+
     Рассмотрим $\seq{\Delta_j}^n_{j=1}$. $\Delta_j$ --- интервалы $[t_{k-1}, t_k]$.
     Нумерация будет не по порядку, как сперва может показаться, а совершенно другая, и она никак не будет зависеть от расположения на отрезке.
-     Разобьём интервал на 2 сорта. Первый --- где функция положительна или отрицательна, то есть не меняет знак. Второй --- где меняет знак или обращается в 0.
-    $\Delta_1, \ldots, \Delta_r$ --- те интервалы, на которых $\varphi(t) > 0, t \in \Delta_j$ или $\varphi(t) < 0, t \in \Delta_j$ $(1 \leq j \leq r)$ \\
-    $\Delta_{r+1}, \ldots, \Delta_n$ --- те интервалы, для которых $\exists s \in \Delta_j : \varphi(s) = 0, n \geq j > r$. \\
+     Разобьём интервалы на 2 сорта. Первый --- где функция положительна или отрицательна, то есть не меняет знак. Второй --- где меняет знак или обращается в 0.
+    $\Delta_1, \ldots, \Delta_r$ --- те интервалы, на которых $\varphi(t) > 0, t \in \Delta_j$ или $\varphi(t) < 0, t \in \Delta_j$ $(1 \leq j \leq r)$
+
+    $\Delta_{r+1}, \ldots, \Delta_n$ --- те интервалы, для которых $\exists s \in \Delta_j : \varphi(s) = 0, n \geq j > r$
     \begin{gather*}
-        \text{пусть } t \in \Delta_j, j > r \Rightarrow \, \exists s \in \Delta_j, \varphi(s) = 0 \Rightarrow \\
+        \text{пусть } t \in \Delta_j, j > r \Rightarrow \: \exists s \in \Delta_j, \varphi(s) = 0 \Rightarrow \\
         |\varphi(t)| = |\varphi(t) - \varphi(s)| < \varepsilon \Rightarrow \int_{\Delta_j} |\varphi(t)| dt < \varepsilon | \Delta_j| \\
         \Rightarrow \int_{\bigcup^n_{j=r+1} \Delta_j} \abs{\varphi(t)}dt\leq \varepsilon \left( \sum^n_{j=r+1} |\Delta_j| \right) \leq \varepsilon(b-a)\\
         h(t) = \begin{cases}
-            \sign \, \varphi(t), t \in \Delta_j \quad 1 \leq j \leq r \\
+            \sign \: \varphi(t), t \in \Delta_j \quad 1 \leq j \leq r \\
             \text{линейная на } \Delta_j \quad j > r \\
             \text{если } [a,t_1] \in \Delta_j, j >r, \text{ то } h(a) = 0 \\
             \text{если } [t_{n-1}, b] \in \Delta_j, j >r, \text{ то } h(b) = 0
@@ -458,11 +470,11 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
     $\Rightarrow ||G|| \geq \int^b_a |\varphi(t)| dt $
 \end{proof}
  
-Главной частью доказательства теоремы было доказательство теоремы. Вернёмся к теореме.
+Главной частью доказательства теоремы было доказательство леммы. Вернёмся к теореме.
 \begin{proof}
     Оценим сначала норму оператора сверху. $( \K f)(s) = \int^b_a k(s,t) f(t) dt, f \in C[a,b]$. $M = \max_{a \leq s \leq b} \int^b_a |k(s,t)| dt$. Мы как раз
     хотим показать, что норма оператора будет равна $M$.
-       \[ |(Kf)(s)| \leq \int_a^b |k(s,t)| |f(t)| dt \leq ||f||_\infty \int^b_a |k(s,t) |dt \leq M \norm{f}_\infty \]
+       \[ |(\K f)(s)| \leq \int_a^b |k(s,t)| |f(t)| dt \leq ||f||_\infty \int^b_a |k(s,t) |dt \leq M \norm{f}_\infty \]
        \[ \norm{\K f}_\infty = \max_{s} | \K f(s)| \leq M \cdot \norm{f} \: \forall f \in C[a,b] \Rightarrow \K \in \B(C[a,b]) \]
        $\norm{K}_{\B(C[a,b])} \leq M$ \\
        Теперь оценим $\norm{\K}$ снизу. 
@@ -472,7 +484,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
             \intertext{применим к произвольной непрерывной функции оператор} 
             f \in C[a,b], \norm{(\K f)(s)}_\infty = \max_{a \leq s \leq b} |\K f(s)| \geq |(\K f)(s_0)| = \left| \int^b_a k(s_0,t) f(t) dt \right| = |G(f)|
        \end{gather*}
-       где $\varphi(t) = K(s_0,t), G(f) = \int^b_a k(s_0,t) f(t) dt$.
+       где $\varphi(t) = k(s_0,t), G(f) = \int^b_a k(s_0,t) f(t) dt$.
        \begin{multline*}
             \norm{\K} = \sup_{\seq{\norm{f} \leq 1}} \norm{\K(f)} \geq \sup_{\seq{\norm{f} \leq 1}} |G(f)| = \norm{G}_{(C[a,b])^*} \stackrel{\text{лемма}}{=} \\
             \int^b_a |\varphi(t)| dt = M \Rightarrow \norm{K} = M
@@ -494,25 +506,25 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
 Когда можно сказать, что два пространства изоморфны? 
 \begin{theorem}[критерий линейного изоморфизма]
     $(X, \norm{\cdot}), (Y, \norm{\cdot}), A \in \Lin(X,Y), A(X) = Y$ (то есть $A$ --- сюръекция).\\
-    $A$ --- линейный изоморфизм $\Leftrightarrow \text{ пусть } 0 < c_1 < C_2 < + \infty$ т.ч. $c_1\norm{x} \leq \norm{Ax} \leq C_2 \norm{x}, \: \forall x \in X$
+    $A$ --- линейный изоморфизм $\Leftrightarrow \text{ пусть } 0 < c_1 < c_2 < + \infty$ т.ч. $c_1\norm{x} \leq \norm{Ax} \leq c_2 \norm{x}, \: \forall x \in X$
 \end{theorem}
  
 \begin{proof}
     $\Rightarrow$   
     \begin{gather*}
-        A \in \B(X,Y) \Rightarrow \norm{Ax} \leq \norm{A} \cdot\norm{X} \: \forall x \in X, C_2 = \norm{A} \\
-        \exists A^{-1} \B(Y,X) \Rightarrow \norm{A^{-1}y} \leq \norm{A^{-1}} \norm{y} \: \forall y \in Y \\
+        A \in \B(X,Y) \Rightarrow \norm{Ax} \leq \norm{A} \cdot\norm{x} \: \forall x \in X, c_2 = \norm{A} \\
+        \exists A^{-1} \in \B(Y,X) \Rightarrow \norm{A^{-1}y} \leq \norm{A^{-1}} \norm{y} \: \forall y \in Y \\
         \text{пусть } x \in X, y = Ax \Rightarrow
         \norm{A^{-1}(Ax)} \leq \norm{A^{-1}} \cdot \norm{Ax} \Rightarrow \\
         \frac{1}{\norm{A^{-1}}} \cdot \norm{x} \leq \norm{Ax} \quad c_1 = \frac{1}{\norm{A^{-1}}}
     \end{gather*}
     $\Leftarrow$ \\
-    $\norm{Ax} \leq C_2 \norm{x} \Rightarrow A \in \B(X,Y) (\norm{A} \leq C_2)$. Теперь проверим, что $A$ --- инъекция.
-    Без неравенства снизу мы сейчас как раз выведем, что образы различных иксов различны. 
+    $\norm{Ax} \leq c_2 \norm{x} \Rightarrow A \in \B(X,Y) (\norm{A} \leq c_2)$. Теперь проверим, что $A$ --- инъекция.
+    С помощью неравенства снизу мы сейчас как раз выведем, что образы различных иксов различны. 
     Пусть $Ax_1 = Ax_2 \Rightarrow A(x_1 - x_2) = 0$
     \begin{gather*}
         0 = \norm{A(x_1-x_2)} \geq c \norm{x_1 - x_2} \Rightarrow x_1 = x_2 \Rightarrow A \text{ --- биекция } \\
-        \stackrel{\text{доказали}}{\Rightarrow} \: \exists A^{-1} \in \Lin(Y,X) \\
+        {\Rightarrow}[[\text{свойство 5 линейных операторов}]] \: \exists A^{-1} \in \Lin(Y,X) \\
         \begin{cases}
             c_1 \norm{x} \leq \norm{Ax} \: \forall x \in X \\
             \text{пусть } y \in Y, x = A^{-1}y
@@ -540,15 +552,15 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
  
 \begin{corollary}
     $X$ --- линейное, $\norm{\cdot}_1, \norm{\cdot}_2$ --- нормы на $X$. $\norm{\cdot}_1$ эквивалентна $\norm{\cdot}_2 \Leftrightarrow 
-    \, \exists 0 < c_1 < c_2 \leq +\infty$ т.ч. 
-    \[ c_1 \norm{x}_1 \leq \norm{x}_2 \leq C_2 \norm{x}_1\]
+    \: \exists 0 < c_1 < c_2 \leq +\infty$ т.ч. 
+    \[ c_1 \norm{x}_1 \leq \norm{x}_2 \leq c_2 \norm{x}_1\]
     хотя в определении не утверждалось, что одну норму можно оценить через другую
 \end{corollary}
  
 \begin{proof}
     $X = (X, \norm{\cdot}_1), Y = (X, \norm{\cdot}_2)$ --- как бы 2 разных пространства, но на одном множестве. Рассмотрим оператор
     $Ix = x$. Ясно, что $I \in \Lin(X,Y)$, $I$ --- биекция, $I^{-1} \in \Lin(Y,X)$. Что означает, что $\norm{\cdot}_1$ эквивалентна $\norm{\cdot}_2$?
-    $\Leftrightarrow I, I^{-1}$ непрерывны $\Leftrightarrow$ $I$ --- линейный изоморфизм $X$ и $Y$ $\stackrel{\text{т.критерий линейного изоморфизма}}{\Longleftrightarrow} c_1 \norm{x}_1 \leq \underbrace{\norm{Ix}_2}_{\norm{x}_2} \leq C_2\norm{x}_1$
+    $\Leftrightarrow I, I^{-1}$ непрерывны $\Leftrightarrow$ $I$ --- линейный изоморфизм $X$ и $Y$ $\stackrel{\text{т.критерий линейного изоморфизма}}{\Longleftrightarrow} c_1 \norm{x}_1 \leq \underbrace{\norm{Ix}_2}_{\norm{x}_2} \leq c_2\norm{x}_1$
 \end{proof}
  
 Не очень скоро мы получим обобщение этой теоремы. Окажется, что если пространство банахово в обеих нормах, то только одно из последних неравенств влечёт другое.
@@ -586,12 +598,12 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
 \begin{proof}
 Поскольку мы обсудили, что изоморфность --- отношение эквивалентности, то можно зафиксировать
 \begin{gather*}
-    X = l^2_n = \seq{x=(x_1, \ldots, x_n), x_j \in \bC, \norm{X} = \left( \sum^n_{j=1} |x_j|^2\right)^{\frac{1}{2}}}
+    X = l^2_n = \seq{x=(x_1, \ldots, x_n), x_j \in \bC, \norm{x} = \left( \sum^n_{j=1} |x_j|^2\right)^{\frac{1}{2}}}
     \seq{f_j}^n_{j=1} \text{ --- базис в } Y \\
     A : l^2_n \rightarrow Y, A(e_j) = f_j \\
     \intertext{утверждается, что это и будет линейный изоморфизм} 
-    A\left(\sum^n_{j=1} x_j e_j\right) = \sum^n_{j=1} x_j f_j, A \in \Lin(l^2_n, Y) \\
     x \in l^2_n, x = \sum^n_{j=1} x_j e_j \\
+    A\left(\sum^n_{j=1} x_j e_j\right) = \sum^n_{j=1} x_j f_j, A \in \Lin(l^2_n, Y) \\
     \norm{Ax} = \norm{\sum^n_{j=1} x_j f_j} \leq \sum^n_{j=1} |x_j| \norm{f_j} \stackrel{\text{КБШ}}{\leq} \underbrace{\left(\sum^n_{j=1} |x_j|^2 \right)^{\frac{1}{2}}}_{\norm{x}_{l^2_n}} \underbrace{\left( \sum^n_{j=1} \norm{f_j}^2\right)^\frac{1}{2}}_{:= M} \\
     \intertext{мы оценили норму оператора $A$}
     \Rightarrow \norm{Ax}_Y \leq \norm{x}_{l^2_n} \cdot M \Rightarrow A \in \B(l^2_n, Y), \norm{A} \leq M \\
@@ -604,7 +616,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
     \exists x_0 \in S, g(x_0) =  \min_{x \in S} g(x), r = g(x_0), r > 0 \\
     \text{пусть } x \in l^2_n, x \ne 0 \quad \frac{x}{\norm{x}} \in S \Rightarrow g\left( \frac{x}{\norm{x}} \right) \geq r \Rightarrow \\
     \norm{A\left(\frac{x}{\norm{x}}\right)} \geq r \Rightarrow \norm{Ax} \geq r \norm{x} \: \forall x \in l^2_n \\
-    \Rightarrow \text{ --- линейная изометрия}
+    \Rightarrow  A \text{ --- линейный изоморфизм}
 \end{gather*}
 
 \end{proof}
@@ -620,17 +632,11 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
 Мы когда-нибудь выясним, что если в пространстве единичный шар --- компакт, то это пространство конечномерное.
 \begin{proof}
     \begin{enumerate}
-        \item $l^2_n$ --- полное, $X$ --- линейно изоморфно $l^2_n$ и по утверждению из конца предыдущего параграфа $\Rightarrow l^2_n X$ банахово 
-        \item $A \in \B(l^2_n, X), A^{-1} \in \B(X, l^2_n), A, A^{-1}$ --- непрерывны 
+        \item $l^2_n$ --- полное, $X$ --- линейно изоморфно $l^2_n$ и по утверждению 5.2 $\Rightarrow X$ банахово 
+        \item $A \in \B(l^2_n, X), A^{-1} \in \B(X, l^2_n), A, A^{-1}$ --- непрерывны. А непрерывное отображение переводит компакты в компакты, относительные компакты в относительные компакты. Описание 
+            компактов в $l^2_n$ мы знаем.
         \item аналогично 2
     \end{enumerate}
-\end{proof}
- 
-\begin{corollary}
-    $X, \dim X = n, n \in \bN$, на $X$ две нормы $\norm{\cdot}_1, \norm{\cdot}_2 \Rightarrow \norm{\cdot}_1 $ эквивалентна $\norm{\cdot}_2$
-\end{corollary}
-\begin{proof}
-    $(X, \norm{\cdot}_1)$ линейно изоморфно $(X, \norm{\cdot}_2)$.
 \end{proof}
  
 \begin{theorem}
@@ -668,7 +674,6 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
 \end{proof}
 
 
-ранее мы сформулировали следствие, и теперь скажем пару слов о доказательстве
 \begin{corollary}
     $(X, \norm{\cdot}_1, \norm{\cdot}_2), \dim X = n < + \infty$ 
     \[ \Rightarrow \norm{\cdot}_1 \text{ эквивалентна } \norm{\cdot}_2 \]
@@ -681,13 +686,13 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
             Ix = x \Rightarrow I \in \Lin(X,Y) \stackrel{\text{теорема}}{\Rightarrow} I \in \B(X,Y) \\
             I^{-1}x=x \quad  I^{-1}: Y \rightarrow X \Rightarrow I^{-1} \in \B(Y,X)
         \end{cases} \Rightarrow \norm{\cdot}_1 \equiv \norm{\cdot}_2 \\
-        (\Leftrightarrow \: \exists \: 0 < c_1 < c_2 : c_1 \norm{x}_1 \leq \norm{x_2} \leq c_2 \norm{x_1})
+        (\Leftrightarrow \: \exists \: 0 < c_1 < c_2 : c_1 \norm{x}_1 \leq \norm{x}_2 \leq c_2 \norm{x}_1)
     \end{gather*}
     Если последовательность сходится в одной норме, то под действием непрерывного оператора сходится и в другой.
 \end{proof}
 
 
-Последнее, что хочется сказать в этом параграфеЖ 
+Последнее, что хочется сказать в этом параграфе
 
 \begin{theorem}
     $(X, \norm{\cdot}), \dim X = n < + \infty \Rightarrow$ 
@@ -710,7 +715,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
         f_j(e_k) = \begin{cases}
             0 & j \ne k \\
             1 & j = k
-        \end{cases} \Rightarrow \underbrace{ \left(\sum^n_{j=1} c_j f_j \right) (e_k)}_{=0} = c_k \Rightarrow c_k = 0, 1, \ldots, n \\
+        \end{cases} \Rightarrow \underbrace{ \left(\sum^n_{j=1} c_j f_j \right) (e_k)}_{=0} = c_k \Rightarrow c_k = 0, \: k = 1, \ldots, n \\
         \Rightarrow \seq{f_j}^n_{j=1} \text{ --- базис в } X^*
     \end{gather*}
 \end{proof}
@@ -744,7 +749,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
 
 \begin{proof}[1]
     Естественно, о компактности никакой речи быть не может, но конечномерность нам поможет. Во-первых, мы уже отмечали, что все конечномерные пространства --- полные. Ещё мы доказывали линейную изоморфность.
-Таким образом, $L$ --- полное. А ещё почти на первой лекции мы обсуждали, что если есть полное подмножество метрического пространства, то оно автоматически оказывается замкнутым.
+Таким образом, $L$ --- полное. А ещё в самом начале мы обсуждали, что если есть полное подмножество метрического пространства, то оно автоматически оказывается замкнутым.
 \end{proof}
 
 \begin{proof}[2]
@@ -807,9 +812,10 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
 \begin{corollary}[про многочлены]
     $C_{\bR}[a,b] = \seq{f: [a,b] \rightarrow \bR}$,
     \begin{gather*}
-        \Rho_n \seq{p(x) = \sum^n_{k=0} a_k x^k, a_k \in \bR} \\
+        \Rho_n = \seq{p(x) = \sum^n_{k=0} a_k x^k, a_k \in \bR} \\
         E_n(f) = \inf_{p \in \Rho_n} \norm{f - p}_\infty \\
-        \Rightarrow \: \exists p_0 \text{ т.ч. } E_n(f) = \norm{f - p_0}_\infty, p_0 \intertext{носит торжественное название многочлена наилучшего приближения}
+        \Rightarrow \: \exists p_0 \text{ т.ч. } E_n(f) = \norm{f - p_0}_\infty 
+        \intertext{$p_0$ носит торжественное название многочлена наилучшего приближения}
     \end{gather*}
 \end{corollary}
 
@@ -834,7 +840,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
     \[ \Rightarrow \exists x_0, \norm{x_0} = 1, \rho(x_0, L) > 1 - \varepsilon \]
 \end{lemma}
 На рисунке 5.2 показано, причём тут <<почти перпендикуляр>>.
-Хочется, чтобы $x_0$, был элемент на расстоянии 1, но 1 обеспечить нельзя, но $1 - \varepsilon$ --- можно.
+Хочется, чтобы $x_0$, был элемент на расстоянии 1, но 1 обеспечить нельзя, а $1 - \varepsilon$ --- можно.
 \begin{proof}
     \begin{gather*}
         z \in X \setminus L, d = \rho(z, L) = \inf_{y \in L} \norm{z - y} \Rightarrow \: \exists y_0 \in L : d \leq \norm{z - y_0} < d(1 + \varepsilon) \\
@@ -859,12 +865,13 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
 
 А это следствие нам понадобится несколько раз.
 \begin{corollary}
+    \label{chap5:riss-corollary}
     $(X, \norm{\cdot}), \seq{L_n}^\infty_{n=1}$, $L_n$ --- замкнутые подпространства. $L_n \subsetneq L_{n+1}, L_1 \ne \varnothing \Rightarrow$
-    \[ \exists \seq{y_n}^\infty_{n=1}, y_n = L_n, \rho(y_{n+1}, L_n) \geq \frac{1}{2}, \norm{y_n} = 1 \]
+    \[ \exists \seq{y_n}^\infty_{n=1}, y_n \in L_n, \rho(y_{n+1}, L_n) \geq \frac{1}{2}, \norm{y_n} = 1 \]
 \end{corollary}
 
 \begin{proof}
-    пусть $y_1 \in L_1, \norm{y_1} = 1, L_1 \subsetneq L_2 \stackrel{\text{Лемма}}{\Rightarrow} \: \exists y_2 \in L_2, \norm{y_2} = 1$. $\rho(y_2, L_1) \geq \frac{1}{2}$ и так далее по индукции
+    пусть $y_1 \in L_1, \norm{y_1} = 1, L_1 \subsetneq L_2 \stackrel{\text{Лемма}}{\Rightarrow} \: \exists y_2 \in L_2, \norm{y_2} = 1$, $\rho(y_2, L_1) \geq \frac{1}{2}$ и так далее по индукции
 \end{proof}
 
 \begin{theorem}[Ф.Рисс]
@@ -892,14 +899,14 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
 \end{theorem}
 
 \begin{proof}
-    Сначала мы должны распростарнить оператор, то есть определить, как он будет действовать на произвольный элемент $X$. Пусть $x \in X$.
+    Сначала мы должны распространить оператор, то есть определить, как он будет действовать на произвольный элемент $X$. Пусть $x \in X$. Всюду плотность означает в точности следующее: 
     \begin{gather*}
         \exists \seq{x_n}^\infty_{n=1}, x_n \in L, \liml_{n \to \infty} \norm{x-x_n} = 0 \\
         \seq{A x_n}^\infty_{n=1}, A x_n \in Y, \seq{A x_n}^\infty_{n=1} \text{--- фундаментальная  в } Y, \norm{Ax_n - Ax_m} \underset{n, m \to \infty}{\longrightarrow} 0
     \end{gather*}
     Раз последовательность имеет предел, то она фундаментальная. Значит мы не зря в условии требовали банаховость. $Y$ --- банахово, тогда 
     $\exists \liml_{n \to \infty} A x_n \in Y$
-    \[ Vx := \liml_{n \to \infty} A X_n \]
+    \[ Vx := \liml_{n \to \infty} A x_n \]
     надо убедиться, что определение корректно, то есть что предел не зависит от изначально выбранной последовательности:
     \begin{gather*}
         \text{пусть } \seq{z_n}^\infty_{n=1} \liml_{n \to \infty} z_n = x \Rightarrow \: \exists \liml_{n \to \infty} A z_n \\
@@ -907,7 +914,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
         \intertext{корректность проверена}
         \text{пусть } x \in L, \text{ пусть } x_n = x \: \forall n \in \bN \Rightarrow Vx = \liml_{n \to \infty} A x_n = Ax \Rightarrow V |_L = A \\
         \text{пусть } \liml_{n \to \infty} x_n = x \Rightarrow Vx = \liml_{n \to \infty} A x_n \Rightarrow \\
-        \liml{n \to \infty} \norm{x_n} = \norm{x} \quad \norm{Vx} \leq \liml_{n \to \infty}  \norm{A} \cdot \norm{x_n} = \norm{A} \norm{x} \\
+        \liml_{n \to \infty} \norm{x_n} = \norm{x} \quad \norm{Vx} \leq \liml_{n \to \infty}  \norm{A} \cdot \norm{x_n} = \norm{A} \cdot \norm{x} \\
         \Rightarrow \norm{V} \leq \norm{A} \\
         \norm{V} = \sup_{\{x \in X: \norm{x} = 1\}} \norm{ Vx} \geq \sup_{\{x \in L: \norm{x} = 1\}} \norm{Vx} = \norm{A} \\
         \Rightarrow \norm{V} = \norm{A}
@@ -925,7 +932,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
     \overline{x} = \seq{z: z = x + h, h \in Y}  \\
     \overline{x} + \overline{y} = \overline{x+y} \\
     \lambda \in \bC, \lambda \overline{x} = \overline{(\lambda x)} \\
-    \varphi: X \Rightarrow X / Y \quad \varphi(x) = \overline{x}
+    \varphi: X \rightarrow X / Y \quad \varphi(x) = \overline{x}
     \end{gather*}
     $\varphi$ --- линейное (канонический гомоморфизм).
 \end{definition}
@@ -971,14 +978,14 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
     \begin{gather*}
         \text{пусть } \seq{x_n}^\infty_{n=1} \: \sum^\infty_{n=1} \norm{\overline{x_n}} < + \infty \left( \stackrel{?}{\Rightarrow} \sum^\infty_{n=1} \overline{x_n} \text{сходится в } X/Y \right) \\
         \norm{\overline{x_n}} = \inf_{z \in \overline{x_n}} \norm{z} \Rightarrow \: \exists z_n \in \overline{x_n} : \norm{z_n} \leq 2 \norm{\overline{x_n}} \\
-        \Rightarrow \sum^\infty_{n=1} \norm{z_n} < + \infty  X \text{ --- банахово, и по критерию полноты} \Rightarrow \\
-        \exists S = \sum^\infty_{n=1} z_n, s \in X 
+        \Rightarrow \sum^\infty_{n=1} \norm{z_n} < + \infty ,\: X \text{ --- банахово, и по критерию полноты} \Rightarrow \\
+        \exists S = \sum^\infty_{n=1} z_n, S \in X 
         \intertext{рассмотрим частичные суммы}
         \begin{cases}
-            S_n = \sum^n_{k=1} z_k, \liml_{n \to \infty} s_n = s \\
-            \varphi(s_n) = \sum^n_{k=1} \varphi(z_k) = \sum^n_{k=1} \overline{x_k} 
+            S_n = \sum^n_{k=1} z_k, \liml_{n \to \infty} S_n = S \\
+            \varphi(S_n) = \sum^n_{k=1} \varphi(z_k) = \sum^n_{k=1} \overline{x_k} 
         \end{cases} \varphi \text{ непрерывна} \Rightarrow \\
-        \liml_{n \to \infty} \varphi(s_n) = \varphi(s) \in X/Y \\
+        \liml_{n \to \infty} \varphi(S_n) = \varphi(S) \in X/Y \\
         \Rightarrow \: \exists \liml_{n \to \infty} \sum^n_{k=1} \overline{x_k} = \sum^\infty_{k=1} \overline{x_k} \Rightarrow X / Y \text{ --- банахово}
     \end{gather*}
 \end{proof}

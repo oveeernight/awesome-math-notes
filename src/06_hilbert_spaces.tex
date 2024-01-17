@@ -8,7 +8,7 @@
 А вы бы хотели 32 лекции про гильбертовы пространства?
 
 \begin{definition}
-    $H$ --- линейное пространство над $\bC$. Скалярное произведение $H \times H \rightarrow \bC$, $x,y \in H, (x,y)$ --- скалярное произведение удовлетворяет следующим аксиомам
+    $H$ ~--- линейное пространство над $\bC$. Скалярное произведение $H \times H \rightarrow \bC$, $x,y \in H, (x,y)$ ~--- скалярное произведение удовлетворяет следующим аксиомам
     \begin{enumerate}
         \item $(\lambda x, y) = \lambda(x,y), \lambda \in \bC, \: x,y \in H$ 
         \item $(x, y+z) = (x,y) + (x,z)$
@@ -18,9 +18,9 @@
     если $H$ над $\bR$, то 3 выглядит как $(y,x) = (x,y)$
 \end{definition}
 
-Снабдим $H$ нормой: $\norm{x} := \sqrt{(x,x)}$ --- норма, порожденная скалярным произведением. $(H, \norm{x})$ называется предгильбертовым пространством.
+Снабдим $H$ нормой: $\norm{x} := \sqrt{(x,x)}$ ~--- норма, порожденная скалярным произведением. $(H, \norm{x})$ называется предгильбертовым пространством.
 
-Если $(H, \norm{\cdot})$ полное, то $H$ --- гильбертово.
+Если $(H, \norm{\cdot})$ полное, то $H$ ~--- гильбертово.
 
 \begin{figure}
     \centering
@@ -60,24 +60,24 @@
 \begin{example}
     \begin{gather*}
         l^2_n = \seq{x: x = \seq{x_1, \ldots, x_n}, x_j \in \bC}, \norm{x}_2 = \sqrt{\sum^n_{k=1} \abs{x_j}^2} \\
-        (x,y) = \sum^n_{j=1} x_j \overline{y_j}, l^2_n \text{ --- гильбертово} \\
-        y = (y_1, \ldots, y_n), y_j \in \bC, \overline{y_j} \text{ --- комплексное сопряжение}
+        (x,y) = \sum^n_{j=1} x_j \overline{y_j}, l^2_n \text{ ~--- гильбертово} \\
+        y = (y_1, \ldots, y_n), y_j \in \bC, \overline{y_j} \text{ ~--- комплексное сопряжение}
     \end{gather*}
 \end{example}
 
 \begin{example}[$l^2$]
     $l^2 = \seq{x: x = \seq{x_j}_{j=1}^\infty, \norm{x} = \sqrt{\sum^\infty_{j=1} \abs{x_j}^2} < +\infty}$. $(x,y) = \sum^\infty_{j=1} x_j \overline{y_j}$.
-    $l^2$ --- гильбертово 
+    $l^2$ ~--- гильбертово 
 \end{example}
 Главый пример
 \begin{example}
-    $(X, U, \mu)$ --- пространство с мерой. $L^2(X, \mu),$
+    $(X, U, \mu)$ ~--- пространство с мерой. $L^2(X, \mu),$
      \[\norm{f} = \left( \int_X \abs{f(x)}^2 d\mu \right)^{\frac{1}{2}} < +\infty \]
-    $(f,g) = \int_X f(x) \cdot \overline{g(x)} d\mu, L^2(X,\mu)$ --- полное, $\Rightarrow$ гильбертово
+    $(f,g) = \int_X f(x) \cdot \overline{g(x)} d\mu, L^2(X,\mu)$ ~--- полное, $\Rightarrow$ гильбертово
 \end{example}
 
 \begin{example}[пространство Харди]
-    $H^2$  --- пространство Харди
+    $H^2$  ~--- пространство Харди
     \[ H^2 = \seq{f(z) = \sum^{+\infty}_{n=0} a_n z^n, \norm{f}^2 = \sum^{+\infty}_{n=0} \abs{a_n}^2 < +\infty} \]
     $H^2$ линейно изометрически изоморфно $l^2$. 
     \[ (f,g) = \sum^\infty_{n=0} a_n \overline{b_n}, g(z) = \sum^{+\infty}_{n=0} b_n z^n \Rightarrow H^2 \text{ гильбертово} \] 
@@ -88,15 +88,15 @@
 \begin{gather*}
     \sum^{+\infty}_{n=0} \abs{a_n}^2 < + \infty \Rightarrow \liml_{n \to \infty} \abs{a_n} = 0 \Rightarrow \overline{\liml_{n \to \infty}} \sqrt[n]{\abs{a_n}} \leq 1 \\
     \Rightarrow R \geq 1
-    \intertext{где  R --- радиус круга сходимости ряда  $\sum^{+\infty}_{n=0} a_n z^n$}
+    \intertext{где  R ~--- радиус круга сходимости ряда  $\sum^{+\infty}_{n=0} a_n z^n$}
     R = \frac{1}{\overline{\liml_{n \to \infty}} \sqrt[n]{\abs{a_n}}}, f \in H^2 \Rightarrow f \text{ аналитическая в } \seq{z: \abs{z} < 1}
 \end{gather*}
 
  Теперь примеры предгильбертовых пространств
  \begin{example}
-    $F$ --- финитные последовательности. \\
-    $(x,y) \in F, (x,y) = \sum^\infty_{j=1} x_j \overline{y_j}$ (конечная сумма $F \subset l^2, \norm{x} = \sqrt{\sum^N_{j=1} \abs{x_j}^2}), x_{N+k} = 0 \: k \in \bN$.
-    $F$ --- предгильбертово (не полное)
+    $F$ ~--- финитные последовательности. \\
+    $(x,y) \in F, (x,y) = \sum^\infty_{j=1} x_j \overline{y_j}$ (конечная сумма $F \subset l^2, \norm{x} = \sqrt{\sum^N_{j=1} \abs{x_j}^2}, x_{N+k} = 0 \: k \in \bN$).
+    $F$ ~--- предгильбертово (не полное)
  \end{example}
 
  \begin{example}
@@ -107,25 +107,25 @@
 
  \begin{example}
     $\Rho = \seq{p(x) = \sum^n_{k=0} a_k x^k, a_k \in \bC, n \geq 0}$. \\
-    $q(x) = \sum^n_{k=0} b_k x^k, (p,q) = \sum^n_{k=0} a_k \overline{b_k}$ предгильбертово. $\Rho$ --- линейно изометрически изоморфно $F$ : $p(x) \rightarrow (a_0, a_1, \ldots, a_n) \in F$. 
-    Пополнение $p$ по этой норме до гильбертова пространства есть $l^2$.
+    $q(x) = \sum^n_{k=0} b_k x^k, (p,q) = \sum^n_{k=0} a_k \overline{b_k}$ предгильбертово. $\Rho$ ~--- линейно изометрически изоморфно $F$ : $p(x) \rightarrow (a_0, a_1, \ldots, a_n) \in F$. 
+    Пополнение $\Rho$ по этой норме до гильбертова пространства есть $l^2$.
  \end{example}
 
  \begin{example}
-    $\Rho, \Rho \subset C[a,b]$. $(p,q) = \int^b_a p(x) \overline{q(x)} dx$ --- предгильбертово, пополнением $\Rho$ будет $L^2(a,b)$ по мере Лебега.
+    $\Rho, \Rho \subset C[a,b]$. $(p,q) = \int^b_a p(x) \overline{q(x)} dx$ ~--- предгильбертово, пополнением $\Rho$ будет $L^2(a,b)$ по мере Лебега.
  \end{example}
 
  \begin{definition}
-    $H$ --- гильбертово,
+    $H$ ~--- гильбертово,
     \begin{enumerate}
         \item $x,y \in H, (x,y) = 0$, то $x \perp y $ ($x$ ортогонален $y$)
-        \item $M \subset H, M$ --- подмножество. Ортогональным дополнением к нему будем называть \\
+        \item $M \subset H, M$ ~--- подмножество. Ортогональным дополнением к нему будем называть \\
         \[ M^\perp  = \seq{y \in H: (y,x) = 0 \: \forall x \in M }\]
     \end{enumerate}
  \end{definition}
 
 \begin{property}
-    $M \subset H$ --- гильбертово $\Rightarrow M^\perp$ --- замкнутое подпространство
+    $M \subset H$ ~--- гильбертово $\Rightarrow M^\perp$ ~--- замкнутое подпространство
 \end{property}
 
 \begin{proof}
@@ -140,19 +140,19 @@
 В гильбертовом пространстве всегда существует элемент наилучшего приближения, он ещё и единственный!
 
 \begin{theorem}[о существовании элемента наилучшего приближения в гильбертовом пространстве]
-    $H$ --- гильбертово, $M \subset H, M$ --- замкнутое подпространство, $\forall x \in H \Rightarrow \: \exists! z \in M : \norm{x-z} = \min_{h \in M} \norm{x-h} = \rho(x,M)$
+    $H$ ~--- гильбертово, $M \subset H, M$ ~--- замкнутое подпространство, $\forall x \in H \Rightarrow \: \exists! z \in M : \norm{x-z} = \min_{h \in M} \norm{x-h} = \rho(x,M)$
 \end{theorem}
 
 Для произвольного метрического пространства мы доказывали, что если есть конечномерное подпространство, то элемент существует. Доказательство начнём с простой леммы.
 
 \begin{lemma}
-    $H$ --- гильбертово, замкнутое подпространство $M \subset H$. $x \in H \setminus M, \: u,v \in M, \: d = \inf_{h \in M} \norm{x-h} $
+    $H$ ~--- гильбертово, замкнутое подпространство $M \subset H$. $x \in H \setminus M, \: u,v \in M, \: d = \inf_{h \in M} \norm{x-h} $
     \[ \Rightarrow \norm{u-v}^2 \leq 2(\norm{u-x}^2 + \norm{v-x}^2) - 4d^2 \]
 \end{lemma}
 \begin{proof}
     Применим тождество параллелограмма к $(u-x), (v-x)$
     \[ \norm{u-v}^2 + \norm{u+v-2x}^2 = 2(\norm{u-x}^2 + \norm{v-x}^2) \]
-    тут 3 слагаемых из 4 участвуютв формулировке леммы, нужно оценить только второе слагаемое. 
+    тут 3 слагаемых из 4 участвуют в формулировке леммы, нужно оценить только второе слагаемое. 
     \begin{gather*}
         \norm{2x - u -v} = 2 \norm{x - \frac{u+v}{2}} \geq 2d \\
         \frac{u-v}{2} \in M \Rightarrow \norm{u-v}^2 \leq 2(\norm{u-x}^2 + \norm{v-x}^2) - 4d^2
@@ -165,7 +165,7 @@
     \begin{gather*}
         \intertext{воспользуемся леммой и устремим в получившемся неравенстве $n,m$ к $\infty$}
         \norm{y_n - y_m}^2 \stackrel{\text{лемма}}{\leq} 2( \underbrace{\norm{x-y_n}^2}_{d^2} + \underbrace{\norm{x - y_m}^2}_{d^2}) - 4d^2 \underset{n, m \to \infty}{\longrightarrow} 0 \\
-        \Rightarrow \seq{y_n}^\infty_{n=1} \text{ --- фундаментальная, } H \text{ --- гильбертово } \Rightarrow \\
+        \Rightarrow \seq{y_n}^\infty_{n=1} \text{ ~--- фундаментальная, } H \text{ ~--- гильбертово } \Rightarrow \\
         \exists \liml_{n \to \infty} y_n = z, z \in M, \text{ т.к. } M \text{ замкнуто } \Rightarrow \\
         d = \liml_{n \to \infty} \norm{x - y_n} = \norm{x-z}
         \intertext{теперь проверим единственность} 
@@ -176,8 +176,8 @@
 \end{proof}
 
 \begin{theorem}[о проекции на подпространство]
-    $H$ --- гильбертово, $M \subset H$, $M$ --- замкнутое подпространство 
-    \[ \forall x \in X \: \exists! z,w : x = z + w, z \in M, w \in M^\perp \]
+    $H$ ~--- гильбертово, $M \subset H$, $M$ ~--- замкнутое подпространство 
+    \[ \forall x \in H \: \exists! z,w : x = z + w, z \in M, w \in M^\perp \]
 \end{theorem}
 
 Этот элемент $z$ как раз будет ближайшим элементом, который появился в предыдущей теореме. 
@@ -199,13 +199,13 @@
         \Rightarrow (u,w) = 0, \text{ то есть } w \perp M \Rightarrow w \in M^\perp \\
         \intertext{осталось проверить единственность}
         \text{пусть } x = z + w, x = z_1 + w_1 \quad z, z_1 \in M, \: w, w_1 \in M^\perp \\
-        \Rightarrow u = \underbrace{z-z_1}_{\in M} = \underbrace{w_1-w}_{\in M^\perp} \Rightarrow u \perp \Rightarrow (u,u) = 0 \\
+        \Rightarrow u = \underbrace{z-z_1}_{\in M} = \underbrace{w_1-w}_{\in M^\perp} \Rightarrow u \perp u \Rightarrow (u,u) = 0 \\
         \Rightarrow u = 0 \Rightarrow z=z_1, w = w_1
     \end{gather*}
 \end{proof}
 
 \begin{definition}
-    $H$ --- гильбертово, $X,Y$ --- замкнутые подпространства. $H = X \oplus Y$. $H$ --- ортогональная сумма подпространств $X$ и $Y$, если 
+    $H$ ~--- гильбертово, $X,Y$ ~--- замкнутые подпространства. $H = X \oplus Y$. $H$ ~--- ортогональная сумма подпространств $X$ и $Y$, если 
     \begin{enumerate}
         \item $\forall h \in H \: \exists x \in X, y \in Y : h = x + y$
         \item $\forall x \in X, y \in Y \: (x,y) = 0$
@@ -213,29 +213,29 @@
 \end{definition}
 
 \begin{remark}
-    \item $X,Y$ --- подпространства в $H$, $X \perp Y$, то есть $\forall x \in X, \forall y \in Y \: (x,y) = 0 \Rightarrow X \cap Y = \{ 0 \}$.
+    \item $X,Y$ ~--- подпространства в $H$, $X \perp Y$, то есть $\forall x \in X, \forall y \in Y \: (x,y) = 0 \Rightarrow X \cap Y = \{ 0 \}$.
 \end{remark}
 \begin{proof}
     $u \in X \cap Y \Rightarrow u \perp u \Rightarrow u = 0$
 \end{proof}
 \begin{remark}
-    Если $H = X \oplus Y$, то $\forall x \in H  \: \exists! x \in X, \: \exists! y \in Y$ т.ч. $h = x + y$
+    Если $H = X \oplus Y$, то $\forall h \in H  \: \exists! x \in X, \: \exists! y \in Y$ т.ч. $h = x + y$
 \end{remark}
 \begin{proof}
-    Пусть $h = x + y, h = x_1 + y_1 \: x, x_1 \in X, \: y, y_1 \in Y \Rightarrow \underbrace{x - x_1}_{\in X} = \underbrace{y_1-y}_{\in Y} \stackrel{\text{Зам.1}}{\Rightarrow} x = x_1, y \in y_1$ 
+    Пусть $h = x + y, h = x_1 + y_1 \: x, x_1 \in X, \quad y, y_1 \in Y \Rightarrow \underbrace{x - x_1}_{\in X} = \underbrace{y_1-y}_{\in Y} \stackrel{\text{Зам.1}}{\Rightarrow} x = x_1, y = y_1$ 
 \end{proof}
 \begin{corollary}
     \begin{enumerate}
-        \item $M$ --- замкнутое подпространство $\Rightarrow H = M \oplus M^\perp$ 
-        \item $M$ --- замкнутое подпрстранство $\Rightarrow (M^\perp)^\perp = M $
-        \item Если $H = X \oplus Y, \: X, Y$ --- замкнутые $\Rightarrow Y = X^\perp$
+        \item $M$ ~--- замкнутое подпространство $\Rightarrow H = M \oplus M^\perp$ 
+        \item $M$ ~--- замкнутое подпространство $\Rightarrow (M^\perp)^\perp = M $
+        \item Если $H = X \oplus Y, \: X, Y$ ~--- замкнутые $\Rightarrow Y = X^\perp$
     \end{enumerate}
 \end{corollary}
 
 \begin{definition}[оператор ортогонального проектирования]
-    $H$ --- гильбертово, $M$ --- замкнутое подпространство. Знаем, что $\forall x \in H \: \exists! z \in M, w \in M^\perp : h = z + w$
+    $H$ ~--- гильбертово, $M$ ~--- замкнутое подпространство. Знаем, что $\forall h \in H \: \exists! z \in M, w \in M^\perp : h = z + w$
     \[ P_M(h) \coloneqq z \]
-    $P_M$ --- оператор ортогонального проектирования на $M$. 
+    $P_M$ ~--- оператор ортогонального проектирования на $M$. 
 \end{definition}
 
 Хоть в определении об этом нигде не сказано, но хорошо помнить, что $\norm{h-z} = \min_{y \in M} \norm{h-y}$.
@@ -244,13 +244,13 @@
 \begin{theorem}[критерий принадлежности оператора множеству ортогональных проекторов]
     Теорема будет состоять из 2 частей. Первая полегче, в ней опишем простые свойства ортогонального проектора. Вторая посложнее, и в ней будет собственно критерий.
     \begin{enumerate}
-        \item $M$ --- замкнутое подпространство, $P \coloneqq P_M \Rightarrow$ 
+        \item $M$ ~--- замкнутое подпространство, $P \coloneqq P_M \Rightarrow$ 
         \begin{enumerate}
             \item $P \in \B(H)$
             \item $P^2 = P$
             \item $(Px,y) = (x,Py), \: \forall x,y \in  H$ (по секрету, это самосопряжённость) 
         \end{enumerate}
-        \item пусть оператор $P$ удовлетворяет свойствам 1-3 $\Rightarrow M \coloneqq P(H), M$ --- замкнутое, $P = P_M$
+        \item пусть оператор $P$ удовлетворяет свойствам 1--3 $\Rightarrow M \coloneqq P(H), M$ ~--- замкнутое, $P = P_M$
     \end{enumerate}
 \end{theorem}
 
@@ -258,29 +258,29 @@
     \begin{enumerate}
         \item Сначала проверим, что $P_M \in \Lin(H,M)$
     \begin{gather*}
-        h \in H \Rightarrow \: \exists! z \in M, w \in M^\perp \: h = z + w
+        h \in H \Rightarrow \: \exists! z \in M, w \in M^\perp \quad h = z + w
         \intertext{утверждается, что $P(h) = z$}
         \alpha \in \bC \Rightarrow \alpha h = \alpha z + \alpha w \quad \alpha z \in M, \alpha w \in M^\perp
         \intertext{по единственности разложения $ \alpha z \Rightarrow$}
         P(\alpha h) = \alpha z \\
-        \text{пусть } h_1 \in H \Rightarrow h_1 \in z_1 + w_1 \: z_1 \in M, w_1 \in M^\perp \\
+        \text{пусть } h_1 \in H \Rightarrow h_1 = z_1 + w_1 \quad z_1 \in M, w_1 \in M^\perp \\
         P(h_1) = z_1 \Rightarrow h+h_1 = \underbrace{(z+z_1) + (w+w_1)}_{\text{разложение единственно}} \: z + z_1 \in M, w + w_1 \in M^\perp \\
         \Rightarrow P(h + h_1) = z+z_1 = P(h) + P(h_1)
     \end{gather*}
     Теперь проверим непрерывность $P$
     \begin{gather*}
         h = z + w, \: z \perp w \Rightarrow (h,h) = (z,z) + (w,w) \\
-        \norm{h}^2 = \norm{z^2} + \norm{w}^2 \\
+        \norm{h}^2 = \norm{z}^2 + \norm{w}^2 \\
         z = P(h) \Rightarrow \norm{P(h)}^2 \leq \norm{h}^2 \Rightarrow P \in \B(H) \\
         \norm{P} \leq 1 \\
         \text{если } M \ne \{ 0 \}, \: \exists x \in M, x \ne 0 \Rightarrow Px = x \Rightarrow \norm{P} \geq \frac{\norm{Px}}{\norm{x}} = 1 \\
         \Rightarrow \norm{P} = 1
     \end{gather*}
     \item $x \in M \Rightarrow Px = x$, 
-        \[ \text{пусть } y = Px \Rightarrow y \in M \Rightarrow \underbrace{Py}_{=y=Px} = P(Px) \Rightarrow P^2x = Px \] 
+        \[ \text{пусть } x \notin M,  y = Px \Rightarrow y \in M \Rightarrow \underbrace{Py}_{=y=Px} = P(Px) \Rightarrow P^2x = Px \] 
     \item
     \begin{gather*}
-         x, y \in H, P = P_m, Q = P_{M^\perp} \\
+         x, y \in H, P = P_M, Q = P_{M^\perp} \\
          x = Px + Qx, y = Py + Qy \\
          (Px,y) = (Px, Py + Qy) = (Px, Py) \\
          (x, Py) = (Px + Qx, Py) = (Px, Py) 
@@ -289,8 +289,8 @@
 \end{proof}
 
 \begin{proof}[2 часть]
-    $p \in \B(H), M \coloneqq P(H), M$ --- подпространство в алгебраическом смысле.
-    План такой: проверим, что $P$ совпадает с ортогоналным проектором на $M$ и что он отправляет ортогональное дополнение в $0$.
+    $P \in \B(H), M \coloneqq P(H), M$ ~--- подпространство в алгебраическом смысле.
+    План такой: проверим, что $P$ совпадает с ортогональным проектором на $M$ и что он отправляет ортогональное дополнение в $0$.
     Проверим, что если $x \in M$, то $Px = x$. 
     \begin{gather*}
         \left.
@@ -313,14 +313,14 @@
 \begin{gather*}
     h \in H \Rightarrow h = z + w, z \in M, w \in M^\perp \\
     \Rightarrow P(z+w) = z \\
-    P_m(z+w) = z \\
-    \Rightarrow P = P_m
+    P_M(z+w) = z \\
+    \Rightarrow P = P_M
 \end{gather*}
 
 \begin{corollary}[ортогональный оператор на конечномерное подпространство]
-    $H$ ---  гильбертово, подпространство $M \subset H, \dim M = n, n \in \bN$
+    $H$ ~---  гильбертово, подпространство $M \subset H, \dim M = n, n \in \bN$
     \begin{gather*}
-        \seq{e_j}^n_{j=1} \text{ --- ортонормированный базис} \\
+        \seq{e_j}^n_{j=1} \text{ ~--- ортонормированный базис} \\
         (e_j, e_k) = \begin{cases}
             0 & j \ne k \\
             1 & j = k
@@ -335,69 +335,69 @@
     \begin{gather*}
         (s_n, e_k) = \left( \sum^n_{j=1} (x, e_j) e_j, e_k \right) = (x, e_k) \\
         \Rightarrow (x-s_n, e_k) = 0 \Rightarrow (w, e_k) = 0 \: \forall k, 1 \leq k \leq n \\
-        \Rightarrow w \perp M, \Rightarrow w \in M^\perp \Rightarrow P_M(x) = s_n
+        \Rightarrow w \perp M, \Rightarrow w \in M^\perp \Rightarrow P_M(x-s_n) = 0 \Rightarrow P_M(x) = P(s_n) = s_n
     \end{gather*}
 \end{proof}
 
 \begin{corollary}[критерий полноты системы элементов в гильбертовом пространстве]
-    $H$ --- гильбертово, $\seq{x_\alpha}_{\alpha \in A}, x_{\alpha} \in H$ ($A$ --- множество индексов)
-    \[ \seq{x_\alpha}_{\alpha \in A} \text{ --- полное } \Leftrightarrow (y \perp x_{\alpha} \: \forall \alpha \in A \Rightarrow y = 0) \]
+    $H$ ~--- гильбертово, $\seq{x_\alpha}_{\alpha \in A}, x_{\alpha} \in H$ ($A$ ~--- множество индексов)
+    \[ \seq{x_\alpha}_{\alpha \in A} \text{ ~--- полное } \Leftrightarrow (y \perp x_{\alpha} \: \forall \alpha \in A \Rightarrow y = 0) \]
 \end{corollary}
 
 \begin{proof}
     \begin{gather*}
-        \seq{x_\alpha}_{\alpha \in A} \text{ --- полное } \Rightarrow \overline{\calL \seq{x_\alpha}_{\alpha \in A}} = H \\
+        \seq{x_\alpha}_{\alpha \in A} \text{ ~--- полное } \Rightarrow \overline{\calL \seq{x_\alpha}_{\alpha \in A}} = H \\
         L = \overline{\calL \seq{x_\alpha}} \\
         L = H \Leftrightarrow L^\perp = \{0 \} \Leftrightarrow (y \perp x_\alpha \: \forall \alpha \in A \Rightarrow y = 0)
     \end{gather*}
 \end{proof}
 Несмотря на то, что доказательство тривиальное, этот критерий полноты очень полезен. \\
 
-Упражнения, которое когда-то давали в качестве задачи на 5 на экзамене
+Упражнения, которые когда-то давали в качестве задачи на 5 на экзамене
 \begin{statement}
-    $l^2, L = \seq{x = \seq{x_n}^\infty_{n=1} \in l^2: \sum^\infty_{n=1} x_n = 0}$. Нужно доказать, что $L$ --- плотно в $l^2$
+    $l^2, l = \seq{x = \seq{x_n}^\infty_{n=1} \in l^2: \sum^\infty_{n=1} x_n = 0}$. Нужно доказать, что $L$ ~--- плотно в $l^2$
 \end{statement}
 
 \begin{statement}
     $z \in \bC, \abs{z} < 1, x_z = \{1, z, z^2, \ldots, z^n, \ldots \} \in l^2$. $\seq{z_n}^\infty_{n=1}, \abs{z_n} < 1, \liml_{n \to \infty} z_n$
-    Нужно доказать, что $\seq{x_{z_n}}^\infty_{n=1}$ --- плотное семейство в $l^2$
+    Нужно доказать, что $\seq{x_{z_n}}^\infty_{n=1}$ ~--- плотное семейство в $l^2$
 \end{statement}
 
 \begin{statement}
-    Пусть $\liml_{n \to \infty} z_n = a, \abs{a} < 1$. Нужно доказать, что $\seq{x_{z_n}}^\infty_{n=1}$ --- плотное семейство в $l^2$
+    Пусть $\liml_{n \to \infty} z_n = a, \abs{a} < 1$. Нужно доказать, что $\seq{x_{z_n}}^\infty_{n=1}$ ~--- плотное семейство в $l^2$
 \end{statement}
 
-То, что $\abs{a} < 1$ --- очень важно. При равенстве утверждения неверны.
+То, что $\abs{a} < 1$ ~--- очень важно. При равенстве утверждения неверны.
 
 \begin{definition}[коэффициент Фурье]
-    $H$ --- гильбертово, $\seq{e_n}^\infty_{n=1}$ --- ортонормированная система
+    $H$ ~--- гильбертово, $\seq{e_n}^\infty_{n=1}$ ~--- ортонормированная система
     \begin{gather*}
         (e_j, e_k) = 0 \text{ при } j \ne k \\
         (e_k, e_k) = 1, \norm{e_k} = 1 \\
         M_n = \seq{ \alpha e_n | \alpha \in \bC}, \dim M_n = 1, P_{M_n} \\
         x \in H, P_{M_n}(x) = (x, e_n) e_n \\
-        (x, e_n) \text{ --- коэффициент Фурье} \\
+        (x, e_n) \text{ ~--- коэффициент Фурье} \\
         x \sim \sum^\infty_{n=1} (x, e_n) e_n \text{ ряд Фурье по системе } \seq{e_n}^\infty_{n=1} 
     \end{gather*}
 \end{definition}
 
 \begin{definition}
     \begin{gather*}
-        \seq{e_n}^\infty_{n=1} \text{ --- ортогональная система  (ОС)} \\
+        \seq{e_n}^\infty_{n=1} \text{ ~--- ортогональная система  (ОС)} \\
         (e_j, e_k) = 0, j \ne k, e_n \ne 0 \\
         M_n = \seq{\alpha e_n: \alpha \in \bC} \\
         P_{M_n}(x) = \left(x, \frac{e_n}{\norm{e_n}} \right), \frac{e_n}{\norm{e_n}} = \frac{(x,e_n)}{\norm{e_n}^2} e_n \\
         \text{коэффициент Фурье по системе} \seq{e_n} \\
-        x \sim \sum^\infty_{n=1} \frac{\norm{(x,e_n)}}{{\norm{e_n}^2}} e_n
+        x \sim \sum^\infty_{n=1} \frac{(x,e_n)}{{\norm{e_n}^2}} e_n
     \end{gather*}
 \end{definition}
 
 Когда мы пишем $\seq{e_n}^\infty_{n=1}$, мы подразумеваем бесконечномерность пространства. Если же вы возьмёте книжку Колмогорова, то гильбертово пространство в ней по определению бесконечномерное. Однако И.В. решил убрать это условие в своём курсе,
-Ввдь есть теория конечномерных банаховых пространств, где переходят к пределу
-и получают утверждения про бесконечномерные пространства. В общем: если вам попадётся кровожадный помощник на экзамене и вы скажете, что гильбертово пространство бесконечномерное, он спросит: <<С какоq стати?>>. Если не скажете --- то он скажет, что вы даже не знаете определение,
+ведь есть теория конечномерных банаховых пространств, где переходят к пределу
+и получают утверждения про бесконечномерные пространства. В общем: если вам попадётся кровожадный помощник на экзамене и вы скажете, что гильбертово пространство бесконечномерное, он спросит: <<С какой стати?>>. Если не скажете ~--- то вы услышите, что даже не знаете определение,
 и вы в любом случае получите 2.
 \begin{corollary}[неравенство Бесселя]
-    $H$ --- гильбертово, $\seq{e_n}^\infty_{n=1}$ --- О.Н.С, $x \in H \Rightarrow$
+    $H$ ~--- гильбертово, $\seq{e_n}^\infty_{n=1}$ ~--- О.Н.С, $x \in H \Rightarrow$
     \[ \sum^\infty_{n=1} \abs{(x,e_n)}^2 \leq \norm{x}^2 \] 
 \end{corollary}
 \begin{proof}
@@ -406,7 +406,7 @@
         \norm{h}^2 = \left( \sum^n_{j=1} \alpha_j e_j, \sum^n_{k=1} \alpha_k e_k \right) = \sum^n_{k=1} \abs{\alpha_k}^2 \\
         L_n = \calL \seq{e_j}^n_{j=1}, P_{L_n}(x) = \sum^n_{j=1} (x, e_j) e_j \\
         \norm{P_{L_n}} \leq 1 \Rightarrow \norm{P_{L_n}(x)}^2 \leq \norm{x}^2 \Rightarrow \\
-        \sum^n_{j=1} \abs{(x,e_j)} \leq \norm{x}^2 \: \forall n \in \bN \Rightarrow \\
+        \sum^n_{j=1} \abs{(x,e_j)}^2 \leq \norm{x}^2 \: \forall n \in \bN \Rightarrow \\
         \sum^\infty_{j=1} \abs{(x,e_j)}^2 \leq \norm{x}^2
     \end{gather*}
 \end{proof}
@@ -415,7 +415,7 @@ Cейчас выясним, когда неравенство превращае
 
 
 \begin{theorem}[о разложении элемента гильбертова пространства в ряд Фурье]
-    $H$ --- гильбертово, $x \in H, \seq{e_n}^\infty_{n=1}$ --- О.Н.С., тогда следующие условия равносильны
+    $H$ ~--- гильбертово, $x \in H, \seq{e_n}^\infty_{n=1}$ ~--- О.Н.С., тогда следующие условия равносильны
     \begin{enumerate}
         \item $x \in \overline{\calL \seq{e_n}^\infty_{n=1}} $
         \item $x = \sum^\infty_{n=1} (x,e_n) e_n $
@@ -430,55 +430,54 @@ Cейчас выясним, когда неравенство превращае
     \begin{gather*}
         x \in H, x \in \overline{\calL \seq{e_n}^\infty_{n=1}}, \text{ пусть } \varepsilon > 0 \\
         \exists y = \sum^n_{k=1} \alpha_k e_k, \norm{x-y} < \varepsilon \\
-        L_n = \calL \seq{e_k}^n_{k=1} \Rightarrow \rho(x, L_n) < \varepsilon \quad P_{L_n}(x) = \underbrace{\sum^n_{j=1} (x,e_j) e_j}_{\coloneqq s_n} \\
-        \Rightarrow \norm{x - s_n} \leq \norm{x-y} < \varepsilon \quad L_n \subset L_{n+1} \Rightarrow \\
+        L_n = \calL \seq{e_k}^n_{k=1} \Rightarrow \rho(x, L_n) < \varepsilon \quad P_{L_n}(x) = \underbrace{\sum^n_{j=1} (x,e_j) e_j}_{\coloneqq S_n} \\
+        \Rightarrow \norm{x - S_n} \leq \norm{x-y} < \varepsilon \quad L_n \subset L_{n+1} \Rightarrow \\
         \norm{x - S_{n+1}} \leq \norm{x - S_n} < \varepsilon \Rightarrow \\
         \forall m \geq n \: \norm{x-S_m} < \varepsilon \Rightarrow \liml_{n \to \infty} S_n = x \\
     \end{gather*}
-    $2 \Rightarrow 1$ очевидно: $x = \liml_{n \to \infty} s_n \Rightarrow x \in \overline{\calL \seq{e_j}^\infty_{j=1}}$ \\
+    $2 \Rightarrow 1$ очевидно: $x = \liml_{n \to \infty} S_n \Rightarrow x \in \overline{\calL \seq{e_j}^\infty_{j=1}}$ \\
     $2 \Rightarrow 3$ \\
-    $s_n = \sum^n_{k=1} (x,e_k) e_k, \: x = \liml_{n \to \infty} s_n$, и по непрерывности скалярного произведения $\Rightarrow (x,x) = \liml_{n \to \infty} (s_n, s_n) \Leftrightarrow$
+    $S_n = \sum^n_{k=1} (x,e_k) e_k, \: x = \liml_{n \to \infty} S_n$, и по непрерывности скалярного произведения $\Rightarrow (x,x) = \liml_{n \to \infty} (S_n, S_n) \Leftrightarrow$
     \[ \norm{x}^2 = \liml_{n \to \infty} \sum^n_{k=1} \abs{(x, e_k)}^2 = \sum^\infty_{k=1} \abs{(x,e_k)}^2 \]
     $3 \Rightarrow 2$ \\
     \begin{gather*}
         \sigma_n = \sum^n_{k=1} \abs{(x,e_k)}^2, \: \liml_{n \to \infty} \sigma_n = \norm{x}^2 \\
-        w_n \coloneqq x - s_n, \: w_n \perp s_n \Rightarrow \norm{x}^2 = \underbrace{\norm{s_n}^2}_{\underset{n \to \infty}{\longrightarrow} \norm{x}^2} + \norm{w_n}^2 \\
-        \norm{s_n}^2 = \sigma_n \Rightarrow \liml_{n \to \infty} \norm{w_n}^2 = 0 \Rightarrow \liml_{n \to \infty} \norm{x - s_n} = 0
+        w_n \coloneqq x - S_n, \: w_n \perp S_n \Rightarrow \norm{x}^2 = \underbrace{\norm{S_n}^2}_{\underset{n \to \infty}{\longrightarrow} \norm{x}^2} + \norm{w_n}^2 \\
+        \norm{S_n}^2 = \sigma_n \Rightarrow \liml_{n \to \infty} \norm{w_n}^2 = 0 \Rightarrow \liml_{n \to \infty} \norm{x - S_n} = 0
     \end{gather*}
 \end{proof}
 
 \begin{corollary}
-    $H$ --- гильбертово, $\seq{e_n}^\infty_{n=1}$ --- полная О.Н.С $\Rightarrow$ 
+    $H$ ~--- гильбертово, $\seq{e_n}^\infty_{n=1}$ ~--- полная О.Н.С $\Rightarrow$ 
     \[ \forall x \in H \: x = \sum^\infty_{k=1}(x,e_k) e_k, \norm{x}^2 = \sum^\infty_{k=1} \abs{(x,e_k)}^2 \]
 \end{corollary}
 Доказывать нечего, принадлежность линейной оболочке означает полноту.
 \begin{definition}
-    $(X, \norm{\cdot})$ --- нормированное пространство, $\seq{e_n}^\infty_{n=1}$ --- базис (Шаудера), если 
+    $(X, \norm{\cdot})$ ~--- нормированное пространство, $\seq{e_n}^\infty_{n=1}$ ~--- базис (Шаудера), если 
     \[ \forall x \in X \: \exists! \seq{\alpha_n}^\infty_{n=1}, \: \alpha_n \in \bC : x = \sum^\infty_{n=1} \alpha_n e_n \] 
 \end{definition}
 
 \begin{example}
     $l^p, 1 \leq p < + \infty, e_n = (0, 0, \ldots, 0, \underbrace{1}_{n}, 0, \ldots)$
     \begin{gather*}
-        x \in l^p, x = \seq{x_n}^\infty_{n=1} = \sum^\infty_{n=1} x_n e_n, \norm{x-s_n}_{l^p} \underset{n \to \infty}{\longrightarrow} 0 \\ 
-        c_0, x \in c_0, \liml_{n \to \infty} x_n = 0 \quad x = \sum^\infty_{n=1} x_n e_n \quad \norm{x - s_n}_\infty \underset{n \to \infty}{\longrightarrow} 0
+        x \in l^p, x = \seq{x_n}^\infty_{n=1} = \sum^\infty_{n=1} x_n e_n, \norm{x-S_n}_{l^p} \underset{n \to \infty}{\longrightarrow} 0 \\ 
+        c_0, x \in c_0, \liml_{n \to \infty} x_n = 0 \quad x = \sum^\infty_{n=1} x_n e_n \quad \norm{x - S_n}_\infty \underset{n \to \infty}{\longrightarrow} 0
     \end{gather*}
 \end{example}
 
 Упражнение: $c = \seq{x = \seq{x_n}^\infty_{n=1}, \: \exists \liml_{n \to \infty} x_n = x_0} \subset l^\infty$. Что тут будет базисом?
 
 \begin{remark}
-    Если в $(X, \norm{\cdot})$ есть базис, то $X$ --- сепарабельно.
+    Если в $(X, \norm{\cdot})$ есть базис, то $X$ ~--- сепарабельно.
 \end{remark}
 \begin{remark}[Проблема Банаха, проблема базиса]
-    Проблема Банаха, проблема базиса
-    \[ X \text{{ --- нормированное сепарабельное}} \stackrel{?}{\Rightarrow} \: \exists \text{ базис} \]
-    Собирались товарищи во Львове в кафе и выводили эти проблемы. Обычно математики любят сидеть в тиишине, нот вот Банах любил сидеть в кафе. Вероятно, они там не только чаи гоняли.
+    \[ X \text{{ ~--- нормированное сепарабельное}} \stackrel{?}{\Rightarrow} \: \exists \text{ базис} \]
+    Собирались товарищи во Львове в кафе и выводили эти проблемы. Обычно математики любят сидеть в тишине, нот вот Банах любил сидеть в кафе. Вероятно, они там не только чаи гоняли.
     Пер Энфло в 1973 году дал ответ на этот вопрос: нет. Он предоставил множество контр-примеров. Да и вообще он знаменит своими контр-примерами. Сейчас в Америке где-то работает.
 \end{remark}
 
 \begin{corollary}
-    $H$ --- гильбертово, $\seq{e_n}^\infty_{n=1}$ --- полная О.Н.С. $\Rightarrow \seq{e_n}^\infty_{n=1}$ --- базис в $H$
+    $H$ ~--- гильбертово, $\seq{e_n}^\infty_{n=1}$ ~--- полная О.Н.С. $\Rightarrow \seq{e_n}^\infty_{n=1}$ ~--- базис в $H$
 \end{corollary}
 
 \begin{proof}
@@ -492,15 +491,15 @@ Cейчас выясним, когда неравенство превращае
 
 
 \begin{theorem}[о существовании О.Н.Б. в сепарабельном гильбертовом пространстве]
-    $H$ --- сепарабельное гильбертово пространство $\Rightarrow$
-    \[ \exists \seq{e_n}^\infty_{n=1} \text{ --- О.Н.Б. } \]    
+    $H$ ~--- сепарабельное гильбертово пространство $\Rightarrow$
+    \[ \exists \seq{e_n}^\infty_{n=1} \text{ ~--- О.Н.Б. } \]    
 \end{theorem}
 
 По секрету, если убрать сепарабельность, то базис будет несчётный. Какова размерность, такой и базис. Обычно, когда говорят о гильбертовом пространстве, подразумевают гильбертово сепарабельное.
 \begin{proof}
     Будем действовать в 2 этапа. Сепарабельность означает, что есть счётное всюду плотное множество, возьмём его: $\seq{x_n}^\infty_{n=1}$.
-    1 этап: по индукции выберем из нгео линейно независимую систему так, чтобы замыкание их линейной оболочки совпадало с замыканием линейной оболочки $x_n$. Оно будет полным и линейно-независимым
-    Потом применим к нему ортогонализацию Грама-Шмидта (а он ученик Гильберта, кстати) \\
+    1 этап: по индукции выберем из него линейно независимую систему так, чтобы замыкание её линейной оболочки совпадало с замыканием линейной оболочки $x_n$. Она будет полной и линейно-независимой.
+    2 этап: применим к ней ортогонализацию Грама-Шмидта (а он ученик Гильберта, кстати).
     \begin{gather*}
         x_1 = x_2 = \ldots = x_{n_1 - 1} = 0, x_{n_1} \ne 0 \quad z_1 = x_{n_1} \\
         L_1 = \calL(z_1) = \seq{\alpha z_1 | \alpha \in \bC } \\
@@ -509,16 +508,17 @@ Cейчас выясним, когда неравенство превращае
         z_m = x_{n_m}, x_{n_m + 1}, \ldots, x_{n_{m+1}-1} \in L_m, x_{n_{m+1}} \notin L_m \\
         z_{m+1} = x_{n_{m+1}}
         \intertext{как мы их выбираем?}
-        \seq{z_j}^\infty_{j=1} \text{ --- линейно независимы} \\
+        \seq{z_j}^\infty_{j=1} \text{ ~--- линейно независимы} \\
         \calL(z_j)^m_{j=1} = \calL \seq{x_k}^{n_m}_{k=1} \: \forall m \Rightarrow \calL \seq{z_j}^\infty_{j=1} = \calL \seq{x_n}^\infty_{n=1} \\
-        \Rightarrow H = \overline{\calL \seq{z_n}^\infty_{n=1}} \Rightarrow \seq{z_n}^\infty_{n=1} \text{ --- полная}
+        \Rightarrow H = \overline{\calL \seq{z_n}^\infty_{n=1}} \Rightarrow \seq{z_n}^\infty_{n=1} \text{ ~--- полная}
     \end{gather*}
         Процесс ортогонализации Грама-Шмидта:
         \begin{gather*}
-            e_1 = \frac{z_1}{\norm{z_1}}, \text{ пусть } e_1, \ldots, e_{n-1} \text{ --- выбрали } \calL \seq{e_j}^{n-1}_{j=1} = \calL \seq{z_j}^{n-1}_{j=1} \\
-            L_n = \calL \seq{z_j}^n_{j=1}, L_n \subsetneq L_{n+1} \quad e_n = \frac{z_n - P_{L_{n-1}}(z_n)}{\norm{z_n-P_{L_{n-1}}(z_n)}} = \frac{z_n - \sum^{n=1}_{j=1} (z_n, e_j) e_j}{\norm{z_n-P_{L_{n-1}}(z_n)}} \Rightarrow \\
-            \seq{e_n}^\infty_{n=1} \text{ --- полная О.Н.С.} \Rightarrow \\
-            \seq{e_n}^\infty_{n=1} \text{ --- базис (Шаудера)}
+            e_1 = \frac{z_1}{\norm{z_1}}, \text{ пусть } e_1, \ldots, e_{n-1} \text{ ~--- выбрали } \calL \seq{e_j}^{n-1}_{j=1} = \calL \seq{z_j}^{n-1}_{j=1} \\
+            L_n = \calL \seq{z_j}^n_{j=1}, L_n \subsetneq L_{n+1} \quad e_n = \frac{z_n - P_{L_{n-1}}(z_n)}{\norm{z_n-P_{L_{n-1}}(z_n)}} = \frac{z_n - \sum^{n=1}_{j=1} (z_n, e_j) e_j}{\norm{z_n-P_{L_{n-1}}(z_n)}} \Rightarrow
+            \intertext{$e_n$ так выбрали такими, потому что они всегда будут лежать в ортогональном дополнении $L_{n-1}$ по теореме о проекции на подпространство}
+            \seq{e_n}^\infty_{n=1} \text{ ~--- полная О.Н.С.} \Rightarrow \\
+            \seq{e_n}^\infty_{n=1} \text{ ~--- базис (Шаудера)}
         \end{gather*}
     \end{proof}
         
@@ -529,25 +529,25 @@ Cейчас выясним, когда неравенство превращае
 \end{theorem*}
 
 \begin{proof}
-    $H$ ---  гильбертово сепарабельное, $\dim H = \infty$.
-    Мы обсуждали, что линейный изоморфизм --- отношение эквивалентности, отношение изометричности --- тоже. Поэтому линейный изометрический изоморфизм есть отношение эквивалентности.
+    $H$ ~---  гильбертово сепарабельное, $\dim H = \infty$.
+    Мы обсуждали, что линейный изоморфизм ~--- отношение эквивалентности, отношение изометричности ~--- тоже. Поэтому линейный изометрический изоморфизм есть отношение эквивалентности.
      Поэтому вместо того, чтобы брать $H_1, H_2$, возьмём $H$ и $l^2$ и покажем, что они линейно изометрически изоморфны.
      \begin{gather*}
-        \text{пусть } \seq{f_n}^\infty_{n=1} \text{ --- О.Н.Б. в } H \\
+        \text{пусть } \seq{f_n}^\infty_{n=1} \text{ ~--- О.Н.Б. в } H \\
         \varphi: H \rightarrow l^2 \quad x \in H \quad x \mapsto \seq{(x, f_n)}^\infty_{n=1} \\
         \norm{x}^2 = \sum^\infty_{n=1} \abs{(x,f_n)}^2 \Rightarrow \norm{x}_H = \norm{\varphi(x)}_{l^2} \\
         \varphi \in \Lin(H, l^2) \text{ очевидно } \Rightarrow \varphi \in \B(H,l^2) \\
-        \varphi \text{ --- инъективен } 
-        \intertext{проверим, что $\varphi$ --- сюръекция}
+        \varphi \text{ ~--- инъективен } 
+        \intertext{проверим, что $\varphi$ ~--- сюръекция}
         \text{пусть } y = \seq{y_n}^\infty_{n=1} \in l^2 \\
-        s_n = \sum_{k=1}^n y_k f_k, s_n \in H, \text{ пусть m > n } \\
-        \norm{s_m - s_n}^2 = \sum^m_{k = n + 1} \abs{y_k}^2 \underset{n, m \to \infty}{\longrightarrow} 0 \Rightarrow \seq{s_n} \text{ --- фундаментальная} \\
-        \Rightarrow \: \exists \liml_{n \to \infty} s_n = s, s = \sum^\infty_{k=1} y_k f_k \Rightarrow \varphi(s) = y
+        S_n = \sum_{k=1}^n y_k f_k, S_n \in H, \text{ пусть m > n } \\
+        \norm{S_m - S_n}^2 = \sum^m_{k = n + 1} \abs{y_k}^2 \underset{n, m \to \infty}{\longrightarrow} 0 \Rightarrow \seq{S_n} \text{ ~--- фундаментальная} \\
+        \Rightarrow \: \exists \liml_{n \to \infty} S_n = s, s = \sum^\infty_{k=1} y_k f_k \Rightarrow \varphi(s) = y
      \end{gather*}
 \end{proof}
 
 \begin{remark}
-    Пусть $ m \in \bN$, $H$ --- гильбертово пространство, $\dim H = m \Rightarrow H$ --- линейно изометрически изоморфно $l^2_m$. 
+    Пусть $ m \in \bN$, $H$ ~--- гильбертово пространство, $\dim H = m \Rightarrow H$ ~--- линейно изометрически изоморфно $l^2_m$. 
 \end{remark}
 
 \section{Пространство, сопряжённое к гильбертову}
@@ -555,9 +555,10 @@ Cейчас выясним, когда неравенство превращае
 
 Опишем все непрерывные функционалы в гильбертовом пространстве $H$.
 \begin{theorem*}[Ф.Рисс, общий вид линейного непрерывного функционала в гильбертовом пространстве]
-    $H$ --- гильбертово. Опишем набор линейных функционалов: покажем, что он непрерывный. Вторая часть будет утверждать, что других нет.
+    \label{chap6:riss}
+    $H$ ~--- гильбертово. Опишем набор линейных функционалов: покажем, что он непрерывный. Вторая часть будет утверждать, что других нет.
     \begin{enumerate}
-        \item $y \in H, y$ --- фиксирован. Рассмотрим отображение 
+        \item $y \in H, y$ ~--- фиксирован. Рассмотрим отображение 
         \begin{gather*}
             f_y: H \rightarrow \bC \quad x \mapsto (x,y) \: \forall x \in H \\
             \Rightarrow f_y \in H^*, \norm{f_y}_{H^*} = \norm{y}_H
@@ -565,11 +566,11 @@ Cейчас выясним, когда неравенство превращае
         \item $ f \in H^* \Rightarrow \: \exists! y \in H : f = f_y$, то есть $f(x) = (x,y) \: \forall x \in H$
     \end{enumerate}
 \end{theorem*}
-\label{chap6:riss}
+
 
 \begin{proof}[1 часть]
     \begin{gather*}
-        f_y \in \Lin(H, \bC) \text{ --- очевидно из свойств скалярного произведения} \\
+        f_y \in \Lin(H, \bC) \text{ ~--- очевидно из свойств скалярного произведения} \\
         \abs{f_y(x)} = \abs{(x,y)} \stackrel{\text{К-Б}}{\leq} \norm{x} \cdot \norm{y} \: \forall x \in  H \\
         \Rightarrow f_y \in H^*, \norm{f_y}_{H^*} \leq \norm{y}_H \\
         \intertext{проведём тривиальное отбрасывание тривиальных случаев}
@@ -581,25 +582,25 @@ Cейчас выясним, когда неравенство превращае
 
 \begin{proof}[2 часть]
     Намёк, откуда брать $y$: мы знаем, что $f_y(x) = 0 \Leftrightarrow (x,y) = 0 \Leftrightarrow x \in \seq{y}^\perp$. Сначала рассмотрим и отбросим тривиальный случай:
-    пусть $f(x) = \bZero$, то есть $f(x) = 0 \: \forall x \in H \Rightarrow$ пусть $y = 0, f = f_0$. \\
-    Теперь пусть $f \ne \bZero, N = \Ker f (N = f^{-1}(0)) \Rightarrow n \subsetneq H, f$ --- непрерывный $\Rightarrow N$ --- замкнутое подпространство. Значит, существует нетривиальное ортогональное дополнение $N^\perp$, то есть $N^\perp \ne \seq{0}$,
+    пусть $f(x) = \bZero$, то есть $f(x) = 0 \: \forall x \in H \Rightarrow$ пусть $y = 0, f = f_0$.
+
+    Теперь пусть $f \ne \bZero, N = \Ker f \: (N = f^{-1}(0)) \Rightarrow N \subsetneq H, f$ ~--- непрерывный $\Rightarrow N$ ~--- замкнутое подпространство. Значит, существует нетривиальное ортогональное дополнение $N^\perp$, то есть $N^\perp \ne \seq{0}$,
     пусть $x_0 \in N^\perp, x_0 \ne 0$
-    \begin{gather*}вообще, это
-        v = \frac{x_0}{f(x_0)}, f(x_0) \ne 0, f(v) = 1, f(v) = \frac{1}{f(x_0)} \cdot f(x_0) = 1
+    \begin{gather*}
+        v = \frac{x_0}{f(x_0)}, f(x_0) \ne 0, f(v) = \frac{1}{f(x_0)} \cdot f(x_0) = 1
         \intertext{установим следующую вещь: $\dim N^\perp = 1$, то есть все элементы дополнения кратны $v$;
-          вообще, это очевидно, гомоморфный образ группы изоморфен факторгруппе по ядру гомоморфизма, помните такую скороговорку из алгебры? но сейчас докажем аккуратно}
+          вообще, это очевидно, гомоморфный образ группы изоморфен факторгруппе по ядру гомоморфизма, помните такую скороговорку из алгебры? Но сейчас докажем аккуратно}
         \text{пусть } u \in N^\perp \quad \alpha \coloneqq f(u) \quad f(\alpha v) = \alpha f(v) = \alpha \\
         \left. \begin{matrix}
             \Rightarrow f(u - \alpha v) = 0 \Rightarrow u - \alpha v \in N \\
             u,v \in N^\perp \Rightarrow u - \alpha v \in N^\perp
-        \end{matrix} \right\} u - \alpha v = 0 \Rightarrow u = \alpha  v \\
-        \forall u \in N^\perp f(u) = \alpha \Rightarrow u = \alpha v \\
-        u = \alpha v \Rightarrow f(u) = \alpha
-        \intertext{$v$ уже почти то, что нам надо, но мы его еще должны нормировать, чтобы не отправлять те же элементы в 0, что и $f$; найдём $\beta: f_{\beta v} (v) = 1 = f(v)$}
+        \end{matrix} \right\} \Rightarrow u - \alpha v = 0 \Rightarrow u = \alpha  v
+        \intertext{$\forall u \in N^\perp$ мы знаем 2 вещи: $f(u) = \alpha \Rightarrow u = \alpha v$ и $u = \alpha v \Rightarrow f(u) = \alpha$; 
+        $v$ уже почти то, что нам надо, но мы его еще должны нормировать, чтобы не отправлять те же элементы в 0, что и $f$; найдём $\beta: f_{\beta v} (v) = 1 = f(v)$}
         f_{\beta v} (v) = (v, \beta v) = \overline{\beta} \norm{v}^2 = 1 \Rightarrow \beta = \frac{1}{\norm{v}^2} \\
         y = \frac{v}{\norm{v}^2} \\
-        \text{пусть } x \in H, x = h + \alpha v, h \in N, \alpha v \in N^\perp\\
-        f(x) = \alpha, f_y(x) = \alpha \Rightarrow f = f_y
+        \text{пусть } x \in H, x = h + \alpha v, h \in N, \alpha v \in N^\perp, y \perp h \: (\text{так как }v \perp h)\\
+        f(x) =  \underbrace{f(h)}_0 + f(\alpha v) = \alpha, f_y(x) = \underbrace{f_y(h)}_0 + f(\alpha v) = \alpha \Rightarrow f = f_y
     \end{gather*}
     Всё, что осталось проверить, это единственность:
     \begin{gather*}
@@ -611,8 +612,8 @@ Cейчас выясним, когда неравенство превращае
 \begin{remark}
     Рассмотрим отображение $C: H \rightarrow H^*, C(y) = f_y$. Во-первых, с суммой всё в порядке: $C(y+z) = f_{y+z} = f_y + f_z = C(y) + C(z)$. А с умножением на комплексное число уже не всё хорошо:
     пусть $\alpha \in \bC, C(\alpha y) = f_{\alpha y}, f_{\alpha y} = (x, \alpha y) = \overline{\alpha}(x,y) = \overline{\alpha} f_y(x), C(\alpha y) = \overline{\alpha} C(y)$ , то есть умножение не совсем линейное.
-    Но $\norm{C(y)}_{H^*} = \norm{y}_H$, $C$ --- \textbf{антилинейный изометрический изоморфизм}.
-    Удобно думать, что сопряжённое к гильбертову пространство --- это оно само. Говорят: $H^* = H$, а имеют в виду это взаимно-однозначное соответствие $C(H) = H^*$. Это очень просто, но фантастически удобно: сопряжённое ---
+    Но $\norm{C(y)}_{H^*} = \norm{y}_H$, $C$~ ~--- \textbf{антилинейный изометрический изоморфизм}.
+    Удобно думать, что сопряжённое к гильбертову пространство ~--- это оно само. Говорят: $H^* = H$, а имеют в виду это взаимно-однозначное соответствие $C(H) = H^*$. Это очень просто, но фантастически удобно: сопряжённое ~---
     это оно само, но за удобство надо платить: $\alpha$ переходит в $\overline{\alpha}$.
 \end{remark}
 
@@ -631,35 +632,36 @@ Cейчас выясним, когда неравенство превращае
 \begin{example}
     \[ L^2_{\bR} [-\pi,\pi] \text{ по мере Лебега } dx, (f,g) = \int^\pi_{-\pi} f(x)g(x) dx, \{1, \cos nx, \sin nx\}_{n \in \bN} \]
 \end{example}
-Для того, чтобы что-то утверждать, нам понадобится второй вариант теоремы Вейерштрасса: но доказывать мы его не будем. 
+Для того, чтобы что-то утверждать, нам понадобится второй вариант теоремы Вейерштрасса, но доказывать мы его не будем. 
 \begin{theorem*}[Вейерштрасса]
-    $f \in \tilde{C}_{\bR}[-\pi, \pi] (f \in C[-\pi, \pi], f(-\pi) = f(\pi))$
+    $f \in \tilde{C}_{\bR}[-\pi, \pi] \: (f \in C[-\pi, \pi], f(-\pi) = f(\pi))$
     \begin{multline*}
         \forall \varepsilon > 0 \: \exists T(x) = a_0 + \sum^n_{k=1} a_k \cos kx + b_k \sin kx \\
          \norm{f-T}_\infty = \max_{x \in [-\pi,\pi]} \abs{f(x) - T(x)} < \varepsilon
     \end{multline*}
-    то есть существует многочлен, который приближает нашу функцию с точностью до $\varepsilon$
 \end{theorem*}
+То есть существует многочлен, который приближает нашу функцию с точностью до $\varepsilon$.
 
 \begin{theorem}
-    $\{1, \cos nx, \sin nx\}_{n \in \bN}$ --- полная О.С. в $L^2_{\bR}[-\pi, \pi]$
+    $\{1, \cos nx, \sin nx\}_{n \in \bN}$ ~--- полная О.С. в $L^2_{\bR}[-\pi, \pi]$
 \end{theorem}
 \begin{proof}
+    Будем считать, что ортогональность посчитали в анализе
     \begin{gather*}
-        \int^\pi_{-\pi} \cos (nx) \sin(mx) dx = 0 \quad \int^\pi_{-\pi} (\cos (nx))^2 dx = \pi = \int^\pi_{-\pi} (\sin nx)^2 dx \\
-        \int^\pi_{-\pi} 1 dx = 2\pi \quad \int^\pi_{-\pi} \cos nx \cos(mx) dx = 0 (n \ne m) \\
-        \int^\pi_{-\pi} \sin nx \sin(mx) dx = 0 (n \ne m) \\
-        \Rightarrow \{ 1, \cos nx, \sin nx \}_{n \in \bN} \text{ --- ортонормированная система}
-        \intertext{мы уже доказали, что $C[-\pi,\pi]$ плотно в $L^2[-\pi,\pi]$ по мере Лебега, то есть любую функцию из $L^2$ можно приблизить сколь угодно хорошо,
-        найдя такую функцию $g$, что разница интегралов будет меньше $\varepsilon$, но $g$  в отличие от $f$ --- $2\pi$-периодическая}
-        \Rightarrow \tilde{C}[-\pi,\pi] \text{ плотно в } L^2[-\pi,\pi] \\
-        \exists g \in \tilde{C}[-\pi,\pi] \quad \left( \int^\pi_{-\pi} \abs{f(x) - g(x)}^2 dx \right)^{\frac{1}{2}} < \varepsilon  % каждый из интегралов и от $f$, и от $g$ будет меньше $\frac{\varepsilon}{2} 
+        \int^\pi_{-\pi} \cos nx \sin mx dx = 0 \quad \int^\pi_{-\pi} (\cos nx)^2 dx = \pi = \int^\pi_{-\pi} (\sin nx)^2 dx \\
+        \int^\pi_{-\pi} 1 dx = 2\pi \quad \int^\pi_{-\pi} \cos nx \cos mx dx = 0 (n \ne m) \\
+        \int^\pi_{-\pi} \sin nx \sin mx dx = 0 (n \ne m) \\
+        \Rightarrow \{ 1, \cos nx, \sin nx \}_{n \in \bN} \text{ ~--- ортогональная система} \\
+        \left\{ \frac{1}{\sqrt{2\pi}}, \frac{\sin nx}{\pi}, \frac{\cos nx}{\pi} \right\}_{n \in \bN} \text{ --- ортонормированная система}
+        \intertext{мы уже доказали (теорема \hyperref[chap3:lp-cab]{3.22}), что $C[-\pi,\pi]$ плотно в $L^2[-\pi,\pi]$ по мере Лебега, то есть любую функцию из $L^2$ можно приблизить сколь угодно хорошо,
+        найдя такую функцию $g$, что разница интегралов будет меньше $\varepsilon$, но $g$, в отличие от $f$, $2\pi$-периодическая}
+        \exists g \in \tilde{C}[-\pi,\pi] \quad \left( \int^\pi_{-\pi} \abs{f(x) - g(x)}^2 dx \right)^{\frac{1}{2}} < \varepsilon \\  % каждый из интегралов и от $f$, и от $g$ будет меньше $\frac{\varepsilon}{2} 
         \exists \delta > 0: g(x) = f(x), x \in [-\pi, \pi - \delta] \\
         \Rightarrow \tilde{C}[-\pi,\pi] \text{ плотно в } L^2[-\pi,\pi] \\
         \forall \varepsilon > 0 \: \forall f \in L^2[-\pi,\pi] \: \exists g \in \tilde{C}[-\pi,\pi], \norm{f-g}_{L^2} < \varepsilon
         \intertext{по теоремере Вейерштрасса $\exists T = \alpha_0 + \sum^n_{k=1} \alpha_k \cos kx + \beta_k \sin kx$}
         \norm{g-T}_\infty < \varepsilon \Rightarrow \norm{g-T}_2 = \left( \int^\pi_{-\pi} \abs{g(x) - T(x)}^2 dx \right)^{\frac{1}{2}} < (\varepsilon^2 \cdot 2\pi)^{\frac{1}{2}} = \sqrt{2\pi} \cdot \varepsilon \\
-        \Rightarrow \norm{f-T}_2 < \varepsilon(1 + \sqrt{2\pi}) \Rightarrow \{1, \cos nx, \sin nx \} \text{ --- полная}
+        \Rightarrow \norm{f-T}_2 \leq \norm{f-g}_2 + \norm{g-T}_2 < \varepsilon(1 + \sqrt{2\pi}) \Rightarrow \{1, \cos nx, \sin nx \} \text{ ~--- полная}
     \end{gather*}
 \end{proof}
 
@@ -680,28 +682,31 @@ Cейчас выясним, когда неравенство превращае
 \end{example}
 
 \begin{example}
-    $L^2_{\bC}[-\pi, \pi], \seq{e^{inx}}_{n \in \bZ}$ --- полная О.С.
+    $L^2_{\bC}[-\pi, \pi], \seq{e^{inx}}_{n \in \bZ}$ ~--- полная О.С.
 \end{example}
 
 \begin{gather*}
-    (f,g) = \int^\pi_{-\pi} f(x) \overline{g(x)} dx, (e^{inx}, e^{imx}) = \int^\pi_{-\pi} e^{i(n-m)x}dx = \begin{cases}
+    (f,g) = \int^\pi_{-\pi} f(x) \overline{g(x)} dx, (e^{inx}, e^{imx}) = \int^\pi_{-\pi} e^{i(n-m)x}dx = [[e^{ix} \text{ --- } 2\pi\text{-периодическая}]] \\
+    =\begin{cases}
         0 & n \ne m \\
         2 \pi & n = m
     \end{cases} \\
     c_n = \frac{1}{2\pi} \int^\pi_{-\pi} f(x) e^{-inx} dx = \frac{1}{2} (a_n - i b_n), n \ne 0 \\
     c_ 0 = a_0 \\
-    \sum^n_{k=-n} c_k e^{-ikx} = a_0 + \sum^n_{k=1} (a_k \cos kx + b_k \sin kx) = S_n x \\
-    \norm{f - S_n}_2 \underset{n \to \infty}{\longrightarrow} 0 \Rightarrow \seq{e^{inx}}_{n \in \bZ} \text{ --- полная система}
+    \sum^n_{k=-n} c_k e^{-ikx} = a_0 + \sum^n_{k=1} (a_k \cos kx + b_k \sin kx) = S_n (x) \\
+    \norm{f - S_n}_2 \underset{n \to \infty}{\longrightarrow} 0 \Rightarrow \seq{e^{inx}}_{n \in \bZ} \text{ ~--- полная система}
 \end{gather*}
 
 \begin{example}
-    $L^2_{\bR}[0,\pi], \seq{\cos nx}^{+\infty}_{n=0}$ --- полная О.С.
+    $L^2_{\bR}[0,\pi], \seq{\cos nx}^{+\infty}_{n=0}$ ~--- полная О.С.
 \end{example}
 
 \begin{proof}
     \begin{gather*}
-        f \in L^2_{\bR}[0,\pi], \text{ пусть } f(-x) = f(x), x \in (0, \pi] \\
-        f \in L^2_{\bR}[-\pi,\pi], b_k = \frac{1}{\pi} \int^\pi_{-\pi} f(x) \sin kx dx = 0 \\
+        f \in L^2_{\bR}[0,\pi], \text{ продолжим её симметричным образом, пусть } f(-x) = f(x), x \in (0, \pi] \\
+        f \in L^2_{\bR}[-\pi,\pi]
+        \intertext{у нас под интегралом в коэффициентах $b_k$ получится нечётная функция, поэтому $b_k$ будут равны нулю}
+         b_k = \frac{1}{\pi} \int^\pi_{-\pi} f(x) \sin kx dx = 0 \\
         \norm{f-S_n(f)}_{L^2[-\pi,\pi]} \underset{n \to \infty}{\longrightarrow} 0 \Rightarrow \norm{f - \left(a_0 + \sum^n_{k=1} a_k \cos kx\right)}_2 \underset{n \to \infty}{\longrightarrow} 0
     \end{gather*}
 \end{proof}
