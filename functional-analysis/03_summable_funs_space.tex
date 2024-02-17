@@ -169,7 +169,6 @@ $A = \left( \int_X |f|^p d \mu \right)^{\frac{1}{p}}, B = \left( \int_X |g|^q d 
 \end{proof}
 
 \section{Пространство Лебега}
-Отсюда и до определения $L^\infty$ очень аккуратно с $\calL$ и $L$ читать. Тут точно есть путаница, но записи лекции нет, чтобы ее устранить.
 \begin{definition}
     $(X, U, \mu)$~--- пространство с мерой. $\calL(X, \mu)$~--- пространство суммируемых функций. $1 \leq p < +\infty \quad \calL^p(X, \mu) = \{ f: |f|^p \in \calL(X,\mu) \}$ 
 \end{definition}
@@ -196,7 +195,7 @@ $||f||_p = 0 \Leftrightarrow f \in N$ (не зависит от $p$).
 Рецепт приготовления  пространства с нормой из полуфабриката (с полунормой): 
 $N$~--- подпространство в $\calL^p$, $L^p = \calL^p / N$~--- факторпространство. \\
 
-$g,f \in L^p, f \sim g \Leftrightarrow f - g \in N \Leftrightarrow f(x) = g(x)$ почти всюду по $\mu$. $\overline{f}$~--- класс эквивалентности, $\overline{f} = \{g: f \sim g \}.$ \\
+$g,f \in \calL^p, f \sim g \Leftrightarrow f - g \in N \Leftrightarrow f(x) = g(x)$ почти всюду по $\mu$. $\overline{f}$~--- класс эквивалентности, $\overline{f} = \{g: f \sim g \}.$ \\
 
 $||\overline{f}||_p := ||f||$, то есть можно взять любую функцию из класса эквивалентности.
 
@@ -204,19 +203,19 @@ $||\overline{f}||_p := ||f||$, то есть можно взять любую ф
 $||\overline{f}||_p $~--- норма на $L^p$.
 Говорят, что $f \in L^p$, возьмём функцию из $L^p$, но имеют в виду, что возьмут класс экивалентности, а из него возьмут функцию.
 
-Одна из главных целей~--- доказать, что эти пространства Банаховы. Сначала определим $L^\infty(X, \mu)$ (существенно ограниченные функции).
+Одна из главных целей~--- доказать, что эти пространства Банаховы. Сначала определим $\calL^\infty(X, \mu)$ (существенно ограниченные функции).
 
 \begin{definition}[$\calL^\infty(X, \mu)$]
     $f \in \calL^\infty(X, \mu)$, если 
     \[\exists c > 0 : |f(x)| \leq c \text{ п.в. на } X \text{ по } \mu \]
 \end{definition}
 
-Возьмём точную нижнюю грань этой константы. $||f||_\infty = \inf \{c \geq 0: \mu \{x: ||f(x)|| > c \}   = 0 \}$ (существуенный $\sup$, или на подлом англосаксонском
+Возьмём точную нижнюю грань этой константы. $||f||_\infty = \inf \{c \geq 0: \mu \{x: |f(x)| > c \}   = 0 \}$ (существенный $\sup$, или на подлом англосаксонском
 ess $\sup_X f$) 
 
 \begin{property}
 \label{chap3:prop}
-$f \in \calL^\infty(X, \mu) \Rightarrow \mu \{ x: f(x) > ||f||_\infty \} = 0$
+$f \in \calL^\infty(X, \mu) \Rightarrow \mu \{ x: \abs{f(x)} > ||f||_\infty \} = 0$
 \end{property}
 
 \begin{proof}

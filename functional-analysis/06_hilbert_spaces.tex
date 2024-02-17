@@ -125,7 +125,7 @@
  \end{definition}
 
 \begin{property}
-    $M \subset H$ ~--- гильбертово $\Rightarrow M^\perp$ ~--- замкнутое подпространство
+    $M \subset H$, $H$ ~--- гильбертово, $M$ ~--- --- подпространство $\Rightarrow M^\perp$ ~--- замкнутое подпространство
 \end{property}
 
 \begin{proof}
@@ -515,7 +515,7 @@ Cейчас выясним, когда неравенство превращае
         Процесс ортогонализации Грама-Шмидта:
         \begin{gather*}
             e_1 = \frac{z_1}{\norm{z_1}}, \text{ пусть } e_1, \ldots, e_{n-1} \text{ ~--- выбрали } \calL \seq{e_j}^{n-1}_{j=1} = \calL \seq{z_j}^{n-1}_{j=1} \\
-            L_n = \calL \seq{z_j}^n_{j=1}, L_n \subsetneq L_{n+1} \quad e_n = \frac{z_n - P_{L_{n-1}}(z_n)}{\norm{z_n-P_{L_{n-1}}(z_n)}} = \frac{z_n - \sum^{n=1}_{j=1} (z_n, e_j) e_j}{\norm{z_n-P_{L_{n-1}}(z_n)}} \Rightarrow
+            L_n = \calL \seq{z_j}^n_{j=1}, L_n \subsetneq L_{n+1} \quad e_n = \frac{z_n - P_{L_{n-1}}(z_n)}{\norm{z_n-P_{L_{n-1}}(z_n)}} = \frac{z_n - \sum^{n-1}_{j=1} (z_n, e_j) e_j}{\norm{z_n-P_{L_{n-1}}(z_n)}} \Rightarrow
             \intertext{$e_n$ так выбрали такими, потому что они всегда будут лежать в ортогональном дополнении $L_{n-1}$ по теореме о проекции на подпространство}
             \seq{e_n}^\infty_{n=1} \text{ ~--- полная О.Н.С.} \Rightarrow \\
             \seq{e_n}^\infty_{n=1} \text{ ~--- базис (Шаудера)}
@@ -672,7 +672,7 @@ Cейчас выясним, когда неравенство превращае
     \begin{gather*}
         S_n(x) = a_0 + \sum^n_{k=1} (a_k \cos kx + b_k \sin kx) \Rightarrow \\
         \left( \int^\pi_{-\pi} \abs{f(x)-S_n(x)}^2 dx \right)^{\frac{1}{2}} \underset{n \to \infty}{\longrightarrow} 0 \tag{*} \\
-        f(x) = a_0 + \sum^\infty_{k=1} (a_k + \cos kx + b_k \sin kx) \text{ в смысле (*)}
+        f(x) = a_0 + \sum^\infty_{k=1} (a_k \cos kx + b_k \sin kx) \text{ в смысле (*)}
     \end{gather*}
 \end{corollary}
 
