@@ -1,7 +1,3 @@
 # Функциональный анализ 
 
-[тык](https://github.com/oveeernight/functional-analysis/blob/master/src/document.pdf)
-
-# Если Вы делаете pull request
-
-Не нужно выносить мне мозг изменениями того, что и так ровно лежит
+[тык](https://github.com/oveeernight/awesome-math-notes/blob/master/functional-analysis/document.pdf)
